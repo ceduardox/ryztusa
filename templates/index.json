@@ -33,7 +33,7 @@
         "row_magnesium": {
           "type": "row",
           "settings": {
-            "feature": "Magnesium Citrate Glycinate for a relaxation routine",
+            "feature": "Magnesium Glycinate for a relaxation routine",
             "ours": "Focused option",
             "others": "Varies"
           }
@@ -117,8 +117,8 @@
         "pillar_magnesium": {
           "type": "pillar",
           "settings": {
-            "heading": "Two forms of Magnesium",
-            "text": "Citrate and glycinate brought together in one routine-friendly product."
+            "heading": "Magnesium Glycinate, made simple",
+            "text": "A focused Magnesium Glycinate formula designed to fit easily into your evening routine."
           }
         },
         "pillar_creatine": {

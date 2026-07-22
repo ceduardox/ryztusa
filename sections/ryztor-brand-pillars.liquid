@@ -1,0 +1,114 @@
+<section
+  class="ryztor-pillars"
+  style="--rp-bg: {{ section.settings.background }}; --rp-text: {{ section.settings.text_color }}; --rp-accent: {{ section.settings.accent }}; --rp-purple: {{ section.settings.secondary }};"
+>
+  <div class="ryztor-pillars__inner">
+    <div class="ryztor-pillars__visual">
+      {%- if section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 1600
+          | image_tag:
+            class: 'ryztor-pillars__image',
+            widths: '600, 900, 1200, 1600',
+            sizes: '(min-width: 900px) 44vw, 100vw',
+            loading: 'lazy'
+        }}
+      {%- else -%}
+        <div class="ryztor-pillars__poster">
+          <div class="ryztor-pillars__dots"><span>01</span><span>02</span><span>03</span></div>
+          <strong>RYZTOR</strong>
+          <small>BERBERINE / MAGNESIUM / CREATINE</small>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="ryztor-pillars__content">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="ryztor-pillars__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      <h2>{{ section.settings.heading }}</h2>
+      {%- if section.settings.description != blank -%}
+        <div class="ryztor-pillars__intro rte">{{ section.settings.description }}</div>
+      {%- endif -%}
+
+      <div class="ryztor-pillars__list">
+        {%- for block in section.blocks -%}
+          <article class="ryztor-pillars__item" {{ block.shopify_attributes }}>
+            <span class="ryztor-pillars__number">0{{ forloop.index }}</span>
+            <div>
+              <h3>{{ block.settings.heading | escape }}</h3>
+              <p>{{ block.settings.text | escape }}</p>
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+
+      {%- if section.settings.note != blank -%}
+        <p class="ryztor-pillars__note">{{ section.settings.note | escape }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .ryztor-pillars { background: var(--rp-bg); color: var(--rp-text); }
+  .ryztor-pillars__inner { width: min(100% - 32px, 1280px); margin: auto; display: grid; grid-template-columns: .92fr 1.08fr; align-items: center; gap: clamp(40px, 7vw, 100px); padding-block: clamp(72px, 9vw, 128px); }
+  .ryztor-pillars__visual { min-height: clamp(520px, 55vw, 720px); overflow: hidden; display: grid; place-items: center; border: 2px solid #121212; border-radius: 32px; background: radial-gradient(circle at 72% 26%, var(--rp-accent) 0 20%, transparent 20.5%), radial-gradient(circle at 26% 74%, #d4b7f9 0 27%, transparent 27.5%), var(--rp-purple); box-shadow: -14px 14px 0 var(--rp-accent); }
+  .ryztor-pillars__image { width: 100%; height: 100%; min-height: inherit; display: block; object-fit: cover; }
+  .ryztor-pillars__poster { width: 76%; aspect-ratio: .84; display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(26px, 4vw, 46px); border-radius: 28px; background: #121212; color: white; transform: rotate(-5deg); box-shadow: 0 30px 60px rgb(18 18 18 / 35%); }
+  .ryztor-pillars__dots { display: flex; gap: 8px; margin-bottom: auto; }
+  .ryztor-pillars__dots span { width: 46px; height: 46px; display: grid; place-items: center; border: 1px solid rgb(255 255 255 / 42%); border-radius: 50%; font-size: .68rem; font-weight: 800; }
+  .ryztor-pillars__poster strong { color: var(--rp-accent); font-size: clamp(3rem, 6vw, 5.4rem); line-height: .9; letter-spacing: -.06em; }
+  .ryztor-pillars__poster small { margin-top: 14px; font-size: .66rem; font-weight: 750; letter-spacing: .1em; }
+  .ryztor-pillars__eyebrow { width: fit-content; margin: 0 0 18px; padding: 8px 13px; border: 1px solid currentColor; border-radius: 999px; font-size: .72rem; font-weight: 800; letter-spacing: .12em; }
+  .ryztor-pillars__content > h2 { max-width: 10ch; margin: 0; color: inherit; font-size: clamp(3rem, 6vw, 6rem); line-height: .92; letter-spacing: -.055em; text-transform: uppercase; }
+  .ryztor-pillars__intro { max-width: 650px; margin-top: 24px; font-size: clamp(1rem, 1.25vw, 1.18rem); line-height: 1.55; }
+  .ryztor-pillars__list { display: grid; gap: 12px; margin-top: 32px; }
+  .ryztor-pillars__item { display: grid; grid-template-columns: 48px 1fr; gap: 16px; padding: 20px; border: 1px solid rgb(18 18 18 / 20%); border-radius: 18px; background: white; transition: transform 180ms ease, box-shadow 180ms ease; }
+  .ryztor-pillars__item:hover { transform: translateX(5px); box-shadow: -6px 6px 0 rgb(100 38 255 / 18%); }
+  .ryztor-pillars__number { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: var(--rp-accent); color: #121212; font-size: .72rem; font-weight: 900; }
+  .ryztor-pillars__item h3 { margin: 0; color: inherit; font-size: 1rem; font-weight: 850; letter-spacing: .04em; text-transform: uppercase; }
+  .ryztor-pillars__item p { margin: 7px 0 0; color: rgb(18 18 18 / 72%); font-size: .9rem; line-height: 1.5; }
+  .ryztor-pillars__note { margin: 22px 0 0; font-size: .72rem; line-height: 1.5; opacity: .72; }
+  @media screen and (max-width: 899px) { .ryztor-pillars__inner { grid-template-columns: 1fr; } .ryztor-pillars__visual { min-height: 480px; order: 2; } .ryztor-pillars__content { order: 1; } }
+  @media screen and (max-width: 749px) { .ryztor-pillars__inner { width: min(100% - 24px, 1280px); gap: 38px; } .ryztor-pillars__content > h2 { font-size: clamp(3rem, 15vw, 4.6rem); } .ryztor-pillars__visual { min-height: 420px; border-radius: 22px; box-shadow: -8px 8px 0 var(--rp-accent); } .ryztor-pillars__poster { width: 72%; } .ryztor-pillars__item { grid-template-columns: 42px 1fr; padding: 17px; } }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "RYZTOR brand pillars",
+  "max_blocks": 3,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "WHY RYZTOR" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "THREE FORMULAS. ONE <em>BETTER</em> ROUTINE." },
+    { "type": "richtext", "id": "description", "label": "Description", "default": "<p>RYZTOR is for people who want clear choices and supplements that fit real life. Pick one focused formula or build a routine around your goals.</p>" },
+    { "type": "image_picker", "id": "image", "label": "Lifestyle or product image" },
+    { "type": "text", "id": "note", "label": "Small note", "default": "Always review the product label and follow its directions for use." },
+    { "type": "color", "id": "background", "label": "Background", "default": "#f8f6ff" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#121212" },
+    { "type": "color", "id": "accent", "label": "Accent", "default": "#e4fe39" },
+    { "type": "color", "id": "secondary", "label": "Secondary accent", "default": "#6426ff" }
+  ],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "Product pillar",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Focused formula" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "A clear, routine-friendly product for an everyday wellness goal." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RYZTOR brand pillars",
+      "blocks": [
+        { "type": "pillar", "settings": { "heading": "Berberine, made simple", "text": "A focused Berberine formula designed to make daily supplementation straightforward." } },
+        { "type": "pillar", "settings": { "heading": "Two forms of Magnesium", "text": "Citrate and glycinate brought together in one routine-friendly product." } },
+        { "type": "pillar", "settings": { "heading": "Creatine without the clutter", "text": "A familiar training essential presented in a clear, easy-to-follow format." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

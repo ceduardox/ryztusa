@@ -1,0 +1,346 @@
+<section
+  class="ryztor-comparison"
+  style="--comparison-bg: {{ section.settings.background }}; --comparison-accent: {{ section.settings.accent }}; --comparison-card: {{ section.settings.card_background }}; --comparison-text: {{ section.settings.text_color }};"
+>
+  <div class="ryztor-comparison__inner">
+    <header class="ryztor-comparison__header">
+      {%- if section.settings.eyebrow != blank -%}
+        <p>{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      <h2>{{ section.settings.heading }}</h2>
+      {%- if section.settings.description != blank -%}
+        <div class="rte">{{ section.settings.description }}</div>
+      {%- endif -%}
+    </header>
+
+    <div class="ryztor-comparison__table" role="table" aria-label="{{ section.settings.heading | strip_html | escape }}">
+      <div class="ryztor-comparison__row ryztor-comparison__row--head" role="row">
+        <div role="columnheader"><span class="visually-hidden">Feature</span></div>
+        <div role="columnheader" class="ryztor-comparison__brand">{{ section.settings.our_label | escape }}</div>
+        <div role="columnheader">{{ section.settings.other_label | escape }}</div>
+      </div>
+
+      {%- for block in section.blocks -%}
+        <div class="ryztor-comparison__row" role="row" {{ block.shopify_attributes }}>
+          <div class="ryztor-comparison__feature" role="rowheader">{{ block.settings.feature | escape }}</div>
+          <div class="ryztor-comparison__ours" role="cell">
+            <span class="ryztor-comparison__check" aria-hidden="true">✓</span>
+            <span>{{ block.settings.ours | escape }}</span>
+          </div>
+          <div class="ryztor-comparison__others" role="cell">{{ block.settings.others | escape }}</div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.disclaimer != blank -%}
+      <p class="ryztor-comparison__disclaimer">{{ section.settings.disclaimer | escape }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.button_label != blank -%}
+      <a class="ryztor-comparison__button" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">
+        {{ section.settings.button_label | escape }}
+      </a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .ryztor-comparison {
+    background: var(--comparison-bg);
+    color: var(--comparison-text);
+  }
+
+  .ryztor-comparison__inner {
+    width: min(100% - 32px, 1180px);
+    margin-inline: auto;
+    padding-block: clamp(72px, 9vw, 130px);
+  }
+
+  .ryztor-comparison__header {
+    max-width: 820px;
+    margin: 0 auto 44px;
+    text-align: center;
+  }
+
+  .ryztor-comparison__header > p {
+    width: fit-content;
+    margin: 0 auto 18px;
+    padding: 8px 14px;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+  }
+
+  .ryztor-comparison__header h2 {
+    margin: 0;
+    color: inherit;
+    font-size: clamp(3rem, 7vw, 6.6rem);
+    line-height: 0.92;
+    letter-spacing: -0.055em;
+    text-transform: uppercase;
+  }
+
+  .ryztor-comparison__header .rte {
+    max-width: 680px;
+    margin: 24px auto 0;
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
+    line-height: 1.55;
+  }
+
+  .ryztor-comparison__table {
+    overflow: hidden;
+    border: 2px solid #121212;
+    border-radius: 26px;
+    background: var(--comparison-card);
+    color: #121212;
+    box-shadow: 12px 14px 0 var(--comparison-accent);
+  }
+
+  .ryztor-comparison__row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(150px, 0.9fr) minmax(130px, 0.72fr);
+    align-items: stretch;
+    border-bottom: 1px solid rgb(18 18 18 / 18%);
+  }
+
+  .ryztor-comparison__row:last-child { border-bottom: 0; }
+
+  .ryztor-comparison__row > div {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    padding: 18px clamp(16px, 2vw, 28px);
+  }
+
+  .ryztor-comparison__row > div + div { border-left: 1px solid rgb(18 18 18 / 18%); }
+
+  .ryztor-comparison__row--head {
+    background: #121212;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+  }
+
+  .ryztor-comparison__row--head > div { min-height: 64px; justify-content: center; }
+
+  .ryztor-comparison__brand {
+    background: var(--comparison-accent);
+    color: #121212;
+    font-size: 1rem;
+  }
+
+  .ryztor-comparison__feature {
+    font-weight: 750;
+    line-height: 1.25;
+  }
+
+  .ryztor-comparison__ours {
+    gap: 10px;
+    background: color-mix(in srgb, var(--comparison-accent) 18%, white);
+    font-weight: 750;
+  }
+
+  .ryztor-comparison__check {
+    flex: 0 0 auto;
+    width: 25px;
+    height: 25px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--comparison-accent);
+    font-size: 0.85rem;
+    font-weight: 900;
+  }
+
+  .ryztor-comparison__others { color: rgb(18 18 18 / 64%); }
+
+  .ryztor-comparison__disclaimer {
+    max-width: 800px;
+    margin: 30px auto 0;
+    text-align: center;
+    font-size: 0.72rem;
+    line-height: 1.5;
+    opacity: 0.78;
+  }
+
+  .ryztor-comparison__button {
+    width: fit-content;
+    min-height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto 0;
+    padding: 12px 30px;
+    border: 2px solid #121212;
+    border-radius: 999px;
+    background: var(--comparison-accent);
+    color: #121212;
+    font-size: 0.82rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .ryztor-comparison__button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 rgb(18 18 18 / 22%);
+  }
+
+  @media screen and (max-width: 749px) {
+    .ryztor-comparison__inner { width: min(100% - 24px, 1180px); }
+    .ryztor-comparison__header { text-align: left; }
+    .ryztor-comparison__header > p { margin-inline: 0; }
+    .ryztor-comparison__header .rte { margin-inline: 0; }
+    .ryztor-comparison__table { border-radius: 18px; box-shadow: 7px 8px 0 var(--comparison-accent); }
+    .ryztor-comparison__row { grid-template-columns: minmax(0, 1.25fr) minmax(88px, 0.72fr) minmax(72px, 0.58fr); }
+    .ryztor-comparison__row > div { min-height: 72px; padding: 12px 10px; font-size: 0.74rem; }
+    .ryztor-comparison__row--head > div { min-height: 58px; padding-inline: 6px; font-size: 0.58rem; text-align: center; }
+    .ryztor-comparison__brand { font-size: 0.72rem !important; }
+    .ryztor-comparison__ours { display: grid !important; place-content: center; gap: 5px; text-align: center; }
+    .ryztor-comparison__others { justify-content: center; text-align: center; }
+    .ryztor-comparison__check { width: 22px; height: 22px; margin-inline: auto; }
+    .ryztor-comparison__button { width: 100%; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "RYZTOR comparison",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "WHY RYZTOR"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "RYZTOR <em>VS</em> OTHER BRANDS"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Three focused formulas. One clear product range. Choose the supplement that best fits your everyday routine.</p>"
+    },
+    {
+      "type": "text",
+      "id": "our_label",
+      "label": "Our column",
+      "default": "RYZTOR"
+    },
+    {
+      "type": "text",
+      "id": "other_label",
+      "label": "Other column",
+      "default": "OTHER BRANDS"
+    },
+    {
+      "type": "text",
+      "id": "disclaimer",
+      "label": "Disclaimer",
+      "default": "Product benefits depend on the specific formula and individual use. Always follow label directions."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button",
+      "default": "EXPLORE THE FORMULAS"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#6426ff"
+    },
+    {
+      "type": "color",
+      "id": "accent",
+      "label": "Accent",
+      "default": "#e4fe39"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Comparison row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature",
+          "label": "Feature",
+          "default": "Focused formula"
+        },
+        {
+          "type": "text",
+          "id": "ours",
+          "label": "RYZTOR value",
+          "default": "Included"
+        },
+        {
+          "type": "text",
+          "id": "others",
+          "label": "Other brands value",
+          "default": "Varies"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RYZTOR comparison",
+      "blocks": [
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Berberine formula available",
+            "ours": "Focused option",
+            "others": "Varies"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Magnesium Citrate Glycinate available",
+            "ours": "Focused option",
+            "others": "Varies"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Creatine formula available",
+            "ours": "Focused option",
+            "others": "Varies"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

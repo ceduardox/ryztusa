@@ -1,0 +1,342 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */{
+  "sections": {
+    "ryztor_trust_bar": {
+      "type": "ryztor-trust-bar",
+      "settings": {
+        "accessibility_label": "RYZTOR highlights",
+        "message_1": "WELLNESS, MADE SIMPLE",
+        "message_2": "THOUGHTFUL FORMULAS",
+        "message_3": "BUILT FOR EVERYDAY ROUTINES",
+        "background": "#e4fe39",
+        "text_color": "#121212"
+      }
+    },
+    "ryztor_comparison": {
+      "type": "ryztor-comparison",
+      "blocks": {
+        "row_berberine": {
+          "type": "row",
+          "settings": {
+            "feature": "Berberine for a metabolic wellness routine",
+            "ours": "Focused option",
+            "others": "Varies"
+          }
+        },
+        "row_magnesium": {
+          "type": "row",
+          "settings": {
+            "feature": "Magnesium Citrate Glycinate for a relaxation routine",
+            "ours": "Focused option",
+            "others": "Varies"
+          }
+        },
+        "row_creatine": {
+          "type": "row",
+          "settings": {
+            "feature": "Creatine for a training and performance routine",
+            "ours": "Focused option",
+            "others": "Varies"
+          }
+        },
+        "row_information": {
+          "type": "row",
+          "settings": {
+            "feature": "Clear product information",
+            "ours": "Easy to review",
+            "others": "Varies"
+          }
+        },
+        "row_range": {
+          "type": "row",
+          "settings": {
+            "feature": "Three focused essentials in one range",
+            "ours": "Simple choice",
+            "others": "Varies"
+          }
+        }
+      },
+      "block_order": [
+        "row_berberine",
+        "row_magnesium",
+        "row_creatine",
+        "row_information",
+        "row_range"
+      ],
+      "settings": {
+        "eyebrow": "WHY RYZTOR",
+        "heading": "RYZTOR <em>VS</em> OTHER BRANDS",
+        "description": "<p>Three focused formulas. One clear product range. Choose the supplement that best fits your everyday routine.</p>",
+        "our_label": "RYZTOR",
+        "other_label": "OTHER BRANDS",
+        "disclaimer": "Product benefits depend on the specific formula and individual use. Always follow label directions.",
+        "button_label": "EXPLORE THE FORMULAS",
+        "button_link": "shopify://collections/all",
+        "background": "#6426ff",
+        "accent": "#e4fe39",
+        "card_background": "#ffffff",
+        "text_color": "#ffffff"
+      }
+    },
+    "ryztor_hero": {
+      "type": "ryztor-hero",
+      "settings": {
+        "eyebrow": "EVERYDAY WELLNESS, WITHOUT THE NOISE",
+        "heading": "BUILD YOUR <em>BETTER</em> ROUTINE.",
+        "description": "<p>Thoughtfully selected supplements designed to fit your everyday rhythm - from focused mornings to restful nights.</p>",
+        "primary_label": "SHOP SUPPLEMENTS",
+        "primary_link": "shopify://collections/all",
+        "secondary_label": "FIND YOUR ROUTINE",
+        "secondary_link": "shopify://collections/all",
+        "proof_1": "Clear ingredients",
+        "proof_2": "Simple routines",
+        "proof_3": "Everyday consistency",
+        "background": "#f4f0ff",
+        "text_color": "#121212",
+        "accent": "#e4fe39",
+        "secondary": "#6426ff"
+      }
+    },
+    "ryztor_brand_pillars": {
+      "type": "ryztor-brand-pillars",
+      "blocks": {
+        "pillar_berberine": {
+          "type": "pillar",
+          "settings": {
+            "heading": "Berberine, made simple",
+            "text": "A focused Berberine formula designed to make daily supplementation straightforward."
+          }
+        },
+        "pillar_magnesium": {
+          "type": "pillar",
+          "settings": {
+            "heading": "Two forms of Magnesium",
+            "text": "Citrate and glycinate brought together in one routine-friendly product."
+          }
+        },
+        "pillar_creatine": {
+          "type": "pillar",
+          "settings": {
+            "heading": "Creatine without the clutter",
+            "text": "A familiar training essential presented in a clear, easy-to-follow format."
+          }
+        }
+      },
+      "block_order": [
+        "pillar_berberine",
+        "pillar_magnesium",
+        "pillar_creatine"
+      ],
+      "settings": {
+        "eyebrow": "WHY RYZTOR",
+        "heading": "THREE FORMULAS. ONE <em>BETTER</em> ROUTINE.",
+        "description": "<p>RYZTOR is for people who want clear choices and supplements that fit real life. Pick one focused formula or build a routine around your goals.</p>",
+        "note": "Always review the product label and follow its directions for use.",
+        "background": "#f8f6ff",
+        "text_color": "#121212",
+        "accent": "#e4fe39",
+        "secondary": "#6426ff"
+      }
+    },
+    "product_list_fa6P9H": {
+      "type": "product-list",
+      "blocks": {
+        "static-header": {
+          "type": "_product-list-content",
+          "name": "t:names.header",
+          "static": true,
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-end",
+            "align_baseline": true,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_list_text_YFtzcL": {
+              "type": "_product-list-text",
+              "name": "t:names.collection_title",
+              "settings": {
+                "text": "<h2>Shop RYZTOR</h2>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h4",
+                "font": "var(--font-body--family)",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_list_button_MWeP9V": {
+              "type": "_product-list-button",
+              "name": "t:names.product_list_button",
+              "settings": {
+                "label": "View all products",
+                "open_in_new_tab": false,
+                "style_class": "link",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_list_text_YFtzcL",
+            "product_list_button_MWeP9V"
+          ]
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 4,
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 18,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_677WP3": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 18,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_YXxMTj": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_JQzVV4": {
+              "type": "price",
+              "name": "t:names.product_price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_677WP3",
+            "product_title_YXxMTj",
+            "price_JQzVV4"
+          ]
+        }
+      },
+      "name": "t:names.product_list",
+      "settings": {
+        "collection": "all",
+        "layout_type": "grid",
+        "carousel_on_mobile": false,
+        "max_products": 4,
+        "columns": 2,
+        "mobile_columns": "2",
+        "mobile_card_size": "60cqw",
+        "columns_gap": 8,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "horizontal_alignment": "flex-start",
+        "gap": 28,
+        "background_color": "#f8f6ff",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    }
+  },
+  "order": [
+    "ryztor_trust_bar",
+    "ryztor_hero",
+    "ryztor_brand_pillars",
+    "product_list_fa6P9H",
+    "ryztor_comparison"
+  ]
+}

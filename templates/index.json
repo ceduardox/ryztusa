@@ -12,9 +12,10 @@
       "type": "ryztor-trust-bar",
       "settings": {
         "accessibility_label": "RYZTOR highlights",
-        "message_1": "WELLNESS, MADE SIMPLE",
-        "message_2": "THOUGHTFUL FORMULAS",
-        "message_3": "BUILT FOR EVERYDAY ROUTINES",
+        "message_1": "THREE FORMULAS. ZERO CONFUSION.",
+        "message_2": "MORNINGS. TRAINING. NIGHTS.",
+        "message_3": "BUILD YOUR BETTER ROUTINE.",
+        "speed": 24,
         "background": "#e4fe39",
         "text_color": "#121212"
       }

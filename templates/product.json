@@ -324,6 +324,55 @@
         "padding-block-end": 0
       }
     },
+    "ryztor_berberine_story": {
+      "type": "ryztor-berberine-story",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "",
+            "quote": "",
+            "author": "",
+            "verified": true
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "",
+            "quote": "",
+            "author": "",
+            "verified": true
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "",
+            "quote": "",
+            "author": "",
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3"
+      ],
+      "settings": {
+        "eyebrow": "A smarter everyday routine",
+        "heading": "Metabolic wellness, made easier to repeat.",
+        "intro": "<p>RYZTOR Berberine is built for people who want practical support for a balanced lifestyle—without turning wellness into a complicated project.</p>",
+        "accent": "#7652f5",
+        "ink": "#17151e",
+        "soft_background": "#f5f1ff",
+        "card_background": "#ffffff"
+      }
+    },
     "product_recommendations_qggXJq": {
       "type": "product-recommendations",
       "blocks": {
@@ -469,6 +518,7 @@
   },
   "order": [
     "main",
+    "ryztor_berberine_story",
     "product_recommendations_qggXJq"
   ]
 }

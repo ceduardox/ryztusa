@@ -1,0 +1,552 @@
+{% liquid
+  assign product_title_normalized = product.title | downcase
+  assign is_berberine = false
+  if product_title_normalized contains 'berber'
+    assign is_berberine = true
+  endif
+
+  assign review_count = 0
+  for block in section.blocks
+    if block.type == 'review' and block.settings.quote != blank
+      assign review_count = review_count | plus: 1
+    endif
+  endfor
+%}
+
+{% if is_berberine %}
+  <section
+    class="ryztor-berberine"
+    style="--rb-accent: {{ section.settings.accent }}; --rb-ink: {{ section.settings.ink }}; --rb-soft: {{ section.settings.soft_background }}; --rb-card: {{ section.settings.card_background }};"
+  >
+    <div class="ryztor-berberine__trust" aria-label="Product highlights">
+      <div><span aria-hidden="true">✓</span> Simple daily routine</div>
+      <div><span aria-hidden="true">✓</span> Focused berberine formula</div>
+      <div><span aria-hidden="true">✓</span> Secure checkout</div>
+      <div><span aria-hidden="true">✓</span> Clear label directions</div>
+    </div>
+
+    <div class="ryztor-berberine__section ryztor-berberine__intro">
+      <p class="ryztor-berberine__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      <h2>{{ section.settings.heading | escape }}</h2>
+      <div class="ryztor-berberine__lead rte">{{ section.settings.intro }}</div>
+
+      <div class="ryztor-berberine__steps">
+        <article>
+          <span class="ryztor-berberine__number">01</span>
+          <div>
+            <h3>Make it consistent</h3>
+            <p>Build berberine into a routine you can actually maintain. Follow the serving directions printed on your bottle.</p>
+          </div>
+        </article>
+        <article>
+          <span class="ryztor-berberine__number">02</span>
+          <div>
+            <h3>Pair it with your habits</h3>
+            <p>Supplements work best alongside balanced meals, regular movement, hydration, and quality sleep.</p>
+          </div>
+        </article>
+        <article>
+          <span class="ryztor-berberine__number">03</span>
+          <div>
+            <h3>Think long term</h3>
+            <p>Wellness is not a quick fix. Keep your routine simple, track how you feel, and stay consistent.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="ryztor-berberine__section ryztor-berberine__benefits">
+      <header class="ryztor-berberine__section-heading">
+        <p class="ryztor-berberine__eyebrow">Everyday metabolic wellness</p>
+        <h2>Support that fits real life.</h2>
+        <p>One focused ingredient, explained clearly—without miracle language or complicated routines.</p>
+      </header>
+
+      <div class="ryztor-berberine__benefit-grid">
+        <article>
+          <span class="ryztor-berberine__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 13h4l2-7 4 12 2-5h4"/></svg>
+          </span>
+          <h3>Metabolic support</h3>
+          <p>Berberine is commonly used to support healthy glucose and lipid metabolism already within normal ranges.</p>
+        </article>
+        <article>
+          <span class="ryztor-berberine__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"/></svg>
+          </span>
+          <h3>Heart-conscious wellness</h3>
+          <p>A practical addition to an everyday routine centered on balanced nutrition and cardiovascular wellness.</p>
+        </article>
+        <article>
+          <span class="ryztor-berberine__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 19c7 0 13-5 14-14C10 6 5 11 5 19Zm0 0c2-4 5-7 10-9"/></svg>
+          </span>
+          <h3>Plant-derived compound</h3>
+          <p>Berberine is a naturally occurring compound found in several plants and used in traditional wellness practices.</p>
+        </article>
+        <article>
+          <span class="ryztor-berberine__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M7 4h10M8 4v5a4 4 0 0 0 8 0V4M6 20h12M12 13v7"/></svg>
+          </span>
+          <h3>Easy to keep visible</h3>
+          <p>A capsule format that keeps your wellness routine straightforward at home or while traveling.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="ryztor-berberine__section ryztor-berberine__formula">
+      <div class="ryztor-berberine__formula-copy">
+        <p class="ryztor-berberine__eyebrow">What you need to know</p>
+        <h2>Berberine, without the hype.</h2>
+        <p>RYZTOR Berberine is designed for people who want a focused supplement that is easy to understand and simple to include in an established wellness routine.</p>
+        <ul>
+          <li><span>✓</span> A focused formula built around berberine</li>
+          <li><span>✓</span> Capsule format for a straightforward routine</li>
+          <li><span>✓</span> Serving directions available directly on the label</li>
+          <li><span>✓</span> No promises of overnight or guaranteed results</li>
+        </ul>
+      </div>
+      <div class="ryztor-berberine__formula-media">
+        {% if product.featured_image %}
+          {{
+            product.featured_image
+            | image_url: width: 900
+            | image_tag:
+              loading: 'lazy',
+              widths: '360, 540, 720, 900',
+              sizes: '(min-width: 750px) 42vw, 88vw',
+              alt: product.title
+          }}
+        {% else %}
+          {{ 'product-1' | placeholder_svg_tag }}
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="ryztor-berberine__section ryztor-berberine__comparison">
+      <header class="ryztor-berberine__section-heading">
+        <p class="ryztor-berberine__eyebrow">RYZTOR vs. complicated routines</p>
+        <h2>Wellness should feel clear.</h2>
+        <p>We focus on helping you understand what you are buying and how it fits into your day.</p>
+      </header>
+
+      <div class="ryztor-berberine__table" role="table" aria-label="RYZTOR compared with complicated supplement routines">
+        <div class="ryztor-berberine__table-row ryztor-berberine__table-head" role="row">
+          <div role="columnheader">What matters</div>
+          <div role="columnheader">RYZTOR</div>
+          <div role="columnheader">Complicated routines</div>
+        </div>
+        <div class="ryztor-berberine__table-row" role="row">
+          <div role="rowheader">Focused approach</div><div role="cell"><span>✓</span> Yes</div><div role="cell">Often crowded</div>
+        </div>
+        <div class="ryztor-berberine__table-row" role="row">
+          <div role="rowheader">Easy capsule format</div><div role="cell"><span>✓</span> Yes</div><div role="cell">Can require mixing</div>
+        </div>
+        <div class="ryztor-berberine__table-row" role="row">
+          <div role="rowheader">Clear routine</div><div role="cell"><span>✓</span> Label-led</div><div role="cell">Multiple steps</div>
+        </div>
+        <div class="ryztor-berberine__table-row" role="row">
+          <div role="rowheader">Realistic positioning</div><div role="cell"><span>✓</span> Daily support</div><div role="cell">Quick-fix hype</div>
+        </div>
+      </div>
+    </div>
+
+    {% if review_count > 0 or request.design_mode %}
+      <div class="ryztor-berberine__section ryztor-berberine__reviews">
+        <header class="ryztor-berberine__section-heading">
+          <p class="ryztor-berberine__eyebrow">Verified customer feedback</p>
+          <h2>Real routines. Real experiences.</h2>
+          <p>Only publish feedback received from actual RYZTOR customers.</p>
+        </header>
+
+        <div class="ryztor-berberine__review-grid">
+          {% for block in section.blocks %}
+            {% if block.type == 'review' %}
+              {% if block.settings.quote != blank %}
+                <article class="ryztor-berberine__review" {{ block.shopify_attributes }}>
+                  <div class="ryztor-berberine__stars" aria-label="{{ block.settings.rating }} out of 5 stars">
+                    {% for index in (1..5) %}<span aria-hidden="true">{% if index <= block.settings.rating %}★{% else %}☆{% endif %}</span>{% endfor %}
+                  </div>
+                  {% if block.settings.title != blank %}<h3>{{ block.settings.title | escape }}</h3>{% endif %}
+                  <blockquote>“{{ block.settings.quote | escape }}”</blockquote>
+                  <footer>
+                    <strong>{{ block.settings.author | escape }}</strong>
+                    {% if block.settings.verified %}<span><i aria-hidden="true">✓</i> Verified customer</span>{% endif %}
+                  </footer>
+                </article>
+              {% elsif request.design_mode %}
+                <article class="ryztor-berberine__review ryztor-berberine__review--placeholder" {{ block.shopify_attributes }}>
+                  <div class="ryztor-berberine__stars" aria-hidden="true">★★★★★</div>
+                  <h3>Add a real customer review</h3>
+                  <blockquote>This placeholder is visible only inside the theme editor.</blockquote>
+                  <footer><strong>Customer name</strong></footer>
+                </article>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="ryztor-berberine__section ryztor-berberine__faq">
+      <header class="ryztor-berberine__section-heading">
+        <p class="ryztor-berberine__eyebrow">Questions, answered</p>
+        <h2>Know before you add it to your routine.</h2>
+      </header>
+      <div class="ryztor-berberine__faq-list">
+        <details open>
+          <summary>What is berberine?<span aria-hidden="true">+</span></summary>
+          <p>Berberine is a naturally occurring compound found in several plants. It is commonly used as part of routines focused on metabolic wellness.</p>
+        </details>
+        <details>
+          <summary>How should I take RYZTOR Berberine?<span aria-hidden="true">+</span></summary>
+          <p>Follow the serving directions on your bottle. Do not exceed the suggested use. If you are unsure whether berberine fits your routine, ask a qualified healthcare professional.</p>
+        </details>
+        <details>
+          <summary>How soon should I expect a result?<span aria-hidden="true">+</span></summary>
+          <p>Individual experiences vary. Berberine is intended as ongoing wellness support, not an instant fix, and no specific outcome is guaranteed.</p>
+        </details>
+        <details>
+          <summary>Can I take it with medication or other supplements?<span aria-hidden="true">+</span></summary>
+          <p>Berberine can interact with medications. Speak with your healthcare professional before use, especially if you take prescription medicine or manage a health condition.</p>
+        </details>
+        <details>
+          <summary>Who should avoid berberine?<span aria-hidden="true">+</span></summary>
+          <p>Do not use while pregnant or nursing unless directed by a healthcare professional. Keep out of reach of children and consult a professional before use if you have a medical condition.</p>
+        </details>
+      </div>
+    </div>
+
+    <div class="ryztor-berberine__cta">
+      <div>
+        <p>Make wellness easier to repeat.</p>
+        <h2>Add RYZTOR Berberine to your routine.</h2>
+      </div>
+      <a href="#BuyButtons-ProductSubmitButton-add-to-cart">Choose your quantity</a>
+    </div>
+
+    <p class="ryztor-berberine__disclaimer">
+      *These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Individual results may vary.
+    </p>
+  </section>
+
+{% endif %}
+
+{% stylesheet %}
+    .ryztor-berberine {
+      background: #fff;
+      color: var(--rb-ink);
+      overflow: hidden;
+    }
+
+    .ryztor-berberine__trust {
+      width: min(100% - 32px, 1180px);
+      margin: 20px auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border: 1px solid color-mix(in srgb, var(--rb-accent) 22%, transparent);
+      border-radius: 18px;
+      background: color-mix(in srgb, var(--rb-accent) 5%, white);
+      overflow: hidden;
+    }
+
+    .ryztor-berberine__trust div {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 12px 16px;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .ryztor-berberine__trust div + div { border-left: 1px solid color-mix(in srgb, var(--rb-accent) 16%, transparent); }
+    .ryztor-berberine__trust span { color: var(--rb-accent); font-size: 1.05rem; }
+
+    .ryztor-berberine__section {
+      width: min(100% - 32px, 1180px);
+      margin-inline: auto;
+      padding-block: clamp(72px, 9vw, 124px);
+    }
+
+    .ryztor-berberine__eyebrow {
+      margin: 0 0 15px;
+      color: var(--rb-accent);
+      font-size: .76rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+
+    .ryztor-berberine h2 {
+      margin: 0;
+      max-width: 850px;
+      color: var(--rb-ink);
+      font-size: clamp(2.25rem, 5.5vw, 5rem);
+      font-weight: 900;
+      letter-spacing: -.055em;
+      line-height: .98;
+      text-wrap: balance;
+    }
+
+    .ryztor-berberine__lead {
+      max-width: 720px;
+      margin-top: 24px;
+      color: rgb(23 21 30 / 72%);
+      font-size: clamp(1.04rem, 1.7vw, 1.28rem);
+      line-height: 1.65;
+    }
+
+    .ryztor-berberine__steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 52px;
+    }
+
+    .ryztor-berberine__steps article,
+    .ryztor-berberine__benefit-grid article,
+    .ryztor-berberine__review {
+      border: 1px solid rgb(23 21 30 / 11%);
+      border-radius: 22px;
+      background: var(--rb-card);
+      box-shadow: 0 16px 45px rgb(49 24 93 / 8%);
+    }
+
+    .ryztor-berberine__steps article { padding: 28px; }
+    .ryztor-berberine__number { display: block; margin-bottom: 40px; color: var(--rb-accent); font-size: .75rem; font-weight: 900; letter-spacing: .12em; }
+    .ryztor-berberine h3 { margin: 0 0 10px; font-size: 1.15rem; font-weight: 850; letter-spacing: -.02em; line-height: 1.2; }
+    .ryztor-berberine article p { margin: 0; color: rgb(23 21 30 / 68%); line-height: 1.6; }
+
+    .ryztor-berberine__benefits,
+    .ryztor-berberine__comparison,
+    .ryztor-berberine__reviews,
+    .ryztor-berberine__faq {
+      width: 100%;
+      max-width: none;
+      padding-inline: max(16px, calc((100vw - 1180px) / 2));
+    }
+
+    .ryztor-berberine__benefits,
+    .ryztor-berberine__reviews { background: var(--rb-soft); }
+    .ryztor-berberine__section-heading { max-width: 760px; margin-bottom: 44px; }
+    .ryztor-berberine__section-heading h2 { font-size: clamp(2.2rem, 4.8vw, 4.3rem); }
+    .ryztor-berberine__section-heading > p:last-child { max-width: 660px; margin: 20px 0 0; color: rgb(23 21 30 / 68%); font-size: 1.06rem; line-height: 1.65; }
+
+    .ryztor-berberine__benefit-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .ryztor-berberine__benefit-grid article { padding: 25px; }
+    .ryztor-berberine__icon { width: 48px; height: 48px; margin-bottom: 34px; display: grid; place-items: center; border-radius: 15px; background: var(--rb-accent); color: #fff; }
+    .ryztor-berberine__icon svg { width: 25px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+    .ryztor-berberine__formula { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: clamp(38px, 8vw, 110px); }
+    .ryztor-berberine__formula-copy > p:not(.ryztor-berberine__eyebrow) { margin: 24px 0 0; color: rgb(23 21 30 / 70%); font-size: 1.08rem; line-height: 1.7; }
+    .ryztor-berberine__formula ul { display: grid; gap: 15px; margin: 30px 0 0; padding: 0; list-style: none; }
+    .ryztor-berberine__formula li { display: flex; gap: 12px; font-weight: 720; line-height: 1.45; }
+    .ryztor-berberine__formula li span { color: var(--rb-accent); }
+    .ryztor-berberine__formula-media { min-height: 520px; display: grid; place-items: center; border-radius: 30px; background: linear-gradient(145deg, color-mix(in srgb, var(--rb-accent) 12%, white), #fff); overflow: hidden; }
+    .ryztor-berberine__formula-media img, .ryztor-berberine__formula-media svg { width: 100%; height: 100%; max-height: 600px; object-fit: contain; }
+
+    .ryztor-berberine__table { border: 1px solid rgb(23 21 30 / 12%); border-radius: 24px; background: #fff; box-shadow: 12px 14px 0 var(--rb-accent); overflow: hidden; }
+    .ryztor-berberine__table-row { display: grid; grid-template-columns: 1.25fr .85fr 1fr; }
+    .ryztor-berberine__table-row + .ryztor-berberine__table-row { border-top: 1px solid rgb(23 21 30 / 10%); }
+    .ryztor-berberine__table-row > div { min-height: 70px; display: flex; align-items: center; padding: 16px 22px; line-height: 1.35; }
+    .ryztor-berberine__table-row > div + div { border-left: 1px solid rgb(23 21 30 / 10%); }
+    .ryztor-berberine__table-row > div:nth-child(2) { background: color-mix(in srgb, var(--rb-accent) 8%, white); font-weight: 800; }
+    .ryztor-berberine__table-row > div:nth-child(2) span { margin-right: 8px; color: var(--rb-accent); }
+    .ryztor-berberine__table-row > div:nth-child(3) { color: rgb(23 21 30 / 58%); }
+    .ryztor-berberine__table-head { background: var(--rb-ink); color: #fff; font-size: .76rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .ryztor-berberine__table-head > div:nth-child(2) { background: var(--rb-accent); }
+    .ryztor-berberine__table-head > div:nth-child(3) { color: #fff; }
+
+    .ryztor-berberine__review-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .ryztor-berberine__review { padding: 28px; }
+    .ryztor-berberine__stars { margin-bottom: 22px; color: var(--rb-accent); letter-spacing: .08em; }
+    .ryztor-berberine__review blockquote { min-height: 105px; margin: 0; color: rgb(23 21 30 / 74%); font-size: 1rem; line-height: 1.65; }
+    .ryztor-berberine__review footer { margin-top: 24px; padding-top: 18px; display: flex; align-items: center; justify-content: space-between; gap: 14px; border-top: 1px solid rgb(23 21 30 / 9%); }
+    .ryztor-berberine__review footer span { color: rgb(23 21 30 / 60%); font-size: .72rem; }
+    .ryztor-berberine__review footer i { width: 18px; height: 18px; display: inline-grid; place-items: center; margin-right: 4px; border-radius: 50%; background: var(--rb-accent); color: #fff; font-style: normal; }
+    .ryztor-berberine__review--placeholder { border-style: dashed; opacity: .72; }
+
+    .ryztor-berberine__faq-list { max-width: 900px; }
+    .ryztor-berberine__faq details { border-top: 1px solid rgb(23 21 30 / 14%); }
+    .ryztor-berberine__faq details:last-child { border-bottom: 1px solid rgb(23 21 30 / 14%); }
+    .ryztor-berberine__faq summary { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 18px 0; cursor: pointer; font-size: 1.08rem; font-weight: 800; list-style: none; }
+    .ryztor-berberine__faq summary::-webkit-details-marker { display: none; }
+    .ryztor-berberine__faq summary span { color: var(--rb-accent); font-size: 1.6rem; font-weight: 400; transition: transform .2s ease; }
+    .ryztor-berberine__faq details[open] summary span { transform: rotate(45deg); }
+    .ryztor-berberine__faq details p { max-width: 740px; margin: -4px 0 24px; color: rgb(23 21 30 / 68%); line-height: 1.65; }
+
+    .ryztor-berberine__cta { width: min(100% - 32px, 1180px); margin: 0 auto; padding: clamp(38px, 6vw, 68px); display: flex; align-items: center; justify-content: space-between; gap: 30px; border-radius: 30px; background: var(--rb-ink); color: #fff; }
+    .ryztor-berberine__cta p { margin: 0 0 8px; color: color-mix(in srgb, var(--rb-accent) 75%, white); font-size: .76rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+    .ryztor-berberine__cta h2 { max-width: 680px; color: #fff; font-size: clamp(1.8rem, 3.8vw, 3.6rem); }
+    .ryztor-berberine__cta a { flex: 0 0 auto; min-height: 54px; display: inline-flex; align-items: center; justify-content: center; padding: 14px 24px; border-radius: 999px; background: var(--rb-accent); color: #fff; font-weight: 900; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+    .ryztor-berberine__cta a:hover { transform: translateY(-2px); box-shadow: 0 12px 28px color-mix(in srgb, var(--rb-accent) 32%, transparent); }
+    .ryztor-berberine__disclaimer { width: min(100% - 32px, 960px); margin: 32px auto 0; padding-bottom: 64px; color: rgb(23 21 30 / 52%); font-size: .72rem; line-height: 1.55; text-align: center; }
+
+    body:has(.ryztor-berberine) .product-information .product-details {
+      margin: 18px 0;
+      padding: clamp(22px, 3vw, 36px);
+      border: 1px solid color-mix(in srgb, var(--rb-accent, #7652f5) 20%, transparent);
+      border-radius: 26px;
+      background: #fff;
+      box-shadow: 0 24px 70px rgb(49 24 93 / 10%);
+    }
+
+    body:has(.ryztor-berberine) .product-information .product-details h1 {
+      font-size: clamp(2.2rem, 4vw, 4.25rem);
+      font-weight: 900;
+      letter-spacing: -.055em;
+      line-height: .96;
+    }
+
+    body:has(.ryztor-berberine) .product-information .add-to-cart-button {
+      min-height: 58px;
+      border-radius: 999px;
+      background: var(--rb-accent, #7652f5);
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 12px 28px color-mix(in srgb, var(--rb-accent, #7652f5) 24%, transparent);
+    }
+
+    body:has(.ryztor-berberine) .product-information .quantity-selector { border-radius: 999px; }
+    body:has(.ryztor-berberine) .product-information__media { background: color-mix(in srgb, var(--rb-accent, #7652f5) 3%, white); }
+    body:has(.ryztor-berberine) .product-information__media img { object-fit: contain; }
+
+    @media screen and (max-width: 989px) {
+      .ryztor-berberine__trust { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .ryztor-berberine__trust div:nth-child(3) { border-left: 0; border-top: 1px solid color-mix(in srgb, var(--rb-accent) 16%, transparent); }
+      .ryztor-berberine__trust div:nth-child(4) { border-top: 1px solid color-mix(in srgb, var(--rb-accent) 16%, transparent); }
+      .ryztor-berberine__steps, .ryztor-berberine__review-grid { grid-template-columns: 1fr; }
+      .ryztor-berberine__benefit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .ryztor-berberine__formula { grid-template-columns: 1fr; }
+      .ryztor-berberine__formula-media { min-height: 420px; order: -1; }
+      .ryztor-berberine__cta { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media screen and (max-width: 749px) {
+      .ryztor-berberine__section { padding-block: 68px; }
+      .ryztor-berberine__trust { width: min(100% - 24px, 1180px); margin-top: 12px; border-radius: 15px; }
+      .ryztor-berberine__trust div { min-height: 58px; padding: 9px 8px; font-size: .62rem; letter-spacing: .035em; }
+      .ryztor-berberine__steps { margin-top: 34px; }
+      .ryztor-berberine__number { margin-bottom: 24px; }
+      .ryztor-berberine__benefit-grid { grid-template-columns: 1fr; }
+      .ryztor-berberine__formula-media { min-height: 340px; border-radius: 22px; }
+      .ryztor-berberine__table { border-radius: 17px; box-shadow: 6px 8px 0 var(--rb-accent); }
+      .ryztor-berberine__table-row { grid-template-columns: 1.2fr .8fr .9fr; }
+      .ryztor-berberine__table-row > div { min-height: 64px; padding: 10px 8px; font-size: .68rem; text-align: center; justify-content: center; }
+      .ryztor-berberine__table-head { font-size: .55rem; letter-spacing: .035em; }
+      .ryztor-berberine__table-row > div:nth-child(2) { flex-direction: column; }
+      .ryztor-berberine__table-row > div:nth-child(2) span { margin: 0; }
+      .ryztor-berberine__review blockquote { min-height: 0; }
+      .ryztor-berberine__cta { width: min(100% - 24px, 1180px); padding: 32px 24px; border-radius: 22px; }
+      .ryztor-berberine__cta a { width: 100%; }
+      body:has(.ryztor-berberine) .product-information .product-details { margin: 8px 12px 18px; border-radius: 20px; }
+    }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "RYZTOR Berberine story",
+  "tag": "section",
+  "class": "ryztor-berberine-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "A smarter everyday routine"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Metabolic wellness, made easier to repeat."
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Introduction",
+      "default": "<p>RYZTOR Berberine is built for people who want practical support for a balanced lifestyle—without turning wellness into a complicated project.</p>"
+    },
+    {
+      "type": "color",
+      "id": "accent",
+      "label": "Accent",
+      "default": "#7652f5"
+    },
+    {
+      "type": "color",
+      "id": "ink",
+      "label": "Text",
+      "default": "#17151e"
+    },
+    {
+      "type": "color",
+      "id": "soft_background",
+      "label": "Soft background",
+      "default": "#f5f1ff"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Verified review",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Review title"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Customer quote",
+          "info": "Use only feedback received from a real customer."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Customer name or initials"
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Verified customer",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RYZTOR Berberine story",
+      "blocks": [
+        { "type": "review" },
+        { "type": "review" },
+        { "type": "review" }
+      ]
+    }
+  ]
+}
+{% endschema %}

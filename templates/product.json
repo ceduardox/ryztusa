@@ -43,11 +43,11 @@
             "slideshow_mobile_controls_style": "thumbnails",
             "thumbnail_position": "bottom",
             "thumbnail_width": 72,
-            "thumbnail_radius": 12,
+            "thumbnail_radius": 0,
             "aspect_ratio": "1",
             "constrain_to_viewport": false,
             "media_fit": "contain",
-            "media_radius": 24,
+            "media_radius": 0,
             "extend_media": false,
             "zoom": true,
             "video_loop": false,
@@ -69,7 +69,7 @@
             "custom_width_mobile": 100,
             "height": "fit",
             "details_position": "flex-start",
-            "gap": 28,
+            "gap": 18,
             "sticky_details_desktop": true,
             "background_media": "none",
             "background_color": "",
@@ -80,8 +80,8 @@
             "border_opacity": 100,
             "border_color": "",
             "border_radius": 0,
-            "padding-block-start": 24,
-            "padding-block-end": 24,
+            "padding-block-start": 4,
+            "padding-block-end": 12,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
@@ -196,7 +196,7 @@
               "type": "custom-liquid",
               "name": "Berberine quick summary",
               "settings": {
-                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'berber' %}<div class=\"ryztor-product-summary\"><p><strong>Daily metabolic support in two capsules.</strong> Designed to support normal blood sugar, cardiovascular wellness, and healthy weight management as part of a balanced lifestyle.*</p><div class=\"ryztor-product-summary__tags\"><span>60 capsules</span><span>30-day supply</span><span>Made in USA</span><span>Vegan friendly</span></div></div>{% endif %}"
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'berber' %}<div class=\"ryztor-product-summary\"><p><strong>Berberine metabolic support capsules.</strong> Two capsules daily to support normal blood sugar, cardiovascular wellness, and healthy weight management as part of a balanced lifestyle.*</p><div class=\"ryztor-product-summary__benefits\"><div><b>60</b><span>Capsules</span></div><div><b>2×</b><span>Daily use</span></div><div><b>USA</b><span>Manufactured</span></div></div></div>{% endif %}"
               },
               "blocks": {}
             },
@@ -282,6 +282,14 @@
               },
               "block_order": []
             },
+            "berberine_disclosures": {
+              "type": "custom-liquid",
+              "name": "Berberine disclosures",
+              "settings": {
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'berber' %}<div class=\"ryztor-product-disclosures\"><details><summary>Ingredients <span>+</span></summary><p>Granular Berberine Hydrochloride Extract 97% (bark), Granular Berberine Hydrochloride Extract 8% (bark/root), cellulose (vegetable capsule), MCC (microcrystalline cellulose), L-Leucine, and olive oil.</p></details><details><summary>Directions <span>+</span></summary><p>Adults take two (2) capsules daily with 6–8 oz (177–236 ml) of water, or as directed by a healthcare professional.</p></details><details><summary>Warning <span>+</span></summary><p>Do not exceed the recommended dose. Pregnant or nursing mothers, children under 18, and individuals with known medical conditions should consult a physician before use. Keep out of reach of children. Do not use if the safety seal is damaged or missing. Store in a cool, dry place.</p></details></div>{% endif %}"
+              },
+              "blocks": {}
+            },
             "text_aEtTtq": {
               "type": "text",
               "name": "t:names.product_description",
@@ -315,6 +323,7 @@
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
+            "berberine_disclosures",
             "text_aEtTtq"
           ]
         }
@@ -325,13 +334,13 @@
       "settings": {
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",
-        "equal_columns": false,
+        "equal_columns": true,
         "limit_details_width": false,
-        "gap": 48,
+        "gap": 36,
         "enable_sticky_add_to_cart": true,
         "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-start": 28,
+        "padding-block-end": 32
       }
     },
     "ryztor_berberine_story": {

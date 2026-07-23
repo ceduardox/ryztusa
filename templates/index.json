@@ -306,7 +306,6 @@
             "ryztor_card_purchase": {
               "type": "ryztor-card-purchase",
               "settings": {
-                "quantity_label": "SELECT QUANTITY",
                 "button_label": "ADD TO CART",
                 "show_quantity": true
               },

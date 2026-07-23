@@ -18,8 +18,7 @@
 %}
 
 {% if product != blank %}
-  <div class="ryztor-card-purchase" {{ block.shopify_attributes }}>
-    <span class="ryztor-card-purchase__label">{{ block.settings.quantity_label }}</span>
+  <div class="ryztor-card-purchase{% unless can_add_to_cart %} ryztor-card-purchase--unavailable{% endunless %}" {{ block.shopify_attributes }}>
     <product-form-component
       data-section-id="{{ section.id }}"
       data-product-id="{{ product.id }}"
@@ -34,7 +33,7 @@
         <input type="hidden" name="id" ref="variantId" value="{{ variant.id }}">
 
         <div class="ryztor-card-purchase__controls" ref="productFormButtons">
-          {% if block.settings.show_quantity %}
+          {% if block.settings.show_quantity and can_add_to_cart %}
             {% render 'quantity-selector', product: product, block: block %}
           {% endif %}
 
@@ -61,27 +60,21 @@
     position: relative;
     z-index: 4;
     width: 100%;
-    margin-top: 8px;
-    padding: 14px 10px 0;
+    margin-top: 10px;
+    padding: 14px 10px 4px;
     border-top: 1px solid rgb(100 38 255 / 11%);
     cursor: default;
-  }
-
-  .ryztor-card-purchase__label {
-    display: block;
-    margin-bottom: 8px;
-    color: rgb(18 18 18 / 50%);
-    font-size: .62rem;
-    font-weight: 800;
-    letter-spacing: .11em;
-    text-transform: uppercase;
   }
 
   .ryztor-card-purchase__controls {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
-    gap: 9px;
+    gap: 8px;
     align-items: center;
+  }
+
+  .ryztor-card-purchase--unavailable .ryztor-card-purchase__controls {
+    grid-template-columns: 1fr;
   }
 
   .ryztor-card-purchase .quantity-selector-wrapper {
@@ -90,20 +83,20 @@
 
   .ryztor-card-purchase .quantity-selector {
     display: grid;
-    grid-template-columns: 35px 35px 35px;
-    width: 105px;
-    height: 48px;
+    grid-template-columns: 32px 32px 32px;
+    width: 96px;
+    height: 44px;
     overflow: hidden;
     border: 1px solid rgb(100 38 255 / 20%);
-    border-radius: 13px;
-    background: #f7f4ff;
+    border-radius: 999px;
+    background: #f5f1ff;
   }
 
   .ryztor-card-purchase .quantity-selector button,
   .ryztor-card-purchase .quantity-selector input {
-    width: 35px;
+    width: 32px;
     min-width: 0;
-    height: 46px;
+    height: 42px;
     min-height: 0;
     padding: 0;
     border: 0;
@@ -131,7 +124,7 @@
 
   .ryztor-card-purchase .quantity-selector input {
     appearance: textfield;
-    font-size: .88rem;
+    font-size: .82rem;
     font-weight: 800;
   }
 
@@ -148,14 +141,14 @@
   .ryztor-card-purchase .ryztor-card-purchase__button {
     width: 100%;
     min-width: 0;
-    height: 48px;
-    min-height: 48px;
-    padding: 0 14px;
+    height: 44px;
+    min-height: 44px;
+    padding: 0 16px;
     border: 1px solid #6426ff;
-    border-radius: 13px;
+    border-radius: 999px;
     background: #6426ff;
     color: #fff;
-    font-size: .72rem;
+    font-size: .68rem;
     font-weight: 850;
     letter-spacing: .055em;
     line-height: 1;
@@ -174,9 +167,10 @@
   }
 
   .ryztor-card-purchase .ryztor-card-purchase__button:disabled {
-    border-color: #d8d4df;
-    background: #e9e6ed;
-    color: #77717e;
+    border-color: rgb(18 18 18 / 12%);
+    background: #f4f2f6;
+    color: #6f6975;
+    box-shadow: none;
   }
 
   .ryztor-card-purchase__error {
@@ -197,18 +191,10 @@
 
   @media screen and (max-width: 749px) {
     .ryztor-card-purchase__controls {
-      grid-template-columns: 1fr;
+      grid-template-columns: 96px minmax(0, 1fr);
     }
 
-    .ryztor-card-purchase .quantity-selector {
-      grid-template-columns: 1fr 1fr 1fr;
-      width: 100%;
-    }
-
-    .ryztor-card-purchase .quantity-selector button,
-    .ryztor-card-purchase .quantity-selector input {
-      width: 100%;
-    }
+    .ryztor-card-purchase--unavailable .ryztor-card-purchase__controls { grid-template-columns: 1fr; }
   }
 {% endstylesheet %}
 
@@ -217,7 +203,6 @@
   "name": "RYZTOR card purchase",
   "tag": null,
   "settings": [
-    { "type": "text", "id": "quantity_label", "label": "Quantity label", "default": "SELECT QUANTITY" },
     { "type": "text", "id": "button_label", "label": "Button label", "default": "ADD TO CART" },
     { "type": "checkbox", "id": "show_quantity", "label": "Show quantity selector", "default": true }
   ],

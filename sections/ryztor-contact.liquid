@@ -1,0 +1,182 @@
+{% liquid
+  assign contact_image = section.settings.image
+  if contact_image == blank
+    assign contact_image = collections.all.products.first.featured_image
+  endif
+  assign form_id = 'RYZTOR-ContactForm-' | append: section.id
+%}
+
+<section class="ryztor-contact" style="--contact-bg: {{ section.settings.background }}; --contact-accent: {{ section.settings.accent }}; --contact-purple: {{ section.settings.secondary }}; --contact-text: {{ section.settings.text_color }};">
+  <div class="ryztor-contact__shell">
+    <div class="ryztor-contact__intro">
+      <p class="ryztor-contact__eyebrow">{{ section.settings.eyebrow }}</p>
+      <h1>{{ section.settings.heading }}</h1>
+      <div class="ryztor-contact__description rte">{{ section.settings.description }}</div>
+
+      <div class="ryztor-contact__help-grid" aria-label="Ways we can help">
+        <article class="ryztor-contact__help-card">
+          <span class="ryztor-contact__help-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5c3.2 0 5.8 2.3 5.8 5.2 0 4.2-5.8 8.1-5.8 8.1s-5.8-3.9-5.8-8.1c0-2.9 2.6-5.2 5.8-5.2Z"/><path d="M12 7.2v5.7M9.2 10h5.6"/></svg>
+          </span>
+          <div><strong>Product guidance</strong><small>Find the formula that fits your routine.</small></div>
+        </article>
+        <article class="ryztor-contact__help-card">
+          <span class="ryztor-contact__help-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3.5 6.5h17v11h-17z"/><path d="m4 7 8 6 8-6"/></svg>
+          </span>
+          <div><strong>Order support</strong><small>Questions about shipping or an order.</small></div>
+        </article>
+        <article class="ryztor-contact__help-card">
+          <span class="ryztor-contact__help-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="8" cy="9" r="3"/><circle cx="16.5" cy="10" r="2.5"/><path d="M2.8 19c.7-3.1 2.5-4.7 5.2-4.7s4.5 1.6 5.2 4.7M13.5 15.4c.8-.6 1.8-.9 3-.9 2.5 0 4 1.5 4.7 4.5"/></svg>
+          </span>
+          <div><strong>Partnerships</strong><small>Retail, wholesale and brand collaborations.</small></div>
+        </article>
+      </div>
+
+      <div class="ryztor-contact__visual">
+        {% if contact_image != blank %}
+          {{ contact_image | image_url: width: 1200 | image_tag: loading: 'eager', widths: '480, 720, 960, 1200', sizes: '(min-width: 990px) 46vw, 100vw', class: 'ryztor-contact__image' }}
+        {% else %}
+          <div class="ryztor-contact__fallback" aria-hidden="true">
+            <span>RYZTOR</span><strong>BETTER ROUTINES.<br>MADE SIMPLE.</strong><i>BERBERINE · MAGNESIUM GLYCINATE · CREATINE</i>
+          </div>
+        {% endif %}
+        <span class="ryztor-contact__visual-badge">WE'RE HERE TO HELP</span>
+      </div>
+    </div>
+
+    <div class="ryztor-contact__panel">
+      <div class="ryztor-contact__panel-heading">
+        <span>CONTACT FORM</span>
+        <h2>How can we help?</h2>
+        <p>Tell us what you need and our team will point you in the right direction.</p>
+      </div>
+
+      {%- form 'contact', id: form_id, class: 'ryztor-contact__form' -%}
+        {% if form.posted_successfully? %}
+          <div class="ryztor-contact__notice ryztor-contact__notice--success" tabindex="-1" autofocus>
+            {{ 'icon-checkmark.svg' | inline_asset_content }}
+            <div><strong>Message received.</strong><span>Thank you for reaching out. Our team will get back to you soon.</span></div>
+          </div>
+        {% endif %}
+
+        {% if form.errors %}
+          <div class="ryztor-contact__notice ryztor-contact__notice--error" tabindex="-1" autofocus>
+            {{ 'icon-error.svg' | inline_asset_content }}
+            <div><strong>Please check your email.</strong><span>{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</span></div>
+          </div>
+        {% endif %}
+
+        <div class="ryztor-contact__row">
+          <div class="ryztor-contact__field">
+            <label for="{{ form_id }}-name">Full name</label>
+            <span class="ryztor-contact__field-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-4 3.1-6 7-6s6.2 2 7 6"/></svg></span>
+            <input id="{{ form_id }}-name" type="text" name="contact[name]" autocomplete="name" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="Your name">
+          </div>
+          <div class="ryztor-contact__field">
+            <label for="{{ form_id }}-email">Email address <span aria-hidden="true">*</span></label>
+            <span class="ryztor-contact__field-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span>
+            <input id="{{ form_id }}-email" type="email" name="contact[email]" autocomplete="email" required aria-required="true" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" placeholder="you@email.com">
+          </div>
+        </div>
+
+        <div class="ryztor-contact__row">
+          <div class="ryztor-contact__field">
+            <label for="{{ form_id }}-topic">What can we help with?</label>
+            <span class="ryztor-contact__field-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.7 2.7 0 1 1 4.7 1.8c-1.2 1-2.2 1.4-2.2 3M12 17.5v.1"/></svg></span>
+            <select id="{{ form_id }}-topic" name="contact[topic]">
+              <option>General question</option>
+              <option>Product guidance</option>
+              <option>Order support</option>
+              <option>Wholesale & partnerships</option>
+            </select>
+          </div>
+          <div class="ryztor-contact__field">
+            <label for="{{ form_id }}-order">Order number <small>(optional)</small></label>
+            <span class="ryztor-contact__field-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+            <input id="{{ form_id }}-order" type="text" name="contact[order_number]" placeholder="#1001">
+          </div>
+        </div>
+
+        <div class="ryztor-contact__field">
+          <label for="{{ form_id }}-body">Your message</label>
+          <span class="ryztor-contact__field-icon ryztor-contact__field-icon--textarea" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v12H8l-4 3V5Z"/><path d="M8 9h8M8 13h5"/></svg></span>
+          <textarea id="{{ form_id }}-body" name="contact[body]" rows="7" placeholder="Tell us a little more...">{{ form.body }}</textarea>
+        </div>
+
+        <button class="ryztor-contact__submit" type="submit">
+          <span>SEND MESSAGE</span>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg>
+        </button>
+        <p class="ryztor-contact__privacy">By submitting this form, you agree that RYZTOR may contact you regarding your request.</p>
+      {%- endform -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .ryztor-contact { background: var(--contact-bg); color: var(--contact-text); padding: clamp(54px, 8vw, 110px) var(--page-margin); }
+  .ryztor-contact__shell { width: min(1220px, 100%); margin: 0 auto; display: grid; grid-template-columns: minmax(0, .92fr) minmax(420px, 1.08fr); gap: clamp(38px, 6vw, 86px); align-items: start; }
+  .ryztor-contact__eyebrow, .ryztor-contact__panel-heading > span { display: inline-flex; margin: 0 0 18px; padding: 8px 13px; border-radius: 999px; background: var(--contact-accent); color: #121212; font-size: .72rem; font-weight: 800; letter-spacing: .11em; line-height: 1; }
+  .ryztor-contact__intro h1 { max-width: 720px; margin: 0; font-size: clamp(3.2rem, 7vw, 7rem); font-weight: 850; line-height: .86; letter-spacing: -.075em; text-transform: uppercase; }
+  .ryztor-contact__intro h1 em { color: var(--contact-purple); font-style: normal; }
+  .ryztor-contact__description { max-width: 610px; margin-top: 25px; font-size: clamp(1rem, 1.4vw, 1.18rem); line-height: 1.6; color: rgb(18 18 18 / 70%); }
+  .ryztor-contact__description p { margin: 0; }
+  .ryztor-contact__help-grid { display: grid; gap: 10px; margin-top: 32px; }
+  .ryztor-contact__help-card { display: flex; gap: 14px; align-items: center; padding: 13px 15px; border: 1px solid rgb(100 38 255 / 12%); border-radius: 16px; background: rgb(255 255 255 / 62%); }
+  .ryztor-contact__help-icon { display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 42px; border-radius: 13px; background: var(--contact-purple); color: #fff; }
+  .ryztor-contact__help-icon svg { width: 23px; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .ryztor-contact__help-card div { display: grid; gap: 2px; }
+  .ryztor-contact__help-card strong { font-size: .94rem; }
+  .ryztor-contact__help-card small { color: rgb(18 18 18 / 62%); font-size: .82rem; }
+  .ryztor-contact__visual { position: relative; min-height: 290px; margin-top: 22px; overflow: hidden; border-radius: 26px; background: var(--contact-purple); }
+  .ryztor-contact__image { width: 100%; height: 100%; min-height: 290px; object-fit: cover; display: block; }
+  .ryztor-contact__fallback { min-height: 290px; padding: 30px; display: flex; flex-direction: column; justify-content: space-between; background: radial-gradient(circle at 82% 20%, var(--contact-accent) 0 10%, transparent 10.5%), linear-gradient(145deg, #6426ff, #351075); color: #fff; }
+  .ryztor-contact__fallback span { font-size: .8rem; font-weight: 800; letter-spacing: .16em; }
+  .ryztor-contact__fallback strong { max-width: 430px; font-size: clamp(2rem, 4vw, 4rem); line-height: .9; letter-spacing: -.05em; }
+  .ryztor-contact__fallback i { font-size: .68rem; font-style: normal; letter-spacing: .08em; opacity: .75; }
+  .ryztor-contact__visual-badge { position: absolute; right: 16px; bottom: 16px; padding: 10px 13px; border-radius: 999px; background: var(--contact-accent); color: #121212; font-size: .7rem; font-weight: 850; letter-spacing: .08em; }
+  .ryztor-contact__panel { position: sticky; top: calc(var(--header-height, 70px) + 26px); padding: clamp(25px, 4vw, 46px); border: 1px solid rgb(100 38 255 / 14%); border-radius: 30px; background: #fff; box-shadow: 0 24px 70px rgb(48 24 95 / 13%); }
+  .ryztor-contact__panel-heading h2 { margin: 0; font-size: clamp(2rem, 3.2vw, 3.5rem); line-height: .95; letter-spacing: -.055em; }
+  .ryztor-contact__panel-heading p { margin: 14px 0 26px; color: rgb(18 18 18 / 64%); line-height: 1.5; }
+  .ryztor-contact__form { display: grid; gap: 17px; }
+  .ryztor-contact__row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .ryztor-contact__field { position: relative; display: grid; gap: 8px; }
+  .ryztor-contact__field label { font-size: .76rem; font-weight: 750; letter-spacing: .035em; }
+  .ryztor-contact__field label small { color: rgb(18 18 18 / 50%); font-weight: 500; }
+  .ryztor-contact__field :is(input, select, textarea) { width: 100%; min-height: 54px; padding: 14px 16px 14px 48px; border: 1px solid rgb(100 38 255 / 17%); border-radius: 14px; background: #faf9ff; color: #121212; font: inherit; transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease; }
+  .ryztor-contact__field textarea { min-height: 150px; resize: vertical; padding-top: 16px; }
+  .ryztor-contact__field :is(input, select, textarea):focus { outline: none; border-color: var(--contact-purple); background: #fff; box-shadow: 0 0 0 4px rgb(100 38 255 / 10%); }
+  .ryztor-contact__field-icon { position: absolute; left: 16px; bottom: 16px; width: 20px; height: 20px; color: var(--contact-purple); pointer-events: none; }
+  .ryztor-contact__field-icon--textarea { bottom: auto; top: 42px; }
+  .ryztor-contact__field-icon svg { width: 100%; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .ryztor-contact__submit { min-height: 58px; padding: 13px 18px 13px 23px; display: flex; align-items: center; justify-content: space-between; border: 0; border-radius: 15px; background: var(--contact-purple); color: #fff; cursor: pointer; font: inherit; font-size: .82rem; font-weight: 850; letter-spacing: .09em; transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease; }
+  .ryztor-contact__submit svg { width: 24px; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .ryztor-contact__submit:hover { transform: translateY(-2px); background: #4f17db; box-shadow: 0 12px 25px rgb(100 38 255 / 26%); }
+  .ryztor-contact__privacy { margin: -4px 0 0; color: rgb(18 18 18 / 46%); font-size: .7rem; line-height: 1.45; text-align: center; }
+  .ryztor-contact__notice { display: flex; gap: 12px; align-items: flex-start; padding: 14px; border-radius: 13px; font-size: .83rem; }
+  .ryztor-contact__notice svg { width: 22px; flex: 0 0 22px; }
+  .ryztor-contact__notice div { display: grid; gap: 2px; }
+  .ryztor-contact__notice--success { background: #effbdc; color: #244006; }
+  .ryztor-contact__notice--error { background: #fff0ef; color: #8e1a13; }
+  @media screen and (max-width: 989px) { .ryztor-contact__shell { grid-template-columns: 1fr; } .ryztor-contact__panel { position: static; } }
+  @media screen and (max-width: 599px) { .ryztor-contact { padding-inline: 18px; } .ryztor-contact__intro h1 { font-size: clamp(3rem, 17vw, 5rem); } .ryztor-contact__row { grid-template-columns: 1fr; } .ryztor-contact__panel { padding: 24px 18px; border-radius: 22px; } }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "RYZTOR contact",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "CONTACT RYZTOR" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "LET'S TALK <em>WELLNESS.</em>" },
+    { "type": "richtext", "id": "description", "label": "Description", "default": "<p>Questions about Berberine, Magnesium Glycinate, Creatine or your order? Send us a note. Clear answers and real support are part of a better routine.</p>" },
+    { "type": "image_picker", "id": "image", "label": "Product or lifestyle image" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#f8f6ff" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#121212" },
+    { "type": "color", "id": "accent", "label": "Accent", "default": "#e4fe39" },
+    { "type": "color", "id": "secondary", "label": "Secondary", "default": "#6426ff" }
+  ],
+  "presets": [{ "name": "RYZTOR contact" }]
+}
+{% endschema %}

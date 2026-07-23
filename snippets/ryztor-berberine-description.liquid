@@ -1,0 +1,82 @@
+{% liquid
+  assign normalized_title = product_resource.title | downcase
+%}
+
+{% if normalized_title contains 'berber' %}
+  <div class="ryztor-media-description">
+    <h2>Description</h2>
+
+    <p>
+      Berberine capsules offer a convenient way to support your everyday well-being with just two capsules a day.
+      This formula is designed to help maintain normal blood sugar levels, promote cardiovascular wellness, and
+      support healthy weight management.*
+    </p>
+
+    <p>
+      Each serving contains Granular Berberine Hydrochloride Extract, a plant-derived compound commonly used to
+      support normal metabolic function and balance within the body.*
+    </p>
+
+    <p>
+      Berberine is also recognized for its role in heart-conscious wellness. By supporting normal cholesterol
+      levels and healthy heart function, it can complement a balanced daily lifestyle.*
+    </p>
+
+    <p>
+      For people focused on weight management, Berberine supports the body's normal metabolism and can help you
+      stay consistent with a broader wellness routine.*
+    </p>
+
+    <ul>
+      <li>Supports normal blood sugar levels*</li>
+      <li>Supports cardiovascular and heart wellness*</li>
+      <li>Supports healthy metabolism and weight management*</li>
+      <li>Two capsules daily · 60 capsules per bottle</li>
+      <li>Gluten-free, non-GMO, vegetarian, and vegan friendly</li>
+    </ul>
+
+    <p>
+      Supplements work best alongside balanced nutrition, regular exercise, hydration, and quality sleep.
+      Individual experiences may vary.
+    </p>
+  </div>
+{% endif %}
+
+{% stylesheet %}
+  .ryztor-media-description {
+    margin-top: 34px;
+    color: rgb(23 21 30 / 76%);
+    font-size: .88rem;
+    line-height: 1.7;
+  }
+
+  .ryztor-media-description h2 {
+    margin: 0 0 16px;
+    color: #17151e;
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: -.015em;
+    line-height: 1.2;
+  }
+
+  .ryztor-media-description p {
+    margin: 0 0 16px;
+  }
+
+  .ryztor-media-description ul {
+    display: grid;
+    gap: 6px;
+    margin: 4px 0 18px;
+    padding-left: 18px;
+  }
+
+  .ryztor-media-description li {
+    padding-left: 2px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ryztor-media-description {
+      margin: 28px 16px 0;
+    }
+  }
+{% endstylesheet %}

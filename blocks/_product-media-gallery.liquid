@@ -8,6 +8,10 @@
   section: section
 %}
 
+{% if request.page_type == 'product' %}
+  {% render 'ryztor-berberine-description', product_resource: closest.product %}
+{% endif %}
+
 {% schema %}
 {
   "name": "t:names.product_media",

@@ -144,13 +144,14 @@
     background: linear-gradient(145deg, #f3efff 0%, #eefbdc 100%);
   }
 
-  .section-resource-list--ryztor-showcase :is(.product-card__content h3, .product-card__content h4, .product-card__content .product-title) {
+  .section-resource-list--ryztor-showcase :is(.product-card__content h3, .product-card__content h4, .product-card__content [role='heading']) {
     margin-top: 6px;
     padding-inline: 10px;
-    font-size: clamp(1rem, 1.35vw, 1.3rem);
-    font-weight: 750;
-    line-height: 1.15;
-    letter-spacing: -0.025em;
+    font-size: clamp(1.25rem, 1.8vw, 1.75rem);
+    font-weight: 820;
+    line-height: 1;
+    letter-spacing: -0.045em;
+    text-transform: uppercase;
   }
 
   .section-resource-list--ryztor-showcase .product-card__content product-price,
@@ -158,6 +159,11 @@
     padding-inline: 10px;
     color: #6426ff;
     font-weight: 800;
+  }
+
+  .section-resource-list--ryztor-showcase .product-card__content product-price {
+    font-size: 1.08rem;
+    letter-spacing: -0.02em;
   }
 
   @media (hover: hover) {

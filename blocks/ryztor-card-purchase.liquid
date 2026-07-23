@@ -1,0 +1,226 @@
+{% liquid
+  assign product = closest.product
+  assign variant = product.selected_or_first_available_variant
+  assign can_add_to_cart = false
+  assign button_text = block.settings.button_label
+
+  if variant != blank and variant.available
+    assign can_add_to_cart = true
+  elsif variant != blank
+    assign button_text = 'products.product.sold_out' | t
+  else
+    assign button_text = 'products.product.unavailable' | t
+  endif
+
+  assign form_id = 'RYZTORCardForm-' | append: section.id | append: '-' | append: product.id
+  assign button_id = 'RYZTORCardSubmit-' | append: section.id | append: '-' | append: product.id
+  assign minimum_quantity = variant.quantity_rule.min | default: 1
+%}
+
+{% if product != blank %}
+  <div class="ryztor-card-purchase" {{ block.shopify_attributes }}>
+    <span class="ryztor-card-purchase__label">{{ block.settings.quantity_label }}</span>
+    <product-form-component
+      data-section-id="{{ section.id }}"
+      data-product-id="{{ product.id }}"
+      data-product-url="{{ product.url }}"
+      data-quantity-default="{{ minimum_quantity }}"
+      data-quantity-error-max="{{ 'products.product.quantity_error_max' | t }}"
+      on:submit="/handleSubmit"
+    >
+      <div class="visually-hidden" aria-live="assertive" role="status" aria-atomic="true" ref="liveRegion"></div>
+
+      {% form 'product', product, id: form_id, data-type: 'add-to-cart-form' %}
+        <input type="hidden" name="id" ref="variantId" value="{{ variant.id }}">
+
+        <div class="ryztor-card-purchase__controls" ref="productFormButtons">
+          {% if block.settings.show_quantity %}
+            {% render 'quantity-selector', product: product, block: block %}
+          {% endif %}
+
+          {% render 'add-to-cart-button',
+            id: button_id,
+            class: 'ryztor-card-purchase__button',
+            can_add_to_cart: can_add_to_cart,
+            product: product,
+            add_to_cart_text: button_text,
+            data_testid: 'ryztor-card-add-to-cart'
+          %}
+        </div>
+
+        <span class="ryztor-card-purchase__error hidden" ref="addToCartTextError">
+          {{ 'icon-error.svg' | inline_asset_content }}
+        </span>
+      {% endform %}
+    </product-form-component>
+  </div>
+{% endif %}
+
+{% stylesheet %}
+  .ryztor-card-purchase {
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    margin-top: 8px;
+    padding: 14px 10px 0;
+    border-top: 1px solid rgb(100 38 255 / 11%);
+    cursor: default;
+  }
+
+  .ryztor-card-purchase__label {
+    display: block;
+    margin-bottom: 8px;
+    color: rgb(18 18 18 / 50%);
+    font-size: .62rem;
+    font-weight: 800;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+  }
+
+  .ryztor-card-purchase__controls {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 9px;
+    align-items: center;
+  }
+
+  .ryztor-card-purchase .quantity-selector-wrapper {
+    display: block;
+  }
+
+  .ryztor-card-purchase .quantity-selector {
+    display: grid;
+    grid-template-columns: 35px 35px 35px;
+    width: 105px;
+    height: 48px;
+    overflow: hidden;
+    border: 1px solid rgb(100 38 255 / 20%);
+    border-radius: 13px;
+    background: #f7f4ff;
+  }
+
+  .ryztor-card-purchase .quantity-selector button,
+  .ryztor-card-purchase .quantity-selector input {
+    width: 35px;
+    min-width: 0;
+    height: 46px;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #121212;
+    text-align: center;
+  }
+
+  .ryztor-card-purchase .quantity-selector button {
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+  }
+
+  .ryztor-card-purchase .quantity-selector button:hover:not(:disabled) {
+    background: #e9e0ff;
+    color: #6426ff;
+  }
+
+  .ryztor-card-purchase .quantity-selector button:disabled {
+    opacity: .32;
+    cursor: not-allowed;
+  }
+
+  .ryztor-card-purchase .quantity-selector input {
+    appearance: textfield;
+    font-size: .88rem;
+    font-weight: 800;
+  }
+
+  .ryztor-card-purchase .quantity-selector input::-webkit-inner-spin-button,
+  .ryztor-card-purchase .quantity-selector input::-webkit-outer-spin-button {
+    margin: 0;
+    appearance: none;
+  }
+
+  .ryztor-card-purchase add-to-cart-component {
+    min-width: 0;
+  }
+
+  .ryztor-card-purchase .ryztor-card-purchase__button {
+    width: 100%;
+    min-width: 0;
+    height: 48px;
+    min-height: 48px;
+    padding: 0 14px;
+    border: 1px solid #6426ff;
+    border-radius: 13px;
+    background: #6426ff;
+    color: #fff;
+    font-size: .72rem;
+    font-weight: 850;
+    letter-spacing: .055em;
+    line-height: 1;
+    text-transform: uppercase;
+    transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+  }
+
+  .ryztor-card-purchase .ryztor-card-purchase__button .add-to-cart-icon {
+    width: 18px;
+  }
+
+  .ryztor-card-purchase .ryztor-card-purchase__button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    background: #4f17db;
+    box-shadow: 0 9px 20px rgb(100 38 255 / 24%);
+  }
+
+  .ryztor-card-purchase .ryztor-card-purchase__button:disabled {
+    border-color: #d8d4df;
+    background: #e9e6ed;
+    color: #77717e;
+  }
+
+  .ryztor-card-purchase__error {
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+    color: #a32020;
+    font-size: .72rem;
+  }
+
+  .ryztor-card-purchase__error:not(.hidden) {
+    display: flex;
+  }
+
+  .ryztor-card-purchase__error svg {
+    width: 17px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ryztor-card-purchase__controls {
+      grid-template-columns: 1fr;
+    }
+
+    .ryztor-card-purchase .quantity-selector {
+      grid-template-columns: 1fr 1fr 1fr;
+      width: 100%;
+    }
+
+    .ryztor-card-purchase .quantity-selector button,
+    .ryztor-card-purchase .quantity-selector input {
+      width: 100%;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "RYZTOR card purchase",
+  "tag": null,
+  "settings": [
+    { "type": "text", "id": "quantity_label", "label": "Quantity label", "default": "SELECT QUANTITY" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "ADD TO CART" },
+    { "type": "checkbox", "id": "show_quantity", "label": "Show quantity selector", "default": true }
+  ],
+  "presets": [{ "name": "RYZTOR card purchase" }]
+}
+{% endschema %}

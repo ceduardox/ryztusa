@@ -302,12 +302,22 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "ryztor_card_purchase": {
+              "type": "ryztor-card-purchase",
+              "settings": {
+                "quantity_label": "SELECT QUANTITY",
+                "button_label": "ADD TO CART",
+                "show_quantity": true
+              },
+              "blocks": {}
             }
           },
           "block_order": [
             "product_card_gallery_677WP3",
             "product_title_YXxMTj",
-            "price_JQzVV4"
+            "price_JQzVV4",
+            "ryztor_card_purchase"
           ]
         }
       },

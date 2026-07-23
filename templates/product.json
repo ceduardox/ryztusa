@@ -191,6 +191,14 @@
               },
               "blocks": {}
             },
+            "berberine_summary": {
+              "type": "custom-liquid",
+              "name": "Berberine quick summary",
+              "settings": {
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'berber' %}<div class=\"ryztor-product-summary\"><p><strong>Daily metabolic support in two capsules.</strong> Designed to support normal blood sugar, cardiovascular wellness, and healthy weight management as part of a balanced lifestyle.*</p><div class=\"ryztor-product-summary__tags\"><span>60 capsules</span><span>30-day supply</span><span>Made in USA</span><span>Vegan friendly</span></div></div>{% endif %}"
+              },
+              "blocks": {}
+            },
             "variant_picker_R3rGDr": {
               "type": "variant-picker",
               "settings": {
@@ -302,6 +310,7 @@
           },
           "block_order": [
             "group_icgrde",
+            "berberine_summary",
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",

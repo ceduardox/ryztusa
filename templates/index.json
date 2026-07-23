@@ -331,6 +331,60 @@
         "padding-block-start": 72,
         "padding-block-end": 72
       }
+    },
+    "ryztor_routine_guide": {
+      "type": "ryztor-routine-guide",
+      "blocks": {
+        "routine_berberine": {
+          "type": "routine",
+          "settings": {
+            "routine": "morning",
+            "time_label": "MORNING ROUTINE",
+            "short_label": "BERBERINE",
+            "kicker": "METABOLIC ROUTINE",
+            "title": "Berberine",
+            "text": "<p>A focused option for people building a consistent daily wellness routine.</p>",
+            "button_label": "EXPLORE FORMULA"
+          }
+        },
+        "routine_creatine": {
+          "type": "routine",
+          "settings": {
+            "routine": "training",
+            "time_label": "TRAINING ROUTINE",
+            "short_label": "CREATINE",
+            "kicker": "PERFORMANCE ROUTINE",
+            "title": "Creatine",
+            "text": "<p>A familiar training essential for people who value strength and consistency.</p>",
+            "button_label": "EXPLORE FORMULA"
+          }
+        },
+        "routine_magnesium": {
+          "type": "routine",
+          "settings": {
+            "routine": "evening",
+            "time_label": "EVENING ROUTINE",
+            "short_label": "MAGNESIUM",
+            "kicker": "EVENING ROUTINE",
+            "title": "Magnesium Glycinate",
+            "text": "<p>A simple formula designed to fit naturally into the end of your day.</p>",
+            "button_label": "EXPLORE FORMULA"
+          }
+        }
+      },
+      "block_order": ["routine_berberine", "routine_creatine", "routine_magnesium"],
+      "settings": {
+        "eyebrow": "CHOOSE YOUR ROUTINE",
+        "heading": "ONE GOAL. ONE <em>FOCUSED</em> FORMULA.",
+        "description": "<p>Different days call for different support. Start with the formula that best fits your routine and follow the directions on its label.</p>",
+        "note": "Not sure where to begin? Explore each formula and always follow its label directions.",
+        "button_label": "VIEW ALL PRODUCTS",
+        "button_link": "shopify://collections/all",
+        "background": "#f8f6ff",
+        "text_color": "#121212",
+        "accent": "#e4fe39",
+        "secondary": "#6426ff"
+      }
     }
   },
   "order": [
@@ -338,6 +392,7 @@
     "ryztor_hero",
     "ryztor_brand_pillars",
     "product_list_fa6P9H",
+    "ryztor_routine_guide",
     "ryztor_comparison"
   ]
 }

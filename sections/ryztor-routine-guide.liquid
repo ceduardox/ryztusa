@@ -1,0 +1,473 @@
+{% liquid
+  assign all_products_collection = collections.all
+%}
+
+<section
+  class="ryztor-routine"
+  style="
+    --routine-bg: {{ section.settings.background }};
+    --routine-text: {{ section.settings.text_color }};
+    --routine-accent: {{ section.settings.accent }};
+    --routine-purple: {{ section.settings.secondary }};
+  "
+>
+  <div class="ryztor-routine__shell">
+    <header class="ryztor-routine__header">
+      <div>
+        <p class="ryztor-routine__eyebrow">{{ section.settings.eyebrow }}</p>
+        <h2>{{ section.settings.heading }}</h2>
+      </div>
+      <div class="ryztor-routine__intro rte">{{ section.settings.description }}</div>
+    </header>
+
+    <div class="ryztor-routine__grid">
+      {% for block in section.blocks %}
+        {% liquid
+          assign routine_product = block.settings.product
+          if routine_product == blank
+            assign product_index = forloop.index0
+            assign routine_product = all_products_collection.products[product_index]
+          endif
+
+          assign routine_image = block.settings.image
+          if routine_image == blank and routine_product != blank
+            assign routine_image = routine_product.featured_image
+          endif
+
+          assign routine_link = block.settings.link
+          if routine_link == blank and routine_product != blank
+            assign routine_link = routine_product.url
+          endif
+          if routine_link == blank
+            assign routine_link = routes.all_products_collection_url
+          endif
+        %}
+
+        <article
+          class="ryztor-routine__card ryztor-routine__card--{{ block.settings.routine }}"
+          {{ block.shopify_attributes }}
+        >
+          <a class="ryztor-routine__card-link" href="{{ routine_link }}" aria-label="Explore {{ block.settings.title | escape }}"></a>
+
+          <div class="ryztor-routine__media">
+            {% if routine_image != blank %}
+              {{
+                routine_image
+                | image_url: width: 900
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '360, 540, 720, 900',
+                  sizes: '(min-width: 990px) 30vw, (min-width: 650px) 46vw, 100vw',
+                  class: 'ryztor-routine__image'
+              }}
+            {% else %}
+              <div class="ryztor-routine__placeholder" aria-hidden="true">
+                <span>RYZTOR</span>
+                <strong>{{ block.settings.short_label }}</strong>
+              </div>
+            {% endif %}
+
+            <span class="ryztor-routine__time">
+              {% case block.settings.routine %}
+                {% when 'morning' %}
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.9 4.9 7 7M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"/></svg>
+                {% when 'training' %}
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 9v6M6 7v10M9 10v4M15 10v4M18 7v10M21 9v6M9 12h6"/></svg>
+                {% else %}
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19.5 15.5A8.5 8.5 0 0 1 8.5 4.5a8.5 8.5 0 1 0 11 11Z"/></svg>
+              {% endcase %}
+              {{ block.settings.time_label }}
+            </span>
+          </div>
+
+          <div class="ryztor-routine__content">
+            <div class="ryztor-routine__number">0{{ forloop.index }}</div>
+            <div class="ryztor-routine__copy">
+              <p>{{ block.settings.kicker }}</p>
+              <h3>{{ block.settings.title }}</h3>
+              <div class="rte">{{ block.settings.text }}</div>
+              <span class="ryztor-routine__cta">
+                {{ block.settings.button_label }}
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg>
+              </span>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    <footer class="ryztor-routine__footer">
+      <span>{{ section.settings.note }}</span>
+      {% if section.settings.button_label != blank %}
+        <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">
+          {{ section.settings.button_label }}
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg>
+        </a>
+      {% endif %}
+    </footer>
+  </div>
+</section>
+
+{% stylesheet %}
+  .ryztor-routine {
+    padding: clamp(64px, 9vw, 118px) var(--page-margin);
+    background: var(--routine-bg);
+    color: var(--routine-text);
+  }
+
+  .ryztor-routine__shell {
+    width: min(1280px, 100%);
+    margin: 0 auto;
+  }
+
+  .ryztor-routine__header {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
+    gap: clamp(30px, 6vw, 90px);
+    align-items: end;
+    margin-bottom: clamp(35px, 5vw, 64px);
+  }
+
+  .ryztor-routine__eyebrow {
+    display: inline-flex;
+    margin: 0 0 18px;
+    padding: 8px 13px;
+    border-radius: 999px;
+    background: var(--routine-accent);
+    color: #121212;
+    font-size: .72rem;
+    font-weight: 850;
+    letter-spacing: .12em;
+    line-height: 1;
+  }
+
+  .ryztor-routine__header h2 {
+    max-width: 880px;
+    margin: 0;
+    font-size: clamp(3rem, 7vw, 7rem);
+    font-weight: 850;
+    line-height: .86;
+    letter-spacing: -.075em;
+    text-transform: uppercase;
+  }
+
+  .ryztor-routine__header h2 em {
+    color: var(--routine-purple);
+    font-style: normal;
+  }
+
+  .ryztor-routine__intro {
+    padding-bottom: 6px;
+    color: rgb(18 18 18 / 66%);
+    font-size: clamp(.98rem, 1.3vw, 1.12rem);
+    line-height: 1.65;
+  }
+
+  .ryztor-routine__intro p {
+    margin: 0;
+  }
+
+  .ryztor-routine__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(14px, 2vw, 24px);
+  }
+
+  .ryztor-routine__card {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgb(100 38 255 / 13%);
+    border-radius: 28px;
+    background: #fff;
+    box-shadow: 0 12px 35px rgb(48 24 95 / 8%);
+    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  }
+
+  .ryztor-routine__card-link {
+    position: absolute;
+    z-index: 3;
+    inset: 0;
+  }
+
+  .ryztor-routine__media {
+    position: relative;
+    min-height: 330px;
+    overflow: hidden;
+    margin: 10px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #f1ecff, #f5ffd8);
+  }
+
+  .ryztor-routine__card--training .ryztor-routine__media {
+    background: linear-gradient(145deg, #e9e0ff, #d8c9ff);
+  }
+
+  .ryztor-routine__card--evening .ryztor-routine__media {
+    background: linear-gradient(145deg, #32106f, #6e35f6);
+  }
+
+  .ryztor-routine__image {
+    width: 100%;
+    height: 100%;
+    min-height: 330px;
+    display: block;
+    object-fit: cover;
+    transition: transform 350ms ease;
+  }
+
+  .ryztor-routine__placeholder {
+    min-height: 330px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: radial-gradient(circle at 80% 20%, var(--routine-accent) 0 9%, transparent 9.5%);
+    color: var(--routine-purple);
+  }
+
+  .ryztor-routine__card--evening .ryztor-routine__placeholder {
+    color: #fff;
+  }
+
+  .ryztor-routine__placeholder span {
+    font-size: .72rem;
+    font-weight: 850;
+    letter-spacing: .16em;
+  }
+
+  .ryztor-routine__placeholder strong {
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
+    line-height: .85;
+    letter-spacing: -.06em;
+    text-transform: uppercase;
+  }
+
+  .ryztor-routine__time {
+    position: absolute;
+    z-index: 2;
+    top: 15px;
+    left: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 12px;
+    border-radius: 999px;
+    background: rgb(255 255 255 / 90%);
+    color: #121212;
+    backdrop-filter: blur(8px);
+    font-size: .68rem;
+    font-weight: 850;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+  }
+
+  .ryztor-routine__time svg {
+    width: 17px;
+    stroke: var(--routine-purple);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .ryztor-routine__content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    padding: 17px 20px 24px;
+  }
+
+  .ryztor-routine__number {
+    padding-top: 4px;
+    color: var(--routine-purple);
+    font-size: .7rem;
+    font-weight: 850;
+    letter-spacing: .08em;
+  }
+
+  .ryztor-routine__copy > p {
+    margin: 0 0 7px;
+    color: var(--routine-purple);
+    font-size: .67rem;
+    font-weight: 850;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+  }
+
+  .ryztor-routine__copy h3 {
+    margin: 0;
+    font-size: clamp(1.55rem, 2.3vw, 2.35rem);
+    font-weight: 800;
+    line-height: .98;
+    letter-spacing: -.05em;
+  }
+
+  .ryztor-routine__copy .rte {
+    min-height: 78px;
+    margin-top: 13px;
+    color: rgb(18 18 18 / 62%);
+    font-size: .88rem;
+    line-height: 1.5;
+  }
+
+  .ryztor-routine__copy .rte p {
+    margin: 0;
+  }
+
+  .ryztor-routine__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 17px;
+    color: #121212;
+    font-size: .73rem;
+    font-weight: 850;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .ryztor-routine__cta svg,
+  .ryztor-routine__footer a svg {
+    width: 20px;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 180ms ease;
+  }
+
+  .ryztor-routine__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid rgb(100 38 255 / 14%);
+    color: rgb(18 18 18 / 55%);
+    font-size: .77rem;
+  }
+
+  .ryztor-routine__footer a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--routine-purple);
+    font-weight: 850;
+    letter-spacing: .07em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  @media (hover: hover) {
+    .ryztor-routine__card:hover {
+      transform: translateY(-7px);
+      border-color: rgb(100 38 255 / 34%);
+      box-shadow: 0 24px 55px rgb(48 24 95 / 14%);
+    }
+
+    .ryztor-routine__card:hover .ryztor-routine__image {
+      transform: scale(1.035);
+    }
+
+    .ryztor-routine__card:hover .ryztor-routine__cta svg,
+    .ryztor-routine__footer a:hover svg {
+      transform: translateX(4px);
+    }
+  }
+
+  @media screen and (max-width: 989px) {
+    .ryztor-routine__header {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .ryztor-routine__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ryztor-routine__card:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media screen and (max-width: 649px) {
+    .ryztor-routine {
+      padding-inline: 18px;
+    }
+
+    .ryztor-routine__header h2 {
+      font-size: clamp(3rem, 16vw, 5rem);
+    }
+
+    .ryztor-routine__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .ryztor-routine__card:last-child {
+      grid-column: auto;
+    }
+
+    .ryztor-routine__media,
+    .ryztor-routine__image,
+    .ryztor-routine__placeholder {
+      min-height: 300px;
+    }
+
+    .ryztor-routine__copy .rte {
+      min-height: 0;
+    }
+
+    .ryztor-routine__footer {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "RYZTOR routine guide",
+  "max_blocks": 3,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "CHOOSE YOUR ROUTINE" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "ONE GOAL. ONE <em>FOCUSED</em> FORMULA." },
+    { "type": "richtext", "id": "description", "label": "Description", "default": "<p>Different days call for different support. Start with the formula that best fits your routine and follow the directions on its label.</p>" },
+    { "type": "text", "id": "note", "label": "Small note", "default": "Not sure where to begin? Explore each formula and always follow its label directions." },
+    { "type": "text", "id": "button_label", "label": "Footer link label", "default": "VIEW ALL PRODUCTS" },
+    { "type": "url", "id": "button_link", "label": "Footer link" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#f8f6ff" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#121212" },
+    { "type": "color", "id": "accent", "label": "Accent", "default": "#e4fe39" },
+    { "type": "color", "id": "secondary", "label": "Secondary", "default": "#6426ff" }
+  ],
+  "blocks": [
+    {
+      "type": "routine",
+      "name": "Routine card",
+      "settings": [
+        { "type": "select", "id": "routine", "label": "Routine style", "options": [{ "value": "morning", "label": "Morning" }, { "value": "training", "label": "Training" }, { "value": "evening", "label": "Evening" }], "default": "morning" },
+        { "type": "product", "id": "product", "label": "Product" },
+        { "type": "image_picker", "id": "image", "label": "Custom image" },
+        { "type": "text", "id": "time_label", "label": "Time label", "default": "MORNING ROUTINE" },
+        { "type": "text", "id": "short_label", "label": "Placeholder label", "default": "YOUR ROUTINE" },
+        { "type": "text", "id": "kicker", "label": "Kicker", "default": "DAILY WELLNESS" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Focused formula" },
+        { "type": "richtext", "id": "text", "label": "Description", "default": "<p>A clear supplement designed to fit an everyday routine.</p>" },
+        { "type": "text", "id": "button_label", "label": "Link label", "default": "EXPLORE FORMULA" },
+        { "type": "url", "id": "link", "label": "Custom link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RYZTOR routine guide",
+      "blocks": [
+        { "type": "routine", "settings": { "routine": "morning", "time_label": "MORNING ROUTINE", "short_label": "BERBERINE", "kicker": "METABOLIC ROUTINE", "title": "Berberine", "text": "<p>A focused option for people building a consistent daily wellness routine.</p>" } },
+        { "type": "routine", "settings": { "routine": "training", "time_label": "TRAINING ROUTINE", "short_label": "CREATINE", "kicker": "PERFORMANCE ROUTINE", "title": "Creatine", "text": "<p>A familiar training essential for people who value strength and consistency.</p>" } },
+        { "type": "routine", "settings": { "routine": "evening", "time_label": "EVENING ROUTINE", "short_label": "MAGNESIUM", "kicker": "EVENING ROUTINE", "title": "Magnesium Glycinate", "text": "<p>A simple formula designed to fit naturally into the end of your day.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

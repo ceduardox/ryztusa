@@ -55,6 +55,63 @@
       </div>
     </div>
 
+    <div class="ryztor-berberine__section ryztor-berberine__video">
+      <header class="ryztor-berberine__section-heading">
+        <p class="ryztor-berberine__eyebrow">See it in action</p>
+        <h2>Watch how RYZTOR fits your day.</h2>
+      </header>
+      <div class="ryztor-berberine__video-grid">
+        <div class="ryztor-berberine__video-card">
+          <div class="ryztor-berberine__video-player" data-video="PROMO1">
+            <img src="{{ 'PROMO1-poster.jpg' | asset_url }}" alt="RYZTOR Berberine promo" loading="lazy" width="360" height="640">
+            <button class="ryztor-berberine__video-play" aria-label="Play video">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <video preload="none" playsinline width="360" height="640">
+              <source src="{{ 'PROMO1.mp4' | asset_url }}" type="video/mp4">
+            </video>
+          </div>
+          <p class="ryztor-berberine__video-label">Why Berberine?</p>
+        </div>
+        <div class="ryztor-berberine__video-card">
+          <div class="ryztor-berberine__video-player" data-video="PROMO2">
+            <img src="{{ 'PROMO2-poster.jpg' | asset_url }}" alt="RYZTOR Berberine overview" loading="lazy" width="360" height="640">
+            <button class="ryztor-berberine__video-play" aria-label="Play video">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <video preload="none" playsinline width="360" height="640">
+              <source src="{{ 'PROMO2.mp4' | asset_url }}" type="video/mp4">
+            </video>
+          </div>
+          <p class="ryztor-berberine__video-label">How to use</p>
+        </div>
+        <div class="ryztor-berberine__video-card">
+          <div class="ryztor-berberine__video-player" data-video="UGC1">
+            <img src="{{ 'UGC1-poster.jpg' | asset_url }}" alt="Customer experience" loading="lazy" width="360" height="640">
+            <button class="ryztor-berberine__video-play" aria-label="Play video">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <video preload="none" playsinline width="360" height="640">
+              <source src="{{ 'UGC1.mp4' | asset_url }}" type="video/mp4">
+            </video>
+          </div>
+          <p class="ryztor-berberine__video-label">Real customer</p>
+        </div>
+        <div class="ryztor-berberine__video-card">
+          <div class="ryztor-berberine__video-player" data-video="UGC2">
+            <img src="{{ 'UGC2-poster.jpg' | asset_url }}" alt="Customer review" loading="lazy" width="360" height="640">
+            <button class="ryztor-berberine__video-play" aria-label="Play video">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <video preload="none" playsinline width="360" height="640">
+              <source src="{{ 'UGC2.mp4' | asset_url }}" type="video/mp4">
+            </video>
+          </div>
+          <p class="ryztor-berberine__video-label">My routine</p>
+        </div>
+      </div>
+    </div>
+
     <div class="ryztor-berberine__section ryztor-berberine__benefits">
       <header class="ryztor-berberine__section-heading">
         <p class="ryztor-berberine__eyebrow">Everyday metabolic wellness</p>
@@ -329,11 +386,22 @@
 
     .ryztor-berberine__benefits,
     .ryztor-berberine__comparison,
-    .ryztor-berberine__reviews,
+    .ryztor-berberine__reviews {
+      width: 100%;
+      max-width: none;
+      padding-inline: max(16px, calc((100vw - 1180px) / 2));
+    }
+
     .ryztor-berberine__faq {
       width: 100%;
       max-width: none;
       padding-inline: max(16px, calc((100vw - 1180px) / 2));
+      text-align: center;
+    }
+
+    .ryztor-berberine__faq .ryztor-berberine__section-heading {
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .ryztor-berberine__benefits,
@@ -376,7 +444,7 @@
     .ryztor-berberine__review footer i { width: 18px; height: 18px; display: inline-grid; place-items: center; margin-right: 4px; border-radius: 50%; background: var(--rb-accent); color: #fff; font-style: normal; }
     .ryztor-berberine__review--placeholder { border-style: dashed; opacity: .72; }
 
-    .ryztor-berberine__faq-list { max-width: 900px; }
+    .ryztor-berberine__faq-list { max-width: 900px; margin: 0 auto; text-align: left; }
     .ryztor-berberine__faq details { border-top: 1px solid rgb(23 21 30 / 14%); }
     .ryztor-berberine__faq details:last-child { border-bottom: 1px solid rgb(23 21 30 / 14%); }
     .ryztor-berberine__faq summary { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 18px 0; cursor: pointer; font-size: 1.08rem; font-weight: 800; list-style: none; }
@@ -439,7 +507,80 @@
       box-shadow: none;
     }
 
+    body:has(.ryztor-berberine) .product-information p:has(img) {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    body:has(.ryztor-berberine) .product-information img[src*="sanity.io"] {
+      height: 6rem;
+      width: auto;
+      object-fit: contain;
+    }
+
+    body:has(.ryztor-berberine) .product-information [ref="priceContainer"],
+    body:has(.ryztor-berberine) .product-information .price-container,
+    body:has(.ryztor-berberine) .product-information div:has(.price-item__group) {
+      display: flex !important;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: nowrap;
+    }
+
+    body:has(.ryztor-berberine) .product-information .price-item__group {
+      display: inline-flex !important;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    body:has(.ryztor-berberine) .product-information .price-item__group.price {
+      color: #e53e3e;
+      font-size: 1.6rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    body:has(.ryztor-berberine) .product-information .price-item__group.price-item--regular {
+      color: rgb(23 21 30 / 40%);
+      text-decoration: line-through;
+      font-size: 1.6rem;
+      font-weight: 400;
+    }
+
+    body:has(.ryztor-berberine) .product-information .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+    }
+
     body:has(.ryztor-berberine) .product-information .text-block--text_aEtTtq { display: none; }
+
+    body:has(.ryztor-berberine) .ryztor-savings {
+      display: inline-flex !important;
+      align-items: center;
+      gap: 4px;
+      margin-left: 8px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: color-mix(in srgb, #7652f5 10%, white);
+      color: #7652f5;
+      font-size: 0.78rem;
+      font-weight: 700;
+      vertical-align: middle;
+    }
+
+    body:has(.ryztor-berberine) .product-information .custom-liquid:has(.ryztor-savings) {
+      display: inline !important;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-savings strong {
+      font-weight: 900;
+    }
 
     .ryztor-product-summary {
       display: grid;
@@ -533,7 +674,271 @@
         --thumbnail-width: 68px !important;
       }
     }
+
+    body:has(.ryztor-berberine) .ryztor-rating {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 0 4px;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-rating__stars {
+      color: #7652f5;
+      font-size: 0.92rem;
+      letter-spacing: 1px;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-rating__score {
+      color: #17151e;
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-rating__count {
+      color: rgb(23 21 30 / 55%);
+      font-size: 0.82rem;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-guarantee {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 14px 0 0;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-guarantee__badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #17151e;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-guarantee__badge svg {
+      color: #7652f5;
+      flex-shrink: 0;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-guarantee__shipping {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #17151e;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-guarantee__shipping svg {
+      color: #7652f5;
+      flex-shrink: 0;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-guarantee__payments {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-guarantee__payments .icon {
+      height: 22px;
+      width: auto;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-subscribe {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 1px solid color-mix(in srgb, #7652f5 25%, transparent);
+      border-radius: 10px;
+      background: color-mix(in srgb, #7652f5 6%, white);
+    }
+
+    body:has(.ryztor-berberine) .ryztor-subscribe__badge {
+      flex-shrink: 0;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: #7652f5;
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-subscribe__copy {
+      color: rgb(23 21 30 / 72%);
+      font-size: 0.82rem;
+      line-height: 1.4;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-subscribe__copy strong {
+      color: #17151e;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-stock {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 0 0;
+      font-size: 0.82rem;
+      color: rgb(23 21 30 / 70%);
+    }
+
+    body:has(.ryztor-berberine) .ryztor-stock__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #e53e3e;
+      flex-shrink: 0;
+      animation: ryztor-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes ryztor-pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    body:has(.ryztor-berberine) .ryztor-stock--out {
+      color: #e53e3e;
+      font-weight: 700;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-berberine__video {
+      width: 100%;
+      max-width: none;
+      padding-inline: max(16px, calc((100vw - 1180px) / 2));
+      padding-block: clamp(32px, 5vw, 60px);
+      text-align: center;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-berberine__video .ryztor-berberine__section-heading {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-berberine__video-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-berberine__video-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-berberine__video-player {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 9 / 16;
+      background: #000;
+      cursor: pointer;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-berberine__video-player img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-berberine__video-player video {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-berberine__video-player.is-playing img {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-berberine__video-player.is-playing video {
+      display: block;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-berberine__video-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px;
+      height: 64px;
+      display: grid;
+      place-items: center;
+      border: none;
+      border-radius: 50%;
+      background: rgba(118, 82, 245, 0.9);
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+      z-index: 2;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-berberine__video-play:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+      background: #7652f5;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-berberine__video-player.is-playing .ryztor-berberine__video-play {
+      display: none;
+    }
+
+    body:has(.ryztor-berberine) .ryztor-berberine__video-label {
+      margin: 0;
+      color: rgb(23 21 30 / 70%);
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    @media screen and (max-width: 989px) {
+      .ryztor-berberine__video-grid { grid-template-columns: repeat(2, 1fr); max-width: 500px; }
+    }
+
+    @media screen and (max-width: 749px) {
+      .ryztor-berberine__video-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; max-width: 340px; }
+      .ryztor-berberine__video-play { width: 48px; height: 48px; }
+      .ryztor-berberine__video-play svg { width: 32px; height: 32px; }
+      .ryztor-berberine__video-label { font-size: 0.78rem; }
+    }
 {% endstylesheet %}
+
+<script>
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('.ryztor-berberine__video-play');
+    var player = e.target.closest('.ryztor-berberine__video-player');
+    if (!btn && !player) return;
+    var container = player || btn.closest('.ryztor-berberine__video-player');
+    var video = container.querySelector('video');
+    var playBtn = container.querySelector('.ryztor-berberine__video-play');
+    if (!video) return;
+
+    if (video.paused) {
+      container.classList.add('is-playing');
+      playBtn.innerHTML = '<svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+      video.play();
+    } else {
+      video.pause();
+      container.classList.remove('is-playing');
+      playBtn.innerHTML = '<svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+    }
+  });
+</script>
 
 {% schema %}
 {

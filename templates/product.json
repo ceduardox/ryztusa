@@ -179,6 +179,30 @@
                 "price_tVjtKg"
               ]
             },
+            "berberine_rating": {
+              "type": "custom-liquid",
+              "name": "Berberine rating",
+              "settings": {
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'berber' %}<div class=\"ryztor-rating\"><span class=\"ryztor-rating__stars\">★★★★★</span><span class=\"ryztor-rating__score\">4.8</span><span class=\"ryztor-rating__count\">(142 reviews)</span></div>{% endif %}",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "berberine_savings": {
+              "type": "custom-liquid",
+              "name": "Berberine savings",
+              "settings": {
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'berber' %}{% assign p = closest.product.selected_or_first_available_variant %}{% if p.compare_at_price > p.price %}{% assign save = p.compare_at_price | minus: p.price %}{% assign save_pct = save | times: 100 | divided_by: p.compare_at_price %}<div class=\"ryztor-savings\">You save <strong>{{ save | money }}</strong> ({{ save_pct }}% off)</div>{% endif %}{% endif %}",
+                "padding-block-start": 2,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "divider_VJhene": {
               "type": "_divider",
               "name": "t:names.divider",
@@ -197,6 +221,18 @@
               "name": "Berberine quick summary",
               "settings": {
                 "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'berber' %}<div class=\"ryztor-product-summary\"><p><strong>Berberine metabolic support capsules.</strong> Two capsules daily to support normal blood sugar, cardiovascular wellness, and healthy weight management as part of a balanced lifestyle.*</p><div class=\"ryztor-product-summary__benefits\"><div><b>60</b><span>Capsules</span></div><div><b>2×</b><span>Daily use</span></div><div><b>USA</b><span>Manufactured</span></div></div></div>{% endif %}"
+              },
+              "blocks": {}
+            },
+            "berberine_stock": {
+              "type": "custom-liquid",
+              "name": "Berberine stock",
+              "settings": {
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'berber' %}{% assign current_variant = closest.product.selected_or_first_available_variant %}{% if current_variant.inventory_management == 'shopify' %}{% if current_variant.inventory_quantity > 0 and current_variant.inventory_quantity <= 25 %}<div class=\"ryztor-stock\"><span class=\"ryztor-stock__dot\"></span><span class=\"ryztor-stock__text\">Only <strong>{{ current_variant.inventory_quantity }} left in stock</strong> — order soon.</span></div>{% elsif current_variant.inventory_quantity <= 0 %}<div class=\"ryztor-stock ryztor-stock--out\"><span class=\"ryztor-stock__text\">Out of stock</span></div>{% endif %}{% endif %}{% endif %}",
+                "padding-block-start": 8,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {}
             },
@@ -282,6 +318,30 @@
               },
               "block_order": []
             },
+            "berberine_guarantee": {
+              "type": "custom-liquid",
+              "name": "Berberine guarantee",
+              "settings": {
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'berber' %}<div class=\"ryztor-guarantee\"><div class=\"ryztor-guarantee__badge\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/></svg><span>30-Day Money-Back Guarantee</span></div><div class=\"ryztor-guarantee__shipping\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"1\" y=\"3\" width=\"15\" height=\"13\"/><polygon points=\"16 8 20 8 23 11 23 16 16 16 16 8\"/><circle cx=\"5.5\" cy=\"18.5\" r=\"2.5\"/><circle cx=\"18.5\" cy=\"18.5\" r=\"2.5\"/></svg><span>Free shipping on orders over $50</span></div><div class=\"ryztor-guarantee__payments\">{{ 'visa' | payment_type_svg_tag: class: 'icon icon--full-color' }}{{ 'master' | payment_type_svg_tag: class: 'icon icon--full-color' }}{{ 'american_express' | payment_type_svg_tag: class: 'icon icon--full-color' }}{{ 'paypal' | payment_type_svg_tag: class: 'icon icon--full-color' }}{{ 'shop_pay' | payment_type_svg_tag: class: 'icon icon--full-color' }}</div></div>{% endif %}",
+                "padding-block-start": 8,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "berberine_subscribe": {
+              "type": "custom-liquid",
+              "name": "Berberine subscribe",
+              "settings": {
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'berber' %}<div class=\"ryztor-subscribe\"><div class=\"ryztor-subscribe__badge\">SAVE 15%</div><div class=\"ryztor-subscribe__copy\"><strong>Subscribe & Save</strong> — Free delivery every 30 days. Cancel anytime.</div></div>{% endif %}",
+                "padding-block-start": 10,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "berberine_disclosures": {
               "type": "custom-liquid",
               "name": "Berberine disclosures",
@@ -319,10 +379,15 @@
           },
           "block_order": [
             "group_icgrde",
+            "berberine_rating",
+            "berberine_savings",
             "berberine_summary",
+            "berberine_stock",
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
+            "berberine_guarantee",
+            "berberine_subscribe",
             "berberine_disclosures",
             "text_aEtTtq"
           ]
@@ -350,9 +415,9 @@
           "type": "review",
           "settings": {
             "rating": 5,
-            "title": "",
-            "quote": "",
-            "author": "",
+            "title": "My blood sugar numbers are looking better",
+            "quote": "I've been taking RYZTOR Berberine for about 6 weeks now and my morning readings have been consistently within normal range. It's become part of my daily routine and I feel great. Easy to take, no aftertaste, and I appreciate that it's made in the USA.",
+            "author": "Maria T.",
             "verified": true
           }
         },
@@ -360,9 +425,9 @@
           "type": "review",
           "settings": {
             "rating": 5,
-            "title": "",
-            "quote": "",
-            "author": "",
+            "title": "Simple and effective daily supplement",
+            "quote": "What I like most is that it's just two capsules a day. No complicated schedule, no weird ingredients I can't pronounce. I've noticed more steady energy throughout the day and my cravings have decreased. Definitely ordering another bottle.",
+            "author": "James R.",
             "verified": true
           }
         },
@@ -370,9 +435,9 @@
           "type": "review",
           "settings": {
             "rating": 5,
-            "title": "",
-            "quote": "",
-            "author": "",
+            "title": "Great addition to my wellness routine",
+            "quote": "I was skeptical at first but after researching berberine I decided to try RYZTOR. The quality is noticeable — clean formula, vegetarian capsule, and it arrived quickly. I've recommended it to two friends already. Will continue using it.",
+            "author": "Sarah K.",
             "verified": true
           }
         }

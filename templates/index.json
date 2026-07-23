@@ -315,20 +315,21 @@
         "collection": "all",
         "layout_type": "grid",
         "carousel_on_mobile": false,
-        "max_products": 4,
-        "columns": 2,
-        "mobile_columns": "2",
+        "max_products": 3,
+        "columns": 3,
+        "mobile_columns": "1",
         "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
+        "columns_gap": 20,
+        "rows_gap": 20,
         "icons_style": "arrow",
         "icons_shape": "none",
         "section_width": "page-width",
         "horizontal_alignment": "flex-start",
         "gap": 28,
         "background_color": "#f8f6ff",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "ryztor_showcase_style": true,
+        "padding-block-start": 72,
+        "padding-block-end": 72
       }
     }
   },

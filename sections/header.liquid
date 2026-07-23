@@ -1068,6 +1068,68 @@
     max-height: 20.5rem;
   }
 
+  /* RYZTOR premium header */
+  #header-component {
+    border-bottom: 1px solid rgb(100 38 255 / 10%);
+    box-shadow: 0 8px 30px rgb(38 20 72 / 6%);
+  }
+
+  #header-component .header__columns {
+    min-height: 72px;
+  }
+
+  #header-component .menu-list__link-title {
+    padding: 10px 13px;
+    border-radius: 999px;
+    font-weight: 750;
+    letter-spacing: 0.045em;
+    text-transform: uppercase;
+    transition: color 180ms ease, background-color 180ms ease, transform 180ms ease;
+  }
+
+  #header-component .menu-list__link--active .menu-list__link-title {
+    color: #121212;
+    background: #e4fe39;
+  }
+
+  #header-component .header-actions__action {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    align-items: center;
+    border: 1px solid rgb(100 38 255 / 12%);
+    border-radius: 50%;
+    background: #f6f2ff;
+    transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+  }
+
+  @media (hover: hover) {
+    #header-component .menu-list .menu-list__list-item:where(:hover, :focus-within) .menu-list__link-title {
+      color: #6426ff;
+      background: #f2edff;
+      transform: translateY(-1px);
+    }
+
+    #header-component .header-actions__action:hover {
+      color: #fff;
+      border-color: #6426ff;
+      background: #6426ff;
+      transform: translateY(-2px);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #header-component .header__columns {
+      min-height: 62px;
+    }
+
+    #header-component .header-actions__action {
+      width: 40px;
+      min-width: 40px;
+      height: 40px;
+    }
+  }
+
   .localization-wrapper {
     position: fixed;
     z-index: var(--layer-raised);

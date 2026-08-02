@@ -1,0 +1,260 @@
+{% liquid
+  assign product_name = product.title | downcase
+  assign gallery_images = 'ryztor-magnesium-review-hand-desk.webp|RYZTOR Magnesium Glycinate held at home@@ryztor-magnesium-review-hand-home.webp|Bottle of RYZTOR Magnesium Glycinate in hand@@ryztor-magnesium-review-hand-outdoor.webp|RYZTOR Magnesium Glycinate held outdoors@@ryztor-magnesium-review-bottle-capsules.webp|Magnesium Glycinate bottle with capsules@@ryztor-magnesium-review-open-capsules.webp|Open Magnesium Glycinate bottle and capsules@@ryztor-magnesium-review-bed-capsules.webp|Magnesium Glycinate beside capsules@@ryztor-magnesium-review-open-bottle.webp|Open bottle of Magnesium Glycinate@@ryztor-magnesium-review-bedside.webp|Magnesium Glycinate as part of an evening routine@@ryztor-magnesium-review-nightstand.webp|Magnesium Glycinate on a nightstand@@ryztor-magnesium-review-desk.webp|Magnesium Glycinate on a desk@@ryztor-magnesium-review-kitchen.webp|Magnesium Glycinate on a kitchen counter@@ryztor-magnesium-review-outdoor-table.webp|Magnesium Glycinate on an outdoor table' | split: '@@'
+%}
+
+{% if product_name contains 'magnesium' %}
+  <section
+    class="ryztor-magnesium-gallery"
+    id="ryztor-magnesium-gallery-{{ section.id }}"
+    data-magnesium-gallery
+    style="--gallery-accent: {{ section.settings.accent }}; --gallery-background: {{ section.settings.background }};"
+  >
+    <div class="ryztor-magnesium-gallery__inner">
+      <header class="ryztor-magnesium-gallery__header">
+        <div>
+          <p>{{ section.settings.eyebrow | escape }}</p>
+          <h2>{{ section.settings.heading | escape }}</h2>
+          <div class="rte">{{ section.settings.text }}</div>
+        </div>
+        <div class="ryztor-magnesium-gallery__controls" aria-label="Gallery controls">
+          <button type="button" data-gallery-previous aria-label="Previous photos">←</button>
+          <button type="button" data-gallery-next aria-label="Next photos">→</button>
+        </div>
+      </header>
+
+      <div class="ryztor-magnesium-gallery__viewport" data-gallery-viewport tabindex="0">
+        <div class="ryztor-magnesium-gallery__track">
+          {% for repeat_index in (1..2) %}
+            {% for image_data in gallery_images %}
+              {% assign image_parts = image_data | split: '|' %}
+              <button
+                type="button"
+                class="ryztor-magnesium-gallery__card"
+                data-gallery-photo
+                data-full-image="{{ image_parts[0] | asset_url }}"
+                data-image-alt="{{ image_parts[1] | escape }}"
+                aria-label="Enlarge {{ image_parts[1] | escape }}"
+                {% if repeat_index == 2 %}aria-hidden="true" tabindex="-1"{% endif %}
+              >
+                <img
+                  src="{{ image_parts[0] | asset_url }}"
+                  alt="{% if repeat_index == 1 %}{{ image_parts[1] | escape }}{% endif %}"
+                  width="896"
+                  height="1200"
+                  loading="lazy"
+                >
+                <span aria-hidden="true">+</span>
+              </button>
+            {% endfor %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="ryztor-magnesium-gallery__progress" aria-hidden="true">
+        <i data-gallery-progress></i>
+      </div>
+    </div>
+
+    <dialog class="ryztor-magnesium-gallery__dialog" data-gallery-dialog aria-label="Expanded Magnesium product photo">
+      <button type="button" class="ryztor-magnesium-gallery__close" data-gallery-close aria-label="Close photo">×</button>
+      <img
+        data-gallery-dialog-image
+        src="{{ 'ryztor-magnesium-review-hand-desk.webp' | asset_url }}"
+        alt="RYZTOR Magnesium Glycinate held at home"
+        width="896"
+        height="1200"
+      >
+    </dialog>
+  </section>
+{% endif %}
+
+{% stylesheet %}
+  .ryztor-magnesium-gallery {
+    padding: clamp(52px, 7vw, 94px) max(18px, calc((100vw - 1400px) / 2));
+    overflow: hidden;
+    background: var(--gallery-background);
+    color: #17151e;
+  }
+
+  .ryztor-magnesium-gallery__inner { width: 100%; max-width: 1400px; margin: 0 auto; }
+  .ryztor-magnesium-gallery__header { width: min(100%, 1180px); display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; margin: 0 auto 34px; }
+  .ryztor-magnesium-gallery__header > div:first-child { max-width: 690px; }
+  .ryztor-magnesium-gallery__header p { margin: 0 0 11px; color: var(--gallery-accent); font-size: .72rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+  .ryztor-magnesium-gallery__header h2 { margin: 0; font-size: clamp(2.15rem, 4.6vw, 4rem); font-weight: 900; letter-spacing: -.045em; line-height: 1.02; }
+  .ryztor-magnesium-gallery__header .rte { margin-top: 17px; color: rgb(23 21 30 / 68%); font-size: 1.02rem; line-height: 1.65; }
+  .ryztor-magnesium-gallery__header .rte p { margin: 0; color: inherit; font: inherit; letter-spacing: normal; text-transform: none; }
+  .ryztor-magnesium-gallery__controls { display: flex; flex: 0 0 auto; gap: 10px; }
+  .ryztor-magnesium-gallery__controls button { width: 46px; height: 46px; display: grid; place-items: center; border: 1px solid rgb(23 21 30 / 14%); border-radius: 50%; background: #fff; color: #17151e; cursor: pointer; font-size: 1.25rem; transition: transform .2s ease, border-color .2s ease, color .2s ease; }
+  .ryztor-magnesium-gallery__controls button:hover { transform: translateY(-2px); border-color: var(--gallery-accent); color: var(--gallery-accent); }
+  .ryztor-magnesium-gallery__controls button:disabled { cursor: default; opacity: .35; transform: none; }
+
+  .ryztor-magnesium-gallery__viewport { width: 100%; overflow-x: auto; overscroll-behavior-inline: contain; scroll-behavior: smooth; scrollbar-width: none; }
+  .ryztor-magnesium-gallery__viewport::-webkit-scrollbar { display: none; }
+  .ryztor-magnesium-gallery__track { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 48px) / 4); gap: 16px; }
+  .ryztor-magnesium-gallery__card { position: relative; aspect-ratio: 3 / 4; padding: 0; overflow: hidden; scroll-snap-align: start; border: 0; border-radius: 22px; background: #eeeaf5; cursor: zoom-in; }
+  .ryztor-magnesium-gallery__card img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .45s ease; }
+  .ryztor-magnesium-gallery__card:hover img { transform: scale(1.035); }
+  .ryztor-magnesium-gallery__card span { position: absolute; right: 13px; bottom: 13px; width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; background: rgb(255 255 255 / 92%); color: var(--gallery-accent); box-shadow: 0 7px 22px rgb(0 0 0 / 15%); font-size: 1.25rem; }
+  .ryztor-magnesium-gallery__card:focus-visible { outline: 3px solid var(--gallery-accent); outline-offset: 3px; }
+
+  .ryztor-magnesium-gallery__progress { width: min(260px, 54vw); height: 3px; margin: 28px auto 0; overflow: hidden; border-radius: 99px; background: rgb(23 21 30 / 10%); }
+  .ryztor-magnesium-gallery__progress i { display: block; width: 25%; height: 100%; border-radius: inherit; background: var(--gallery-accent); transform-origin: left center; transition: transform .15s linear; }
+
+  .ryztor-magnesium-gallery__dialog { width: min(92vw, 700px); max-width: none; padding: 0; overflow: visible; border: 0; border-radius: 22px; background: transparent; box-shadow: 0 30px 90px rgb(0 0 0 / 35%); }
+  .ryztor-magnesium-gallery__dialog::backdrop { background: rgb(13 10 20 / 80%); backdrop-filter: blur(7px); }
+  .ryztor-magnesium-gallery__dialog img { width: 100%; max-height: 88vh; display: block; border-radius: 22px; background: #fff; object-fit: contain; }
+  .ryztor-magnesium-gallery__close { position: absolute; z-index: 2; top: -16px; right: -16px; width: 42px; height: 42px; display: grid; place-items: center; border: 0; border-radius: 50%; background: #fff; color: #17151e; box-shadow: 0 8px 26px rgb(0 0 0 / 24%); cursor: pointer; font-size: 1.5rem; }
+
+  @media screen and (max-width: 989px) {
+    .ryztor-magnesium-gallery__track { grid-auto-columns: calc((100% - 32px) / 3); }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ryztor-magnesium-gallery { padding-inline: 16px; }
+    .ryztor-magnesium-gallery__header { align-items: flex-start; margin-bottom: 24px; }
+    .ryztor-magnesium-gallery__header h2 { font-size: clamp(2rem, 10vw, 3rem); }
+    .ryztor-magnesium-gallery__controls { display: none; }
+    .ryztor-magnesium-gallery__track { grid-auto-columns: 78%; gap: 12px; }
+    .ryztor-magnesium-gallery__card { border-radius: 18px; }
+    .ryztor-magnesium-gallery__close { top: 8px; right: 8px; }
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .ryztor-magnesium-gallery__viewport { scroll-behavior: auto; scroll-snap-type: x mandatory; }
+    .ryztor-magnesium-gallery__card img { transition: none; }
+  }
+{% endstylesheet %}
+
+<script>
+  (() => {
+    const section = document.getElementById('ryztor-magnesium-gallery-{{ section.id }}');
+    if (!section || section.dataset.initialized === 'true') return;
+    section.dataset.initialized = 'true';
+
+    const viewport = section.querySelector('[data-gallery-viewport]');
+    const track = section.querySelector('.ryztor-magnesium-gallery__track');
+    const previous = section.querySelector('[data-gallery-previous]');
+    const next = section.querySelector('[data-gallery-next]');
+    const progress = section.querySelector('[data-gallery-progress]');
+    const dialog = section.querySelector('[data-gallery-dialog]');
+    const dialogImage = section.querySelector('[data-gallery-dialog-image]');
+    const close = section.querySelector('[data-gallery-close]');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let animationFrame;
+    let previousTime = 0;
+    let autoplayPaused = false;
+
+    const cardStep = () => {
+      const card = track.querySelector('.ryztor-magnesium-gallery__card');
+      if (!card) return viewport.clientWidth;
+      return card.getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || 0);
+    };
+
+    const updateControls = () => {
+      const loopWidth = track.scrollWidth / 2;
+      previous.disabled = false;
+      next.disabled = false;
+      const ratio = loopWidth ? (viewport.scrollLeft % loopWidth) / loopWidth : 0;
+      progress.style.transform = `translateX(${ratio * 300}%)`;
+    };
+
+    previous.addEventListener('click', () => viewport.scrollBy({ left: -cardStep(), behavior: 'smooth' }));
+    next.addEventListener('click', () => viewport.scrollBy({ left: cardStep(), behavior: 'smooth' }));
+    viewport.addEventListener('scroll', updateControls, { passive: true });
+    window.addEventListener('resize', updateControls);
+    updateControls();
+
+    const stopAutoplay = () => {
+      autoplayPaused = true;
+      previousTime = 0;
+    };
+
+    const animate = (time) => {
+      if (!reduceMotion && !autoplayPaused) {
+        if (previousTime) {
+          viewport.scrollLeft += ((time - previousTime) / 1000) * 34;
+          const loopWidth = track.scrollWidth / 2;
+          if (loopWidth && viewport.scrollLeft >= loopWidth) viewport.scrollLeft -= loopWidth;
+        }
+        previousTime = time;
+      }
+      animationFrame = window.requestAnimationFrame(animate);
+    };
+
+    const startAutoplay = () => {
+      if (reduceMotion) return;
+      autoplayPaused = false;
+      previousTime = 0;
+    };
+
+    viewport.addEventListener('focusin', stopAutoplay);
+    viewport.addEventListener('focusout', startAutoplay);
+    viewport.addEventListener('pointerdown', stopAutoplay);
+    viewport.addEventListener('pointerup', startAutoplay);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopAutoplay();
+      else startAutoplay();
+    });
+    startAutoplay();
+    animationFrame = window.requestAnimationFrame(animate);
+
+    section.querySelectorAll('[data-gallery-photo]').forEach((button) => {
+      button.addEventListener('click', () => {
+        dialogImage.src = button.dataset.fullImage;
+        dialogImage.alt = button.dataset.imageAlt;
+        dialog.showModal();
+      });
+    });
+
+    close.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "RYZTOR Magnesium gallery",
+  "tag": "section",
+  "class": "ryztor-magnesium-gallery-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "MAGNESIUM IN REAL LIFE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Made to fit your everyday routine."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>A closer look at RYZTOR Magnesium Glycinate in everyday settings.</p>"
+    },
+    {
+      "type": "color",
+      "id": "accent",
+      "label": "Accent",
+      "default": "#7652f5"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "RYZTOR Magnesium gallery"
+    }
+  ]
+}
+{% endschema %}

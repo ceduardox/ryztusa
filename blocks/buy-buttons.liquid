@@ -3,6 +3,11 @@
 {% liquid
   assign block_settings = block.settings
   assign product = closest.product
+  assign normalized_product_title = product.title | downcase
+  assign is_ryztor_bundle_product = false
+  if normalized_product_title contains 'berber' or normalized_product_title contains 'magnesium'
+    assign is_ryztor_bundle_product = true
+  endif
   if request.visual_preview_mode and product == blank
     assign product = collections.all.products.first
   endif
@@ -110,7 +115,9 @@
             </div>
           {%- endif -%}
 
-          {% content_for 'block', type: 'quantity', id: 'quantity' %}
+          {% unless is_ryztor_bundle_product %}
+            {% content_for 'block', type: 'quantity', id: 'quantity' %}
+          {% endunless %}
 
           {%- if has_quantity_rules -%}
             <div
@@ -228,12 +235,14 @@
             add_to_cart_text: add_to_cart_text
           %}
 
-          {% content_for 'block',
-            type: 'accelerated-checkout',
-            id: 'accelerated-checkout',
-            can_add_to_cart: can_add_to_cart,
-            form_obj: form
-          %}
+          {% unless is_ryztor_bundle_product %}
+            {% content_for 'block',
+              type: 'accelerated-checkout',
+              id: 'accelerated-checkout',
+              can_add_to_cart: can_add_to_cart,
+              form_obj: form
+            %}
+          {% endunless %}
         </div>
         {%- if block_settings.gift_card_form and product.gift_card? -%}
           </span>

@@ -1,0 +1,1149 @@
+{% liquid
+  assign product_title_normalized = product.title | downcase
+  assign is_magnesium = false
+  if product_title_normalized contains 'magnesium'
+    assign is_magnesium = true
+  endif
+
+  assign review_count = 0
+  for block in section.blocks
+    if block.type == 'review' and block.settings.quote != blank
+      assign review_count = review_count | plus: 1
+    endif
+  endfor
+%}
+
+{% if is_magnesium %}
+  <section
+    class="ryztor-berberine"
+    style="--rb-accent: {{ section.settings.accent }}; --rb-ink: {{ section.settings.ink }}; --rb-soft: {{ section.settings.soft_background }}; --rb-card: {{ section.settings.card_background }};"
+  >
+    <div class="ryztor-berberine__trust" aria-label="Product highlights">
+      <div><span aria-hidden="true">✓</span> 90 capsules · 30-day supply</div>
+      <div><span aria-hidden="true">✓</span> Manufactured in the USA</div>
+      <div><span aria-hidden="true">✓</span> 3 capsules daily</div>
+      <div><span aria-hidden="true">✓</span> Gluten-free &amp; non-GMO</div>
+    </div>
+
+    <div class="ryztor-berberine__section ryztor-berberine__intro">
+      <p class="ryztor-berberine__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      <h2>{{ section.settings.heading | escape }}</h2>
+      <div class="ryztor-berberine__lead rte">{{ section.settings.intro }}</div>
+
+      <div class="ryztor-berberine__benefit-orbit" data-benefit-orbit>
+        <div class="ryztor-berberine__benefit-column ryztor-berberine__benefit-column--left">
+          <article class="ryztor-berberine__benefit-callout">
+            <span class="ryztor-berberine__benefit-plus" aria-hidden="true">+</span>
+            <div>
+              <h3>Muscle relaxation & recovery</h3>
+              <p>Supports normal muscle function after physical activity and helps ease everyday tension as part of your wellness routine.*</p>
+            </div>
+          </article>
+
+          <article class="ryztor-berberine__benefit-callout">
+            <span class="ryztor-berberine__benefit-plus" aria-hidden="true">+</span>
+            <div>
+              <h3>Nervous system health</h3>
+              <p>Magnesium plays an essential role in nerve function and helps maintain a healthy nervous system response to daily stressors.*</p>
+            </div>
+          </article>
+        </div>
+
+        <figure class="ryztor-berberine__capsule">
+          <span class="ryztor-berberine__capsule-glow" aria-hidden="true"></span>
+          <img
+            src="{{ 'ryztor-magnesium-benefits.webp' | asset_url }}"
+            alt="RYZTOR Magnesium Glycinate benefits for muscles, focus, rest, and energy"
+            width="410"
+            height="410"
+            loading="lazy"
+          >
+          <figcaption>
+            <strong>Magnesium Glycinate 275mg</strong>
+            <span>3 capsules per serving · 30 servings</span>
+          </figcaption>
+        </figure>
+
+        <div class="ryztor-berberine__benefit-column ryztor-berberine__benefit-column--right">
+          <article class="ryztor-berberine__benefit-callout">
+            <span class="ryztor-berberine__benefit-plus" aria-hidden="true">+</span>
+            <div>
+              <h3>Healthy sleep patterns</h3>
+              <p>Helps support normal sleep cycles so you can wind down naturally and wake up feeling more rested.*</p>
+            </div>
+          </article>
+
+          <article class="ryztor-berberine__benefit-callout">
+            <span class="ryztor-berberine__benefit-plus" aria-hidden="true">+</span>
+            <div>
+              <h3>Energy production support</h3>
+              <p>Magnesium is involved in hundreds of biochemical reactions, including those that help convert food into usable energy.*</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="ryztor-berberine__section ryztor-berberine__video">
+      <header class="ryztor-berberine__section-heading">
+        <p class="ryztor-berberine__eyebrow">See it in action</p>
+        <h2>Watch how RYZTOR fits your night.</h2>
+      </header>
+      <div class="ryztor-berberine__video-grid ryztor-berberine__video-grid--two">
+        <div class="ryztor-berberine__video-card">
+          <div class="ryztor-berberine__video-player" data-video="MAGNESIUM-SPANISH-1">
+            <img src="{{ 'MAGNESIUM-SPANISH-1-poster.jpg' | asset_url }}" alt="Magnesium Glycinate explained in Spanish" loading="lazy" width="360" height="640">
+            <button class="ryztor-berberine__video-play" aria-label="Play video">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <video preload="metadata" playsinline controls width="360" height="640" poster="{{ 'MAGNESIUM-SPANISH-1-poster.jpg' | asset_url }}">
+              <source src="{{ 'MAGNESIUM-SPANISH-1.webm' | asset_url }}" type="video/webm">
+            </video>
+          </div>
+          <p class="ryztor-berberine__video-label">Magnesium Glycinate explained</p>
+        </div>
+        <div class="ryztor-berberine__video-card">
+          <div class="ryztor-berberine__video-player" data-video="MAGNESIUM-SPANISH-2">
+            <img src="{{ 'MAGNESIUM-SPANISH-2-poster.jpg' | asset_url }}" alt="Magnesium Glycinate routine in Spanish" loading="lazy" width="360" height="640">
+            <button class="ryztor-berberine__video-play" aria-label="Play video">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <video preload="metadata" playsinline controls width="360" height="640" poster="{{ 'MAGNESIUM-SPANISH-2-poster.jpg' | asset_url }}">
+              <source src="{{ 'MAGNESIUM-SPANISH-2.webm' | asset_url }}" type="video/webm">
+            </video>
+          </div>
+          <p class="ryztor-berberine__video-label">How it fits your routine</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ryztor-berberine__section ryztor-berberine__formula">
+      <div class="ryztor-berberine__formula-copy">
+        <p class="ryztor-berberine__eyebrow">What you need to know</p>
+        <h2>A clean formula, transparently shown.</h2>
+        <p>RYZTOR Magnesium Glycinate delivers 275 mg of elemental magnesium from 2,500 mg of magnesium glycinate in a simple capsule, giving you an easy way to support relaxation, muscle recovery, and healthy sleep patterns.*</p>
+        <ul>
+          <li><span>✓</span> 275 mg elemental magnesium from 2,500 mg magnesium glycinate</li>
+          <li><span>✓</span> Hypromellose (vegetable capsule)</li>
+          <li><span>✓</span> Clean inactive ingredients only: magnesium stearate, silicon dioxide, rice flour</li>
+          <li><span>✓</span> Gluten-free, vegetarian, and non-GMO</li>
+        </ul>
+      </div>
+      <div class="ryztor-berberine__formula-media">
+        <img
+          src="{{ 'ryztor-magnesium-clean-formula.webp' | asset_url }}"
+          alt="RYZTOR Magnesium Glycinate clean formula with capsules"
+          width="1254"
+          height="1254"
+          loading="lazy"
+        >
+      </div>
+    </div>
+
+    <div class="ryztor-berberine__section ryztor-berberine__comparison">
+      <header class="ryztor-berberine__section-heading">
+        <p class="ryztor-berberine__eyebrow">RYZTOR vs. complicated routines</p>
+        <h2>Wellness should feel clear.</h2>
+        <p>We focus on helping you understand what you are buying and how it fits into your day.</p>
+      </header>
+
+      <div class="ryztor-berberine__table" role="table" aria-label="RYZTOR compared with complicated supplement routines">
+        <div class="ryztor-berberine__table-row ryztor-berberine__table-head" role="row">
+          <div role="columnheader">What matters</div>
+          <div role="columnheader">RYZTOR</div>
+          <div role="columnheader">Complicated routines</div>
+        </div>
+        <div class="ryztor-berberine__table-row" role="row">
+          <div role="rowheader">Focused approach</div><div role="cell"><span>✓</span> Yes</div><div role="cell">Often crowded</div>
+        </div>
+        <div class="ryztor-berberine__table-row" role="row">
+          <div role="rowheader">Easy capsule format</div><div role="cell"><span>✓</span> Yes</div><div role="cell">Can require mixing</div>
+        </div>
+        <div class="ryztor-berberine__table-row" role="row">
+          <div role="rowheader">Clear routine</div><div role="cell"><span>✓</span> Label-led</div><div role="cell">Multiple steps</div>
+        </div>
+        <div class="ryztor-berberine__table-row" role="row">
+          <div role="rowheader">Gentle formula</div><div role="cell"><span>✓</span> Glycinate form</div><div role="cell">Harsh forms common</div>
+        </div>
+      </div>
+    </div>
+
+    {% if review_count > 0 or request.design_mode %}
+      <div class="ryztor-berberine__section ryztor-berberine__reviews">
+        <header class="ryztor-berberine__section-heading">
+          <p class="ryztor-berberine__eyebrow">Verified customer feedback</p>
+          <h2>Real routines. Real experiences.</h2>
+          <p>Only publish feedback received from actual RYZTOR customers.</p>
+        </header>
+
+        <div class="ryztor-berberine__review-grid">
+          {% for block in section.blocks %}
+            {% if block.type == 'review' %}
+              {% if block.settings.quote != blank %}
+                <article class="ryztor-berberine__review" {{ block.shopify_attributes }}>
+                  <div class="ryztor-berberine__stars" aria-label="{{ block.settings.rating }} out of 5 stars">
+                    {% for index in (1..5) %}<span aria-hidden="true">{% if index <= block.settings.rating %}★{% else %}☆{% endif %}</span>{% endfor %}
+                  </div>
+                  {% if block.settings.title != blank %}<h3>{{ block.settings.title | escape }}</h3>{% endif %}
+                  <blockquote>“{{ block.settings.quote | escape }}”</blockquote>
+                  <footer>
+                    <strong>{{ block.settings.author | escape }}</strong>
+                    {% if block.settings.verified %}<span><i aria-hidden="true">✓</i> Verified customer</span>{% endif %}
+                  </footer>
+                </article>
+              {% elsif request.design_mode %}
+                <article class="ryztor-berberine__review ryztor-berberine__review--placeholder" {{ block.shopify_attributes }}>
+                  <div class="ryztor-berberine__stars" aria-hidden="true">★★★★★</div>
+                  <h3>Add a real customer review</h3>
+                  <blockquote>This placeholder is visible only inside the theme editor.</blockquote>
+                  <footer><strong>Customer name</strong></footer>
+                </article>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="ryztor-berberine__cta">
+      <div>
+        <p>Make wellness easier to repeat.</p>
+        <h2>Add RYZTOR Magnesium Glycinate to your routine.</h2>
+      </div>
+      <a href="#BuyButtons-ProductSubmitButton-add-to-cart">Choose your quantity</a>
+    </div>
+
+    <p class="ryztor-berberine__disclaimer">
+      *These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Individual results may vary.
+    </p>
+  </section>
+
+{% endif %}
+
+{% stylesheet %}
+  @media screen and (min-width: 990px) {
+    body:has(.ryztor-magnesium-section) .product-information.section--page-width {
+      --page-content-width: 87.5rem;
+    }
+  }
+
+    .ryztor-berberine {
+      background: #fff;
+      color: var(--rb-ink);
+      overflow: hidden;
+    }
+
+    .ryztor-berberine__trust {
+      width: min(100% - 32px, 1180px);
+      margin: 20px auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border: 1px solid color-mix(in srgb, var(--rb-accent) 22%, transparent);
+      border-radius: 18px;
+      background: color-mix(in srgb, var(--rb-accent) 5%, white);
+      overflow: hidden;
+    }
+
+    .ryztor-berberine__trust div {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 12px 16px;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .ryztor-berberine__trust div + div { border-left: 1px solid color-mix(in srgb, var(--rb-accent) 16%, transparent); }
+    .ryztor-berberine__trust span { color: var(--rb-accent); font-size: 1.05rem; }
+
+    .ryztor-berberine__section {
+      width: min(100% - 32px, 1180px);
+      margin-inline: auto;
+      padding-block: clamp(72px, 9vw, 124px);
+    }
+
+    .ryztor-berberine__eyebrow {
+      margin: 0 0 15px;
+      color: var(--rb-accent);
+      font-size: .76rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+
+    .ryztor-berberine h2 {
+      margin: 0;
+      max-width: 850px;
+      color: var(--rb-ink);
+      font-size: clamp(2.25rem, 5.5vw, 5rem);
+      font-weight: 900;
+      letter-spacing: -.055em;
+      line-height: .98;
+      text-wrap: balance;
+    }
+
+    .ryztor-berberine__lead {
+      max-width: 720px;
+      margin-top: 24px;
+      color: rgb(23 21 30 / 72%);
+      font-size: clamp(1.04rem, 1.7vw, 1.28rem);
+      line-height: 1.65;
+    }
+
+    .ryztor-berberine__intro > .ryztor-berberine__eyebrow,
+    .ryztor-berberine__intro > h2,
+    .ryztor-berberine__intro > .ryztor-berberine__lead {
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .ryztor-berberine__benefit-orbit {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 390px) minmax(0, 1fr);
+      align-items: center;
+      gap: clamp(38px, 6vw, 82px);
+      margin-top: clamp(50px, 7vw, 82px);
+    }
+
+    .ryztor-berberine__benefit-column {
+      min-height: 410px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 56px;
+    }
+
+    .ryztor-berberine__benefit-callout {
+      position: relative;
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      opacity: 0;
+      transform: translateY(18px);
+    }
+
+    .ryztor-berberine__benefit-callout::after {
+      position: absolute;
+      top: 38px;
+      width: clamp(28px, 4vw, 60px);
+      border-top: 2px solid color-mix(in srgb, var(--rb-accent) 58%, white);
+      content: '';
+      opacity: .75;
+    }
+
+    .ryztor-berberine__benefit-column--left .ryztor-berberine__benefit-callout::after {
+      right: -72px;
+      transform: rotate(12deg);
+      transform-origin: left;
+    }
+
+    .ryztor-berberine__benefit-column--right .ryztor-berberine__benefit-callout::after {
+      left: -72px;
+      transform: rotate(-12deg);
+      transform-origin: right;
+    }
+
+    .ryztor-berberine__benefit-plus {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--rb-ink);
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1;
+      box-shadow: 0 7px 20px rgb(23 21 30 / 14%);
+    }
+
+    .ryztor-berberine__benefit-callout h3 {
+      margin-bottom: 9px;
+      font-size: clamp(1.05rem, 1.4vw, 1.28rem);
+    }
+
+    .ryztor-berberine__benefit-callout p {
+      font-size: .88rem;
+    }
+
+    .ryztor-berberine__capsule {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      text-align: center;
+    }
+
+    .ryztor-berberine__capsule-glow {
+      position: absolute;
+      z-index: -1;
+      inset: 12% 2% 20%;
+      border-radius: 50%;
+      background: radial-gradient(circle, color-mix(in srgb, var(--rb-accent) 22%, white), transparent 68%);
+      filter: blur(10px);
+      animation: ryztor-capsule-glow 3.6s ease-in-out infinite;
+    }
+
+    .ryztor-berberine__capsule img {
+      width: 100%;
+      height: auto;
+      display: block;
+      mix-blend-mode: multiply;
+      animation: ryztor-capsule-float 4.6s ease-in-out infinite;
+    }
+
+    .ryztor-berberine__capsule figcaption {
+      width: fit-content;
+      max-width: 92%;
+      margin: -20px auto 0;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 3px;
+      padding: 12px 18px;
+      border: 1px solid color-mix(in srgb, var(--rb-accent) 22%, transparent);
+      border-radius: 999px;
+      background: rgb(255 255 255 / 92%);
+      box-shadow: 0 12px 35px rgb(49 24 93 / 10%);
+      backdrop-filter: blur(8px);
+    }
+
+    .ryztor-berberine__capsule figcaption strong {
+      color: var(--rb-ink);
+      font-size: .76rem;
+    }
+
+    .ryztor-berberine__capsule figcaption span {
+      color: rgb(23 21 30 / 58%);
+      font-size: .64rem;
+    }
+
+    .ryztor-berberine__benefit-orbit.is-visible .ryztor-berberine__benefit-callout {
+      animation: ryztor-benefit-reveal .55s ease forwards;
+    }
+
+    .ryztor-berberine__benefit-orbit.is-visible .ryztor-berberine__benefit-column article:nth-child(2) {
+      animation-delay: .15s;
+    }
+
+    @keyframes ryztor-benefit-reveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes ryztor-capsule-float {
+      0%, 100% { transform: translateY(0) rotate(-1deg); }
+      50% { transform: translateY(-10px) rotate(1deg); }
+    }
+
+    @keyframes ryztor-capsule-glow {
+      0%, 100% { opacity: .62; transform: scale(.94); }
+      50% { opacity: 1; transform: scale(1.04); }
+    }
+
+    .ryztor-berberine__review {
+      border: 1px solid rgb(23 21 30 / 11%);
+      border-radius: 22px;
+      background: var(--rb-card);
+      box-shadow: 0 16px 45px rgb(49 24 93 / 8%);
+    }
+
+    .ryztor-berberine h3 { margin: 0 0 10px; font-size: 1.15rem; font-weight: 850; letter-spacing: -.02em; line-height: 1.2; }
+    .ryztor-berberine article p { margin: 0; color: rgb(23 21 30 / 68%); line-height: 1.6; }
+
+    .ryztor-berberine__comparison,
+    .ryztor-berberine__reviews,
+    .ryztor-berberine__faq {
+      width: 100%;
+      max-width: none;
+      padding-inline: max(16px, calc((100vw - 1180px) / 2));
+    }
+
+    .ryztor-berberine__reviews { background: var(--rb-soft); }
+    .ryztor-berberine__section-heading { max-width: 760px; margin-bottom: 44px; }
+    .ryztor-berberine__section-heading h2 { font-size: clamp(2.2rem, 4.8vw, 4.3rem); }
+    .ryztor-berberine__section-heading > p:last-child { max-width: 660px; margin: 20px 0 0; color: rgb(23 21 30 / 68%); font-size: 1.06rem; line-height: 1.65; }
+
+    .ryztor-berberine__formula { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: clamp(38px, 8vw, 110px); }
+    .ryztor-berberine__formula-copy > p:not(.ryztor-berberine__eyebrow) { margin: 24px 0 0; color: rgb(23 21 30 / 70%); font-size: 1.08rem; line-height: 1.7; }
+    .ryztor-berberine__formula ul { display: grid; gap: 15px; margin: 30px 0 0; padding: 0; list-style: none; }
+    .ryztor-berberine__formula li { display: flex; gap: 12px; font-weight: 720; line-height: 1.45; }
+    .ryztor-berberine__formula li span { color: var(--rb-accent); }
+    .ryztor-berberine__formula-media { min-height: 520px; display: grid; place-items: center; border-radius: 30px; background: linear-gradient(145deg, color-mix(in srgb, var(--rb-accent) 12%, white), #fff); overflow: hidden; }
+    .ryztor-berberine__formula-media img, .ryztor-berberine__formula-media svg { width: 100%; height: 100%; max-height: 600px; object-fit: contain; }
+
+    .ryztor-berberine__table { border: 1px solid rgb(23 21 30 / 12%); border-radius: 24px; background: #fff; box-shadow: 12px 14px 0 var(--rb-accent); overflow: hidden; }
+    .ryztor-berberine__table-row { display: grid; grid-template-columns: 1.25fr .85fr 1fr; }
+    .ryztor-berberine__table-row + .ryztor-berberine__table-row { border-top: 1px solid rgb(23 21 30 / 10%); }
+    .ryztor-berberine__table-row > div { min-height: 70px; display: flex; align-items: center; padding: 16px 22px; line-height: 1.35; }
+    .ryztor-berberine__table-row > div + div { border-left: 1px solid rgb(23 21 30 / 10%); }
+    .ryztor-berberine__table-row > div:nth-child(2) { background: color-mix(in srgb, var(--rb-accent) 8%, white); font-weight: 800; }
+    .ryztor-berberine__table-row > div:nth-child(2) span { margin-right: 8px; color: var(--rb-accent); }
+    .ryztor-berberine__table-row > div:nth-child(3) { color: rgb(23 21 30 / 58%); }
+    .ryztor-berberine__table-head { background: var(--rb-ink); color: #fff; font-size: .76rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .ryztor-berberine__table-head > div:nth-child(2) { background: var(--rb-accent); }
+    .ryztor-berberine__table-head > div:nth-child(3) { color: #fff; }
+
+    .ryztor-berberine__review-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .ryztor-berberine__review { padding: 28px; }
+    .ryztor-berberine__stars { margin-bottom: 22px; color: var(--rb-accent); letter-spacing: .08em; }
+    .ryztor-berberine__review blockquote { min-height: 105px; margin: 0; color: rgb(23 21 30 / 74%); font-size: 1rem; line-height: 1.65; }
+    .ryztor-berberine__review footer { margin-top: 24px; padding-top: 18px; display: flex; align-items: center; justify-content: space-between; gap: 14px; border-top: 1px solid rgb(23 21 30 / 9%); }
+    .ryztor-berberine__review footer span { color: rgb(23 21 30 / 60%); font-size: .72rem; }
+    .ryztor-berberine__review footer i { width: 18px; height: 18px; display: inline-grid; place-items: center; margin-right: 4px; border-radius: 50%; background: var(--rb-accent); color: #fff; font-style: normal; }
+    .ryztor-berberine__review--placeholder { border-style: dashed; opacity: .72; }
+
+    .ryztor-berberine__faq-list { max-width: 900px; }
+    .ryztor-berberine__faq details { border-top: 1px solid rgb(23 21 30 / 14%); }
+    .ryztor-berberine__faq details:last-child { border-bottom: 1px solid rgb(23 21 30 / 14%); }
+    .ryztor-berberine__faq summary { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 18px 0; cursor: pointer; font-size: 1.08rem; font-weight: 800; list-style: none; }
+    .ryztor-berberine__faq summary::-webkit-details-marker { display: none; }
+    .ryztor-berberine__faq summary span { color: var(--rb-accent); font-size: 1.6rem; font-weight: 400; transition: transform .2s ease; }
+    .ryztor-berberine__faq details[open] summary span { transform: rotate(45deg); }
+    .ryztor-berberine__faq details p { max-width: 740px; margin: -4px 0 24px; color: rgb(23 21 30 / 68%); line-height: 1.65; }
+
+    .ryztor-berberine__cta { width: min(100% - 32px, 1180px); margin: 0 auto; padding: clamp(38px, 6vw, 68px); display: flex; align-items: center; justify-content: space-between; gap: 30px; border-radius: 30px; background: var(--rb-ink); color: #fff; }
+    .ryztor-berberine__cta p { margin: 0 0 8px; color: color-mix(in srgb, var(--rb-accent) 75%, white); font-size: .76rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+    .ryztor-berberine__cta h2 { max-width: 680px; color: #fff; font-size: clamp(1.8rem, 3.8vw, 3.6rem); }
+    .ryztor-berberine__cta a { flex: 0 0 auto; min-height: 54px; display: inline-flex; align-items: center; justify-content: center; padding: 14px 24px; border-radius: 999px; background: var(--rb-accent); color: #fff; font-weight: 900; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+    .ryztor-berberine__cta a:hover { transform: translateY(-2px); box-shadow: 0 12px 28px color-mix(in srgb, var(--rb-accent) 32%, transparent); }
+    .ryztor-berberine__disclaimer { width: min(100% - 32px, 960px); margin: 32px auto 0; padding-bottom: 64px; color: rgb(23 21 30 / 52%); font-size: .72rem; line-height: 1.55; text-align: center; }
+
+    body:has(.ryztor-magnesium-section) .product-information .product-details {
+      margin: 0;
+      padding: 4px 0 12px;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    body:has(.ryztor-magnesium-section) .product-information .product-details h1 {
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -.045em;
+      line-height: 1;
+    }
+
+    body:has(.ryztor-magnesium-section) .product-information .add-to-cart-button {
+      min-height: 58px;
+      border-radius: 999px;
+      background: var(--rb-accent, #7652f5);
+      color: #fff;
+      font-weight: 900;
+      box-shadow: none;
+    }
+
+    body:has(.ryztor-magnesium-section) .product-information .quantity-selector { border-radius: 999px; }
+    body:has(.ryztor-magnesium-section) .product-information__media { background: transparent; }
+    body:has(.ryztor-magnesium-section) .product-information__media img { object-fit: contain; }
+    body:has(.ryztor-magnesium-section) .product-information__media media-gallery {
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      --thumbnail-width: 72px !important;
+    }
+
+    body:has(.ryztor-magnesium-section) .product-information__media .slideshow-controls__thumbnails {
+      justify-content: flex-start;
+      gap: 10px;
+      margin-inline: 0;
+      padding: 12px 0 0;
+    }
+
+    body:has(.ryztor-magnesium-section) .product-information__media .slideshow-controls__thumbnail {
+      border: 1px solid rgb(23 21 30 / 12%);
+      box-shadow: none;
+    }
+
+    body:has(.ryztor-magnesium-section) .product-information .text-block--text_aEtTtq { display: none; }
+
+    .ryztor-product-summary {
+      display: grid;
+      gap: 18px;
+      color: rgb(23 21 30 / 72%);
+      font-size: .92rem;
+      line-height: 1.65;
+    }
+
+    .ryztor-product-summary p { margin: 0; }
+    .ryztor-product-summary strong { color: #17151e; }
+    .ryztor-product-summary__benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .ryztor-product-summary__benefits div { display: grid; justify-items: center; gap: 7px; text-align: center; }
+    .ryztor-product-summary__benefits b { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; background: #e9ddff; color: #5b38d1; font-size: .74rem; font-weight: 900; }
+    .ryztor-product-summary__benefits span { color: #17151e; font-size: .64rem; font-weight: 750; line-height: 1.15; }
+
+    .ryztor-product-disclosures { border-top: 1px solid rgb(23 21 30 / 16%); }
+    .ryztor-product-disclosures details { border-bottom: 1px solid rgb(23 21 30 / 16%); }
+    .ryztor-product-disclosures summary { min-height: 48px; display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; list-style: none; font-size: .7rem; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
+    .ryztor-product-disclosures summary::-webkit-details-marker { display: none; }
+    .ryztor-product-disclosures summary span { color: #7652f5; font-size: 1.1rem; transition: transform .2s ease; }
+    .ryztor-product-disclosures details[open] summary span { transform: rotate(45deg); }
+    .ryztor-product-disclosures p { margin: 0; padding: 0 0 18px; color: rgb(23 21 30 / 68%); font-size: .78rem; line-height: 1.6; }
+
+    body:has(.ryztor-magnesium-section) .product-information p:has(img) {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    body:has(.ryztor-magnesium-section) .product-information img[src*="sanity.io"] {
+      height: 6rem;
+      width: auto;
+      object-fit: contain;
+    }
+
+    body:has(.ryztor-magnesium-section) .product-information [ref="priceContainer"],
+    body:has(.ryztor-magnesium-section) .product-information .price-container,
+    body:has(.ryztor-magnesium-section) .product-information div:has(.price-item__group) {
+      display: flex !important;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: nowrap;
+    }
+
+    body:has(.ryztor-magnesium-section) .product-information .price-item__group {
+      display: inline-flex !important;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    body:has(.ryztor-magnesium-section) .product-information .price-item__group.price {
+      color: #e53e3e;
+      font-size: 1.6rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    body:has(.ryztor-magnesium-section) .product-information .price-item__group.price-item--regular {
+      color: rgb(23 21 30 / 40%);
+      text-decoration: line-through;
+      font-size: 1.6rem;
+      font-weight: 400;
+    }
+
+    body:has(.ryztor-magnesium-section) .product-information .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+    }
+
+    body:has(.ryztor-magnesium-section) .product-information .text-block--text_aEtTtq,
+    body:has(.ryztor-magnesium-section) .product-information [data-block-id="text_aEtTtq"] {
+      display: none !important;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-savings {
+      display: inline-flex !important;
+      align-items: center;
+      gap: 4px;
+      margin-left: 8px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: color-mix(in srgb, #7652f5 10%, white);
+      color: #7652f5;
+      font-size: 0.78rem;
+      font-weight: 700;
+      vertical-align: middle;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-savings strong {
+      font-weight: 900;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-rating {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 0 4px;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-rating__stars {
+      color: #7652f5;
+      font-size: 0.92rem;
+      letter-spacing: 1px;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-rating__score {
+      color: #17151e;
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-rating__count {
+      color: rgb(23 21 30 / 55%);
+      font-size: 0.82rem;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-guarantee {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 14px 0 0;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-guarantee__badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #17151e;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-guarantee__badge svg {
+      color: #7652f5;
+      flex-shrink: 0;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-guarantee__shipping {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #17151e;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-guarantee__shipping svg {
+      color: #7652f5;
+      flex-shrink: 0;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-guarantee__payments {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-guarantee__payments .icon {
+      height: 22px;
+      width: auto;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-subscribe {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 1px solid color-mix(in srgb, #7652f5 25%, transparent);
+      border-radius: 10px;
+      background: color-mix(in srgb, #7652f5 6%, white);
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-subscribe__badge {
+      flex-shrink: 0;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: #7652f5;
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-subscribe__copy {
+      color: rgb(23 21 30 / 72%);
+      font-size: 0.82rem;
+      line-height: 1.4;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-subscribe__copy strong {
+      color: #17151e;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-stock {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 0 0;
+      font-size: 0.82rem;
+      color: rgb(23 21 30 / 70%);
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-stock__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #e53e3e;
+      flex-shrink: 0;
+      animation: ryztor-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes ryztor-pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-stock--out {
+      color: #e53e3e;
+      font-weight: 700;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-berberine__video {
+      width: 100%;
+      max-width: none;
+      padding-inline: max(16px, calc((100vw - 1180px) / 2));
+      padding-block: clamp(32px, 5vw, 60px);
+      text-align: center;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-berberine__video .ryztor-berberine__section-heading {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-berberine__video-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-berberine__video-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-berberine__video-player {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 9 / 16;
+      background: #000;
+      cursor: pointer;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-berberine__video-player img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-berberine__video-player video {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-berberine__video-player.is-playing img {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-berberine__video-player.is-playing video {
+      display: block;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-berberine__video-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px;
+      height: 64px;
+      display: grid;
+      place-items: center;
+      border: none;
+      border-radius: 50%;
+      background: rgba(118, 82, 245, 0.9);
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+      z-index: 2;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-berberine__video-play:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+      background: #7652f5;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-berberine__video-player.is-playing .ryztor-berberine__video-play {
+      display: none;
+    }
+
+    body:has(.ryztor-magnesium-section) .ryztor-berberine__video-label {
+      margin: 0;
+      color: rgb(23 21 30 / 70%);
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    @media screen and (min-width: 750px) {
+      body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section)
+        .product-information__media
+        slideshow-controls[pagination-position='left']
+        .slideshow-controls__thumbnails {
+        gap: 10px;
+        margin: 0;
+        padding: 0 12px 0 0;
+      }
+
+      body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section)
+        .product-information__media
+        slideshow-controls[pagination-position='left']
+        .slideshow-controls__thumbnails-container {
+        align-items: flex-start;
+      }
+
+      body:has(.ryztor-magnesium-section) .product-information__grid {
+        width: 100%;
+        max-width: 1120px;
+        margin-inline: auto;
+      }
+
+      body:has(.ryztor-magnesium-section) .product-information__media {
+        padding-right: 18px !important;
+      }
+
+      body:has(.ryztor-magnesium-section) .product-information .product-details {
+        padding-left: 18px;
+      }
+    }
+
+    @media screen and (max-width: 989px) {
+      .ryztor-berberine__trust { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .ryztor-berberine__trust div:nth-child(3) { border-left: 0; border-top: 1px solid color-mix(in srgb, var(--rb-accent) 16%, transparent); }
+      .ryztor-berberine__trust div:nth-child(4) { border-top: 1px solid color-mix(in srgb, var(--rb-accent) 16%, transparent); }
+      .ryztor-berberine__benefit-orbit { grid-template-columns: 1fr; max-width: 650px; margin-inline: auto; }
+      .ryztor-berberine__benefit-column { min-height: 0; gap: 18px; }
+      .ryztor-berberine__benefit-callout {
+        padding: 20px;
+        border: 1px solid rgb(23 21 30 / 10%);
+        border-radius: 18px;
+        background: #fff;
+        box-shadow: 0 12px 34px rgb(49 24 93 / 7%);
+      }
+      .ryztor-berberine__benefit-callout::after { display: none; }
+      .ryztor-berberine__capsule { width: min(100%, 390px); margin: 0 auto; }
+      .ryztor-berberine__review-grid { grid-template-columns: 1fr; }
+      .ryztor-berberine__formula { grid-template-columns: 1fr; }
+      .ryztor-berberine__formula-media { min-height: 420px; order: -1; }
+      .ryztor-berberine__cta { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media screen and (max-width: 749px) {
+      .ryztor-berberine__section { padding-block: 68px; }
+      .ryztor-berberine__trust { width: min(100% - 24px, 1180px); margin-top: 12px; border-radius: 15px; }
+      .ryztor-berberine__trust div { min-height: 58px; padding: 9px 8px; font-size: .62rem; letter-spacing: .035em; }
+      .ryztor-berberine__benefit-orbit { gap: 28px; margin-top: 38px; }
+      .ryztor-berberine__benefit-column { gap: 12px; }
+      .ryztor-berberine__benefit-callout { grid-template-columns: 30px 1fr; gap: 10px; padding: 17px; }
+      .ryztor-berberine__benefit-plus { width: 28px; height: 28px; font-size: 1rem; }
+      .ryztor-berberine__capsule { order: 2; }
+      .ryztor-berberine__benefit-column--left { order: 1; }
+      .ryztor-berberine__benefit-column--right { order: 3; }
+      .ryztor-berberine__capsule figcaption { margin-top: -12px; border-radius: 18px; }
+      .ryztor-berberine__formula-media { min-height: 340px; border-radius: 22px; }
+      .ryztor-berberine__table { border-radius: 17px; box-shadow: 6px 8px 0 var(--rb-accent); }
+      .ryztor-berberine__table-row { grid-template-columns: 1.2fr .8fr .9fr; }
+      .ryztor-berberine__table-row > div { min-height: 64px; padding: 10px 8px; font-size: .68rem; text-align: center; justify-content: center; }
+      .ryztor-berberine__table-head { font-size: .55rem; letter-spacing: .035em; }
+      .ryztor-berberine__table-row > div:nth-child(2) { flex-direction: column; }
+      .ryztor-berberine__table-row > div:nth-child(2) span { margin: 0; }
+      .ryztor-berberine__review blockquote { min-height: 0; }
+      .ryztor-berberine__cta { width: min(100% - 24px, 1180px); padding: 32px 24px; border-radius: 22px; }
+      .ryztor-berberine__cta a { width: 100%; }
+      body:has(.ryztor-magnesium-section) .product-information .product-details { margin: 0; padding: 22px 16px 18px; }
+      body:has(.ryztor-magnesium-section) .product-information__media media-gallery {
+        width: 100%;
+        max-width: none;
+      }
+      body:has(.ryztor-magnesium-section) .product-information__media .media-gallery__mobile-controls[thumbnails] {
+        --thumbnail-width: 68px !important;
+      }
+      body:has(.ryztor-magnesium-section) .product-information__media .slideshow-controls__thumbnails-container {
+        padding-inline: 16px;
+      }
+      body:has(.ryztor-magnesium-section) .product-information__media .slideshow-controls__thumbnail {
+        --thumbnail-width: 84px !important;
+      }
+      .ryztor-berberine__video-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; max-width: 340px; }
+      .ryztor-berberine__video-play { width: 48px; height: 48px; }
+      .ryztor-berberine__video-play svg { width: 32px; height: 32px; }
+      .ryztor-berberine__video-label { font-size: 0.78rem; }
+    }
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      .ryztor-berberine__benefit-callout {
+        opacity: 1;
+        transform: none;
+      }
+
+      .ryztor-berberine__capsule img,
+      .ryztor-berberine__capsule-glow,
+      .ryztor-berberine__benefit-orbit.is-visible .ryztor-berberine__benefit-callout {
+        animation: none;
+      }
+    }
+
+  .ryztor-magnesium-section .ryztor-berberine__video-grid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 460px; }
+  @media screen and (max-width: 749px) { .ryztor-magnesium-section .ryztor-berberine__video-grid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 340px; } }
+{% endstylesheet %}
+
+<script>
+  document.querySelectorAll('[data-benefit-orbit]').forEach(function(orbit) {
+    if (orbit.dataset.revealReady === 'true') return;
+    orbit.dataset.revealReady = 'true';
+
+    if (!('IntersectionObserver' in window)) {
+      orbit.classList.add('is-visible');
+      return;
+    }
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.18 });
+
+    observer.observe(orbit);
+  });
+
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('.ryztor-berberine__video-play');
+    var player = e.target.closest('.ryztor-berberine__video-player');
+    if (!btn && !player) return;
+    var container = player || btn.closest('.ryztor-berberine__video-player');
+    var video = container.querySelector('video');
+    var playBtn = container.querySelector('.ryztor-berberine__video-play');
+    if (!video) return;
+    if (video.paused) {
+      container.classList.add('is-playing');
+      playBtn.innerHTML = '<svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+      video.play();
+    } else {
+      video.pause();
+      container.classList.remove('is-playing');
+      playBtn.innerHTML = '<svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "RYZTOR Magnesium story",
+  "tag": "section",
+  "class": "ryztor-magnesium-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Benefits of Magnesium Glycinate"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Rest, recover, and recharge\u2014naturally."
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Introduction",
+      "default": "<p>RYZTOR Magnesium Glycinate is designed for people who want practical support for relaxation, muscle recovery, and healthy sleep patterns\u2014without complicating their routine.</p>"
+    },
+    {
+      "type": "color",
+      "id": "accent",
+      "label": "Accent",
+      "default": "#5b8def"
+    },
+    {
+      "type": "color",
+      "id": "ink",
+      "label": "Text",
+      "default": "#17151e"
+    },
+    {
+      "type": "color",
+      "id": "soft_background",
+      "label": "Soft background",
+      "default": "#eef4ff"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Verified review",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Review title"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Customer quote",
+          "info": "Use only feedback received from a real customer."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Customer name or initials"
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Verified customer",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RYZTOR Magnesium story",
+      "blocks": [
+        { "type": "review" },
+        { "type": "review" },
+        { "type": "review" }
+      ]
+    }
+  ]
+}
+{% endschema %}

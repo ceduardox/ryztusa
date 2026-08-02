@@ -1,0 +1,580 @@
+{% liquid
+  assign normalized_title = product_resource.title | downcase
+  assign bundle_kind = bundle_kind | default: 'berberine'
+  assign bundle_handles = 'berberine,berberine-400mg,berberine-400mg-3-pack' | split: ','
+  assign bundle_is_available = false
+
+  if bundle_kind == 'magnesium' and normalized_title contains 'magnesium'
+    assign bundle_handles = 'magnesium-glycinate,magnesium-glycinate-2-pack,magnesium-glycinate-3-pack' | split: ','
+    assign bundle_one = all_products[bundle_handles[0]]
+    assign bundle_two = all_products[bundle_handles[1]]
+    assign bundle_three = all_products[bundle_handles[2]]
+    if bundle_one != blank and bundle_two != blank and bundle_three != blank
+      assign bundle_is_available = true
+    endif
+  elsif bundle_kind == 'creatine' and normalized_title contains 'creatine'
+    assign bundle_handles = 'creatine-monohydrate,creatine-monohydrate-2-pack,creatine-monohydrate-3-pack' | split: ','
+    assign bundle_one = all_products[bundle_handles[0]]
+    assign bundle_two = all_products[bundle_handles[1]]
+    assign bundle_three = all_products[bundle_handles[2]]
+    if bundle_one != blank and bundle_two != blank and bundle_three != blank
+      assign bundle_is_available = true
+    endif
+  elsif bundle_kind == 'berberine' and normalized_title contains 'berber'
+    assign bundle_one = all_products[bundle_handles[0]]
+    assign bundle_two = all_products[bundle_handles[1]]
+    assign bundle_three = all_products[bundle_handles[2]]
+    if bundle_one != blank and bundle_two != blank and bundle_three != blank
+      assign bundle_is_available = true
+    endif
+  endif
+%}
+
+{% if bundle_is_available %}
+  <div class="ryztor-bundles" data-ryztor-bundle-selector>
+    <div class="ryztor-bundles__heading">
+      <div>
+        <p>Bundle &amp; save</p>
+        <span>Select the routine that fits you</span>
+      </div>
+      <span class="ryztor-bundles__shipping">Free shipping on 2+ packs</span>
+    </div>
+
+    <div class="ryztor-bundles__grid" role="radiogroup" aria-label="Select a {{ product_resource.title | escape }} bundle">
+      {% for bundle_handle in bundle_handles %}
+        {% liquid
+          assign bundle_product = all_products[bundle_handle]
+          assign bundle_variant = bundle_product.selected_or_first_available_variant
+          assign bundle_number = forloop.index
+          assign bundle_quantity = 1
+          assign bundle_save = 0
+          assign bundle_percent = 0
+          assign bundle_price = bundle_variant.price
+          assign bundle_compare_price = bundle_variant.compare_at_price | default: 0
+
+          if bundle_compare_price > bundle_price
+            assign bundle_save = bundle_compare_price | minus: bundle_price
+            assign bundle_percent = bundle_save | times: 100 | divided_by: bundle_compare_price
+          endif
+
+          assign bundle_label = '1 bottle'
+          assign bundle_badge = blank
+          if bundle_number == 2
+            assign bundle_label = '2 bottles'
+            assign bundle_badge = 'MOST POPULAR'
+          elsif bundle_number == 3
+            assign bundle_label = '3 bottles'
+            assign bundle_badge = 'BEST VALUE'
+          endif
+        %}
+
+        <button
+          type="button"
+          class="ryztor-bundles__option{% if forloop.first %} is-selected{% endif %}"
+          role="radio"
+          aria-checked="{% if forloop.first %}true{% else %}false{% endif %}"
+          data-bundle-option
+          data-product-id="{{ bundle_product.id }}"
+          data-product-title="{{ bundle_product.title | escape }}"
+          data-product-url="{{ bundle_product.url }}"
+          data-variant-id="{{ bundle_variant.id }}"
+          data-quantity="{{ bundle_quantity }}"
+          data-price="{{ bundle_price }}"
+          data-price-formatted="{{ bundle_price | money | escape }}"
+          data-compare-price="{{ bundle_compare_price }}"
+          data-compare-formatted="{{ bundle_compare_price | money | escape }}"
+          data-save-formatted="{{ bundle_save | money | escape }}"
+          data-save-percent="{{ bundle_percent }}"
+          data-image="{% if bundle_product.featured_image %}{{ bundle_product.featured_image | image_url: width: 240 }}{% endif %}"
+          data-available="{{ bundle_variant.available }}"
+          {% unless bundle_variant.available %}disabled{% endunless %}
+        >
+          {% if bundle_badge != blank %}
+            <span class="ryztor-bundles__badge">{{ bundle_badge }}</span>
+          {% endif %}
+
+          <span class="ryztor-bundles__name">{{ bundle_label }}</span>
+
+          <span class="ryztor-bundles__media">
+            {% if bundle_product.featured_image %}
+              {% for bottle_index in (1..bundle_quantity) %}
+                {{
+                  bundle_product.featured_image
+                  | image_url: width: 240
+                  | image_tag:
+                    loading: 'lazy',
+                    widths: '100,160,240',
+                    sizes: '(max-width: 749px) 28vw, 150px',
+                    alt: bundle_label
+                }}
+              {% endfor %}
+            {% endif %}
+          </span>
+
+          {% if bundle_number == 1 %}
+            <span class="ryztor-bundles__discount ryztor-bundles__discount--placeholder" aria-hidden="true">
+              0% OFF
+            </span>
+          {% elsif bundle_percent > 0 %}
+            <span class="ryztor-bundles__discount">{{ bundle_percent }}% OFF</span>
+          {% endif %}
+
+          <span class="ryztor-bundles__prices">
+            {% if bundle_compare_price > bundle_price %}
+              <s>{{ bundle_compare_price | money }}</s>
+            {% endif %}
+            <strong>{{ bundle_price | money }}</strong>
+          </span>
+
+          <span class="ryztor-bundles__per-bottle">
+            {{ bundle_price | divided_by: bundle_number | money }} / bottle
+          </span>
+        </button>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+
+{% stylesheet %}
+  .ryztor-bundles {
+    padding: 7px 0 4px;
+    color: #17151e;
+  }
+
+  .ryztor-bundles__heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 15px;
+  }
+
+  .ryztor-bundles__heading p {
+    margin: 0;
+    font-size: .96rem;
+    font-weight: 900;
+    letter-spacing: -.02em;
+  }
+
+  .ryztor-bundles__heading > div > span {
+    display: block;
+    margin-top: 3px;
+    color: rgb(23 21 30 / 55%);
+    font-size: .68rem;
+  }
+
+  .ryztor-bundles__shipping {
+    color: #7652f5;
+    font-size: .64rem;
+    font-weight: 850;
+    text-align: right;
+  }
+
+  .ryztor-bundles__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .ryztor-bundles__option {
+    position: relative;
+    min-width: 0;
+    min-height: 245px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 21px 9px 13px;
+    border: 1px solid rgb(23 21 30 / 16%);
+    border-radius: 13px;
+    background: #fff;
+    color: #17151e;
+    font: inherit;
+    cursor: pointer;
+    transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+  }
+
+  .ryztor-bundles__option:hover {
+    border-color: color-mix(in srgb, #7652f5 50%, transparent);
+    transform: translateY(-2px);
+  }
+
+  .ryztor-bundles__option.is-selected {
+    border: 2px solid #7652f5;
+    padding: 20px 8px 12px;
+    background: color-mix(in srgb, #7652f5 4%, white);
+    box-shadow: 0 10px 28px rgb(118 82 245 / 13%);
+  }
+
+  .ryztor-bundles__option:focus-visible {
+    outline: 3px solid color-mix(in srgb, #7652f5 45%, white);
+    outline-offset: 3px;
+  }
+
+  .ryztor-bundles__option:disabled {
+    cursor: not-allowed;
+    opacity: .45;
+  }
+
+  .ryztor-bundles__badge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    padding: 4px 9px;
+    border-radius: 999px;
+    background: #17151e;
+    color: #fff;
+    font-size: .53rem;
+    font-weight: 900;
+    letter-spacing: .035em;
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+  }
+
+  .ryztor-bundles__name {
+    font-size: .79rem;
+    font-weight: 900;
+  }
+
+  .ryztor-bundles__media {
+    width: 100%;
+    height: 92px;
+    display: grid;
+    place-items: center;
+    margin: 8px 0 5px;
+  }
+
+  .ryztor-bundles__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .ryztor-bundles__media--pack-2,
+  .ryztor-bundles__media--pack-3 {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+  }
+
+  .ryztor-bundles__media--pack-2 img {
+    width: 58%;
+    margin-inline: -8%;
+  }
+
+  .ryztor-bundles__media--pack-3 img {
+    width: 46%;
+    margin-inline: -7%;
+  }
+
+  .ryztor-bundles__discount {
+    margin-bottom: 5px;
+    padding: 5px 9px;
+    border-radius: 999px;
+    background: #dfff43;
+    color: #17151e;
+    font-size: .62rem;
+    font-weight: 950;
+  }
+
+  .ryztor-bundles__discount--placeholder {
+    visibility: hidden;
+  }
+
+  .ryztor-bundles__prices {
+    min-height: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    flex-direction: column;
+  }
+
+  .ryztor-bundles__prices s {
+    color: #e75252;
+    font-size: .63rem;
+    line-height: 1.1;
+  }
+
+  .ryztor-bundles__prices strong {
+    font-size: .98rem;
+    font-weight: 950;
+    line-height: 1.1;
+  }
+
+  .ryztor-bundles__per-bottle {
+    margin-top: 4px;
+    color: rgb(23 21 30 / 48%);
+    font-size: .57rem;
+    font-weight: 750;
+  }
+
+  body:has(.ryztor-bundles) .product-form-buttons .add-to-cart-button {
+    min-height: 52px;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1px;
+    border: 0;
+    border-radius: 999px;
+    background: linear-gradient(100deg, #dfff43 0%, #a8f3a2 54%, #82ead3 100%);
+    color: #17151e;
+    box-shadow: 0 4px 0 #d9c7ff;
+    font-size: .83rem;
+    font-weight: 950;
+    letter-spacing: .035em;
+  }
+
+  body:has(.ryztor-bundles) .product-form-buttons .add-to-cart-button:hover {
+    filter: brightness(.98);
+    transform: translateY(-1px);
+  }
+
+  body:has(.ryztor-bundles) .ryztor-product-summary {
+    display: grid;
+    gap: 18px;
+    color: rgb(23 21 30 / 72%);
+    font-size: .92rem;
+    line-height: 1.65;
+  }
+
+  body:has(.ryztor-bundles) .ryztor-product-summary p { margin: 0; }
+  body:has(.ryztor-bundles) .ryztor-product-summary strong { color: #17151e; }
+  body:has(.ryztor-bundles) .ryztor-product-summary__benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  body:has(.ryztor-bundles) .ryztor-product-summary__benefits div { display: grid; justify-items: center; gap: 7px; text-align: center; }
+  body:has(.ryztor-bundles) .ryztor-product-summary__benefits b { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; background: #e9ddff; color: #5b38d1; font-size: .74rem; font-weight: 900; }
+  body:has(.ryztor-bundles) .ryztor-product-summary__benefits span { color: #17151e; font-size: .64rem; font-weight: 750; line-height: 1.15; }
+
+  body:has(.ryztor-bundles) .product-information :is([ref="priceContainer"], .price-container, div:has(.price-item__group)) {
+    display: flex !important;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: nowrap;
+  }
+
+  body:has(.ryztor-bundles) .product-information .price-item__group { display: inline-flex !important; align-items: baseline; gap: 8px; }
+  body:has(.ryztor-bundles) .product-information .price-item__group.price { color: #e53e3e; font-size: 1.6rem; font-weight: 900; line-height: 1; }
+  body:has(.ryztor-bundles) .product-information .price-item__group.price-item--regular { color: rgb(23 21 30 / 40%); text-decoration: line-through; font-size: 1.6rem; font-weight: 400; }
+
+  body:has(.ryztor-bundles) .ryztor-savings {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 4px;
+    margin-left: 8px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: color-mix(in srgb, #7652f5 10%, white);
+    color: #7652f5;
+    font-size: .78rem;
+    font-weight: 700;
+  }
+
+  body:has(.ryztor-bundles) .ryztor-savings strong { font-weight: 900; }
+  body:has(.ryztor-bundles) .ryztor-rating { display: flex; align-items: center; gap: 6px; padding: 0 0 4px; }
+  body:has(.ryztor-bundles) .ryztor-rating__stars { color: #7652f5; font-size: .92rem; letter-spacing: 1px; }
+  body:has(.ryztor-bundles) .ryztor-rating__score { color: #17151e; font-size: .88rem; font-weight: 800; }
+  body:has(.ryztor-bundles) .ryztor-rating__count { color: rgb(23 21 30 / 55%); font-size: .82rem; }
+
+  body:has(.ryztor-bundles) .ryztor-guarantee { display: flex; flex-direction: column; gap: 8px; padding: 14px 0 0; }
+  body:has(.ryztor-bundles) :is(.ryztor-guarantee__badge, .ryztor-guarantee__shipping) { display: flex; align-items: center; gap: 8px; color: #17151e; font-size: .82rem; font-weight: 700; }
+  body:has(.ryztor-bundles) :is(.ryztor-guarantee__badge, .ryztor-guarantee__shipping) svg { color: #7652f5; flex-shrink: 0; }
+  body:has(.ryztor-bundles) .ryztor-guarantee__payments { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  body:has(.ryztor-bundles) .ryztor-guarantee__payments .icon { width: auto; height: 22px; }
+
+  body:has(.ryztor-bundles) .ryztor-subscribe { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border: 1px solid color-mix(in srgb, #7652f5 25%, transparent); border-radius: 10px; background: color-mix(in srgb, #7652f5 6%, white); }
+  body:has(.ryztor-bundles) .ryztor-subscribe__badge { flex-shrink: 0; padding: 4px 10px; border-radius: 6px; background: #7652f5; color: #fff; font-size: .68rem; font-weight: 900; letter-spacing: .06em; }
+  body:has(.ryztor-bundles) .ryztor-subscribe__copy { color: rgb(23 21 30 / 72%); font-size: .82rem; line-height: 1.4; }
+  body:has(.ryztor-bundles) .ryztor-subscribe__copy strong { color: #17151e; }
+
+  body:has(.ryztor-bundles) .ryztor-stock { display: flex; align-items: center; gap: 8px; padding: 6px 0 0; color: rgb(23 21 30 / 70%); font-size: .82rem; }
+  body:has(.ryztor-bundles) .ryztor-stock__dot { width: 8px; height: 8px; flex-shrink: 0; border-radius: 50%; background: #e53e3e; animation: ryztor-bundle-pulse 2s ease-in-out infinite; }
+  body:has(.ryztor-bundles) .ryztor-stock--out { color: #e53e3e; font-weight: 700; }
+
+  @keyframes ryztor-bundle-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .4; } }
+
+  @media screen and (max-width: 749px) {
+    .ryztor-bundles__heading {
+      align-items: start;
+    }
+
+    .ryztor-bundles__grid {
+      gap: 7px;
+    }
+
+    .ryztor-bundles__option {
+      min-height: 220px;
+      padding: 19px 6px 10px;
+      border-radius: 11px;
+    }
+
+    .ryztor-bundles__option.is-selected {
+      padding: 18px 5px 9px;
+    }
+
+    .ryztor-bundles__media {
+      height: 76px;
+    }
+
+    .ryztor-bundles__badge {
+      padding-inline: 7px;
+      font-size: .47rem;
+    }
+
+    .ryztor-bundles__name {
+      font-size: .7rem;
+    }
+
+    .ryztor-bundles__prices strong {
+      font-size: .86rem;
+    }
+  }
+{% endstylesheet %}
+
+<script>
+  (() => {
+    document.querySelectorAll('[data-ryztor-bundle-selector]').forEach((selector) => {
+      if (selector.dataset.initialized === 'true') return;
+      selector.dataset.initialized = 'true';
+
+      const productDetails = selector.closest('.product-details');
+      const productSection = selector.closest('.shopify-section');
+      const savings = productDetails?.querySelector('.ryztor-savings');
+
+      const getPurchaseContext = () => {
+        const addToCartButton = productDetails?.querySelector(
+          '[data-testid="standalone-add-to-cart"]'
+        );
+        const form = addToCartButton?.closest('form');
+        const productForm = addToCartButton?.closest('product-form-component');
+        const variantInput = form?.querySelector('input[name="id"]');
+        const flyToCart = addToCartButton?.closest('add-to-cart-component');
+
+        return { addToCartButton, form, productForm, variantInput, flyToCart };
+      };
+
+      const applyBundleToForm = (option, context = getPurchaseContext()) => {
+        if (!option || !context.form) return;
+        const bundleLabel = option.querySelector('.ryztor-bundles__name')?.textContent.trim() || '';
+
+        if (context.variantInput) {
+          context.variantInput.value = option.dataset.variantId;
+          context.variantInput.setAttribute('value', option.dataset.variantId);
+        }
+
+        let bundleProperty = context.form.querySelector('[data-ryztor-bundle-property]');
+        if (!bundleProperty) {
+          bundleProperty = document.createElement('input');
+          bundleProperty.type = 'hidden';
+          bundleProperty.name = 'properties[Bundle]';
+          bundleProperty.dataset.ryztorBundleProperty = '';
+          context.form.appendChild(bundleProperty);
+        }
+        bundleProperty.value = bundleLabel;
+
+        if (context.productForm) {
+          context.productForm.dataset.productId = option.dataset.productId;
+          context.productForm.dataset.productUrl = option.dataset.productUrl;
+        }
+      };
+
+      const priceMarkup = (option) => {
+        const price = option.dataset.priceFormatted;
+        const compare = Number(option.dataset.comparePrice);
+        const compareFormatted = option.dataset.compareFormatted;
+        if (compare > Number(option.dataset.price)) {
+          return `<span class="price-item__group price"><span class="visually-hidden">Sale price&nbsp;</span>${price}</span><span class="price-item__group price-item--regular compare-at-price"><span class="visually-hidden">Regular price&nbsp;</span>${compareFormatted}</span>`;
+        }
+        return `<span class="price">${price}</span>`;
+      };
+
+      const selectBundle = (option) => {
+        const context = getPurchaseContext();
+
+        selector.querySelectorAll('[data-bundle-option]').forEach((button) => {
+          const selected = button === option;
+          button.classList.toggle('is-selected', selected);
+          button.setAttribute('aria-checked', selected ? 'true' : 'false');
+        });
+
+        selector.dataset.selectedVariantId = option.dataset.variantId;
+        applyBundleToForm(option, context);
+
+        const available = option.dataset.available === 'true';
+        if (context.addToCartButton) context.addToCartButton.disabled = !available;
+
+        if (context.flyToCart && option.dataset.image) {
+          context.flyToCart.dataset.productVariantMedia = option.dataset.image;
+        }
+
+        productDetails?.querySelectorAll('[data-bundle-button-price]').forEach((price) => {
+          price.textContent = option.dataset.priceFormatted;
+        });
+
+        productDetails?.querySelectorAll('product-price [ref="priceContainer"]').forEach((container) => {
+          container.innerHTML = priceMarkup(option);
+        });
+
+        productSection?.querySelectorAll('.sticky-add-to-cart__price [ref="priceContainer"]').forEach((container) => {
+          container.innerHTML = priceMarkup(option);
+        });
+
+        const stickyTitle = productSection?.querySelector('.sticky-add-to-cart__title');
+        if (stickyTitle) stickyTitle.textContent = option.dataset.productTitle;
+
+        const stickyButtonText = productSection?.querySelector(
+          '.sticky-add-to-cart__button .add-to-cart-text__content > span:first-child'
+        );
+        if (stickyButtonText) stickyButtonText.textContent = `BUY NOW · ${option.dataset.priceFormatted}`;
+
+        if (savings) {
+          const hasSavings = Number(option.dataset.comparePrice) > Number(option.dataset.price);
+          savings.hidden = !hasSavings;
+          if (hasSavings) {
+            savings.innerHTML = `You save <strong>${option.dataset.saveFormatted}</strong> (${option.dataset.savePercent}% off)`;
+          }
+        }
+      };
+
+      selector.addEventListener('click', (event) => {
+        const option = event.target.closest('[data-bundle-option]');
+        if (!option || option.disabled) return;
+        selectBundle(option);
+      });
+
+      productDetails?.addEventListener(
+        'submit',
+        (event) => {
+          const form = event.target;
+          if (!(form instanceof HTMLFormElement) || !form.querySelector('[data-bundle-button-price]')) return;
+
+          const selectedOption = selector.querySelector('[data-bundle-option].is-selected');
+          if (!selectedOption) return;
+
+          form.addEventListener(
+            'formdata',
+            (formDataEvent) => {
+              const bundleLabel =
+                selectedOption.querySelector('.ryztor-bundles__name')?.textContent.trim() || '';
+              formDataEvent.formData.set('id', selectedOption.dataset.variantId);
+              formDataEvent.formData.set('quantity', selectedOption.dataset.quantity || '1');
+              formDataEvent.formData.set('properties[Bundle]', bundleLabel);
+            },
+            { once: true }
+          );
+
+          const addToCartButton = form.querySelector('[data-testid="standalone-add-to-cart"]');
+          const context = {
+            addToCartButton,
+            form,
+            productForm: form.closest('product-form-component'),
+            variantInput: form.querySelector('input[name="id"]'),
+            flyToCart: addToCartButton?.closest('add-to-cart-component'),
+          };
+
+          applyBundleToForm(selectedOption, context);
+        },
+        true
+      );
+
+      const initialOption = selector.querySelector('[data-bundle-option].is-selected');
+      if (initialOption) selectBundle(initialOption);
+    });
+  })();
+</script>

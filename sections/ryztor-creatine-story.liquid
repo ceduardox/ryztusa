@@ -1,0 +1,103 @@
+{% liquid
+  assign product_title = product.title | downcase
+%}
+
+{% if product_title contains 'creatine' %}
+  <section class="ryztor-creatine" id="ryztor-creatine-benefits" style="--rc-accent: {{ section.settings.accent }}; --rc-ink: {{ section.settings.ink }}; --rc-soft: {{ section.settings.soft_background }}; --rc-card: {{ section.settings.card_background }};">
+    <div class="ryztor-creatine__shell">
+      <header class="ryztor-creatine__header">
+        <p>{{ section.settings.eyebrow }}</p>
+        <h2>{{ section.settings.heading }}</h2>
+        <div class="rte">{{ section.settings.intro }}</div>
+      </header>
+
+      <div class="ryztor-creatine__benefits">
+        <article><span aria-hidden="true">01</span><h3>Training support</h3><p>Creatine monohydrate supports exercise performance when used consistently as part of a structured routine.*</p></article>
+        <article><span aria-hidden="true">02</span><h3>Strength focused</h3><p>A familiar option for adults building strength and performance-oriented training habits.*</p></article>
+        <article><span aria-hidden="true">03</span><h3>Simple formula</h3><p>One ingredient, an unflavored format, and clear label directions without unnecessary complexity.</p></article>
+        <article><span aria-hidden="true">04</span><h3>Easy to mix</h3><p>Designed to mix with water or juice so it can fit naturally into an established training routine.</p></article>
+      </div>
+
+      <div class="ryztor-creatine__facts">
+        <div><small>FORMULA</small><strong>Creatine Monohydrate</strong></div>
+        <div><small>FLAVOR</small><strong>Unflavored</strong></div>
+        <div><small>AMOUNT</small><strong>250 g</strong></div>
+        <div><small>MADE IN</small><strong>USA</strong></div>
+      </div>
+
+      <div class="ryztor-creatine__reviews" id="ryztor-reviews">
+        <div class="ryztor-creatine__reviews-heading"><p>CUSTOMER FEEDBACK</p><h2>Real routines. Real experiences.</h2></div>
+        <div class="ryztor-creatine__review-grid">
+          {% for block in section.blocks %}
+            {% if block.settings.quote != blank %}
+              <article {{ block.shopify_attributes }}>
+                <div aria-label="{{ block.settings.rating }} out of 5 stars">{% for i in (1..block.settings.rating) %}★{% endfor %}</div>
+                {% if block.settings.title != blank %}<h3>{{ block.settings.title }}</h3>{% endif %}
+                <blockquote>“{{ block.settings.quote }}”</blockquote>
+                {% if block.settings.author != blank %}<p><strong>{{ block.settings.author }}</strong>{% if block.settings.verified %}<span>Verified buyer</span>{% endif %}</p>{% endif %}
+              </article>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <p class="ryztor-creatine__disclaimer">*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+    </div>
+  </section>
+{% endif %}
+
+{% stylesheet %}
+  .ryztor-creatine { padding: clamp(58px, 8vw, 110px) 20px; background: var(--rc-soft); color: var(--rc-ink); }
+  .ryztor-creatine__shell { width: min(1180px, 100%); margin: 0 auto; }
+  .ryztor-creatine__header { max-width: 780px; margin: 0 auto clamp(36px, 6vw, 70px); text-align: center; }
+  .ryztor-creatine__header > p, .ryztor-creatine__reviews-heading > p { margin: 0 0 12px; color: var(--rc-accent); font-size: .72rem; font-weight: 900; letter-spacing: .14em; }
+  .ryztor-creatine__header h2, .ryztor-creatine__reviews-heading h2 { margin: 0; font-size: clamp(2.4rem, 5vw, 5rem); line-height: .95; letter-spacing: -.055em; }
+  .ryztor-creatine__header .rte { margin-top: 20px; color: rgb(23 21 30 / 70%); font-size: 1.05rem; line-height: 1.65; }
+  .ryztor-creatine__benefits { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .ryztor-creatine__benefits article { min-height: 245px; padding: 24px; border: 1px solid color-mix(in srgb, var(--rc-accent) 20%, transparent); border-radius: 24px; background: var(--rc-card); box-shadow: 0 14px 35px rgb(35 24 64 / 8%); }
+  .ryztor-creatine__benefits article span { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 14px; background: var(--rc-accent); color: #fff; font-size: .72rem; font-weight: 900; }
+  .ryztor-creatine__benefits h3 { margin: 38px 0 10px; font-size: 1.35rem; line-height: 1.05; }
+  .ryztor-creatine__benefits p { margin: 0; color: rgb(23 21 30 / 68%); font-size: .88rem; line-height: 1.55; }
+  .ryztor-creatine__facts { margin-top: 24px; display: grid; grid-template-columns: repeat(4, 1fr); overflow: hidden; border-radius: 22px; background: var(--rc-ink); color: #fff; }
+  .ryztor-creatine__facts div { padding: 25px; border-right: 1px solid rgb(255 255 255 / 15%); }
+  .ryztor-creatine__facts div:last-child { border: 0; }
+  .ryztor-creatine__facts small { display: block; margin-bottom: 7px; color: color-mix(in srgb, var(--rc-accent) 80%, white); font-size: .62rem; font-weight: 900; letter-spacing: .12em; }
+  .ryztor-creatine__facts strong { font-size: 1rem; }
+  .ryztor-creatine__reviews { margin-top: clamp(60px, 8vw, 100px); }
+  .ryztor-creatine__reviews-heading { max-width: 720px; margin-bottom: 30px; }
+  .ryztor-creatine__review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .ryztor-creatine__review-grid article { padding: 25px; border-radius: 22px; background: var(--rc-card); }
+  .ryztor-creatine__review-grid article > div { color: var(--rc-accent); letter-spacing: .08em; }
+  .ryztor-creatine__review-grid h3 { margin: 18px 0 8px; }
+  .ryztor-creatine__review-grid blockquote { margin: 0; color: rgb(23 21 30 / 68%); line-height: 1.6; }
+  .ryztor-creatine__review-grid article > p { display: grid; gap: 2px; margin: 18px 0 0; }
+  .ryztor-creatine__review-grid article > p span { color: var(--rc-accent); font-size: .68rem; font-weight: 800; }
+  .ryztor-creatine__disclaimer { max-width: 850px; margin: 45px auto 0; color: rgb(23 21 30 / 48%); font-size: .68rem; line-height: 1.5; text-align: center; }
+  @media screen and (max-width: 899px) { .ryztor-creatine__benefits, .ryztor-creatine__facts { grid-template-columns: repeat(2, 1fr); } .ryztor-creatine__review-grid { grid-template-columns: 1fr; } .ryztor-creatine__facts div:nth-child(2) { border-right: 0; } }
+  @media screen and (max-width: 549px) { .ryztor-creatine { padding-inline: 16px; } .ryztor-creatine__benefits { grid-template-columns: 1fr; } .ryztor-creatine__benefits article { min-height: auto; } .ryztor-creatine__benefits h3 { margin-top: 25px; } }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "RYZTOR Creatine story",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Benefits of Creatine Monohydrate" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Train with purpose. Repeat with consistency." },
+    { "type": "richtext", "id": "intro", "label": "Introduction", "default": "<p>A pure, unflavored formula designed to support exercise performance as part of a consistent training routine.*</p>" },
+    { "type": "color", "id": "accent", "label": "Accent", "default": "#6426ff" },
+    { "type": "color", "id": "ink", "label": "Text", "default": "#17151e" },
+    { "type": "color", "id": "soft_background", "label": "Background", "default": "#f4f0ff" },
+    { "type": "color", "id": "card_background", "label": "Cards", "default": "#ffffff" }
+  ],
+  "blocks": [
+    { "type": "review", "name": "Review", "settings": [
+      { "type": "range", "id": "rating", "label": "Rating", "min": 1, "max": 5, "step": 1, "default": 5 },
+      { "type": "text", "id": "title", "label": "Title" },
+      { "type": "textarea", "id": "quote", "label": "Quote" },
+      { "type": "text", "id": "author", "label": "Author" },
+      { "type": "checkbox", "id": "verified", "label": "Verified buyer", "default": false }
+    ] }
+  ],
+  "presets": [{ "name": "RYZTOR Creatine story" }]
+}
+{% endschema %}

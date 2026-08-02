@@ -2,6 +2,10 @@
 
 {% liquid
   assign max_items = section.settings.max_products
+  assign featured_handles = section.settings.ryztor_product_handles | split: ','
+  if section.settings.ryztor_product_handles != blank
+    assign max_items = featured_handles.size
+  endif
   if section.settings.background_color != blank
     render 'contrast-override', background_color: section.settings.background_color, section_id: section.id
   endif
@@ -31,7 +35,28 @@
   </div>
 
   {% capture list_items %}
-    {% if section.settings.collection != blank and shop.products_count != 0 %}
+    {% if section.settings.ryztor_product_handles != blank %}
+      {% for featured_handle in featured_handles %}
+        {% assign clean_handle = featured_handle | strip %}
+        {% assign product = all_products[clean_handle] %}
+        {% if product != blank %}
+        <div
+          class="resource-list__item"
+        >
+          {% content_for 'block',
+            type: '_product-card',
+            id: 'static-product-card',
+            closest.product: product,
+            product_view_context: 'collection'
+          %}
+        </div>
+
+          {% unless forloop.last %}
+            <!--@list/split-->
+          {% endunless %}
+        {% endif %}
+      {% endfor %}
+    {% elsif section.settings.collection != blank and shop.products_count != 0 %}
       {% paginate section.settings.collection.products by max_items %}
         {% for product in section.settings.collection.products limit: max_items %}
         <div
@@ -228,6 +253,12 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "text",
+      "id": "ryztor_product_handles",
+      "label": "Featured product handles",
+      "info": "Comma-separated handles shown in this exact order."
+    },
     {
       "type": "collection",
       "id": "collection",

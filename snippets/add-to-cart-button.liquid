@@ -11,6 +11,11 @@
 
 {%- liquid
   assign default_add_to_cart_text = 'actions.add_to_cart' | t
+  assign normalized_product_title = product.title | downcase
+  assign is_ryztor_bundle_product = false
+  if normalized_product_title contains 'berber' or normalized_product_title contains 'magnesium'
+    assign is_ryztor_bundle_product = true
+  endif
   assign product_variant_media = product.selected_or_first_available_variant.featured_media.preview_image | image_url: width: 100
   if product.selected_or_first_available_variant.featured_media.preview_image == blank
     assign product_variant_media = product.featured_media.preview_image | image_url: width: 100
@@ -38,7 +43,7 @@
       disabled
     {% endunless %}
   >
-    {% if can_add_to_cart %}
+    {% if can_add_to_cart and is_ryztor_bundle_product == false %}
       <span
         aria-hidden="true"
         class="svg-wrapper add-to-cart-icon"
@@ -46,12 +51,32 @@
         {{- 'icon-add-to-cart.svg' | inline_asset_content -}}
       </span>
     {% endif %}
-    {{- add_to_cart_text | default: default_add_to_cart_text -}}
+    {% if can_add_to_cart and is_ryztor_bundle_product %}
+      <span class="ryztor-continue-button__label">BUY NOW</span>
+      <span class="ryztor-continue-button__price" data-bundle-button-price>
+        {{- product.selected_or_first_available_variant.price | money -}}
+      </span>
+    {% else %}
+      {{- add_to_cart_text | default: default_add_to_cart_text -}}
+    {% endif %}
     {% comment %} checkmark burst markup {% endcomment %}
     <span class="add-to-cart__added">
       <span class="svg-wrapper add-to-cart__added-icon">
         {{- 'icon-checkmark-burst.svg' | inline_asset_content -}}
       </span>
     </span>
-  </button>
+</button>
+
+{% stylesheet %}
+  .ryztor-continue-button__label,
+  .ryztor-continue-button__price {
+    display: block;
+    line-height: 1.05;
+  }
+
+  .ryztor-continue-button__price {
+    margin-top: 3px;
+    font-variant-numeric: tabular-nums;
+  }
+{% endstylesheet %}
 </add-to-cart-component>

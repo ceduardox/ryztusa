@@ -323,6 +323,7 @@
       "name": "t:names.product_list",
       "settings": {
         "collection": "all",
+        "ryztor_product_handles": "berberine,magnesium-glycinate,creatine-monohydrate",
         "layout_type": "grid",
         "carousel_on_mobile": false,
         "max_products": 3,

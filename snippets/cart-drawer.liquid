@@ -143,6 +143,45 @@
     display: contents;
   }
 
+  #cart-drawer {
+    --spring-d280-b0-duration: 0.2s;
+  }
+
+  .theme-drawer__dialog[data-cart-loading] .cart-drawer__inner {
+    position: relative;
+  }
+
+  .theme-drawer__dialog[data-cart-loading] .cart-drawer__inner::before {
+    position: absolute;
+    z-index: 20;
+    inset: 0;
+    background: rgb(var(--color-background-rgb) / 88%);
+    content: '';
+    pointer-events: none;
+  }
+
+  .theme-drawer__dialog[data-cart-loading] .cart-drawer__inner::after {
+    position: absolute;
+    z-index: 21;
+    top: 50%;
+    left: 50%;
+    width: 34px;
+    height: 34px;
+    border: 3px solid rgb(var(--color-foreground-rgb) / 16%);
+    border-top-color: #7652f5;
+    border-radius: 50%;
+    content: '';
+    pointer-events: none;
+    animation: ryztor-cart-loading 0.65s linear infinite;
+    transform: translate(-50%, -50%);
+  }
+
+  @keyframes ryztor-cart-loading {
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
   .cart-drawer__inner {
     display: flex;
     flex-direction: column;

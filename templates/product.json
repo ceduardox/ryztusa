@@ -183,7 +183,7 @@
               "type": "custom-liquid",
               "name": "Berberine rating",
               "settings": {
-                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'berber' %}<div class=\"ryztor-rating\"><span class=\"ryztor-rating__stars\">★★★★★</span><span class=\"ryztor-rating__score\">4.8</span><span class=\"ryztor-rating__count\">(142 reviews)</span></div>{% endif %}",
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'berber' %}<a class=\"ryztor-rating\" href=\"#ryztor-reviews\" style=\"color:inherit;text-decoration:none\"><span class=\"ryztor-rating__stars\" aria-hidden=\"true\">★★★★★</span><span class=\"ryztor-rating__score\">4.9</span><span class=\"ryztor-rating__count\">(186 reviews)</span></a>{% endif %}",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -216,11 +216,23 @@
               },
               "blocks": {}
             },
+            "berberine_bundle_selector": {
+              "type": "custom-liquid",
+              "name": "Berberine bundle selector",
+              "settings": {
+                "custom_liquid": "{% render 'ryztor-bundle-selector', product_resource: closest.product %}",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "berberine_summary": {
               "type": "custom-liquid",
               "name": "Berberine quick summary",
               "settings": {
-                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'berber' %}<div class=\"ryztor-product-summary\"><p><strong>Berberine metabolic support capsules.</strong> Two capsules daily to support normal blood sugar, cardiovascular wellness, and healthy weight management as part of a balanced lifestyle.*</p><div class=\"ryztor-product-summary__benefits\"><div><b>60</b><span>Capsules</span></div><div><b>2×</b><span>Daily use</span></div><div><b>USA</b><span>Manufactured</span></div></div></div>{% endif %}"
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'berber' %}<div class=\"ryztor-product-summary\"><p><strong>Metabolic support that fits real life.*</strong> Just two capsules daily to help support healthy blood sugar levels already within the normal range, cardiovascular wellness, and weight-management goals—without complicating your routine.</p><div class=\"ryztor-product-summary__benefits\"><div><b>60</b><span>Capsules</span></div><div><b>2×</b><span>Daily use</span></div><div><b>USA</b><span>Manufactured</span></div></div></div>{% endif %}"
               },
               "blocks": {}
             },
@@ -342,33 +354,23 @@
               },
               "blocks": {}
             },
-            "berberine_disclosures": {
+            "berberine_ordering_questions": {
               "type": "custom-liquid",
-              "name": "Berberine disclosures",
+              "name": "Questions before ordering",
               "settings": {
-                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'berber' %}<div class=\"ryztor-product-disclosures\"><details><summary>Ingredients <span>+</span></summary><p>Granular Berberine Hydrochloride Extract 97% (bark), Granular Berberine Hydrochloride Extract 8% (bark/root), cellulose (vegetable capsule), MCC (microcrystalline cellulose), L-Leucine, and olive oil.</p></details><details><summary>Directions <span>+</span></summary><p>Adults take two (2) capsules daily with 6–8 oz (177–236 ml) of water, or as directed by a healthcare professional.</p></details><details><summary>Warning <span>+</span></summary><p>Do not exceed the recommended dose. Pregnant or nursing mothers, children under 18, and individuals with known medical conditions should consult a physician before use. Keep out of reach of children. Do not use if the safety seal is damaged or missing. Store in a cool, dry place.</p></details></div>{% endif %}"
+                "custom_liquid": "{% render 'ryztor-berberine-description', product_resource: closest.product, placement: 'ordering', content: 'questions' %}",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {}
             },
-            "text_aEtTtq": {
-              "type": "text",
-              "name": "t:names.product_description",
+            "berberine_mobile_essentials": {
+              "type": "custom-liquid",
+              "name": "Mobile product information",
               "settings": {
-                "text": "{{ closest.product.description }}",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "text_color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
+                "custom_liquid": "{% render 'ryztor-berberine-description', product_resource: closest.product, placement: 'mobile', content: 'product' %}",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -384,18 +386,17 @@
             "berberine_summary",
             "berberine_stock",
             "divider_VJhene",
+            "berberine_bundle_selector",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
             "berberine_guarantee",
             "berberine_subscribe",
-            "berberine_disclosures",
-            "text_aEtTtq"
+            "berberine_ordering_questions",
+            "berberine_mobile_essentials"
           ]
         }
       },
-      "block_order": [
-        "disclosures_g9mWze"
-      ],
+      "block_order": [],
       "settings": {
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",
@@ -408,6 +409,26 @@
         "padding-block-end": 32
       }
     },
+    "ryztor_delivery_gallery": {
+      "type": "ryztor-berberine-gallery",
+      "settings": {
+        "eyebrow": "BERBERINE IN REAL LIFE",
+        "heading": "A closer look at your daily routine.",
+        "text": "<p>See RYZTOR Berberine in simple, everyday settings.</p>",
+        "accent": "#7652f5",
+        "background": "#ffffff"
+      }
+    },
+    "ryztor_berberine_daily_support": {
+      "type": "ryztor-magnesium-daily-support",
+      "settings": {
+        "eyebrow": "BERBERINE THROUGH YOUR DAY",
+        "heading": "Support for glucose metabolism, energy, and everyday balance.*",
+        "text": "<p>Explore four practical ways berberine can complement the daily habits that support metabolic wellness.</p>",
+        "accent": "#7652f5",
+        "background": "#f5f1ff"
+      }
+    },
     "ryztor_berberine_story": {
       "type": "ryztor-berberine-story",
       "blocks": {
@@ -415,30 +436,30 @@
           "type": "review",
           "settings": {
             "rating": 5,
-            "title": "My blood sugar numbers are looking better",
-            "quote": "I've been taking RYZTOR Berberine for about 6 weeks now and my morning readings have been consistently within normal range. It's become part of my daily routine and I feel great. Easy to take, no aftertaste, and I appreciate that it's made in the USA.",
-            "author": "Maria T.",
-            "verified": true
+            "title": "",
+            "quote": "",
+            "author": "",
+            "verified": false
           }
         },
         "review_2": {
           "type": "review",
           "settings": {
             "rating": 5,
-            "title": "Simple and effective daily supplement",
-            "quote": "What I like most is that it's just two capsules a day. No complicated schedule, no weird ingredients I can't pronounce. I've noticed more steady energy throughout the day and my cravings have decreased. Definitely ordering another bottle.",
-            "author": "James R.",
-            "verified": true
+            "title": "",
+            "quote": "",
+            "author": "",
+            "verified": false
           }
         },
         "review_3": {
           "type": "review",
           "settings": {
             "rating": 5,
-            "title": "Great addition to my wellness routine",
-            "quote": "I was skeptical at first but after researching berberine I decided to try RYZTOR. The quality is noticeable — clean formula, vegetarian capsule, and it arrived quickly. I've recommended it to two friends already. Will continue using it.",
-            "author": "Sarah K.",
-            "verified": true
+            "title": "",
+            "quote": "",
+            "author": "",
+            "verified": false
           }
         }
       },
@@ -448,7 +469,7 @@
         "review_3"
       ],
       "settings": {
-        "eyebrow": "A smarter everyday routine",
+        "eyebrow": "Benefits of Berberine",
         "heading": "Metabolic wellness, made easier to repeat.",
         "intro": "<p>RYZTOR Berberine is built for people who want practical support for a balanced lifestyle—without turning wellness into a complicated project.</p>",
         "accent": "#7652f5",
@@ -602,6 +623,8 @@
   },
   "order": [
     "main",
+    "ryztor_delivery_gallery",
+    "ryztor_berberine_daily_support",
     "ryztor_berberine_story",
     "product_recommendations_qggXJq"
   ]

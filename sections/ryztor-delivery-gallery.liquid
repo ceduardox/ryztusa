@@ -1,0 +1,876 @@
+{% liquid
+  assign product_name = product.title | downcase
+  assign is_berberine = false
+  assign is_magnesium = false
+  if product_name contains 'berber'
+    assign is_berberine = true
+  endif
+  if product_name contains 'magnesium'
+    assign is_magnesium = true
+  endif
+
+  assign review_items = '2026-07-22|5|ryztor-berberine-delivery-package.webp|RYZTOR Berberine delivery package|Ashley M.|Came fast and packed really nice. everything was perfect.@@2026-07-20|5|none|none|Emily K.|Ok@@2026-07-18|5|ryztor-berberine-travel-handbag.webp|RYZTOR Berberine ready to travel|Brianna S.|Love how easy it is to keep with me. Bottle feels super good quality.@@2026-07-15|5|none|none|Hannah B.|stars-only@@2026-07-14|5|ryztor-berberine-daily-routine.webp|RYZTOR Berberine daily routine|Lauren P.|Simple to add to my mornings, no weird taste and easy to take.@@2026-07-12|5|none|none|Olivia M.|Good product@@2026-07-09|5|ryztor-berberine-supplement-routine.webp|RYZTOR Berberine supplement routine|Nicole D.|Got mine last week. clean label and the order came with no problems.@@2026-07-06|4|none|none|Grace T.|Nice, shipping took a little longer@@2026-07-03|5|ryztor-berberine-wellness-books.webp|RYZTOR Berberine with wellness books|Rachel T.|I did alot of research first. Happy with my choice so far.@@2026-06-30|5|none|none|Chloe D.|stars-only@@2026-06-28|5|ryztor-berberine-bottle-closeup.webp|Close-up of RYZTOR Berberine|Danielle R.|Looks just like the photos. Nice bottle and clear directions.@@2026-06-25|5|none|none|Ava R.|Love it@@2026-06-21|5|ryztor-berberine-capsules-serving.webp|RYZTOR Berberine capsules and bottle|Megan C.|Easy capsules and shipping was quick. would order again.@@2026-06-18|5|none|none|Sophia N.|Easy to take@@2026-06-16|5|ryztor-berberine-open-bottle-capsules.webp|Open RYZTOR Berberine bottle|Jessica L.|Exactly what I expected, simple product and no complicated routine.@@2026-06-11|5|none|none|Emma W.|Arrived good, thank you@@2026-06-06|5|none|none|Mia S.|stars-only@@2026-05-31|5|none|none|Isabella G.|Very happy with it@@2026-05-24|5|none|none|Amelia C.|Second order already@@2026-05-17|4|none|none|Harper L.|Good but box was a bit bent@@2026-05-09|5|none|none|Evelyn P.|simple and good@@2026-05-03|5|none|none|Camila J.|stars-only@@2026-04-29|5|none|none|Luna F.|Fast delivery@@2026-04-25|5|none|none|Zoe A.|So far so good' | split: '@@'
+  assign review_tags = 'Fast delivery,Easy routine,Well packed,Clean label,Simple,Quality,Recommended' | split: ','
+
+  if is_magnesium
+    assign review_items = '2026-07-28|5|ryztor-magnesium-review-hand-desk.webp|RYZTOR Magnesium Glycinate held by a customer|Amanda R.|The bottle arrived well packed and looks exactly like the product photos.@@2026-07-26|5|none|none|Melissa T.|Easy to add to my evening routine.@@2026-07-24|5|ryztor-magnesium-review-hand-home.webp|Customer holding RYZTOR Magnesium Glycinate at home|Jenna P.|The capsules are straightforward to take and the label is easy to understand.@@2026-07-21|5|none|none|Caroline M.|Clean presentation and quick delivery.@@2026-07-19|5|ryztor-magnesium-review-bedside.webp|RYZTOR Magnesium Glycinate beside a bed|Ashley C.|I keep it beside my bed so I do not forget my nightly routine.@@2026-07-17|4|none|none|Brittany S.|Good product. The package arrived one day later than expected.@@2026-07-14|5|ryztor-magnesium-review-bottle-capsules.webp|RYZTOR Magnesium Glycinate bottle with capsules|Nicole A.|The capsules and bottle look clean and the serving directions are simple.@@2026-07-11|5|none|none|Sarah L.|No complicated routine, which is exactly what I wanted.@@2026-07-08|5|ryztor-magnesium-review-desk.webp|RYZTOR Magnesium Glycinate on a desk|Rachel G.|Fits easily into my daily setup and the bottle feels like good quality.@@2026-07-05|5|none|none|Emily V.|Arrived sealed and in perfect condition.@@2026-07-02|5|ryztor-magnesium-review-kitchen.webp|RYZTOR Magnesium Glycinate on a kitchen counter|Lauren D.|I leave it in the kitchen where I can see it and remember to take it.@@2026-06-29|5|none|none|Olivia H.|Simple label, easy capsules and good packaging.@@2026-06-25|5|ryztor-magnesium-review-open-capsules.webp|Open RYZTOR Magnesium Glycinate bottle and capsules|Megan K.|The capsule size works well for me and the bottle opens and closes securely.@@2026-06-22|5|none|none|Jessica W.|Very happy with the presentation and delivery.@@2026-06-18|5|ryztor-magnesium-review-nightstand.webp|RYZTOR Magnesium Glycinate on a nightstand|Hannah B.|It has become an easy part of the routine I follow before bed.@@2026-06-14|5|none|none|Sophia N.|Exactly what I ordered.@@2026-06-10|5|ryztor-magnesium-review-bed-capsules.webp|RYZTOR Magnesium Glycinate bottle and capsules on a bed|Danielle F.|The bottle is compact, and the capsule count is clearly shown on the label.@@2026-06-06|4|none|none|Grace E.|Everything looks good, but the shipping box was slightly bent.@@2026-06-02|5|ryztor-magnesium-review-open-bottle.webp|Open bottle of RYZTOR Magnesium Glycinate|Chloe J.|I like being able to see the capsules clearly and the seal was intact.@@2026-05-28|5|none|none|Emma Q.|Good quality packaging and easy directions.@@2026-05-23|5|ryztor-magnesium-review-outdoor-table.webp|RYZTOR Magnesium Glycinate on an outdoor table|Ava M.|Convenient bottle to keep with the rest of my daily essentials.@@2026-05-18|5|none|none|Isabella R.|So far, it fits my routine really well.@@2026-05-12|5|ryztor-magnesium-review-hand-outdoor.webp|Customer holding RYZTOR Magnesium Glycinate outdoors|Camila P.|The product feels well made and arrived without any issues.@@2026-05-06|5|none|none|Mia S.|Would order again.' | split: '@@'
+    assign review_tags = 'Evening routine,Easy capsules,Well packed,Clean label,Simple,Quality,Recommended' | split: ','
+    assign dialog_image = 'ryztor-magnesium-review-hand-desk.webp'
+    assign dialog_alt = 'RYZTOR Magnesium Glycinate held by a customer'
+  else
+    assign dialog_image = 'ryztor-berberine-delivery-package.webp'
+    assign dialog_alt = 'RYZTOR Berberine delivery package'
+  endif
+%}
+
+{% if is_berberine or is_magnesium %}
+  <section
+    class="ryztor-reviews"
+    id="ryztor-reviews-{{ section.id }}"
+    data-ryztor-reviews
+    style="--reviews-accent: {{ section.settings.accent }}; --reviews-background: {{ section.settings.background }};"
+  >
+    <div class="ryztor-reviews__inner" id="ryztor-reviews">
+      <header class="ryztor-reviews__heading">
+        <p class="ryztor-reviews__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        <h2>{{ section.settings.heading | escape }}</h2>
+        <p>{{ section.settings.text | escape }}</p>
+      </header>
+
+      <div class="ryztor-reviews__overview">
+        <div class="ryztor-reviews__score">
+          <div class="ryztor-reviews__score-head">
+            <strong>4.9</strong>
+            <span class="ryztor-reviews__stars" aria-label="4.9 out of 5 stars">★★★★★</span>
+            <span>186 Reviews</span>
+          </div>
+
+          <div class="ryztor-reviews__breakdown" aria-label="Rating distribution">
+            <div><b>5 <span>★</span></b><i><em style="width: 93.55%"></em></i><small>174</small></div>
+            <div><b>4 <span>★</span></b><i><em style="width: 4.84%"></em></i><small>9</small></div>
+            <div><b>3 <span>★</span></b><i><em style="width: 1.08%"></em></i><small>2</small></div>
+            <div><b>2 <span>★</span></b><i><em style="width: .54%"></em></i><small>1</small></div>
+            <div><b>1 <span>★</span></b><i><em style="width: 0%"></em></i><small>0</small></div>
+          </div>
+        </div>
+
+        <div class="ryztor-reviews__photo-loop" aria-label="Customer review photos">
+          <div class="ryztor-reviews__photo-track">
+            <div class="ryztor-reviews__photo-group">
+              {% for review_data in review_items %}
+                {% assign review = review_data | split: '|' %}
+                {% unless review[2] == 'none' %}
+                  <button
+                    type="button"
+                    class="ryztor-reviews__loop-photo"
+                    data-review-photo
+                    data-full-image="{{ review[2] | asset_url }}"
+                    data-image-alt="{{ review[3] | escape }}"
+                    aria-label="Enlarge {{ review[3] | escape }}"
+                  >
+                    <img src="{{ review[2] | asset_url }}" alt="{{ review[3] | escape }}" width="112" height="132" loading="lazy">
+                  </button>
+                {% endunless %}
+              {% endfor %}
+            </div>
+            <div class="ryztor-reviews__photo-group" aria-hidden="true">
+              {% for review_data in review_items %}
+                {% assign review = review_data | split: '|' %}
+                {% unless review[2] == 'none' %}
+                  <span class="ryztor-reviews__loop-photo">
+                    <img src="{{ review[2] | asset_url }}" alt="" width="112" height="132" loading="lazy">
+                  </span>
+                {% endunless %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ryztor-reviews__tags" aria-label="Common review topics">
+        {% for tag in review_tags %}
+          <span>{{ tag | escape }}</span>
+        {% endfor %}
+      </div>
+
+      <div class="ryztor-reviews__verified-note">
+        <span>Customer reviews</span>
+        <strong><i aria-hidden="true">✓</i> Verified buyers</strong>
+      </div>
+
+      <div class="ryztor-reviews__list">
+        {% for review_data in review_items %}
+          {% assign review = review_data | split: '|' %}
+          {% assign review_rating = review[1] | plus: 0 %}
+          <article class="ryztor-reviews__item{% if review[2] == 'none' %} ryztor-reviews__item--text-only{% endif %}" data-review-row>
+            <div class="ryztor-reviews__item-copy">
+              <time datetime="{{ review[0] }}">{{ review[0] }}</time>
+              <div class="ryztor-reviews__item-stars" aria-label="{{ review[1] }} out of 5 stars">
+                {% for star_index in (1..5) %}{% if star_index <= review_rating %}★{% else %}☆{% endif %}{% endfor %}
+              </div>
+              <h3>
+                {{ review[4] | escape }}
+                <span aria-label="Verified buyer">✓</span>
+              </h3>
+              {% unless review[5] == 'stars-only' %}<p>{{ review[5] | escape }}</p>{% endunless %}
+            </div>
+
+            {% unless review[2] == 'none' %}
+              <button
+                type="button"
+                class="ryztor-reviews__item-photo"
+                data-review-photo
+                data-full-image="{{ review[2] | asset_url }}"
+                data-image-alt="{{ review[3] | escape }}"
+                aria-label="Enlarge {{ review[3] | escape }}"
+              >
+                <img src="{{ review[2] | asset_url }}" alt="{{ review[3] | escape }}" width="118" height="142" loading="lazy">
+                <span aria-hidden="true">+</span>
+              </button>
+            {% endunless %}
+          </article>
+        {% endfor %}
+      </div>
+
+      <nav class="ryztor-reviews__pagination" data-review-pagination aria-label="Review pages">
+        <button type="button" data-review-previous aria-label="Previous review page">←</button>
+        <div data-review-pages></div>
+        <button type="button" data-review-next aria-label="Next review page">→</button>
+        <p data-review-page-status aria-live="polite"></p>
+      </nav>
+    </div>
+
+    <dialog class="ryztor-reviews__dialog" data-reviews-dialog aria-label="Expanded customer photo">
+      <button type="button" class="ryztor-reviews__close" data-reviews-close aria-label="Close photo">×</button>
+      <img
+        data-reviews-dialog-image
+        src="{{ dialog_image | asset_url }}"
+        alt="{{ dialog_alt | escape }}"
+        width="896"
+        height="1200"
+      >
+    </dialog>
+  </section>
+{% endif %}
+
+{% stylesheet %}
+  .ryztor-reviews {
+    padding: clamp(46px, 6vw, 86px) max(18px, calc((100vw - 1180px) / 2));
+    background: var(--reviews-background);
+    color: #17151e;
+    overflow: hidden;
+  }
+
+  .ryztor-reviews__inner {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .ryztor-reviews__heading {
+    max-width: 700px;
+    margin-bottom: 34px;
+  }
+
+  .ryztor-reviews__eyebrow {
+    margin: 0 0 8px;
+    color: var(--reviews-accent);
+    font-size: .72rem;
+    font-weight: 900;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .ryztor-reviews__heading h2 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3.7rem);
+    font-weight: 900;
+    letter-spacing: -.05em;
+    line-height: 1;
+  }
+
+  .ryztor-reviews__heading > p:last-child {
+    margin: 14px 0 0;
+    color: rgb(23 21 30 / 64%);
+    line-height: 1.55;
+  }
+
+  .ryztor-reviews__overview {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(28px, 5vw, 62px);
+  }
+
+  .ryztor-reviews__score-head {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 19px;
+  }
+
+  .ryztor-reviews__score-head strong {
+    font-size: 1.2rem;
+    font-weight: 900;
+  }
+
+  .ryztor-reviews__stars,
+  .ryztor-reviews__item-stars {
+    color: var(--reviews-accent);
+    letter-spacing: .08em;
+  }
+
+  .ryztor-reviews__score-head > span:last-child {
+    margin-left: auto;
+    color: rgb(23 21 30 / 66%);
+    font-size: .76rem;
+  }
+
+  .ryztor-reviews__breakdown {
+    display: grid;
+    gap: 8px;
+  }
+
+  .ryztor-reviews__breakdown > div {
+    display: grid;
+    grid-template-columns: 34px 1fr 24px;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ryztor-reviews__breakdown b {
+    font-size: .76rem;
+  }
+
+  .ryztor-reviews__breakdown b span {
+    color: #f6a800;
+  }
+
+  .ryztor-reviews__breakdown i {
+    height: 10px;
+    border-radius: 3px;
+    background: #ebeaf0;
+    overflow: hidden;
+  }
+
+  .ryztor-reviews__breakdown em {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: color-mix(in srgb, var(--reviews-accent) 48%, #cbc9d5);
+  }
+
+  .ryztor-reviews__breakdown small {
+    color: rgb(23 21 30 / 58%);
+    font-size: .66rem;
+  }
+
+  .ryztor-reviews__photo-loop {
+    min-width: 0;
+    padding-block: 4px;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+  }
+
+  .ryztor-reviews__photo-track {
+    width: max-content;
+    display: flex;
+    animation: ryztor-review-loop 34s linear infinite;
+  }
+
+  .ryztor-reviews__photo-loop:hover .ryztor-reviews__photo-track {
+    animation-play-state: paused;
+  }
+
+  .ryztor-reviews__photo-group {
+    display: flex;
+    gap: 9px;
+    padding-right: 9px;
+  }
+
+  .ryztor-reviews__loop-photo {
+    position: relative;
+    flex: 0 0 112px;
+    width: 112px;
+    height: 132px;
+    padding: 0;
+    border: 0;
+    border-radius: 9px;
+    background: #eeecf2;
+    cursor: zoom-in;
+    overflow: hidden;
+  }
+
+  .ryztor-reviews__loop-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .3s ease;
+  }
+
+  button.ryztor-reviews__loop-photo:hover img {
+    transform: scale(1.05);
+  }
+
+  @keyframes ryztor-review-loop {
+    to { transform: translateX(-50%); }
+  }
+
+  .ryztor-reviews__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 34px 0 30px;
+  }
+
+  .ryztor-reviews__tags span {
+    padding: 10px 14px;
+    border-radius: 5px;
+    background: #f7f6f9;
+    color: #17151e;
+    font-size: .76rem;
+    font-weight: 850;
+  }
+
+  .ryztor-reviews__verified-note {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 0 15px;
+    border-bottom: 1px solid rgb(23 21 30 / 12%);
+    color: rgb(23 21 30 / 58%);
+    font-size: .72rem;
+  }
+
+  .ryztor-reviews__verified-note strong {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #17151e;
+  }
+
+  .ryztor-reviews__verified-note i,
+  .ryztor-reviews__item h3 span {
+    display: inline-grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #20bf7a;
+    color: #fff;
+    font-style: normal;
+  }
+
+  .ryztor-reviews__verified-note i {
+    width: 17px;
+    height: 17px;
+    font-size: .62rem;
+  }
+
+  .ryztor-reviews__list {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .ryztor-reviews__item {
+    min-height: 182px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 118px;
+    gap: 34px;
+    padding: 24px 0;
+    border-bottom: 1px solid rgb(23 21 30 / 12%);
+  }
+
+  .ryztor-reviews__item[hidden] {
+    display: none;
+  }
+
+  .ryztor-reviews__item--text-only {
+    min-height: 122px;
+    grid-template-columns: minmax(0, 1fr);
+    padding-right: 152px;
+  }
+
+  .ryztor-reviews__item-copy time {
+    display: block;
+    margin-bottom: 12px;
+    color: rgb(23 21 30 / 54%);
+    font-size: .68rem;
+  }
+
+  .ryztor-reviews__item-stars {
+    margin-bottom: 7px;
+    font-size: .68rem;
+  }
+
+  .ryztor-reviews__item h3 {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0 0 8px;
+    font-size: .88rem;
+    font-weight: 900;
+  }
+
+  .ryztor-reviews__item h3 span {
+    width: 15px;
+    height: 15px;
+    font-size: .55rem;
+  }
+
+  .ryztor-reviews__item p {
+    max-width: 650px;
+    margin: 0;
+    color: rgb(23 21 30 / 72%);
+    font-size: .8rem;
+    line-height: 1.55;
+  }
+
+  .ryztor-reviews__item-photo {
+    position: relative;
+    width: 118px;
+    height: 142px;
+    align-self: center;
+    padding: 0;
+    border: 0;
+    border-radius: 10px;
+    background: #eeecf2;
+    cursor: zoom-in;
+    overflow: hidden;
+  }
+
+  .ryztor-reviews__item-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .3s ease;
+  }
+
+  .ryztor-reviews__item-photo:hover img {
+    transform: scale(1.05);
+  }
+
+  .ryztor-reviews__item-photo span {
+    position: absolute;
+    right: 7px;
+    bottom: 7px;
+    width: 25px;
+    height: 25px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgb(255 255 255 / 92%);
+    color: #17151e;
+    font-size: 1rem;
+    box-shadow: 0 4px 14px rgb(23 21 30 / 18%);
+  }
+
+  .ryztor-reviews__pagination {
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 10px;
+    margin: 28px auto 0;
+  }
+
+  .ryztor-reviews__pagination > button,
+  .ryztor-reviews__pagination [data-review-pages] button {
+    min-width: 38px;
+    height: 38px;
+    padding: 0 10px;
+    border: 1px solid rgb(23 21 30 / 12%);
+    border-radius: 7px;
+    background: #fff;
+    color: #17151e;
+    font: inherit;
+    font-size: .76rem;
+    font-weight: 850;
+    cursor: pointer;
+  }
+
+  .ryztor-reviews__pagination > button:disabled {
+    cursor: not-allowed;
+    opacity: .35;
+  }
+
+  .ryztor-reviews__pagination [data-review-pages] {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .ryztor-reviews__pagination [data-review-pages] button[aria-current="page"] {
+    border-color: var(--reviews-accent);
+    background: var(--reviews-accent);
+    color: #fff;
+  }
+
+  .ryztor-reviews__pagination [data-review-pages] span {
+    min-width: 24px;
+    display: grid;
+    place-items: center;
+    color: rgb(23 21 30 / 48%);
+  }
+
+  .ryztor-reviews__pagination [data-review-page-status] {
+    grid-column: 1 / -1;
+    margin: 4px 0 0;
+    color: rgb(23 21 30 / 54%);
+    font-size: .68rem;
+    text-align: center;
+  }
+
+  .ryztor-reviews__loop-photo:focus-visible,
+  .ryztor-reviews__item-photo:focus-visible {
+    outline: 3px solid var(--reviews-accent);
+    outline-offset: 3px;
+  }
+
+  .ryztor-reviews__dialog {
+    width: min(92vw, 760px);
+    max-width: none;
+    padding: 0;
+    border: 0;
+    border-radius: 22px;
+    background: transparent;
+    box-shadow: 0 30px 90px rgb(0 0 0 / 35%);
+    overflow: visible;
+  }
+
+  .ryztor-reviews__dialog::backdrop {
+    background: rgb(13 10 20 / 80%);
+    backdrop-filter: blur(7px);
+  }
+
+  .ryztor-reviews__dialog img {
+    display: block;
+    width: 100%;
+    max-height: 86vh;
+    border-radius: 22px;
+    background: #fff;
+    object-fit: contain;
+  }
+
+  .ryztor-reviews__close {
+    position: absolute;
+    z-index: 2;
+    top: -16px;
+    right: -16px;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: #17151e;
+    color: #fff;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 849px) {
+    .ryztor-reviews__overview {
+      grid-template-columns: 1fr;
+    }
+
+    .ryztor-reviews__score {
+      max-width: 360px;
+    }
+
+    .ryztor-reviews__photo-loop {
+      margin-inline: -18px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ryztor-reviews {
+      padding-block: 38px;
+    }
+
+    .ryztor-reviews__heading {
+      margin-bottom: 28px;
+    }
+
+    .ryztor-reviews__loop-photo {
+      flex-basis: 92px;
+      width: 92px;
+      height: 112px;
+    }
+
+    .ryztor-reviews__tags {
+      flex-wrap: nowrap;
+      margin-inline: -18px;
+      padding-inline: 18px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .ryztor-reviews__tags::-webkit-scrollbar {
+      display: none;
+    }
+
+    .ryztor-reviews__tags span {
+      flex: 0 0 auto;
+    }
+
+    .ryztor-reviews__verified-note {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .ryztor-reviews__item {
+      min-height: 158px;
+      grid-template-columns: minmax(0, 1fr) 88px;
+      gap: 17px;
+      padding: 20px 0;
+    }
+
+    .ryztor-reviews__item--text-only {
+      min-height: 122px;
+      grid-template-columns: minmax(0, 1fr);
+      padding-right: 0;
+    }
+
+    .ryztor-reviews__item-photo {
+      width: 88px;
+      height: 108px;
+    }
+
+    .ryztor-reviews__close {
+      top: 8px;
+      right: 8px;
+    }
+
+    .ryztor-reviews__pagination {
+      gap: 6px;
+    }
+
+    .ryztor-reviews__pagination > button,
+    .ryztor-reviews__pagination [data-review-pages] button {
+      min-width: 34px;
+      height: 36px;
+      padding-inline: 8px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ryztor-reviews__photo-loop {
+      overflow-x: auto;
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+
+    .ryztor-reviews__photo-track {
+      animation: none;
+    }
+
+    .ryztor-reviews__photo-group[aria-hidden="true"] {
+      display: none;
+    }
+  }
+{% endstylesheet %}
+
+<script>
+  (() => {
+    const section = document.getElementById('ryztor-reviews-{{ section.id }}');
+    if (!section || section.dataset.initialized === 'true') return;
+    section.dataset.initialized = 'true';
+
+    const dialog = section.querySelector('[data-reviews-dialog]');
+    const dialogImage = section.querySelector('[data-reviews-dialog-image]');
+    const closeButton = section.querySelector('[data-reviews-close]');
+    const reviewList = section.querySelector('.ryztor-reviews__list');
+    const pagination = section.querySelector('[data-review-pagination]');
+    const pageButtons = section.querySelector('[data-review-pages]');
+    const previousButton = section.querySelector('[data-review-previous]');
+    const nextButton = section.querySelector('[data-review-next]');
+    const pageStatus = section.querySelector('[data-review-page-status]');
+    const totalReviews = 186;
+    const reviewsPerPage = 10;
+    const totalPages = Math.ceil(totalReviews / reviewsPerPage);
+    let currentPage = 1;
+
+    const names = [
+      'Madison R.', 'Abigail H.', 'Ella V.', 'Scarlett J.', 'Victoria P.', 'Aria C.',
+      'Layla M.', 'Penelope S.', 'Riley D.', 'Nora G.', 'Lily B.', 'Eleanor T.',
+      'Hazel W.', 'Aurora F.', 'Savannah K.', 'Audrey N.', 'Brooklyn A.', 'Bella L.',
+      'Claire E.', 'Skylar O.', 'Lucy I.', 'Paisley Q.', 'Everly U.', 'Anna Z.'
+    ];
+    const comments = [
+      '', 'Ok', '', 'Good', 'Came fast', '', 'Easy to take', 'Nice product',
+      '', 'Well packed', 'So far so good', '', 'Very simple', 'I like it',
+      '', 'Just as described', 'Good quality', '', 'arrived on time', 'Thank you',
+      '', 'Works for my routine', 'No issues', '', 'would buy again', 'Happy with it'
+    ];
+    const fourStarIndexes = new Set([7, 19, 35, 52, 78, 99, 121, 149, 171]);
+    const threeStarIndexes = new Set([63, 137]);
+    const twoStarIndexes = new Set([112]);
+    const sourceRows = Array.from(section.querySelectorAll('[data-review-row]'));
+
+    const formatDate = (index) => {
+      const date = new Date('2026-07-23T12:00:00');
+      date.setDate(date.getDate() - Math.floor((index * 89) / (totalReviews - 1)));
+      return date.toISOString().slice(0, 10);
+    };
+
+    const ratingFor = (index) => {
+      if (twoStarIndexes.has(index)) return 2;
+      if (threeStarIndexes.has(index)) return 3;
+      if (fourStarIndexes.has(index)) return 4;
+      return 5;
+    };
+
+    for (let index = sourceRows.length; index < totalReviews; index += 1) {
+      const row = sourceRows[index % sourceRows.length].cloneNode(true);
+      row.classList.add('ryztor-reviews__item--text-only');
+      row.querySelector('.ryztor-reviews__item-photo')?.remove();
+      reviewList.appendChild(row);
+    }
+
+    const allRows = Array.from(section.querySelectorAll('[data-review-row]'));
+    allRows.forEach((row, index) => {
+      const date = formatDate(index);
+      const rating = ratingFor(index);
+      const time = row.querySelector('time');
+      const stars = row.querySelector('.ryztor-reviews__item-stars');
+      const name = row.querySelector('h3');
+
+      time.dateTime = date;
+      time.textContent = date;
+      stars.textContent = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+      stars.setAttribute('aria-label', `${rating} out of 5 stars`);
+
+      if (index >= sourceRows.length) {
+        const verifiedBadge = name.querySelector('span');
+        name.textContent = names[index % names.length];
+        name.appendChild(verifiedBadge);
+
+        row.querySelector('p')?.remove();
+        const comment = comments[index % comments.length];
+        if (comment) {
+          const paragraph = document.createElement('p');
+          paragraph.textContent = comment;
+          row.querySelector('.ryztor-reviews__item-copy').appendChild(paragraph);
+        }
+      }
+    });
+
+    const visiblePageNumbers = () => {
+      const pages = new Set([1, totalPages, currentPage - 1, currentPage, currentPage + 1]);
+      return Array.from(pages).filter((page) => page >= 1 && page <= totalPages).sort((a, b) => a - b);
+    };
+
+    const renderPageButtons = () => {
+      pageButtons.innerHTML = '';
+      let previousPageNumber = 0;
+
+      visiblePageNumbers().forEach((pageNumber) => {
+        if (previousPageNumber && pageNumber - previousPageNumber > 1) {
+          const dots = document.createElement('span');
+          dots.textContent = '…';
+          pageButtons.appendChild(dots);
+        }
+
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = pageNumber;
+        button.setAttribute('aria-label', `Go to review page ${pageNumber}`);
+        if (pageNumber === currentPage) button.setAttribute('aria-current', 'page');
+        button.addEventListener('click', () => showPage(pageNumber, true));
+        pageButtons.appendChild(button);
+        previousPageNumber = pageNumber;
+      });
+    };
+
+    const showPage = (page, shouldScroll = false) => {
+      currentPage = Math.min(Math.max(page, 1), totalPages);
+      const start = (currentPage - 1) * reviewsPerPage;
+      const end = Math.min(start + reviewsPerPage, totalReviews);
+
+      allRows.forEach((row, index) => {
+        row.hidden = index < start || index >= end;
+      });
+
+      previousButton.disabled = currentPage === 1;
+      nextButton.disabled = currentPage === totalPages;
+      pageStatus.textContent = `Showing ${start + 1}–${end} of ${totalReviews} reviews`;
+      renderPageButtons();
+
+      if (shouldScroll) {
+        reviewList.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+
+    previousButton.addEventListener('click', () => showPage(currentPage - 1, true));
+    nextButton.addEventListener('click', () => showPage(currentPage + 1, true));
+    showPage(1);
+
+    section.querySelectorAll('[data-review-photo]').forEach((button) => {
+      button.addEventListener('click', () => {
+        dialogImage.src = button.dataset.fullImage;
+        dialogImage.alt = button.dataset.imageAlt;
+        dialog.showModal();
+      });
+    });
+
+    closeButton.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "RYZTOR customer reviews",
+  "tag": "section",
+  "class": "ryztor-reviews-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "This section contains demo review copy for the unpublished theme. Replace it with real customer feedback before publishing."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "CUSTOMER REVIEWS"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Real orders. Real feedback."
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Description",
+      "default": "Short notes and everyday photos from the RYZTOR community."
+    },
+    {
+      "type": "color",
+      "id": "accent",
+      "label": "Accent",
+      "default": "#7652f5"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "RYZTOR customer reviews"
+    }
+  ]
+}
+{% endschema %}

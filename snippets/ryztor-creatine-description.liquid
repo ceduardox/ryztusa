@@ -1,0 +1,99 @@
+{% liquid
+  assign normalized_title = product_resource.title | downcase
+  assign placement = placement | default: 'media'
+  assign content = content | default: 'product'
+%}
+
+{% if normalized_title contains 'creatine' %}
+  <div class="ryztor-media-description ryztor-media-description--{{ placement }}">
+    {% unless content == 'questions' %}
+      <div class="ryztor-media-description__group">
+        <p class="ryztor-media-description__eyebrow">PRODUCT INFORMATION</p>
+
+        <details name="ryztor-product-{{ placement }}">
+          <summary>Description <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer">
+            <p>RYZTOR Creatine Monohydrate is an unflavored powder designed to support exercise performance, strength-focused training, and muscle protein synthesis as part of a consistent fitness routine.*</p>
+            <p>Creatine is naturally produced in small amounts by the body and transported to skeletal muscle. Supplementation provides the larger quantity commonly used in exercise-performance research.*</p>
+            <ul>
+              <li>Pure creatine monohydrate</li>
+              <li>Unflavored powder</li>
+              <li>250 g per container</li>
+              <li>Manufactured in the USA</li>
+            </ul>
+          </div>
+        </details>
+
+        <details name="ryztor-product-{{ placement }}">
+          <summary>Ingredients <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer"><p>Creatine Monohydrate.</p></div>
+        </details>
+
+        <details name="ryztor-product-{{ placement }}">
+          <summary>Directions <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer">
+            <p>Adults take one scoop in 8 oz of water or juice four times daily during the first five days. After the loading phase, take one scoop one or two times daily, or as directed by a healthcare professional.</p>
+          </div>
+        </details>
+
+        <details name="ryztor-product-{{ placement }}">
+          <summary>Warning <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer">
+            <p>Keep out of reach of children. Do not use if the safety seal is damaged or missing. Store in a cool, dry place away from direct light.</p>
+          </div>
+        </details>
+
+        <details name="ryztor-product-{{ placement }}">
+          <summary>Product details <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer">
+            <dl class="ryztor-media-description__facts">
+              <div><dt>Formula</dt><dd>Creatine Monohydrate</dd></div>
+              <div><dt>Flavor</dt><dd>Unflavored</dd></div>
+              <div><dt>Product amount</dt><dd>250 g / 0.55 lb</dd></div>
+              <div><dt>Gross weight</dt><dd>308 g / 10.9 oz</dd></div>
+              <div><dt>Manufactured</dt><dd>USA</dd></div>
+            </dl>
+          </div>
+        </details>
+
+        <details name="ryztor-product-{{ placement }}">
+          <summary>Dietary preferences <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer">
+            <div class="ryztor-media-description__pills"><span>Unflavored</span><span>Single ingredient</span></div>
+          </div>
+        </details>
+      </div>
+    {% endunless %}
+
+    {% unless content == 'product' %}
+      <div class="ryztor-media-description__group ryztor-media-description__group--questions">
+        <details name="ryztor-questions-{{ placement }}">
+          <summary>Who is it for? <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer"><p>Adults building a consistent strength, performance, or training routine who want a straightforward creatine monohydrate formula.</p></div>
+        </details>
+        <details name="ryztor-questions-{{ placement }}">
+          <summary>How do I use it? <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer"><p>Mix the amount directed on the label with water or juice. Follow the loading and maintenance directions on the product label.</p></div>
+        </details>
+        <details name="ryztor-questions-{{ placement }}">
+          <summary>Is it flavored? <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer"><p>No. The product is unflavored so it can be mixed into water, juice, or your preferred routine.</p></div>
+        </details>
+        <details name="ryztor-questions-{{ placement }}">
+          <summary>Shipping &amp; returns <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer">
+            <p>Available shipping methods, estimated delivery times, and final costs are shown during checkout.</p>
+            <div class="ryztor-media-description__links">
+              {% if shop.shipping_policy != blank %}<a href="{{ shop.shipping_policy.url }}">Read shipping policy</a>{% endif %}
+              {% if shop.refund_policy != blank %}<a href="{{ shop.refund_policy.url }}">Read refund policy</a>{% endif %}
+            </div>
+          </div>
+        </details>
+      </div>
+    {% endunless %}
+
+    {% unless content == 'questions' %}
+      <p class="ryztor-media-description__disclaimer">*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+    {% endunless %}
+  </div>
+{% endif %}

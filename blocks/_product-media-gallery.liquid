@@ -9,7 +9,9 @@
 %}
 
 {% if request.page_type == 'product' %}
-  {% render 'ryztor-berberine-description', product_resource: closest.product %}
+  {% render 'ryztor-berberine-description', product_resource: closest.product, placement: 'media', content: 'product' %}
+  {% render 'ryztor-magnesium-description', product_resource: closest.product, placement: 'media', content: 'product' %}
+  {% render 'ryztor-creatine-description', product_resource: closest.product, placement: 'media', content: 'product' %}
 {% endif %}
 
 {% schema %}

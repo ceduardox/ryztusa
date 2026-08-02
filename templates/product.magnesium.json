@@ -1,0 +1,623 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-information",
+      "blocks": {
+        "disclosures_g9mWze": {
+          "type": "disclosures",
+          "name": "t:names.disclosures",
+          "settings": {
+            "heading": "Disclosures",
+            "heading_preset": "h5",
+            "open_by_default": false,
+            "icon": "caret",
+            "disclosure_heading_preset": "h6",
+            "text_color": "",
+            "dividers": true,
+            "divider_color": "{{ settings.color_palette.color2 }}",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "media-gallery": {
+          "type": "_product-media-gallery",
+          "static": true,
+          "settings": {
+            "media_presentation": "carousel",
+            "media_columns": "one",
+            "image_gap": 12,
+            "large_first_image": false,
+            "icons_style": "arrow",
+            "slideshow_controls_style": "thumbnails",
+            "slideshow_mobile_controls_style": "thumbnails",
+            "thumbnail_position": "left",
+            "thumbnail_width": 72,
+            "thumbnail_radius": 0,
+            "aspect_ratio": "1",
+            "constrain_to_viewport": false,
+            "media_fit": "contain",
+            "media_radius": 0,
+            "extend_media": false,
+            "zoom": true,
+            "video_loop": false,
+            "hide_variants": true,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "product-details": {
+          "type": "_product-details",
+          "static": true,
+          "settings": {
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "details_position": "flex-start",
+            "gap": 18,
+            "sticky_details_desktop": true,
+            "background_media": "none",
+            "background_color": "",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "padding-block-start": 4,
+            "padding-block-end": 12,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_icgrde": {
+              "type": "group",
+              "name": "t:names.header",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "background_media": "none",
+                "background_color": "",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_xrnftG": {
+                  "type": "text",
+                  "name": "t:names.product_title",
+                  "settings": {
+                    "text": "<h1>{{ closest.product.title }}</h1>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h3",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "price_tVjtKg": {
+                  "type": "price",
+                  "settings": {
+                    "show_sale_price_first": true,
+                    "show_installments": false,
+                    "show_tax_info": false,
+                    "type_preset": "paragraph",
+                    "width": "100%",
+                    "alignment": "left",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "text_color": "",
+                    "padding-block-start": 4,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_xrnftG",
+                "price_tVjtKg"
+              ]
+            },
+            "magnesium_rating": {
+              "type": "custom-liquid",
+              "name": "Magnesium rating",
+              "settings": {
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'magnesium' %}<a class=\"ryztor-rating\" href=\"#ryztor-reviews\" style=\"color:inherit;text-decoration:none\"><span class=\"ryztor-rating__stars\" aria-hidden=\"true\">★★★★★</span><span class=\"ryztor-rating__score\">4.8</span><span class=\"ryztor-rating__count\">(94 reviews)</span></a>{% endif %}",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "magnesium_savings": {
+              "type": "custom-liquid",
+              "name": "Magnesium savings",
+              "settings": {
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'magnesium' %}{% assign p = closest.product.selected_or_first_available_variant %}{% if p.compare_at_price > p.price %}{% assign save = p.compare_at_price | minus: p.price %}{% assign save_pct = save | times: 100 | divided_by: p.compare_at_price %}<div class=\"ryztor-savings\">You save <strong>{{ save | money }}</strong> ({{ save_pct }}% off)</div>{% endif %}{% endif %}",
+                "padding-block-start": 2,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "magnesium_summary": {
+              "type": "custom-liquid",
+              "name": "Magnesium quick summary",
+              "settings": {
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'magnesium' %}<div class=\"ryztor-product-summary\"><p><strong>Relaxation & recovery that fits your night.*</strong> Three capsules daily to help support muscle relaxation, nervous system health, and restful sleep—with a highly bioavailable, gentle-on-the-stomach formula.</p><div class=\"ryztor-product-summary__benefits\"><div><b>90</b><span>Capsules</span></div><div><b>3×</b><span>Daily use</span></div><div><b>USA</b><span>Manufactured</span></div></div></div>{% endif %}"
+              },
+              "blocks": {}
+            },
+            "magnesium_stock": {
+              "type": "custom-liquid",
+              "name": "Magnesium stock",
+              "settings": {
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'magnesium' %}{% assign current_variant = closest.product.selected_or_first_available_variant %}{% if current_variant.inventory_management == 'shopify' %}{% if current_variant.inventory_quantity > 0 and current_variant.inventory_quantity <= 25 %}<div class=\"ryztor-stock\"><span class=\"ryztor-stock__dot\"></span><span class=\"ryztor-stock__text\">Only <strong>{{ current_variant.inventory_quantity }} left in stock</strong> — order soon.</span></div>{% elsif current_variant.inventory_quantity <= 0 %}<div class=\"ryztor-stock ryztor-stock--out\"><span class=\"ryztor-stock__text\">Out of stock</span></div>{% endif %}{% endif %}{% endif %}",
+                "padding-block-start": 8,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "divider_VJhene": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "divider_color": "{{ settings.color_palette.color2 }}",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
+            "magnesium_bundle_selector": {
+              "type": "custom-liquid",
+              "name": "Magnesium bundle selector",
+              "settings": {
+                "custom_liquid": "{% render 'ryztor-bundle-selector', product_resource: closest.product, bundle_kind: 'magnesium' %}",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "variant_picker_R3rGDr": {
+              "type": "variant-picker",
+              "settings": {
+                "variant_style": "buttons",
+                "show_swatches": false,
+                "option_label_text_color": "",
+                "variant_style_class": "default",
+                "custom_variant_background": "{{ settings.color_palette.background }}",
+                "custom_variant_text": "{{ settings.color_palette.foreground }}",
+                "custom_variant_border": "{{ settings.color_palette.foreground }}",
+                "selected_variant_style_class": "default",
+                "custom_selected_variant_background": "{{ settings.color_palette.foreground }}",
+                "custom_selected_variant_text": "{{ settings.color_palette.background }}",
+                "custom_selected_variant_border": "{{ settings.color_palette.foreground }}",
+                "alignment": "left",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "buy_buttons_eYQEYi": {
+              "type": "buy-buttons",
+              "settings": {
+                "stacking": true,
+                "text_color": "",
+                "show_pickup_availability": false,
+                "gift_card_form": true,
+                "recipient_button_style": "default",
+                "recipient_button_background": "{{ settings.color_palette.background }}",
+                "recipient_button_text": "{{ settings.color_palette.foreground }}",
+                "recipient_button_border": "{{ settings.color_palette.foreground }}",
+                "selected_recipient_button_style": "default",
+                "selected_recipient_button_background": "{{ settings.color_palette.foreground }}",
+                "selected_recipient_button_text": "{{ settings.color_palette.background }}",
+                "selected_recipient_button_border": "{{ settings.color_palette.foreground }}",
+                "input_style": "default",
+                "input_background_color": "{{ settings.color_palette.background }}",
+                "input_text_color": "{{ settings.color_palette.foreground }}",
+                "input_border_color": "{{ settings.color_palette.foreground }}",
+                "border_width": 1,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "quantity": {
+                  "type": "quantity",
+                  "static": true,
+                  "settings": {
+                    "input_style": "default",
+                    "input_background_color": "{{ settings.color_palette.background }}",
+                    "input_text_color": "{{ settings.color_palette.foreground }}",
+                    "input_border_color": "{{ settings.color_palette.foreground }}",
+                    "border_width": 1,
+                    "border_radius": 0
+                  },
+                  "blocks": {}
+                },
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button",
+                    "custom_button_background": "{{ settings.color_palette.foreground }}",
+                    "custom_button_text": "{{ settings.color_palette.background }}",
+                    "custom_button_border": "{{ settings.color_palette.background }}"
+                  },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "accelerated-checkout",
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            },
+            "magnesium_guarantee": {
+              "type": "custom-liquid",
+              "name": "Magnesium guarantee",
+              "settings": {
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'magnesium' %}<div class=\"ryztor-guarantee\"><div class=\"ryztor-guarantee__badge\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/></svg><span>30-Day Money-Back Guarantee</span></div><div class=\"ryztor-guarantee__shipping\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"1\" y=\"3\" width=\"15\" height=\"13\"/><polygon points=\"16 8 20 8 23 11 23 16 16 16 16 8\"/><circle cx=\"5.5\" cy=\"18.5\" r=\"2.5\"/><circle cx=\"18.5\" cy=\"18.5\" r=\"2.5\"/></svg><span>Free shipping on orders over $50</span></div><div class=\"ryztor-guarantee__payments\">{{ 'visa' | payment_type_svg_tag: class: 'icon icon--full-color' }}{{ 'master' | payment_type_svg_tag: class: 'icon icon--full-color' }}{{ 'american_express' | payment_type_svg_tag: class: 'icon icon--full-color' }}{{ 'paypal' | payment_type_svg_tag: class: 'icon icon--full-color' }}{{ 'shop_pay' | payment_type_svg_tag: class: 'icon icon--full-color' }}</div></div>{% endif %}",
+                "padding-block-start": 8,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "magnesium_subscribe": {
+              "type": "custom-liquid",
+              "name": "Magnesium subscribe",
+              "settings": {
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'magnesium' %}<div class=\"ryztor-subscribe\"><div class=\"ryztor-subscribe__badge\">SAVE 15%</div><div class=\"ryztor-subscribe__copy\"><strong>Subscribe & Save</strong> — Free delivery every 30 days. Cancel anytime.</div></div>{% endif %}",
+                "padding-block-start": 10,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "magnesium_ordering_questions": {
+              "type": "custom-liquid",
+              "name": "Questions before ordering",
+              "settings": {
+                "custom_liquid": "{% render 'ryztor-magnesium-description', product_resource: closest.product, placement: 'ordering', content: 'questions' %}",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "magnesium_mobile_essentials": {
+              "type": "custom-liquid",
+              "name": "Mobile product information",
+              "settings": {
+                "custom_liquid": "{% render 'ryztor-magnesium-description', product_resource: closest.product, placement: 'mobile', content: 'product' %}",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_icgrde",
+            "magnesium_rating",
+            "magnesium_savings",
+            "magnesium_summary",
+            "magnesium_stock",
+            "divider_VJhene",
+            "magnesium_bundle_selector",
+            "variant_picker_R3rGDr",
+            "buy_buttons_eYQEYi",
+            "magnesium_guarantee",
+            "magnesium_subscribe",
+            "magnesium_ordering_questions",
+            "magnesium_mobile_essentials"
+          ]
+        }
+      },
+      "block_order": [],
+      "settings": {
+        "content_width": "content-center-aligned",
+        "desktop_media_position": "left",
+        "equal_columns": true,
+        "limit_details_width": false,
+        "gap": 36,
+        "enable_sticky_add_to_cart": true,
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 28,
+        "padding-block-end": 32
+      }
+    },
+    "ryztor_delivery_gallery": {
+      "type": "ryztor-magnesium-gallery",
+      "settings": {
+        "eyebrow": "MAGNESIUM IN REAL LIFE",
+        "heading": "Made to fit your everyday routine.",
+        "text": "<p>A closer look at RYZTOR Magnesium Glycinate in everyday settings.</p>",
+        "accent": "#7652f5",
+        "background": "#ffffff"
+      }
+    },
+    "ryztor_magnesium_story": {
+      "type": "ryztor-magnesium-story",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "",
+            "quote": "",
+            "author": "",
+            "verified": false
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "",
+            "quote": "",
+            "author": "",
+            "verified": false
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "",
+            "quote": "",
+            "author": "",
+            "verified": false
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3"
+      ],
+      "settings": {
+        "eyebrow": "Benefits of Magnesium Glycinate",
+        "heading": "Rest, recover, and recharge—naturally.",
+        "intro": "<p>RYZTOR Magnesium Glycinate is designed for people who want practical support for relaxation, muscle recovery, and healthy sleep patterns—without complicating their routine.</p>",
+        "accent": "#5b8def",
+        "ink": "#17151e",
+        "soft_background": "#eef4ff",
+        "card_background": "#ffffff"
+      }
+    },
+    "ryztor_magnesium_daily_support": {
+      "type": "ryztor-magnesium-daily-support",
+      "settings": {
+        "eyebrow": "MAGNESIUM THROUGH YOUR DAY",
+        "heading": "Support for rest, calm, recovery, and energy.*",
+        "text": "<p>Explore four essential ways magnesium supports the routines that help you feel ready for everyday life.</p>",
+        "accent": "#5b8def",
+        "background": "#eef4ff"
+      }
+    },
+    "product_recommendations_qggXJq": {
+      "type": "product-recommendations",
+      "blocks": {
+        "text_cbcgyb": {
+          "type": "text",
+          "name": "t:names.header",
+          "settings": {
+            "text": "<h3>You may also like </h3>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h4",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 8,
+            "background_color": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_DNizbJ": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_M7MJkb": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_gLWgA6": {
+              "type": "price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "text_color": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_DNizbJ",
+            "product_title_M7MJkb",
+            "price_gLWgA6"
+          ]
+        }
+      },
+      "block_order": [
+        "text_cbcgyb"
+      ],
+      "name": "t:names.product_recommendations",
+      "settings": {
+        "product": "{{ closest.product }}",
+        "recommendation_type": "related",
+        "layout_type": "grid",
+        "carousel_on_mobile": false,
+        "max_products": 4,
+        "columns": 4,
+        "mobile_columns": "2",
+        "columns_gap": 12,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "gap": 28,
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ryztor_delivery_gallery",
+    "ryztor_magnesium_daily_support",
+    "ryztor_magnesium_story",
+    "product_recommendations_qggXJq"
+  ]
+}

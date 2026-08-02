@@ -77,15 +77,21 @@ class CartDrawerComponent extends Component {
       event.target instanceof Element ? event.target.closest('dialog:modal') : null
     );
 
-    if (shouldAutoOpen && !sourceModal && !this.#isCartEmpty()) {
+    if (shouldAutoOpen && !sourceModal) {
+      this.#dialog?.setAttribute('data-cart-loading', '');
       this.#themeDrawer?.open();
     }
 
     event.promise
       ?.then(({ detail }) => {
-        const settle = () => requestAnimationFrame(() => this.#updateStickyState());
+        const settle = () =>
+          requestAnimationFrame(() => {
+            this.#updateStickyState();
+            window.setTimeout(() => this.#dialog?.removeAttribute('data-cart-loading'), 120);
+          });
 
         if (!shouldAutoOpen || detail?.didError) {
+          this.#dialog?.removeAttribute('data-cart-loading');
           settle();
           return;
         }
@@ -102,6 +108,7 @@ class CartDrawerComponent extends Component {
         }
       })
       .catch((error) => {
+        this.#dialog?.removeAttribute('data-cart-loading');
         if (error?.name !== 'AbortError') console.warn('[cart-drawer] Event promise rejected:', error);
       });
   };

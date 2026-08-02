@@ -1,0 +1,302 @@
+{% liquid
+  assign product_name = product.title | downcase
+  assign daily_product_supported = false
+
+  if product_name contains 'berber'
+    assign daily_product_supported = true
+    assign daily_note = 'Lifestyle illustrations for educational purposes only. They do not represent guaranteed medical outcomes. Individual experiences may vary.'
+    assign daily_image_1_challenge = 'ryztor-berberine-glucose-challenge.webp'
+    assign daily_image_1_goal = 'ryztor-berberine-glucose-goal.webp'
+    assign daily_alt_1_challenge = 'Elevated blood sugar reading as a daily wellness challenge'
+    assign daily_alt_1_goal = 'Blood sugar reading already within the normal range'
+    assign daily_title_1 = 'Healthy glucose metabolism'
+    assign daily_text_1 = 'Supports healthy glucose metabolism and blood sugar levels already within the normal range.*'
+
+    assign daily_image_2_challenge = 'ryztor-berberine-metabolism-challenge.webp'
+    assign daily_image_2_goal = 'ryztor-berberine-metabolism-goal.webp'
+    assign daily_alt_2_challenge = 'Metabolic wellness challenge visualization'
+    assign daily_alt_2_goal = 'Balanced metabolic wellness visualization with RYZTOR Berberine'
+    assign daily_title_2 = 'Metabolic balance'
+    assign daily_text_2 = 'Helps support the normal pathways your body uses to process nutrients and maintain metabolic balance.*'
+
+    assign daily_image_3_challenge = 'ryztor-berberine-energy-challenge.webp'
+    assign daily_image_3_goal = 'ryztor-berberine-energy-goal.webp'
+    assign daily_alt_3_challenge = 'Low everyday energy challenge'
+    assign daily_alt_3_goal = 'Active everyday energy wellness goal'
+    assign daily_title_3 = 'Steady everyday energy'
+    assign daily_text_3 = 'Supports efficient energy metabolism as part of a balanced diet and active routine.*'
+
+    assign daily_image_4_challenge = 'ryztor-berberine-activity-challenge.webp'
+    assign daily_image_4_goal = 'ryztor-berberine-activity-goal.webp'
+    assign daily_alt_4_challenge = 'Post-activity fatigue challenge'
+    assign daily_alt_4_goal = 'Comfortable daily activity wellness goal'
+    assign daily_title_4 = 'Active lifestyle support'
+    assign daily_text_4 = 'Complements the nutrition and movement habits that support healthy weight-management goals.*'
+  elsif product_name contains 'magnesium'
+    assign daily_product_supported = true
+    assign daily_note = 'Lifestyle visualization for educational purposes. Individual experiences may vary.'
+    assign daily_image_1_challenge = 'ryztor-magnesium-sleep-challenge.webp'
+    assign daily_image_1_goal = 'ryztor-magnesium-sleep-goal.webp'
+    assign daily_alt_1_challenge = 'Daily sleep challenge'
+    assign daily_alt_1_goal = 'Restful sleep wellness goal'
+    assign daily_title_1 = 'Restful sleep patterns'
+    assign daily_text_1 = 'Supports normal nervous system function and healthy sleep patterns.*'
+
+    assign daily_image_2_challenge = 'ryztor-magnesium-calm-challenge.webp'
+    assign daily_image_2_goal = 'ryztor-magnesium-calm-goal.webp'
+    assign daily_alt_2_challenge = 'Everyday stress and tension'
+    assign daily_alt_2_goal = 'Calm and relaxed wellness goal'
+    assign daily_title_2 = 'Everyday calm'
+    assign daily_text_2 = 'Helps support relaxation and a balanced response to everyday stress.*'
+
+    assign daily_image_3_challenge = 'ryztor-magnesium-muscle-challenge.webp'
+    assign daily_image_3_goal = 'ryztor-magnesium-muscle-goal.webp'
+    assign daily_alt_3_challenge = 'Post-activity muscle challenge'
+    assign daily_alt_3_goal = 'Muscle recovery wellness goal'
+    assign daily_title_3 = 'Muscle function & recovery'
+    assign daily_text_3 = 'Supports normal muscle function and post-activity recovery.*'
+
+    assign daily_image_4_challenge = 'ryztor-magnesium-energy-challenge.webp'
+    assign daily_image_4_goal = 'ryztor-magnesium-energy-goal.webp'
+    assign daily_alt_4_challenge = 'Low morning energy challenge'
+    assign daily_alt_4_goal = 'Morning energy wellness goal'
+    assign daily_title_4 = 'Energy metabolism'
+    assign daily_text_4 = 'Magnesium supports normal cellular energy production without acting as a stimulant.*'
+  endif
+%}
+
+{% if daily_product_supported %}
+  <section
+    class="ryztor-daily-support"
+    id="ryztor-daily-support-{{ section.id }}"
+    data-daily-support
+    style="--daily-accent: {{ section.settings.accent }}; --daily-background: {{ section.settings.background }};"
+  >
+    <div class="ryztor-daily-support__inner">
+      <header class="ryztor-daily-support__header">
+        <p>{{ section.settings.eyebrow | escape }}</p>
+        <h2>{{ section.settings.heading | escape }}</h2>
+        <div class="rte">{{ section.settings.text }}</div>
+        <span class="ryztor-daily-support__hint">Swipe to explore · Tap a card to compare</span>
+      </header>
+
+      <div class="ryztor-daily-support__viewport" data-daily-viewport>
+        <div class="ryztor-daily-support__grid">
+          <button type="button" class="ryztor-daily-support__card" data-daily-card aria-pressed="false">
+            <span class="ryztor-daily-support__visual">
+              <img class="ryztor-daily-support__challenge" src="{{ daily_image_1_challenge | asset_url }}" alt="{{ daily_alt_1_challenge | escape }}" width="1086" height="1448" loading="lazy">
+              <img class="ryztor-daily-support__goal" src="{{ daily_image_1_goal | asset_url }}" alt="{{ daily_alt_1_goal | escape }}" width="1086" height="1448" loading="lazy">
+              <span class="ryztor-daily-support__state ryztor-daily-support__state--challenge">Daily challenge</span>
+              <span class="ryztor-daily-support__state ryztor-daily-support__state--goal">Wellness goal</span>
+            </span>
+            <span class="ryztor-daily-support__copy">
+              <strong>{{ daily_title_1 }}</strong>
+              <small>{{ daily_text_1 }}</small>
+            </span>
+          </button>
+
+          <button type="button" class="ryztor-daily-support__card" data-daily-card aria-pressed="false">
+            <span class="ryztor-daily-support__visual">
+              <img class="ryztor-daily-support__challenge" src="{{ daily_image_2_challenge | asset_url }}" alt="{{ daily_alt_2_challenge | escape }}" width="1086" height="1448" loading="lazy">
+              <img class="ryztor-daily-support__goal" src="{{ daily_image_2_goal | asset_url }}" alt="{{ daily_alt_2_goal | escape }}" width="1086" height="1448" loading="lazy">
+              <span class="ryztor-daily-support__state ryztor-daily-support__state--challenge">Daily challenge</span>
+              <span class="ryztor-daily-support__state ryztor-daily-support__state--goal">Wellness goal</span>
+            </span>
+            <span class="ryztor-daily-support__copy">
+              <strong>{{ daily_title_2 }}</strong>
+              <small>{{ daily_text_2 }}</small>
+            </span>
+          </button>
+
+          <button type="button" class="ryztor-daily-support__card" data-daily-card aria-pressed="false">
+            <span class="ryztor-daily-support__visual">
+              <img class="ryztor-daily-support__challenge" src="{{ daily_image_3_challenge | asset_url }}" alt="{{ daily_alt_3_challenge | escape }}" width="1086" height="1448" loading="lazy">
+              <img class="ryztor-daily-support__goal" src="{{ daily_image_3_goal | asset_url }}" alt="{{ daily_alt_3_goal | escape }}" width="1086" height="1448" loading="lazy">
+              <span class="ryztor-daily-support__state ryztor-daily-support__state--challenge">Daily challenge</span>
+              <span class="ryztor-daily-support__state ryztor-daily-support__state--goal">Wellness goal</span>
+            </span>
+            <span class="ryztor-daily-support__copy">
+              <strong>{{ daily_title_3 }}</strong>
+              <small>{{ daily_text_3 }}</small>
+            </span>
+          </button>
+
+          <button type="button" class="ryztor-daily-support__card" data-daily-card aria-pressed="false">
+            <span class="ryztor-daily-support__visual">
+              <img class="ryztor-daily-support__challenge" src="{{ daily_image_4_challenge | asset_url }}" alt="{{ daily_alt_4_challenge | escape }}" width="1086" height="1448" loading="lazy">
+              <img class="ryztor-daily-support__goal" src="{{ daily_image_4_goal | asset_url }}" alt="{{ daily_alt_4_goal | escape }}" width="1086" height="1448" loading="lazy">
+              <span class="ryztor-daily-support__state ryztor-daily-support__state--challenge">Daily challenge</span>
+              <span class="ryztor-daily-support__state ryztor-daily-support__state--goal">Wellness goal</span>
+            </span>
+            <span class="ryztor-daily-support__copy">
+              <strong>{{ daily_title_4 }}</strong>
+              <small>{{ daily_text_4 }}</small>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <div class="ryztor-daily-support__dots" data-daily-dots aria-label="Daily support cards">
+        {% for dot_index in (1..4) %}
+          <button type="button" data-daily-dot="{{ forloop.index0 }}" aria-label="View card {{ dot_index }}"{% if forloop.first %} aria-current="true"{% endif %}></button>
+        {% endfor %}
+      </div>
+
+      <p class="ryztor-daily-support__note">{{ daily_note }}</p>
+    </div>
+  </section>
+{% endif %}
+
+{% stylesheet %}
+  .ryztor-daily-support { padding: clamp(58px, 8vw, 104px) max(18px, calc((100vw - 1180px) / 2)); overflow: hidden; background: var(--daily-background); color: #17151e; }
+  .ryztor-daily-support__inner { width: 100%; max-width: 1180px; margin: 0 auto; }
+  .ryztor-daily-support__header { max-width: 780px; margin: 0 auto 42px; text-align: center; }
+  .ryztor-daily-support__header > p { margin: 0 0 12px; color: var(--daily-accent); font-size: .72rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+  .ryztor-daily-support__header h2 { margin: 0; font-size: clamp(2.2rem, 4.8vw, 4.25rem); font-weight: 900; letter-spacing: -.045em; line-height: 1.03; }
+  .ryztor-daily-support__header .rte { max-width: 680px; margin: 19px auto 0; color: rgb(23 21 30 / 68%); font-size: 1.04rem; line-height: 1.65; }
+  .ryztor-daily-support__header .rte p { margin: 0; }
+  .ryztor-daily-support__hint { display: none; margin-top: 15px; color: var(--daily-accent); font-size: .72rem; font-weight: 800; }
+  .ryztor-daily-support__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .ryztor-daily-support__card { display: grid; grid-template-columns: minmax(180px, 44%) 1fr; min-height: 390px; padding: 0; overflow: hidden; border: 1px solid rgb(23 21 30 / 10%); border-radius: 26px; background: #fff; color: inherit; box-shadow: 0 18px 54px rgb(44 33 73 / 8%); cursor: pointer; text-align: left; }
+  .ryztor-daily-support__visual { position: relative; min-height: 390px; overflow: hidden; background: #e9e6ef; }
+  .ryztor-daily-support__visual img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; transition: opacity .55s ease, transform .7s ease; }
+  .ryztor-daily-support__challenge { opacity: 1; }
+  .ryztor-daily-support__goal { opacity: 0; transform: scale(1.035); }
+  .ryztor-daily-support__card.is-goal .ryztor-daily-support__challenge { opacity: 0; transform: scale(1.035); }
+  .ryztor-daily-support__card.is-goal .ryztor-daily-support__goal { opacity: 1; transform: scale(1); }
+  .ryztor-daily-support__state { position: absolute; z-index: 2; top: 14px; left: 14px; padding: 7px 10px; border-radius: 999px; background: rgb(255 255 255 / 90%); color: #17151e; font-size: .62rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; transition: opacity .3s ease; }
+  .ryztor-daily-support__state--goal { opacity: 0; background: var(--daily-accent); color: #fff; }
+  .ryztor-daily-support__card.is-goal .ryztor-daily-support__state--challenge { opacity: 0; }
+  .ryztor-daily-support__card.is-goal .ryztor-daily-support__state--goal { opacity: 1; }
+  .ryztor-daily-support__copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(25px, 3vw, 38px); }
+  .ryztor-daily-support__copy strong { font-size: clamp(1.35rem, 2vw, 1.8rem); font-weight: 900; letter-spacing: -.025em; line-height: 1.08; }
+  .ryztor-daily-support__copy small { margin-top: 15px; color: rgb(23 21 30 / 68%); font-size: .9rem; line-height: 1.6; }
+  .ryztor-daily-support__card:focus-visible { outline: 3px solid var(--daily-accent); outline-offset: 4px; }
+  .ryztor-daily-support__dots { display: none; }
+  .ryztor-daily-support__note { margin: 25px auto 0; color: rgb(23 21 30 / 48%); font-size: .68rem; text-align: center; }
+
+  @media (hover: hover) and (pointer: fine) {
+    .ryztor-daily-support__card:hover .ryztor-daily-support__challenge { opacity: 0; transform: scale(1.035); }
+    .ryztor-daily-support__card:hover .ryztor-daily-support__goal { opacity: 1; transform: scale(1); }
+    .ryztor-daily-support__card:hover .ryztor-daily-support__state--challenge { opacity: 0; }
+    .ryztor-daily-support__card:hover .ryztor-daily-support__state--goal { opacity: 1; }
+  }
+
+  @media screen and (max-width: 989px) {
+    .ryztor-daily-support__card { grid-template-columns: 1fr; }
+    .ryztor-daily-support__visual { min-height: 430px; }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ryztor-daily-support { padding-inline: 16px; }
+    .ryztor-daily-support__header { margin-bottom: 27px; }
+    .ryztor-daily-support__header h2 { font-size: clamp(2rem, 10vw, 3rem); }
+    .ryztor-daily-support__hint { display: block; }
+    .ryztor-daily-support__viewport { width: calc(100% + 16px); overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    .ryztor-daily-support__viewport::-webkit-scrollbar { display: none; }
+    .ryztor-daily-support__grid { width: max-content; display: grid; grid-auto-flow: column; grid-auto-columns: min(84vw, 350px); gap: 13px; padding-right: 16px; }
+    .ryztor-daily-support__card { width: min(84vw, 350px); min-height: 0; scroll-snap-align: start; border-radius: 21px; }
+    .ryztor-daily-support__visual { min-height: 430px; }
+    .ryztor-daily-support__copy { min-height: 205px; padding: 24px; }
+    .ryztor-daily-support__dots { display: flex; justify-content: center; gap: 8px; margin-top: 21px; }
+    .ryztor-daily-support__dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 50%; background: rgb(23 21 30 / 20%); transition: width .2s ease, background .2s ease; }
+    .ryztor-daily-support__dots button[aria-current="true"] { width: 24px; border-radius: 99px; background: var(--daily-accent); }
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .ryztor-daily-support__visual img { transition: none; }
+    .ryztor-daily-support__viewport { scroll-behavior: auto; }
+  }
+{% endstylesheet %}
+
+<script>
+  (() => {
+    const section = document.getElementById('ryztor-daily-support-{{ section.id }}');
+    if (!section || section.dataset.initialized === 'true') return;
+    section.dataset.initialized = 'true';
+
+    const viewport = section.querySelector('[data-daily-viewport]');
+    const cards = Array.from(section.querySelectorAll('[data-daily-card]'));
+    const dots = Array.from(section.querySelectorAll('[data-daily-dot]'));
+
+    cards.forEach((card) => {
+      card.addEventListener('click', () => {
+        const active = card.classList.toggle('is-goal');
+        card.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+    });
+
+    const showCard = (index) => {
+      cards[index]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+    };
+
+    dots.forEach((dot, index) => dot.addEventListener('click', () => showCard(index)));
+
+    const updateDots = () => {
+      if (window.innerWidth > 749 || !cards.length) return;
+      const viewportLeft = viewport.getBoundingClientRect().left;
+      let activeIndex = 0;
+      let closestDistance = Infinity;
+      cards.forEach((card, index) => {
+        const distance = Math.abs(card.getBoundingClientRect().left - viewportLeft);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          activeIndex = index;
+        }
+      });
+      dots.forEach((dot, index) => {
+        if (index === activeIndex) dot.setAttribute('aria-current', 'true');
+        else dot.removeAttribute('aria-current');
+      });
+    };
+
+    viewport.addEventListener('scroll', updateDots, { passive: true });
+    window.addEventListener('resize', updateDots);
+    updateDots();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "RYZTOR daily support",
+  "tag": "section",
+  "class": "ryztor-daily-support-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "MAGNESIUM THROUGH YOUR DAY"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Support for rest, calm, recovery, and energy.*"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Explore four essential ways magnesium supports the routines that help you feel ready for everyday life.</p>"
+    },
+    {
+      "type": "color",
+      "id": "accent",
+      "label": "Accent",
+      "default": "#5b8def"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#eef4ff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "RYZTOR daily support"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,260 @@
+{% liquid
+  assign product_name = product.title | downcase
+  assign gallery_images = 'ryztor-berberine-delivery-package.webp|RYZTOR Berberine held in an everyday setting@@ryztor-berberine-travel-handbag.webp|RYZTOR Berberine ready for a daily routine@@ryztor-berberine-daily-routine.webp|RYZTOR Berberine as part of an everyday routine@@ryztor-berberine-supplement-routine.webp|RYZTOR Berberine with daily supplements@@ryztor-berberine-wellness-books.webp|RYZTOR Berberine beside wellness books@@ryztor-berberine-bottle-closeup.webp|Close-up of RYZTOR Berberine@@ryztor-berberine-capsules-serving.webp|RYZTOR Berberine bottle and capsules@@ryztor-berberine-open-bottle-capsules.webp|Open RYZTOR Berberine bottle with capsules' | split: '@@'
+%}
+
+{% if product_name contains 'berber' %}
+  <section
+    class="ryztor-berberine-gallery"
+    id="ryztor-berberine-gallery-{{ section.id }}"
+    data-berberine-gallery
+    style="--gallery-accent: {{ section.settings.accent }}; --gallery-background: {{ section.settings.background }};"
+  >
+    <div class="ryztor-berberine-gallery__inner">
+      <header class="ryztor-berberine-gallery__header">
+        <div>
+          <p>{{ section.settings.eyebrow | escape }}</p>
+          <h2>{{ section.settings.heading | escape }}</h2>
+          <div class="rte">{{ section.settings.text }}</div>
+        </div>
+        <div class="ryztor-berberine-gallery__controls" aria-label="Gallery controls">
+          <button type="button" data-gallery-previous aria-label="Previous photos">←</button>
+          <button type="button" data-gallery-next aria-label="Next photos">→</button>
+        </div>
+      </header>
+
+      <div class="ryztor-berberine-gallery__viewport" data-gallery-viewport tabindex="0">
+        <div class="ryztor-berberine-gallery__track">
+          {% for repeat_index in (1..2) %}
+            {% for image_data in gallery_images %}
+              {% assign image_parts = image_data | split: '|' %}
+              <button
+                type="button"
+                class="ryztor-berberine-gallery__card"
+                data-gallery-photo
+                data-full-image="{{ image_parts[0] | asset_url }}"
+                data-image-alt="{{ image_parts[1] | escape }}"
+                aria-label="Enlarge {{ image_parts[1] | escape }}"
+                {% if repeat_index == 2 %}aria-hidden="true" tabindex="-1"{% endif %}
+              >
+                <img
+                  src="{{ image_parts[0] | asset_url }}"
+                  alt="{% if repeat_index == 1 %}{{ image_parts[1] | escape }}{% endif %}"
+                  width="896"
+                  height="1200"
+                  loading="lazy"
+                >
+                <span aria-hidden="true">+</span>
+              </button>
+            {% endfor %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="ryztor-berberine-gallery__progress" aria-hidden="true">
+        <i data-gallery-progress></i>
+      </div>
+    </div>
+
+    <dialog class="ryztor-berberine-gallery__dialog" data-gallery-dialog aria-label="Expanded Berberine product photo">
+      <button type="button" class="ryztor-berberine-gallery__close" data-gallery-close aria-label="Close photo">×</button>
+      <img
+        data-gallery-dialog-image
+        src="{{ 'ryztor-berberine-delivery-package.webp' | asset_url }}"
+        alt="RYZTOR Berberine in an everyday setting"
+        width="896"
+        height="1200"
+      >
+    </dialog>
+  </section>
+{% endif %}
+
+{% stylesheet %}
+  .ryztor-berberine-gallery {
+    padding: clamp(52px, 7vw, 94px) max(18px, calc((100vw - 1400px) / 2));
+    overflow: hidden;
+    background: var(--gallery-background);
+    color: #17151e;
+  }
+
+  .ryztor-berberine-gallery__inner { width: 100%; max-width: 1400px; margin: 0 auto; }
+  .ryztor-berberine-gallery__header { width: min(100%, 1180px); display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; margin: 0 auto 34px; }
+  .ryztor-berberine-gallery__header > div:first-child { max-width: 690px; }
+  .ryztor-berberine-gallery__header p { margin: 0 0 11px; color: var(--gallery-accent); font-size: .72rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+  .ryztor-berberine-gallery__header h2 { margin: 0; font-size: clamp(2.15rem, 4.6vw, 4rem); font-weight: 900; letter-spacing: -.045em; line-height: 1.02; }
+  .ryztor-berberine-gallery__header .rte { margin-top: 17px; color: rgb(23 21 30 / 68%); font-size: 1.02rem; line-height: 1.65; }
+  .ryztor-berberine-gallery__header .rte p { margin: 0; color: inherit; font: inherit; letter-spacing: normal; text-transform: none; }
+  .ryztor-berberine-gallery__controls { display: flex; flex: 0 0 auto; gap: 10px; }
+  .ryztor-berberine-gallery__controls button { width: 46px; height: 46px; display: grid; place-items: center; border: 1px solid rgb(23 21 30 / 14%); border-radius: 50%; background: #fff; color: #17151e; cursor: pointer; font-size: 1.25rem; transition: transform .2s ease, border-color .2s ease, color .2s ease; }
+  .ryztor-berberine-gallery__controls button:hover { transform: translateY(-2px); border-color: var(--gallery-accent); color: var(--gallery-accent); }
+  .ryztor-berberine-gallery__controls button:disabled { cursor: default; opacity: .35; transform: none; }
+
+  .ryztor-berberine-gallery__viewport { width: 100%; overflow-x: auto; overscroll-behavior-inline: contain; scroll-behavior: smooth; scrollbar-width: none; }
+  .ryztor-berberine-gallery__viewport::-webkit-scrollbar { display: none; }
+  .ryztor-berberine-gallery__track { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 48px) / 4); gap: 16px; }
+  .ryztor-berberine-gallery__card { position: relative; aspect-ratio: 3 / 4; padding: 0; overflow: hidden; scroll-snap-align: start; border: 0; border-radius: 22px; background: #eeeaf5; cursor: zoom-in; }
+  .ryztor-berberine-gallery__card img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .45s ease; }
+  .ryztor-berberine-gallery__card:hover img { transform: scale(1.035); }
+  .ryztor-berberine-gallery__card span { position: absolute; right: 13px; bottom: 13px; width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; background: rgb(255 255 255 / 92%); color: var(--gallery-accent); box-shadow: 0 7px 22px rgb(0 0 0 / 15%); font-size: 1.25rem; }
+  .ryztor-berberine-gallery__card:focus-visible { outline: 3px solid var(--gallery-accent); outline-offset: 3px; }
+
+  .ryztor-berberine-gallery__progress { width: min(260px, 54vw); height: 3px; margin: 28px auto 0; overflow: hidden; border-radius: 99px; background: rgb(23 21 30 / 10%); }
+  .ryztor-berberine-gallery__progress i { display: block; width: 25%; height: 100%; border-radius: inherit; background: var(--gallery-accent); transform-origin: left center; transition: transform .15s linear; }
+
+  .ryztor-berberine-gallery__dialog { width: min(92vw, 700px); max-width: none; padding: 0; overflow: visible; border: 0; border-radius: 22px; background: transparent; box-shadow: 0 30px 90px rgb(0 0 0 / 35%); }
+  .ryztor-berberine-gallery__dialog::backdrop { background: rgb(13 10 20 / 80%); backdrop-filter: blur(7px); }
+  .ryztor-berberine-gallery__dialog img { width: 100%; max-height: 88vh; display: block; border-radius: 22px; background: #fff; object-fit: contain; }
+  .ryztor-berberine-gallery__close { position: absolute; z-index: 2; top: -16px; right: -16px; width: 42px; height: 42px; display: grid; place-items: center; border: 0; border-radius: 50%; background: #fff; color: #17151e; box-shadow: 0 8px 26px rgb(0 0 0 / 24%); cursor: pointer; font-size: 1.5rem; }
+
+  @media screen and (max-width: 989px) {
+    .ryztor-berberine-gallery__track { grid-auto-columns: calc((100% - 32px) / 3); }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ryztor-berberine-gallery { padding-inline: 16px; }
+    .ryztor-berberine-gallery__header { align-items: flex-start; margin-bottom: 24px; }
+    .ryztor-berberine-gallery__header h2 { font-size: clamp(2rem, 10vw, 3rem); }
+    .ryztor-berberine-gallery__controls { display: none; }
+    .ryztor-berberine-gallery__track { grid-auto-columns: 78%; gap: 12px; }
+    .ryztor-berberine-gallery__card { border-radius: 18px; }
+    .ryztor-berberine-gallery__close { top: 8px; right: 8px; }
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .ryztor-berberine-gallery__viewport { scroll-behavior: auto; scroll-snap-type: x mandatory; }
+    .ryztor-berberine-gallery__card img { transition: none; }
+  }
+{% endstylesheet %}
+
+<script>
+  (() => {
+    const section = document.getElementById('ryztor-berberine-gallery-{{ section.id }}');
+    if (!section || section.dataset.initialized === 'true') return;
+    section.dataset.initialized = 'true';
+
+    const viewport = section.querySelector('[data-gallery-viewport]');
+    const track = section.querySelector('.ryztor-berberine-gallery__track');
+    const previous = section.querySelector('[data-gallery-previous]');
+    const next = section.querySelector('[data-gallery-next]');
+    const progress = section.querySelector('[data-gallery-progress]');
+    const dialog = section.querySelector('[data-gallery-dialog]');
+    const dialogImage = section.querySelector('[data-gallery-dialog-image]');
+    const close = section.querySelector('[data-gallery-close]');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let animationFrame;
+    let previousTime = 0;
+    let autoplayPaused = false;
+
+    const cardStep = () => {
+      const card = track.querySelector('.ryztor-berberine-gallery__card');
+      if (!card) return viewport.clientWidth;
+      return card.getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || 0);
+    };
+
+    const updateControls = () => {
+      const loopWidth = track.scrollWidth / 2;
+      previous.disabled = false;
+      next.disabled = false;
+      const ratio = loopWidth ? (viewport.scrollLeft % loopWidth) / loopWidth : 0;
+      progress.style.transform = `translateX(${ratio * 300}%)`;
+    };
+
+    previous.addEventListener('click', () => viewport.scrollBy({ left: -cardStep(), behavior: 'smooth' }));
+    next.addEventListener('click', () => viewport.scrollBy({ left: cardStep(), behavior: 'smooth' }));
+    viewport.addEventListener('scroll', updateControls, { passive: true });
+    window.addEventListener('resize', updateControls);
+    updateControls();
+
+    const stopAutoplay = () => {
+      autoplayPaused = true;
+      previousTime = 0;
+    };
+
+    const animate = (time) => {
+      if (!reduceMotion && !autoplayPaused) {
+        if (previousTime) {
+          viewport.scrollLeft += ((time - previousTime) / 1000) * 34;
+          const loopWidth = track.scrollWidth / 2;
+          if (loopWidth && viewport.scrollLeft >= loopWidth) viewport.scrollLeft -= loopWidth;
+        }
+        previousTime = time;
+      }
+      animationFrame = window.requestAnimationFrame(animate);
+    };
+
+    const startAutoplay = () => {
+      if (reduceMotion) return;
+      autoplayPaused = false;
+      previousTime = 0;
+    };
+
+    viewport.addEventListener('focusin', stopAutoplay);
+    viewport.addEventListener('focusout', startAutoplay);
+    viewport.addEventListener('pointerdown', stopAutoplay);
+    viewport.addEventListener('pointerup', startAutoplay);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopAutoplay();
+      else startAutoplay();
+    });
+    startAutoplay();
+    animationFrame = window.requestAnimationFrame(animate);
+
+    section.querySelectorAll('[data-gallery-photo]').forEach((button) => {
+      button.addEventListener('click', () => {
+        dialogImage.src = button.dataset.fullImage;
+        dialogImage.alt = button.dataset.imageAlt;
+        dialog.showModal();
+      });
+    });
+
+    close.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "RYZTOR Berberine gallery",
+  "tag": "section",
+  "class": "ryztor-berberine-gallery-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "BERBERINE IN REAL LIFE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A closer look at your daily routine."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>See RYZTOR Berberine in simple, everyday settings.</p>"
+    },
+    {
+      "type": "color",
+      "id": "accent",
+      "label": "Accent",
+      "default": "#7652f5"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "RYZTOR Berberine gallery"
+    }
+  ]
+}
+{% endschema %}

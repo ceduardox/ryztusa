@@ -30,28 +30,57 @@
       <h2>{{ section.settings.heading | escape }}</h2>
       <div class="ryztor-berberine__lead rte">{{ section.settings.intro }}</div>
 
-      <div class="ryztor-berberine__steps">
-        <article>
-          <span class="ryztor-berberine__number">01</span>
-          <div>
-          <h3>Take two capsules</h3>
-          <p>Adults take two capsules daily with 6–8 oz (177–236 ml) of water, or as directed by a healthcare professional.</p>
-          </div>
-        </article>
-        <article>
-          <span class="ryztor-berberine__number">02</span>
-          <div>
-          <h3>Support your daily balance</h3>
-          <p>The formula is designed to support normal blood sugar levels, cardiovascular wellness, and healthy metabolic function.*</p>
-          </div>
-        </article>
-        <article>
-          <span class="ryztor-berberine__number">03</span>
-          <div>
-          <h3>Keep healthy habits first</h3>
-          <p>Combine consistent use with balanced nutrition, regular exercise, hydration, and quality sleep.</p>
-          </div>
-        </article>
+      <div class="ryztor-berberine__benefit-orbit" data-benefit-orbit>
+        <div class="ryztor-berberine__benefit-column ryztor-berberine__benefit-column--left">
+          <article class="ryztor-berberine__benefit-callout">
+            <span class="ryztor-berberine__benefit-plus" aria-hidden="true">+</span>
+            <div>
+              <h3>Healthy metabolic function</h3>
+              <p>Supports the body's normal processes for using nutrients and energy as part of an everyday wellness routine.*</p>
+            </div>
+          </article>
+
+          <article class="ryztor-berberine__benefit-callout">
+            <span class="ryztor-berberine__benefit-plus" aria-hidden="true">+</span>
+            <div>
+              <h3>Healthy blood sugar balance</h3>
+              <p>Helps maintain blood glucose levels already within the normal range, alongside balanced nutrition and healthy habits.*</p>
+            </div>
+          </article>
+        </div>
+
+        <figure class="ryztor-berberine__capsule">
+          <span class="ryztor-berberine__capsule-glow" aria-hidden="true"></span>
+          <img
+            src="{{ 'ryztor-berberine-capsules.webp' | asset_url }}"
+            alt="Berberine capsules"
+            loading="lazy"
+            width="1254"
+            height="1254"
+          >
+          <figcaption>
+            <strong>Dual Berberine HCl extracts</strong>
+            <span>2 capsules per serving · 30 servings</span>
+          </figcaption>
+        </figure>
+
+        <div class="ryztor-berberine__benefit-column ryztor-berberine__benefit-column--right">
+          <article class="ryztor-berberine__benefit-callout">
+            <span class="ryztor-berberine__benefit-plus" aria-hidden="true">+</span>
+            <div>
+              <h3>Cardiovascular wellness</h3>
+              <p>Complements heart-conscious habits and supports healthy lipid levels already within the normal range.*</p>
+            </div>
+          </article>
+
+          <article class="ryztor-berberine__benefit-callout">
+            <span class="ryztor-berberine__benefit-plus" aria-hidden="true">+</span>
+            <div>
+              <h3>Healthy weight management</h3>
+              <p>Complements a balanced diet and active lifestyle as part of a consistent metabolic wellness routine.*</p>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
 
@@ -109,45 +138,6 @@
           </div>
           <p class="ryztor-berberine__video-label">My routine</p>
         </div>
-      </div>
-    </div>
-
-    <div class="ryztor-berberine__section ryztor-berberine__benefits">
-      <header class="ryztor-berberine__section-heading">
-        <p class="ryztor-berberine__eyebrow">Everyday metabolic wellness</p>
-        <h2>Support that fits real life.</h2>
-        <p>One focused ingredient, explained clearly—without miracle language or complicated routines.</p>
-      </header>
-
-      <div class="ryztor-berberine__benefit-grid">
-        <article>
-          <span class="ryztor-berberine__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M4 13h4l2-7 4 12 2-5h4"/></svg>
-          </span>
-          <h3>Normal blood sugar support</h3>
-          <p>Designed to help maintain blood sugar levels already within the normal range and support normal metabolic function.*</p>
-        </article>
-        <article>
-          <span class="ryztor-berberine__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"/></svg>
-          </span>
-          <h3>Cardiovascular wellness</h3>
-          <p>Supports normal cholesterol levels and healthy heart function as part of a balanced lifestyle.*</p>
-        </article>
-        <article>
-          <span class="ryztor-berberine__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M5 19c7 0 13-5 14-14C10 6 5 11 5 19Zm0 0c2-4 5-7 10-9"/></svg>
-          </span>
-          <h3>Healthy weight management</h3>
-          <p>Supports the body's normal metabolism and your ongoing weight-management routine when paired with healthy habits.*</p>
-        </article>
-        <article>
-          <span class="ryztor-berberine__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M7 4h10M8 4v5a4 4 0 0 0 8 0V4M6 20h12M12 13v7"/></svg>
-          </span>
-          <h3>Convenient daily serving</h3>
-          <p>Two capsules a day make the formula straightforward to use at home or while traveling.</p>
-        </article>
       </div>
     </div>
 
@@ -245,39 +235,6 @@
       </div>
     {% endif %}
 
-    <div class="ryztor-berberine__section ryztor-berberine__faq">
-      <header class="ryztor-berberine__section-heading">
-        <p class="ryztor-berberine__eyebrow">Product details</p>
-        <h2>Everything important, without the wall of text.</h2>
-      </header>
-      <div class="ryztor-berberine__faq-list">
-        <details open>
-          <summary>What benefits does Berberine support?<span aria-hidden="true">+</span></summary>
-          <p>Berberine is designed to support normal blood sugar regulation, cardiovascular health, normal cholesterol levels, healthy metabolism, and weight management. It works best as part of a balanced lifestyle that includes nutritious food and regular exercise.*</p>
-        </details>
-        <details>
-          <summary>What are the ingredients?<span aria-hidden="true">+</span></summary>
-          <p>Granular Berberine Hydrochloride Extract 97% (bark), Granular Berberine Hydrochloride Extract 8% (bark/root), cellulose (vegetable capsule), MCC (microcrystalline cellulose), L-Leucine, and olive oil.</p>
-        </details>
-        <details>
-          <summary>How should I take it?<span aria-hidden="true">+</span></summary>
-          <p>As a dietary supplement, adults take two (2) capsules daily. For best results, take with 6–8 oz (177–236 ml) of water or as directed by a healthcare professional. Do not exceed the recommended dose.</p>
-        </details>
-        <details>
-          <summary>What comes in each bottle?<span aria-hidden="true">+</span></summary>
-          <p>Each bottle contains 60 capsules, equal to a 30-day supply when used as directed. Manufactured in the USA. Gross weight: 2.56 oz / 0.16 lbs / 73 g.</p>
-        </details>
-        <details>
-          <summary>Does it fit my dietary preferences?<span aria-hidden="true">+</span></summary>
-          <p>RYZTOR Berberine is gluten-free, vegetarian, allergen-free, non-GMO, and vegan friendly.</p>
-        </details>
-        <details>
-          <summary>What warnings should I know?<span aria-hidden="true">+</span></summary>
-          <p>Pregnant or nursing mothers, children under 18, and individuals with known medical conditions should consult a physician before using this or any dietary supplement. Keep out of reach of children. Do not use if the safety seal is damaged or missing. Store in a cool, dry place.</p>
-        </details>
-      </div>
-    </div>
-
     <div class="ryztor-berberine__cta">
       <div>
         <p>Make wellness easier to repeat.</p>
@@ -363,15 +320,158 @@
       line-height: 1.65;
     }
 
-    .ryztor-berberine__steps {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 52px;
+    .ryztor-berberine__intro > .ryztor-berberine__eyebrow,
+    .ryztor-berberine__intro > h2,
+    .ryztor-berberine__intro > .ryztor-berberine__lead {
+      margin-inline: auto;
+      text-align: center;
     }
 
-    .ryztor-berberine__steps article,
-    .ryztor-berberine__benefit-grid article,
+    .ryztor-berberine__benefit-orbit {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 390px) minmax(0, 1fr);
+      align-items: center;
+      gap: clamp(38px, 6vw, 82px);
+      margin-top: clamp(50px, 7vw, 82px);
+    }
+
+    .ryztor-berberine__benefit-column {
+      min-height: 410px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 56px;
+    }
+
+    .ryztor-berberine__benefit-callout {
+      position: relative;
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      opacity: 0;
+      transform: translateY(18px);
+    }
+
+    .ryztor-berberine__benefit-callout::after {
+      position: absolute;
+      top: 38px;
+      width: clamp(28px, 4vw, 60px);
+      border-top: 2px solid color-mix(in srgb, var(--rb-accent) 58%, white);
+      content: '';
+      opacity: .75;
+    }
+
+    .ryztor-berberine__benefit-column--left .ryztor-berberine__benefit-callout::after {
+      right: -72px;
+      transform: rotate(12deg);
+      transform-origin: left;
+    }
+
+    .ryztor-berberine__benefit-column--right .ryztor-berberine__benefit-callout::after {
+      left: -72px;
+      transform: rotate(-12deg);
+      transform-origin: right;
+    }
+
+    .ryztor-berberine__benefit-plus {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--rb-ink);
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1;
+      box-shadow: 0 7px 20px rgb(23 21 30 / 14%);
+    }
+
+    .ryztor-berberine__benefit-callout h3 {
+      margin-bottom: 9px;
+      font-size: clamp(1.05rem, 1.4vw, 1.28rem);
+    }
+
+    .ryztor-berberine__benefit-callout p {
+      font-size: .88rem;
+    }
+
+    .ryztor-berberine__capsule {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      text-align: center;
+    }
+
+    .ryztor-berberine__capsule-glow {
+      position: absolute;
+      z-index: -1;
+      inset: 12% 2% 20%;
+      border-radius: 50%;
+      background: radial-gradient(circle, color-mix(in srgb, var(--rb-accent) 22%, white), transparent 68%);
+      filter: blur(10px);
+      animation: ryztor-capsule-glow 3.6s ease-in-out infinite;
+    }
+
+    .ryztor-berberine__capsule img {
+      width: 100%;
+      height: auto;
+      display: block;
+      mix-blend-mode: multiply;
+      animation: ryztor-capsule-float 4.6s ease-in-out infinite;
+    }
+
+    .ryztor-berberine__capsule figcaption {
+      width: fit-content;
+      max-width: 92%;
+      margin: -20px auto 0;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 3px;
+      padding: 12px 18px;
+      border: 1px solid color-mix(in srgb, var(--rb-accent) 22%, transparent);
+      border-radius: 999px;
+      background: rgb(255 255 255 / 92%);
+      box-shadow: 0 12px 35px rgb(49 24 93 / 10%);
+      backdrop-filter: blur(8px);
+    }
+
+    .ryztor-berberine__capsule figcaption strong {
+      color: var(--rb-ink);
+      font-size: .76rem;
+    }
+
+    .ryztor-berberine__capsule figcaption span {
+      color: rgb(23 21 30 / 58%);
+      font-size: .64rem;
+    }
+
+    .ryztor-berberine__benefit-orbit.is-visible .ryztor-berberine__benefit-callout {
+      animation: ryztor-benefit-reveal .55s ease forwards;
+    }
+
+    .ryztor-berberine__benefit-orbit.is-visible .ryztor-berberine__benefit-column article:nth-child(2) {
+      animation-delay: .15s;
+    }
+
+    @keyframes ryztor-benefit-reveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes ryztor-capsule-float {
+      0%, 100% { transform: translateY(0) rotate(-1deg); }
+      50% { transform: translateY(-10px) rotate(1deg); }
+    }
+
+    @keyframes ryztor-capsule-glow {
+      0%, 100% { opacity: .62; transform: scale(.94); }
+      50% { opacity: 1; transform: scale(1.04); }
+    }
+
     .ryztor-berberine__review {
       border: 1px solid rgb(23 21 30 / 11%);
       border-radius: 22px;
@@ -379,41 +479,21 @@
       box-shadow: 0 16px 45px rgb(49 24 93 / 8%);
     }
 
-    .ryztor-berberine__steps article { padding: 28px; }
-    .ryztor-berberine__number { display: block; margin-bottom: 40px; color: var(--rb-accent); font-size: .75rem; font-weight: 900; letter-spacing: .12em; }
     .ryztor-berberine h3 { margin: 0 0 10px; font-size: 1.15rem; font-weight: 850; letter-spacing: -.02em; line-height: 1.2; }
     .ryztor-berberine article p { margin: 0; color: rgb(23 21 30 / 68%); line-height: 1.6; }
 
-    .ryztor-berberine__benefits,
     .ryztor-berberine__comparison,
-    .ryztor-berberine__reviews {
-      width: 100%;
-      max-width: none;
-      padding-inline: max(16px, calc((100vw - 1180px) / 2));
-    }
-
+    .ryztor-berberine__reviews,
     .ryztor-berberine__faq {
       width: 100%;
       max-width: none;
       padding-inline: max(16px, calc((100vw - 1180px) / 2));
-      text-align: center;
     }
 
-    .ryztor-berberine__faq .ryztor-berberine__section-heading {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .ryztor-berberine__benefits,
     .ryztor-berberine__reviews { background: var(--rb-soft); }
     .ryztor-berberine__section-heading { max-width: 760px; margin-bottom: 44px; }
     .ryztor-berberine__section-heading h2 { font-size: clamp(2.2rem, 4.8vw, 4.3rem); }
     .ryztor-berberine__section-heading > p:last-child { max-width: 660px; margin: 20px 0 0; color: rgb(23 21 30 / 68%); font-size: 1.06rem; line-height: 1.65; }
-
-    .ryztor-berberine__benefit-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
-    .ryztor-berberine__benefit-grid article { padding: 25px; }
-    .ryztor-berberine__icon { width: 48px; height: 48px; margin-bottom: 34px; display: grid; place-items: center; border-radius: 15px; background: var(--rb-accent); color: #fff; }
-    .ryztor-berberine__icon svg { width: 25px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
     .ryztor-berberine__formula { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: clamp(38px, 8vw, 110px); }
     .ryztor-berberine__formula-copy > p:not(.ryztor-berberine__eyebrow) { margin: 24px 0 0; color: rgb(23 21 30 / 70%); font-size: 1.08rem; line-height: 1.7; }
@@ -444,7 +524,7 @@
     .ryztor-berberine__review footer i { width: 18px; height: 18px; display: inline-grid; place-items: center; margin-right: 4px; border-radius: 50%; background: var(--rb-accent); color: #fff; font-style: normal; }
     .ryztor-berberine__review--placeholder { border-style: dashed; opacity: .72; }
 
-    .ryztor-berberine__faq-list { max-width: 900px; margin: 0 auto; text-align: left; }
+    .ryztor-berberine__faq-list { max-width: 900px; }
     .ryztor-berberine__faq details { border-top: 1px solid rgb(23 21 30 / 14%); }
     .ryztor-berberine__faq details:last-child { border-bottom: 1px solid rgb(23 21 30 / 14%); }
     .ryztor-berberine__faq summary { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 18px 0; cursor: pointer; font-size: 1.08rem; font-weight: 800; list-style: none; }
@@ -460,7 +540,7 @@
     .ryztor-berberine__cta a:hover { transform: translateY(-2px); box-shadow: 0 12px 28px color-mix(in srgb, var(--rb-accent) 32%, transparent); }
     .ryztor-berberine__disclaimer { width: min(100% - 32px, 960px); margin: 32px auto 0; padding-bottom: 64px; color: rgb(23 21 30 / 52%); font-size: .72rem; line-height: 1.55; text-align: center; }
 
-    body:has(.ryztor-berberine) .product-information .product-details {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information .product-details {
       margin: 0;
       padding: 4px 0 12px;
       border: 0;
@@ -469,14 +549,14 @@
       box-shadow: none;
     }
 
-    body:has(.ryztor-berberine) .product-information .product-details h1 {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information .product-details h1 {
       font-size: clamp(2rem, 3vw, 3rem);
       font-weight: 900;
       letter-spacing: -.045em;
       line-height: 1;
     }
 
-    body:has(.ryztor-berberine) .product-information .add-to-cart-button {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information .add-to-cart-button {
       min-height: 58px;
       border-radius: 999px;
       background: var(--rb-accent, #7652f5);
@@ -485,102 +565,29 @@
       box-shadow: none;
     }
 
-    body:has(.ryztor-berberine) .product-information .quantity-selector { border-radius: 999px; }
-    body:has(.ryztor-berberine) .product-information__media { background: transparent; }
-    body:has(.ryztor-berberine) .product-information__media img { object-fit: contain; }
-    body:has(.ryztor-berberine) .product-information__media media-gallery {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information .quantity-selector { border-radius: 999px; }
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information__media { background: transparent; }
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information__media img { object-fit: contain; }
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information__media media-gallery {
       width: 100%;
       max-width: none;
       margin: 0;
       --thumbnail-width: 72px !important;
     }
 
-    body:has(.ryztor-berberine) .product-information__media .slideshow-controls__thumbnails {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information__media .slideshow-controls__thumbnails {
       justify-content: flex-start;
       gap: 10px;
       margin-inline: 0;
       padding: 12px 0 0;
     }
 
-    body:has(.ryztor-berberine) .product-information__media .slideshow-controls__thumbnail {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information__media .slideshow-controls__thumbnail {
       border: 1px solid rgb(23 21 30 / 12%);
       box-shadow: none;
     }
 
-    body:has(.ryztor-berberine) .product-information p:has(img) {
-      display: flex !important;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    body:has(.ryztor-berberine) .product-information img[src*="sanity.io"] {
-      height: 6rem;
-      width: auto;
-      object-fit: contain;
-    }
-
-    body:has(.ryztor-berberine) .product-information [ref="priceContainer"],
-    body:has(.ryztor-berberine) .product-information .price-container,
-    body:has(.ryztor-berberine) .product-information div:has(.price-item__group) {
-      display: flex !important;
-      align-items: baseline;
-      gap: 10px;
-      flex-wrap: nowrap;
-    }
-
-    body:has(.ryztor-berberine) .product-information .price-item__group {
-      display: inline-flex !important;
-      align-items: baseline;
-      gap: 8px;
-    }
-
-    body:has(.ryztor-berberine) .product-information .price-item__group.price {
-      color: #e53e3e;
-      font-size: 1.6rem;
-      font-weight: 900;
-      line-height: 1;
-    }
-
-    body:has(.ryztor-berberine) .product-information .price-item__group.price-item--regular {
-      color: rgb(23 21 30 / 40%);
-      text-decoration: line-through;
-      font-size: 1.6rem;
-      font-weight: 400;
-    }
-
-    body:has(.ryztor-berberine) .product-information .visually-hidden {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      clip: rect(0,0,0,0);
-    }
-
-    body:has(.ryztor-berberine) .product-information .text-block--text_aEtTtq { display: none; }
-
-    body:has(.ryztor-berberine) .ryztor-savings {
-      display: inline-flex !important;
-      align-items: center;
-      gap: 4px;
-      margin-left: 8px;
-      padding: 4px 10px;
-      border-radius: 6px;
-      background: color-mix(in srgb, #7652f5 10%, white);
-      color: #7652f5;
-      font-size: 0.78rem;
-      font-weight: 700;
-      vertical-align: middle;
-    }
-
-    body:has(.ryztor-berberine) .product-information .custom-liquid:has(.ryztor-savings) {
-      display: inline !important;
-    }
-
-    body:has(.ryztor-berberine) .ryztor-savings strong {
-      font-weight: 900;
-    }
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information .text-block--text_aEtTtq { display: none; }
 
     .ryztor-product-summary {
       display: grid;
@@ -605,108 +612,112 @@
     .ryztor-product-disclosures details[open] summary span { transform: rotate(45deg); }
     .ryztor-product-disclosures p { margin: 0; padding: 0 0 18px; color: rgb(23 21 30 / 68%); font-size: .78rem; line-height: 1.6; }
 
-    @media screen and (min-width: 750px) {
-      body:has(.ryztor-berberine)
-        .product-information__media
-        slideshow-controls[pagination-position='left']
-        .slideshow-controls__thumbnails {
-        gap: 10px;
-        margin: 0;
-        padding: 0 12px 0 0;
-      }
-
-      body:has(.ryztor-berberine)
-        .product-information__media
-        slideshow-controls[pagination-position='left']
-        .slideshow-controls__thumbnails-container {
-        align-items: flex-start;
-      }
-
-      body:has(.ryztor-berberine) .product-information__grid {
-        width: 100%;
-        max-width: 1120px;
-        margin-inline: auto;
-      }
-
-      body:has(.ryztor-berberine) .product-information__media {
-        padding-right: 18px !important;
-      }
-
-      body:has(.ryztor-berberine) .product-information .product-details {
-        padding-left: 18px;
-      }
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information p:has(img) {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
-    @media screen and (max-width: 989px) {
-      .ryztor-berberine__trust { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .ryztor-berberine__trust div:nth-child(3) { border-left: 0; border-top: 1px solid color-mix(in srgb, var(--rb-accent) 16%, transparent); }
-      .ryztor-berberine__trust div:nth-child(4) { border-top: 1px solid color-mix(in srgb, var(--rb-accent) 16%, transparent); }
-      .ryztor-berberine__steps, .ryztor-berberine__review-grid { grid-template-columns: 1fr; }
-      .ryztor-berberine__benefit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .ryztor-berberine__formula { grid-template-columns: 1fr; }
-      .ryztor-berberine__formula-media { min-height: 420px; order: -1; }
-      .ryztor-berberine__cta { align-items: flex-start; flex-direction: column; }
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information img[src*="sanity.io"] {
+      height: 6rem;
+      width: auto;
+      object-fit: contain;
     }
 
-    @media screen and (max-width: 749px) {
-      .ryztor-berberine__section { padding-block: 68px; }
-      .ryztor-berberine__trust { width: min(100% - 24px, 1180px); margin-top: 12px; border-radius: 15px; }
-      .ryztor-berberine__trust div { min-height: 58px; padding: 9px 8px; font-size: .62rem; letter-spacing: .035em; }
-      .ryztor-berberine__steps { margin-top: 34px; }
-      .ryztor-berberine__number { margin-bottom: 24px; }
-      .ryztor-berberine__benefit-grid { grid-template-columns: 1fr; }
-      .ryztor-berberine__formula-media { min-height: 340px; border-radius: 22px; }
-      .ryztor-berberine__table { border-radius: 17px; box-shadow: 6px 8px 0 var(--rb-accent); }
-      .ryztor-berberine__table-row { grid-template-columns: 1.2fr .8fr .9fr; }
-      .ryztor-berberine__table-row > div { min-height: 64px; padding: 10px 8px; font-size: .68rem; text-align: center; justify-content: center; }
-      .ryztor-berberine__table-head { font-size: .55rem; letter-spacing: .035em; }
-      .ryztor-berberine__table-row > div:nth-child(2) { flex-direction: column; }
-      .ryztor-berberine__table-row > div:nth-child(2) span { margin: 0; }
-      .ryztor-berberine__review blockquote { min-height: 0; }
-      .ryztor-berberine__cta { width: min(100% - 24px, 1180px); padding: 32px 24px; border-radius: 22px; }
-      .ryztor-berberine__cta a { width: 100%; }
-      body:has(.ryztor-berberine) .product-information .product-details { margin: 0; padding: 22px 16px 18px; }
-      body:has(.ryztor-berberine) .product-information__media media-gallery {
-        width: 100%;
-        max-width: none;
-      }
-      body:has(.ryztor-berberine) .product-information__media .media-gallery__mobile-controls[thumbnails] {
-        --thumbnail-width: 68px !important;
-      }
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information [ref="priceContainer"],
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information .price-container,
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information div:has(.price-item__group) {
+      display: flex !important;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: nowrap;
     }
 
-    body:has(.ryztor-berberine) .ryztor-rating {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information .price-item__group {
+      display: inline-flex !important;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information .price-item__group.price {
+      color: #e53e3e;
+      font-size: 1.6rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information .price-item__group.price-item--regular {
+      color: rgb(23 21 30 / 40%);
+      text-decoration: line-through;
+      font-size: 1.6rem;
+      font-weight: 400;
+    }
+
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+    }
+
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information .text-block--text_aEtTtq,
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information [data-block-id="text_aEtTtq"] {
+      display: none !important;
+    }
+
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-savings {
+      display: inline-flex !important;
+      align-items: center;
+      gap: 4px;
+      margin-left: 8px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: color-mix(in srgb, #7652f5 10%, white);
+      color: #7652f5;
+      font-size: 0.78rem;
+      font-weight: 700;
+      vertical-align: middle;
+    }
+
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-savings strong {
+      font-weight: 900;
+    }
+
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-rating {
       display: flex;
       align-items: center;
       gap: 6px;
       padding: 0 0 4px;
     }
 
-    body:has(.ryztor-berberine) .ryztor-rating__stars {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-rating__stars {
       color: #7652f5;
       font-size: 0.92rem;
       letter-spacing: 1px;
     }
 
-    body:has(.ryztor-berberine) .ryztor-rating__score {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-rating__score {
       color: #17151e;
       font-size: 0.88rem;
       font-weight: 800;
     }
 
-    body:has(.ryztor-berberine) .ryztor-rating__count {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-rating__count {
       color: rgb(23 21 30 / 55%);
       font-size: 0.82rem;
     }
 
-    body:has(.ryztor-berberine) .ryztor-guarantee {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-guarantee {
       display: flex;
       flex-direction: column;
       gap: 8px;
       padding: 14px 0 0;
     }
 
-    body:has(.ryztor-berberine) .ryztor-guarantee__badge {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-guarantee__badge {
       display: flex;
       align-items: center;
       gap: 8px;
@@ -715,12 +726,12 @@
       font-weight: 700;
     }
 
-    body:has(.ryztor-berberine) .ryztor-guarantee__badge svg {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-guarantee__badge svg {
       color: #7652f5;
       flex-shrink: 0;
     }
 
-    body:has(.ryztor-berberine) .ryztor-guarantee__shipping {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-guarantee__shipping {
       display: flex;
       align-items: center;
       gap: 8px;
@@ -729,24 +740,24 @@
       font-weight: 600;
     }
 
-    body:has(.ryztor-berberine) .ryztor-guarantee__shipping svg {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-guarantee__shipping svg {
       color: #7652f5;
       flex-shrink: 0;
     }
 
-    body:has(.ryztor-berberine) .ryztor-guarantee__payments {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-guarantee__payments {
       display: flex;
       align-items: center;
       gap: 8px;
       flex-wrap: wrap;
     }
 
-    body:has(.ryztor-berberine) .ryztor-guarantee__payments .icon {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-guarantee__payments .icon {
       height: 22px;
       width: auto;
     }
 
-    body:has(.ryztor-berberine) .ryztor-subscribe {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-subscribe {
       display: flex;
       align-items: center;
       gap: 10px;
@@ -756,7 +767,7 @@
       background: color-mix(in srgb, #7652f5 6%, white);
     }
 
-    body:has(.ryztor-berberine) .ryztor-subscribe__badge {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-subscribe__badge {
       flex-shrink: 0;
       padding: 4px 10px;
       border-radius: 6px;
@@ -767,17 +778,17 @@
       letter-spacing: 0.06em;
     }
 
-    body:has(.ryztor-berberine) .ryztor-subscribe__copy {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-subscribe__copy {
       color: rgb(23 21 30 / 72%);
       font-size: 0.82rem;
       line-height: 1.4;
     }
 
-    body:has(.ryztor-berberine) .ryztor-subscribe__copy strong {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-subscribe__copy strong {
       color: #17151e;
     }
 
-    body:has(.ryztor-berberine) .ryztor-stock {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-stock {
       display: flex;
       align-items: center;
       gap: 8px;
@@ -786,7 +797,7 @@
       color: rgb(23 21 30 / 70%);
     }
 
-    body:has(.ryztor-berberine) .ryztor-stock__dot {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-stock__dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
@@ -800,12 +811,12 @@
       50% { opacity: 0.4; }
     }
 
-    body:has(.ryztor-berberine) .ryztor-stock--out {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-stock--out {
       color: #e53e3e;
       font-weight: 700;
     }
 
-    body:has(.ryztor-berberine) .ryztor-berberine__video {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-berberine__video {
       width: 100%;
       max-width: none;
       padding-inline: max(16px, calc((100vw - 1180px) / 2));
@@ -813,12 +824,12 @@
       text-align: center;
     }
 
-    body:has(.ryztor-berberine) .ryztor-berberine__video .ryztor-berberine__section-heading {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-berberine__video .ryztor-berberine__section-heading {
       margin-left: auto;
       margin-right: auto;
     }
 
-    body:has(.ryztor-berberine) .ryztor-berberine__video-grid {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-berberine__video-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
@@ -828,13 +839,13 @@
       margin-right: auto;
     }
 
-    body:has(.ryztor-berberine) .ryztor-berberine__video-card {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-berberine__video-card {
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
 
-    body:has(.ryztor-berberine) .ryztor-berberine__video-player {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-berberine__video-player {
       position: relative;
       border-radius: 16px;
       overflow: hidden;
@@ -843,7 +854,7 @@
       cursor: pointer;
     }
 
-    body:has(.ryztor-berberine) .ryztor-berberine__video-player img {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-berberine__video-player img {
       position: absolute;
       top: 0;
       left: 0;
@@ -853,7 +864,7 @@
       transition: opacity 0.3s ease;
     }
 
-    body:has(.ryztor-berberine) .ryztor-berberine__video-player video {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-berberine__video-player video {
       display: none;
       position: absolute;
       top: 0;
@@ -863,16 +874,16 @@
       object-fit: cover;
     }
 
-    body:has(.ryztor-berberine) .ryztor-berberine__video-player.is-playing img {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-berberine__video-player.is-playing img {
       opacity: 0;
       pointer-events: none;
     }
 
-    body:has(.ryztor-berberine) .ryztor-berberine__video-player.is-playing video {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-berberine__video-player.is-playing video {
       display: block;
     }
 
-    body:has(.ryztor-berberine) .ryztor-berberine__video-play {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-berberine__video-play {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -890,35 +901,152 @@
       z-index: 2;
     }
 
-    body:has(.ryztor-berberine) .ryztor-berberine__video-play:hover {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-berberine__video-play:hover {
       transform: translate(-50%, -50%) scale(1.1);
       background: #7652f5;
     }
 
-    body:has(.ryztor-berberine) .ryztor-berberine__video-player.is-playing .ryztor-berberine__video-play {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-berberine__video-player.is-playing .ryztor-berberine__video-play {
       display: none;
     }
 
-    body:has(.ryztor-berberine) .ryztor-berberine__video-label {
+    body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .ryztor-berberine__video-label {
       margin: 0;
       color: rgb(23 21 30 / 70%);
       font-size: 0.88rem;
       font-weight: 600;
     }
 
+    @media screen and (min-width: 750px) {
+      body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section)
+        .product-information__media
+        slideshow-controls[pagination-position='left']
+        .slideshow-controls__thumbnails {
+        gap: 10px;
+        margin: 0;
+        padding: 0 12px 0 0;
+      }
+
+      body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section)
+        .product-information__media
+        slideshow-controls[pagination-position='left']
+        .slideshow-controls__thumbnails-container {
+        align-items: flex-start;
+      }
+
+      body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information__grid {
+        width: 100%;
+        max-width: 1120px;
+        margin-inline: auto;
+      }
+
+      body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information__media {
+        padding-right: 18px !important;
+      }
+
+      body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information .product-details {
+        padding-left: 18px;
+      }
+    }
+
     @media screen and (max-width: 989px) {
-      .ryztor-berberine__video-grid { grid-template-columns: repeat(2, 1fr); max-width: 500px; }
+      .ryztor-berberine__trust { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .ryztor-berberine__trust div:nth-child(3) { border-left: 0; border-top: 1px solid color-mix(in srgb, var(--rb-accent) 16%, transparent); }
+      .ryztor-berberine__trust div:nth-child(4) { border-top: 1px solid color-mix(in srgb, var(--rb-accent) 16%, transparent); }
+      .ryztor-berberine__benefit-orbit { grid-template-columns: 1fr; max-width: 650px; margin-inline: auto; }
+      .ryztor-berberine__benefit-column { min-height: 0; gap: 18px; }
+      .ryztor-berberine__benefit-callout {
+        padding: 20px;
+        border: 1px solid rgb(23 21 30 / 10%);
+        border-radius: 18px;
+        background: #fff;
+        box-shadow: 0 12px 34px rgb(49 24 93 / 7%);
+      }
+      .ryztor-berberine__benefit-callout::after { display: none; }
+      .ryztor-berberine__capsule { width: min(100%, 390px); margin: 0 auto; }
+      .ryztor-berberine__review-grid { grid-template-columns: 1fr; }
+      .ryztor-berberine__formula { grid-template-columns: 1fr; }
+      .ryztor-berberine__formula-media { min-height: 420px; order: -1; }
+      .ryztor-berberine__cta { align-items: flex-start; flex-direction: column; }
     }
 
     @media screen and (max-width: 749px) {
+      .ryztor-berberine__section { padding-block: 68px; }
+      .ryztor-berberine__trust { width: min(100% - 24px, 1180px); margin-top: 12px; border-radius: 15px; }
+      .ryztor-berberine__trust div { min-height: 58px; padding: 9px 8px; font-size: .62rem; letter-spacing: .035em; }
+      .ryztor-berberine__benefit-orbit { gap: 28px; margin-top: 38px; }
+      .ryztor-berberine__benefit-column { gap: 12px; }
+      .ryztor-berberine__benefit-callout { grid-template-columns: 30px 1fr; gap: 10px; padding: 17px; }
+      .ryztor-berberine__benefit-plus { width: 28px; height: 28px; font-size: 1rem; }
+      .ryztor-berberine__capsule { order: 2; }
+      .ryztor-berberine__benefit-column--left { order: 1; }
+      .ryztor-berberine__benefit-column--right { order: 3; }
+      .ryztor-berberine__capsule figcaption { margin-top: -12px; border-radius: 18px; }
+      .ryztor-berberine__formula-media { min-height: 340px; border-radius: 22px; }
+      .ryztor-berberine__table { border-radius: 17px; box-shadow: 6px 8px 0 var(--rb-accent); }
+      .ryztor-berberine__table-row { grid-template-columns: 1.2fr .8fr .9fr; }
+      .ryztor-berberine__table-row > div { min-height: 64px; padding: 10px 8px; font-size: .68rem; text-align: center; justify-content: center; }
+      .ryztor-berberine__table-head { font-size: .55rem; letter-spacing: .035em; }
+      .ryztor-berberine__table-row > div:nth-child(2) { flex-direction: column; }
+      .ryztor-berberine__table-row > div:nth-child(2) span { margin: 0; }
+      .ryztor-berberine__review blockquote { min-height: 0; }
+      .ryztor-berberine__cta { width: min(100% - 24px, 1180px); padding: 32px 24px; border-radius: 22px; }
+      .ryztor-berberine__cta a { width: 100%; }
+      body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information .product-details { margin: 0; padding: 22px 16px 18px; }
+      body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information__media media-gallery {
+        width: 100%;
+        max-width: none;
+      }
+      body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information__media .media-gallery__mobile-controls[thumbnails] {
+        --thumbnail-width: 68px !important;
+      }
+      body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information__media .slideshow-controls__thumbnails-container {
+        padding-inline: 16px;
+      }
+      body:has(.ryztor-berberine), body:has(.ryztor-magnesium-section) .product-information__media .slideshow-controls__thumbnail {
+        --thumbnail-width: 84px !important;
+      }
       .ryztor-berberine__video-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; max-width: 340px; }
       .ryztor-berberine__video-play { width: 48px; height: 48px; }
       .ryztor-berberine__video-play svg { width: 32px; height: 32px; }
       .ryztor-berberine__video-label { font-size: 0.78rem; }
     }
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      .ryztor-berberine__benefit-callout {
+        opacity: 1;
+        transform: none;
+      }
+
+      .ryztor-berberine__capsule img,
+      .ryztor-berberine__capsule-glow,
+      .ryztor-berberine__benefit-orbit.is-visible .ryztor-berberine__benefit-callout {
+        animation: none;
+      }
+    }
 {% endstylesheet %}
 
 <script>
+  document.querySelectorAll('[data-benefit-orbit]').forEach(function(orbit) {
+    if (orbit.dataset.revealReady === 'true') return;
+    orbit.dataset.revealReady = 'true';
+
+    if (!('IntersectionObserver' in window)) {
+      orbit.classList.add('is-visible');
+      return;
+    }
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.18 });
+
+    observer.observe(orbit);
+  });
+
   document.addEventListener('click', function(e) {
     var btn = e.target.closest('.ryztor-berberine__video-play');
     var player = e.target.closest('.ryztor-berberine__video-player');
@@ -927,7 +1055,6 @@
     var video = container.querySelector('video');
     var playBtn = container.querySelector('.ryztor-berberine__video-play');
     if (!video) return;
-
     if (video.paused) {
       container.classList.add('is-playing');
       playBtn.innerHTML = '<svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
@@ -950,7 +1077,7 @@
       "type": "text",
       "id": "eyebrow",
       "label": "Eyebrow",
-      "default": "A smarter everyday routine"
+      "default": "Benefits of Berberine"
     },
     {
       "type": "text",

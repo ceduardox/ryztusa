@@ -18,33 +18,33 @@
     class="ryztor-berberine"
     style="--rb-accent: {{ section.settings.accent }}; --rb-ink: {{ section.settings.ink }}; --rb-soft: {{ section.settings.soft_background }}; --rb-card: {{ section.settings.card_background }};"
   >
-    <div class="ryztor-berberine__trust" aria-label="Product highlights">
-      <div><span aria-hidden="true">✓</span> 60 capsules · 30-day supply</div>
-      <div><span aria-hidden="true">✓</span> Manufactured in the USA</div>
-      <div><span aria-hidden="true">✓</span> 2 capsules daily</div>
-      <div><span aria-hidden="true">✓</span> Gluten-free &amp; non-GMO</div>
+    <div class="ryztor-berberine__trust" aria-label="{{ 'ryztor.berberine.story.highlights' | t | escape }}">
+      <div><span aria-hidden="true">✓</span> {{ 'ryztor.berberine.story.supply' | t }}</div>
+      <div><span aria-hidden="true">✓</span> {{ 'ryztor.berberine.story.made_usa' | t }}</div>
+      <div><span aria-hidden="true">✓</span> {{ 'ryztor.berberine.story.daily_dose' | t }}</div>
+      <div><span aria-hidden="true">✓</span> {{ 'ryztor.berberine.story.preferences' | t }}</div>
     </div>
 
     <div class="ryztor-berberine__section ryztor-berberine__intro">
-      <p class="ryztor-berberine__eyebrow">{{ section.settings.eyebrow | escape }}</p>
-      <h2>{{ section.settings.heading | escape }}</h2>
-      <div class="ryztor-berberine__lead rte">{{ section.settings.intro }}</div>
+      <p class="ryztor-berberine__eyebrow">{{ 'ryztor.berberine.story.eyebrow' | t }}</p>
+      <h2>{{ 'ryztor.berberine.story.heading' | t }}</h2>
+      <div class="ryztor-berberine__lead rte"><p>{{ 'ryztor.berberine.story.intro' | t }}</p></div>
 
       <div class="ryztor-berberine__benefit-orbit" data-benefit-orbit>
         <div class="ryztor-berberine__benefit-column ryztor-berberine__benefit-column--left">
           <article class="ryztor-berberine__benefit-callout">
             <span class="ryztor-berberine__benefit-plus" aria-hidden="true">+</span>
             <div>
-              <h3>Healthy metabolic function</h3>
-              <p>Supports the body's normal processes for using nutrients and energy as part of an everyday wellness routine.*</p>
+              <h3>{{ 'ryztor.berberine.story.benefit_1_title' | t }}</h3>
+              <p>{{ 'ryztor.berberine.story.benefit_1_text' | t }}</p>
             </div>
           </article>
 
           <article class="ryztor-berberine__benefit-callout">
             <span class="ryztor-berberine__benefit-plus" aria-hidden="true">+</span>
             <div>
-              <h3>Healthy blood sugar balance</h3>
-              <p>Helps maintain blood glucose levels already within the normal range, alongside balanced nutrition and healthy habits.*</p>
+              <h3>{{ 'ryztor.berberine.story.benefit_2_title' | t }}</h3>
+              <p>{{ 'ryztor.berberine.story.benefit_2_text' | t }}</p>
             </div>
           </article>
         </div>
@@ -53,14 +53,14 @@
           <span class="ryztor-berberine__capsule-glow" aria-hidden="true"></span>
           <img
             src="{{ 'ryztor-berberine-capsules.webp' | asset_url }}"
-            alt="Berberine capsules"
+            alt="{{ 'ryztor.berberine.story.capsule_alt' | t | escape }}"
             loading="lazy"
             width="1254"
             height="1254"
           >
           <figcaption>
-            <strong>Dual Berberine HCl extracts</strong>
-            <span>2 capsules per serving · 30 servings</span>
+            <strong>{{ 'ryztor.berberine.story.extracts' | t }}</strong>
+            <span>{{ 'ryztor.berberine.story.servings' | t }}</span>
           </figcaption>
         </figure>
 
@@ -68,16 +68,16 @@
           <article class="ryztor-berberine__benefit-callout">
             <span class="ryztor-berberine__benefit-plus" aria-hidden="true">+</span>
             <div>
-              <h3>Cardiovascular wellness</h3>
-              <p>Complements heart-conscious habits and supports healthy lipid levels already within the normal range.*</p>
+              <h3>{{ 'ryztor.berberine.story.benefit_3_title' | t }}</h3>
+              <p>{{ 'ryztor.berberine.story.benefit_3_text' | t }}</p>
             </div>
           </article>
 
           <article class="ryztor-berberine__benefit-callout">
             <span class="ryztor-berberine__benefit-plus" aria-hidden="true">+</span>
             <div>
-              <h3>Healthy weight management</h3>
-              <p>Complements a balanced diet and active lifestyle as part of a consistent metabolic wellness routine.*</p>
+              <h3>{{ 'ryztor.berberine.story.benefit_4_title' | t }}</h3>
+              <p>{{ 'ryztor.berberine.story.benefit_4_text' | t }}</p>
             </div>
           </article>
         </div>
@@ -86,71 +86,71 @@
 
     <div class="ryztor-berberine__section ryztor-berberine__video">
       <header class="ryztor-berberine__section-heading">
-        <p class="ryztor-berberine__eyebrow">See it in action</p>
-        <h2>Watch how RYZTOR fits your day.</h2>
+        <p class="ryztor-berberine__eyebrow">{{ 'ryztor.berberine.story.video_eyebrow' | t }}</p>
+        <h2>{{ 'ryztor.berberine.story.video_heading' | t }}</h2>
       </header>
       <div class="ryztor-berberine__video-grid">
         <div class="ryztor-berberine__video-card">
           <div class="ryztor-berberine__video-player" data-video="PROMO1">
             <img src="{{ 'PROMO1-poster.jpg' | asset_url }}" alt="RYZTOR Berberine promo" loading="lazy" width="360" height="640">
-            <button class="ryztor-berberine__video-play" aria-label="Play video">
+            <button class="ryztor-berberine__video-play" aria-label="{{ 'ryztor.berberine.story.play_video' | t | escape }}">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </button>
             <video preload="none" playsinline width="360" height="640">
               <source src="{{ 'PROMO1.mp4' | asset_url }}" type="video/mp4">
             </video>
           </div>
-          <p class="ryztor-berberine__video-label">Why Berberine?</p>
+          <p class="ryztor-berberine__video-label">{{ 'ryztor.berberine.story.video_1' | t }}</p>
         </div>
         <div class="ryztor-berberine__video-card">
           <div class="ryztor-berberine__video-player" data-video="PROMO2">
             <img src="{{ 'PROMO2-poster.jpg' | asset_url }}" alt="RYZTOR Berberine overview" loading="lazy" width="360" height="640">
-            <button class="ryztor-berberine__video-play" aria-label="Play video">
+            <button class="ryztor-berberine__video-play" aria-label="{{ 'ryztor.berberine.story.play_video' | t | escape }}">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </button>
             <video preload="none" playsinline width="360" height="640">
               <source src="{{ 'PROMO2.mp4' | asset_url }}" type="video/mp4">
             </video>
           </div>
-          <p class="ryztor-berberine__video-label">How to use</p>
+          <p class="ryztor-berberine__video-label">{{ 'ryztor.berberine.story.video_2' | t }}</p>
         </div>
         <div class="ryztor-berberine__video-card">
           <div class="ryztor-berberine__video-player" data-video="UGC1">
             <img src="{{ 'UGC1-poster.jpg' | asset_url }}" alt="Customer experience" loading="lazy" width="360" height="640">
-            <button class="ryztor-berberine__video-play" aria-label="Play video">
+            <button class="ryztor-berberine__video-play" aria-label="{{ 'ryztor.berberine.story.play_video' | t | escape }}">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </button>
             <video preload="none" playsinline width="360" height="640">
               <source src="{{ 'UGC1.mp4' | asset_url }}" type="video/mp4">
             </video>
           </div>
-          <p class="ryztor-berberine__video-label">Real customer</p>
+          <p class="ryztor-berberine__video-label">{{ 'ryztor.berberine.story.video_3' | t }}</p>
         </div>
         <div class="ryztor-berberine__video-card">
           <div class="ryztor-berberine__video-player" data-video="UGC2">
             <img src="{{ 'UGC2-poster.jpg' | asset_url }}" alt="Customer review" loading="lazy" width="360" height="640">
-            <button class="ryztor-berberine__video-play" aria-label="Play video">
+            <button class="ryztor-berberine__video-play" aria-label="{{ 'ryztor.berberine.story.play_video' | t | escape }}">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </button>
             <video preload="none" playsinline width="360" height="640">
               <source src="{{ 'UGC2.mp4' | asset_url }}" type="video/mp4">
             </video>
           </div>
-          <p class="ryztor-berberine__video-label">My routine</p>
+          <p class="ryztor-berberine__video-label">{{ 'ryztor.berberine.story.video_4' | t }}</p>
         </div>
       </div>
     </div>
 
     <div class="ryztor-berberine__section ryztor-berberine__formula">
       <div class="ryztor-berberine__formula-copy">
-        <p class="ryztor-berberine__eyebrow">What you need to know</p>
-        <h2>A focused formula, clearly explained.</h2>
-        <p>RYZTOR combines granular Berberine Hydrochloride extracts in a vegetable capsule, giving you a convenient way to support everyday metabolic and cardiovascular wellness.*</p>
+        <p class="ryztor-berberine__eyebrow">{{ 'ryztor.berberine.story.formula_eyebrow' | t }}</p>
+        <h2>{{ 'ryztor.berberine.story.formula_heading' | t }}</h2>
+        <p>{{ 'ryztor.berberine.story.formula_text' | t }}</p>
         <ul>
-          <li><span>✓</span> Granular Berberine Hydrochloride Extract 97% (bark)</li>
-          <li><span>✓</span> Granular Berberine Hydrochloride Extract 8% (bark/root)</li>
-          <li><span>✓</span> Vegetable capsule with supporting inactive ingredients</li>
-          <li><span>✓</span> Gluten-free, vegetarian, allergen-free, non-GMO, and vegan friendly</li>
+          <li><span>✓</span> {{ 'ryztor.berberine.story.ingredient_1' | t }}</li>
+          <li><span>✓</span> {{ 'ryztor.berberine.story.ingredient_2' | t }}</li>
+          <li><span>✓</span> {{ 'ryztor.berberine.story.ingredient_3' | t }}</li>
+          <li><span>✓</span> {{ 'ryztor.berberine.story.ingredient_4' | t }}</li>
         </ul>
       </div>
       <div class="ryztor-berberine__formula-media">
@@ -172,28 +172,28 @@
 
     <div class="ryztor-berberine__section ryztor-berberine__comparison">
       <header class="ryztor-berberine__section-heading">
-        <p class="ryztor-berberine__eyebrow">RYZTOR vs. complicated routines</p>
-        <h2>Wellness should feel clear.</h2>
-        <p>We focus on helping you understand what you are buying and how it fits into your day.</p>
+        <p class="ryztor-berberine__eyebrow">{{ 'ryztor.berberine.story.compare_eyebrow' | t }}</p>
+        <h2>{{ 'ryztor.berberine.story.compare_heading' | t }}</h2>
+        <p>{{ 'ryztor.berberine.story.compare_text' | t }}</p>
       </header>
 
-      <div class="ryztor-berberine__table" role="table" aria-label="RYZTOR compared with complicated supplement routines">
+      <div class="ryztor-berberine__table" role="table" aria-label="{{ 'ryztor.berberine.story.compare_label' | t | escape }}">
         <div class="ryztor-berberine__table-row ryztor-berberine__table-head" role="row">
-          <div role="columnheader">What matters</div>
+          <div role="columnheader">{{ 'ryztor.berberine.story.what_matters' | t }}</div>
           <div role="columnheader">RYZTOR</div>
-          <div role="columnheader">Complicated routines</div>
+          <div role="columnheader">{{ 'ryztor.berberine.story.complicated' | t }}</div>
         </div>
         <div class="ryztor-berberine__table-row" role="row">
-          <div role="rowheader">Focused approach</div><div role="cell"><span>✓</span> Yes</div><div role="cell">Often crowded</div>
+          <div role="rowheader">{{ 'ryztor.berberine.story.focused' | t }}</div><div role="cell"><span>✓</span> {{ 'ryztor.berberine.story.yes' | t }}</div><div role="cell">{{ 'ryztor.berberine.story.crowded' | t }}</div>
         </div>
         <div class="ryztor-berberine__table-row" role="row">
-          <div role="rowheader">Easy capsule format</div><div role="cell"><span>✓</span> Yes</div><div role="cell">Can require mixing</div>
+          <div role="rowheader">{{ 'ryztor.berberine.story.capsule_format' | t }}</div><div role="cell"><span>✓</span> {{ 'ryztor.berberine.story.yes' | t }}</div><div role="cell">{{ 'ryztor.berberine.story.mixing' | t }}</div>
         </div>
         <div class="ryztor-berberine__table-row" role="row">
-          <div role="rowheader">Clear routine</div><div role="cell"><span>✓</span> Label-led</div><div role="cell">Multiple steps</div>
+          <div role="rowheader">{{ 'ryztor.berberine.story.clear_routine' | t }}</div><div role="cell"><span>✓</span> {{ 'ryztor.berberine.story.label_led' | t }}</div><div role="cell">{{ 'ryztor.berberine.story.multiple_steps' | t }}</div>
         </div>
         <div class="ryztor-berberine__table-row" role="row">
-          <div role="rowheader">Realistic positioning</div><div role="cell"><span>✓</span> Daily support</div><div role="cell">Quick-fix hype</div>
+          <div role="rowheader">{{ 'ryztor.berberine.story.realistic' | t }}</div><div role="cell"><span>✓</span> {{ 'ryztor.berberine.story.daily_support' | t }}</div><div role="cell">{{ 'ryztor.berberine.story.hype' | t }}</div>
         </div>
       </div>
     </div>
@@ -237,14 +237,14 @@
 
     <div class="ryztor-berberine__cta">
       <div>
-        <p>Make wellness easier to repeat.</p>
-        <h2>Add RYZTOR Berberine to your routine.</h2>
+        <p>{{ 'ryztor.berberine.story.cta_kicker' | t }}</p>
+        <h2>{{ 'ryztor.berberine.story.cta_heading' | t }}</h2>
       </div>
-      <a href="#BuyButtons-ProductSubmitButton-add-to-cart">Choose your quantity</a>
+      <a href="#BuyButtons-ProductSubmitButton-add-to-cart">{{ 'ryztor.berberine.story.cta_button' | t }}</a>
     </div>
 
     <p class="ryztor-berberine__disclaimer">
-      *These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Individual results may vary.
+      {{ 'ryztor.berberine.story.disclaimer' | t }}
     </p>
   </section>
 

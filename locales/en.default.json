@@ -413,7 +413,36 @@
         "shipping_over": "Free shipping on orders over $50",
         "save_15": "SAVE 15%",
         "subscribe_title": "Subscribe & Save",
-        "subscribe_text": "Free delivery every 30 days. Cancel anytime."
+      "subscribe_text": "Free delivery every 30 days. Cancel anytime."
+      },
+      "gallery": {
+        "eyebrow": "BERBERINE IN REAL LIFE",
+        "heading": "A closer look at your daily routine.",
+        "text": "See RYZTOR Berberine in simple, everyday settings.",
+        "controls": "Gallery controls",
+        "previous": "Previous photos",
+        "next": "Next photos",
+        "expanded": "Expanded Berberine product photo",
+        "close": "Close photo"
+      },
+      "daily": {
+        "eyebrow": "BERBERINE THROUGH YOUR DAY",
+        "heading": "Support for glucose, energy, and everyday balance.*",
+        "intro": "Explore four practical ways berberine can complement the daily habits that support glucose balance and everyday wellness.",
+        "hint": "Swipe to explore · Tap a card to compare",
+        "challenge": "Daily challenge",
+        "goal": "Wellness goal",
+        "glucose_title": "Healthy glucose use",
+        "glucose_text": "Supports the way your cells process glucose and helps maintain blood sugar levels already within the normal range.*",
+        "balance_title": "Everyday nutrient processing",
+        "balance_text": "Helps support the normal pathways your body uses to process nutrients and maintain everyday balance.*",
+        "energy_title": "Steady everyday energy",
+        "energy_text": "Supports the cellular processes that convert nutrients into energy as part of a balanced diet and active routine.*",
+        "activity_title": "Active lifestyle support",
+        "activity_text": "Complements nutrition and movement habits that support healthy weight-management goals.*",
+        "note": "Lifestyle illustrations for educational purposes only. They do not represent guaranteed medical outcomes. Individual experiences may vary.",
+        "cards_label": "Daily support cards",
+        "view_card": "View card {{ number }}"
       }
     },
     "bundle": {

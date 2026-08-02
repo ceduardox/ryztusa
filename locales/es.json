@@ -401,7 +401,36 @@
         "shipping_over": "Envío gratis en pedidos superiores a $50",
         "save_15": "AHORRA 15%",
         "subscribe_title": "Suscríbete y ahorra",
-        "subscribe_text": "Entrega gratis cada 30 días. Cancela cuando quieras."
+      "subscribe_text": "Entrega gratis cada 30 días. Cancela cuando quieras."
+      },
+      "gallery": {
+        "eyebrow": "BERBERINA EN LA VIDA REAL",
+        "heading": "Una mirada más cercana a tu rutina diaria.",
+        "text": "Conoce RYZTOR Berberine en situaciones sencillas y cotidianas.",
+        "controls": "Controles de la galería",
+        "previous": "Fotos anteriores",
+        "next": "Fotos siguientes",
+        "expanded": "Foto ampliada del producto Berberine",
+        "close": "Cerrar foto"
+      },
+      "daily": {
+        "eyebrow": "BERBERINA A LO LARGO DE TU DÍA",
+        "heading": "Apoyo para la glucosa, la energía y el equilibrio cotidiano.*",
+        "intro": "Explora cuatro maneras prácticas en que la berberina puede complementar los hábitos diarios que apoyan el equilibrio de la glucosa y el bienestar cotidiano.",
+        "hint": "Desliza para explorar · Toca una tarjeta para comparar",
+        "challenge": "Desafío cotidiano",
+        "goal": "Objetivo de bienestar",
+        "glucose_title": "Uso saludable de la glucosa",
+        "glucose_text": "Apoya la manera en que tus células procesan la glucosa y ayuda a mantener el azúcar en la sangre que ya se encuentra dentro del rango normal.*",
+        "balance_title": "Procesamiento diario de nutrientes",
+        "balance_text": "Ayuda a respaldar las vías normales que el cuerpo utiliza para procesar nutrientes y mantener el equilibrio cotidiano.*",
+        "energy_title": "Energía estable para cada día",
+        "energy_text": "Apoya los procesos celulares que convierten los nutrientes en energía como parte de una alimentación equilibrada y una rutina activa.*",
+        "activity_title": "Apoyo para un estilo de vida activo",
+        "activity_text": "Complementa los hábitos de alimentación y movimiento que respaldan objetivos saludables de control de peso.*",
+        "note": "Imágenes ilustrativas con fines educativos. No representan resultados médicos garantizados. Las experiencias individuales pueden variar.",
+        "cards_label": "Tarjetas de apoyo diario",
+        "view_card": "Ver tarjeta {{ number }}"
       }
     },
     "bundle": {

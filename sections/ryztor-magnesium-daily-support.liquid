@@ -4,36 +4,42 @@
 
   if product_name contains 'berber'
     assign daily_product_supported = true
-    assign daily_note = 'Lifestyle illustrations for educational purposes only. They do not represent guaranteed medical outcomes. Individual experiences may vary.'
+    assign daily_eyebrow = 'ryztor.berberine.daily.eyebrow' | t
+    assign daily_heading = 'ryztor.berberine.daily.heading' | t
+    assign daily_intro = 'ryztor.berberine.daily.intro' | t
+    assign daily_note = 'ryztor.berberine.daily.note' | t
     assign daily_image_1_challenge = 'ryztor-berberine-glucose-challenge.webp'
     assign daily_image_1_goal = 'ryztor-berberine-glucose-goal.webp'
     assign daily_alt_1_challenge = 'Elevated blood sugar reading as a daily wellness challenge'
     assign daily_alt_1_goal = 'Blood sugar reading already within the normal range'
-    assign daily_title_1 = 'Healthy glucose metabolism'
-    assign daily_text_1 = 'Supports healthy glucose metabolism and blood sugar levels already within the normal range.*'
+    assign daily_title_1 = 'ryztor.berberine.daily.glucose_title' | t
+    assign daily_text_1 = 'ryztor.berberine.daily.glucose_text' | t
 
     assign daily_image_2_challenge = 'ryztor-berberine-metabolism-challenge.webp'
     assign daily_image_2_goal = 'ryztor-berberine-metabolism-goal.webp'
     assign daily_alt_2_challenge = 'Metabolic wellness challenge visualization'
     assign daily_alt_2_goal = 'Balanced metabolic wellness visualization with RYZTOR Berberine'
-    assign daily_title_2 = 'Metabolic balance'
-    assign daily_text_2 = 'Helps support the normal pathways your body uses to process nutrients and maintain metabolic balance.*'
+    assign daily_title_2 = 'ryztor.berberine.daily.balance_title' | t
+    assign daily_text_2 = 'ryztor.berberine.daily.balance_text' | t
 
     assign daily_image_3_challenge = 'ryztor-berberine-energy-challenge.webp'
     assign daily_image_3_goal = 'ryztor-berberine-energy-goal.webp'
     assign daily_alt_3_challenge = 'Low everyday energy challenge'
     assign daily_alt_3_goal = 'Active everyday energy wellness goal'
-    assign daily_title_3 = 'Steady everyday energy'
-    assign daily_text_3 = 'Supports efficient energy metabolism as part of a balanced diet and active routine.*'
+    assign daily_title_3 = 'ryztor.berberine.daily.energy_title' | t
+    assign daily_text_3 = 'ryztor.berberine.daily.energy_text' | t
 
     assign daily_image_4_challenge = 'ryztor-berberine-activity-challenge.webp'
     assign daily_image_4_goal = 'ryztor-berberine-activity-goal.webp'
     assign daily_alt_4_challenge = 'Post-activity fatigue challenge'
     assign daily_alt_4_goal = 'Comfortable daily activity wellness goal'
-    assign daily_title_4 = 'Active lifestyle support'
-    assign daily_text_4 = 'Complements the nutrition and movement habits that support healthy weight-management goals.*'
+    assign daily_title_4 = 'ryztor.berberine.daily.activity_title' | t
+    assign daily_text_4 = 'ryztor.berberine.daily.activity_text' | t
   elsif product_name contains 'magnesium'
     assign daily_product_supported = true
+    assign daily_eyebrow = section.settings.eyebrow
+    assign daily_heading = section.settings.heading
+    assign daily_intro = section.settings.text
     assign daily_note = 'Lifestyle visualization for educational purposes. Individual experiences may vary.'
     assign daily_image_1_challenge = 'ryztor-magnesium-sleep-challenge.webp'
     assign daily_image_1_goal = 'ryztor-magnesium-sleep-goal.webp'
@@ -74,10 +80,10 @@
   >
     <div class="ryztor-daily-support__inner">
       <header class="ryztor-daily-support__header">
-        <p>{{ section.settings.eyebrow | escape }}</p>
-        <h2>{{ section.settings.heading | escape }}</h2>
-        <div class="rte">{{ section.settings.text }}</div>
-        <span class="ryztor-daily-support__hint">Swipe to explore · Tap a card to compare</span>
+        <p>{{ daily_eyebrow | escape }}</p>
+        <h2>{{ daily_heading | escape }}</h2>
+        <div class="rte">{% if product_name contains 'berber' %}<p>{{ daily_intro }}</p>{% else %}{{ daily_intro }}{% endif %}</div>
+        <span class="ryztor-daily-support__hint">{% if product_name contains 'berber' %}{{ 'ryztor.berberine.daily.hint' | t }}{% else %}Swipe to explore · Tap a card to compare{% endif %}</span>
       </header>
 
       <div class="ryztor-daily-support__viewport" data-daily-viewport>
@@ -86,8 +92,8 @@
             <span class="ryztor-daily-support__visual">
               <img class="ryztor-daily-support__challenge" src="{{ daily_image_1_challenge | asset_url }}" alt="{{ daily_alt_1_challenge | escape }}" width="1086" height="1448" loading="lazy">
               <img class="ryztor-daily-support__goal" src="{{ daily_image_1_goal | asset_url }}" alt="{{ daily_alt_1_goal | escape }}" width="1086" height="1448" loading="lazy">
-              <span class="ryztor-daily-support__state ryztor-daily-support__state--challenge">Daily challenge</span>
-              <span class="ryztor-daily-support__state ryztor-daily-support__state--goal">Wellness goal</span>
+              <span class="ryztor-daily-support__state ryztor-daily-support__state--challenge">{% if product_name contains 'berber' %}{{ 'ryztor.berberine.daily.challenge' | t }}{% else %}Daily challenge{% endif %}</span>
+              <span class="ryztor-daily-support__state ryztor-daily-support__state--goal">{% if product_name contains 'berber' %}{{ 'ryztor.berberine.daily.goal' | t }}{% else %}Wellness goal{% endif %}</span>
             </span>
             <span class="ryztor-daily-support__copy">
               <strong>{{ daily_title_1 }}</strong>
@@ -99,8 +105,8 @@
             <span class="ryztor-daily-support__visual">
               <img class="ryztor-daily-support__challenge" src="{{ daily_image_2_challenge | asset_url }}" alt="{{ daily_alt_2_challenge | escape }}" width="1086" height="1448" loading="lazy">
               <img class="ryztor-daily-support__goal" src="{{ daily_image_2_goal | asset_url }}" alt="{{ daily_alt_2_goal | escape }}" width="1086" height="1448" loading="lazy">
-              <span class="ryztor-daily-support__state ryztor-daily-support__state--challenge">Daily challenge</span>
-              <span class="ryztor-daily-support__state ryztor-daily-support__state--goal">Wellness goal</span>
+              <span class="ryztor-daily-support__state ryztor-daily-support__state--challenge">{% if product_name contains 'berber' %}{{ 'ryztor.berberine.daily.challenge' | t }}{% else %}Daily challenge{% endif %}</span>
+              <span class="ryztor-daily-support__state ryztor-daily-support__state--goal">{% if product_name contains 'berber' %}{{ 'ryztor.berberine.daily.goal' | t }}{% else %}Wellness goal{% endif %}</span>
             </span>
             <span class="ryztor-daily-support__copy">
               <strong>{{ daily_title_2 }}</strong>
@@ -112,8 +118,8 @@
             <span class="ryztor-daily-support__visual">
               <img class="ryztor-daily-support__challenge" src="{{ daily_image_3_challenge | asset_url }}" alt="{{ daily_alt_3_challenge | escape }}" width="1086" height="1448" loading="lazy">
               <img class="ryztor-daily-support__goal" src="{{ daily_image_3_goal | asset_url }}" alt="{{ daily_alt_3_goal | escape }}" width="1086" height="1448" loading="lazy">
-              <span class="ryztor-daily-support__state ryztor-daily-support__state--challenge">Daily challenge</span>
-              <span class="ryztor-daily-support__state ryztor-daily-support__state--goal">Wellness goal</span>
+              <span class="ryztor-daily-support__state ryztor-daily-support__state--challenge">{% if product_name contains 'berber' %}{{ 'ryztor.berberine.daily.challenge' | t }}{% else %}Daily challenge{% endif %}</span>
+              <span class="ryztor-daily-support__state ryztor-daily-support__state--goal">{% if product_name contains 'berber' %}{{ 'ryztor.berberine.daily.goal' | t }}{% else %}Wellness goal{% endif %}</span>
             </span>
             <span class="ryztor-daily-support__copy">
               <strong>{{ daily_title_3 }}</strong>
@@ -125,8 +131,8 @@
             <span class="ryztor-daily-support__visual">
               <img class="ryztor-daily-support__challenge" src="{{ daily_image_4_challenge | asset_url }}" alt="{{ daily_alt_4_challenge | escape }}" width="1086" height="1448" loading="lazy">
               <img class="ryztor-daily-support__goal" src="{{ daily_image_4_goal | asset_url }}" alt="{{ daily_alt_4_goal | escape }}" width="1086" height="1448" loading="lazy">
-              <span class="ryztor-daily-support__state ryztor-daily-support__state--challenge">Daily challenge</span>
-              <span class="ryztor-daily-support__state ryztor-daily-support__state--goal">Wellness goal</span>
+              <span class="ryztor-daily-support__state ryztor-daily-support__state--challenge">{% if product_name contains 'berber' %}{{ 'ryztor.berberine.daily.challenge' | t }}{% else %}Daily challenge{% endif %}</span>
+              <span class="ryztor-daily-support__state ryztor-daily-support__state--goal">{% if product_name contains 'berber' %}{{ 'ryztor.berberine.daily.goal' | t }}{% else %}Wellness goal{% endif %}</span>
             </span>
             <span class="ryztor-daily-support__copy">
               <strong>{{ daily_title_4 }}</strong>
@@ -136,9 +142,9 @@
         </div>
       </div>
 
-      <div class="ryztor-daily-support__dots" data-daily-dots aria-label="Daily support cards">
+      <div class="ryztor-daily-support__dots" data-daily-dots aria-label="{% if product_name contains 'berber' %}{{ 'ryztor.berberine.daily.cards_label' | t | escape }}{% else %}Daily support cards{% endif %}">
         {% for dot_index in (1..4) %}
-          <button type="button" data-daily-dot="{{ forloop.index0 }}" aria-label="View card {{ dot_index }}"{% if forloop.first %} aria-current="true"{% endif %}></button>
+          <button type="button" data-daily-dot="{{ forloop.index0 }}" aria-label="{% if product_name contains 'berber' %}{{ 'ryztor.berberine.daily.view_card' | t: number: dot_index | escape }}{% else %}View card {{ dot_index }}{% endif %}"{% if forloop.first %} aria-current="true"{% endif %}></button>
         {% endfor %}
       </div>
 

@@ -13,13 +13,13 @@
     <div class="ryztor-berberine-gallery__inner">
       <header class="ryztor-berberine-gallery__header">
         <div>
-          <p>{{ section.settings.eyebrow | escape }}</p>
-          <h2>{{ section.settings.heading | escape }}</h2>
-          <div class="rte">{{ section.settings.text }}</div>
+          <p>{{ 'ryztor.berberine.gallery.eyebrow' | t }}</p>
+          <h2>{{ 'ryztor.berberine.gallery.heading' | t }}</h2>
+          <div class="rte"><p>{{ 'ryztor.berberine.gallery.text' | t }}</p></div>
         </div>
-        <div class="ryztor-berberine-gallery__controls" aria-label="Gallery controls">
-          <button type="button" data-gallery-previous aria-label="Previous photos">←</button>
-          <button type="button" data-gallery-next aria-label="Next photos">→</button>
+        <div class="ryztor-berberine-gallery__controls" aria-label="{{ 'ryztor.berberine.gallery.controls' | t | escape }}">
+          <button type="button" data-gallery-previous aria-label="{{ 'ryztor.berberine.gallery.previous' | t | escape }}">←</button>
+          <button type="button" data-gallery-next aria-label="{{ 'ryztor.berberine.gallery.next' | t | escape }}">→</button>
         </div>
       </header>
 
@@ -34,7 +34,7 @@
                 data-gallery-photo
                 data-full-image="{{ image_parts[0] | asset_url }}"
                 data-image-alt="{{ image_parts[1] | escape }}"
-                aria-label="Enlarge {{ image_parts[1] | escape }}"
+                aria-label="{{ 'ryztor.berberine.questions.enlarge' | t: description: image_parts[1] | escape }}"
                 {% if repeat_index == 2 %}aria-hidden="true" tabindex="-1"{% endif %}
               >
                 <img
@@ -56,8 +56,8 @@
       </div>
     </div>
 
-    <dialog class="ryztor-berberine-gallery__dialog" data-gallery-dialog aria-label="Expanded Berberine product photo">
-      <button type="button" class="ryztor-berberine-gallery__close" data-gallery-close aria-label="Close photo">×</button>
+    <dialog class="ryztor-berberine-gallery__dialog" data-gallery-dialog aria-label="{{ 'ryztor.berberine.gallery.expanded' | t | escape }}">
+      <button type="button" class="ryztor-berberine-gallery__close" data-gallery-close aria-label="{{ 'ryztor.berberine.gallery.close' | t | escape }}">×</button>
       <img
         data-gallery-dialog-image
         src="{{ 'ryztor-berberine-delivery-package.webp' | asset_url }}"

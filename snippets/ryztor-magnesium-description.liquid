@@ -90,23 +90,30 @@
     {% unless content == 'product' %}
     <div class="ryztor-media-description__group ryztor-media-description__group--questions">
       <details name="ryztor-questions-{{ placement }}">
+        <summary>What does Magnesium Glycinate help support? <span aria-hidden="true">+</span></summary>
+        <div class="ryztor-media-description__answer">
+          <p>Magnesium Glycinate helps support relaxation, healthy sleep patterns, normal muscle and nerve function, post-activity recovery, and the cellular processes that turn nutrients into everyday energy.*</p>
+        </div>
+      </details>
+
+      <details name="ryztor-questions-{{ placement }}">
+        <summary>How does it work in the body? <span aria-hidden="true">+</span></summary>
+        <div class="ryztor-media-description__answer">
+          <p>Magnesium is an essential mineral used in hundreds of processes throughout the body, including signals between nerves and muscles and cellular energy production. In Magnesium Glycinate, magnesium is bound to the amino acid glycine to provide a well-tolerated form for consistent daily use.*</p>
+        </div>
+      </details>
+
+      <details name="ryztor-questions-{{ placement }}">
         <summary>Who is it for? <span aria-hidden="true">+</span></summary>
         <div class="ryztor-media-description__answer">
-          <p>RYZTOR Magnesium Glycinate is designed for adults who want a simple way to support relaxation, muscle recovery, and healthy sleep as part of a consistent daily wellness routine. It is not a substitute for balanced nutrition, regular activity, or professional medical care.</p>
+          <p>RYZTOR Magnesium Glycinate is designed for adults who want simple daily support for rest, calm, normal muscle function, recovery, and energy production. It complements balanced nutrition and healthy routines; it does not replace professional medical care.</p>
         </div>
       </details>
 
       <details name="ryztor-questions-{{ placement }}">
-        <summary>Who should speak with a healthcare professional first? <span aria-hidden="true">+</span></summary>
+        <summary>How do I take it and how long does one bottle last? <span aria-hidden="true">+</span></summary>
         <div class="ryztor-media-description__answer">
-          <p>Pregnant or nursing mothers, anyone under 18, people with a known medical condition, and anyone taking prescription medication should speak with a qualified healthcare professional before use.</p>
-        </div>
-      </details>
-
-      <details name="ryztor-questions-{{ placement }}">
-        <summary>When should I take it? <span aria-hidden="true">+</span></summary>
-        <div class="ryztor-media-description__answer">
-          <p>Take three (3) capsules once daily with water. Many people prefer taking it in the evening to support relaxation and sleep. Follow the product label and any guidance provided by your healthcare professional.</p>
+          <p>Take three (3) capsules once daily with water. Each bottle contains 90 capsules, providing a 30-day supply when used as directed. Many people prefer taking it in the evening as part of their wind-down routine. Follow the product label and any guidance provided by your healthcare professional.</p>
         </div>
       </details>
 
@@ -135,9 +142,28 @@
       </div>
 
       <details name="ryztor-questions-{{ placement }}">
-        <summary>Can I use it with other supplements? <span aria-hidden="true">+</span></summary>
+        <summary>Can I take it with medications or other supplements? <span aria-hidden="true">+</span></summary>
         <div class="ryztor-media-description__answer">
-          <p>Supplement routines are personal. If you use other supplements or take medication, ask a qualified healthcare professional to review the combination before adding Magnesium Glycinate.</p>
+          <p>Magnesium may not be appropriate with every medication or supplement routine, and some products may need to be taken at different times. If you take prescription medication or use other mineral supplements, ask a qualified healthcare professional to review the combination before use.</p>
+        </div>
+      </details>
+
+      <details name="ryztor-questions-{{ placement }}">
+        <summary>Who should speak with a healthcare professional first? <span aria-hidden="true">+</span></summary>
+        <div class="ryztor-media-description__answer">
+          <p>Pregnant or nursing mothers, anyone under 18, people with a known medical condition—especially kidney concerns—and anyone taking prescription medication should speak with a qualified healthcare professional before use.</p>
+        </div>
+      </details>
+
+      <details name="ryztor-questions-{{ placement }}">
+        <summary>What if it is not right for me? <span aria-hidden="true">+</span></summary>
+        <div class="ryztor-media-description__answer">
+          <p>Your purchase is covered by RYZTOR's 30-Day Money-Back Guarantee. Review the refund policy for eligibility, instructions, and any applicable conditions.</p>
+          {% if shop.refund_policy != blank %}
+            <div class="ryztor-media-description__links">
+              <a href="{{ shop.refund_policy.url }}">Read refund policy</a>
+            </div>
+          {% endif %}
         </div>
       </details>
 

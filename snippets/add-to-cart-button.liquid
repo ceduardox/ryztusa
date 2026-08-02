@@ -52,7 +52,7 @@
       </span>
     {% endif %}
     {% if can_add_to_cart and is_ryztor_bundle_product %}
-      <span class="ryztor-continue-button__label">BUY NOW</span>
+      <span class="ryztor-continue-button__label">{{ 'ryztor.bundle.buy_now' | t }}</span>
       <span class="ryztor-continue-button__price" data-bundle-button-price>
         {{- product.selected_or_first_available_variant.price | money -}}
       </span>

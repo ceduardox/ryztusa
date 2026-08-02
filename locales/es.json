@@ -386,7 +386,37 @@
         "enlarge": "Ampliar {{ description }}",
         "expanded_photo": "Foto ampliada de Berberine",
         "close_photo": "Cerrar foto"
+      },
+      "commerce": {
+        "reviews": "({{ count }} reseñas)",
+        "you_save": "Ahorras {{ amount }} ({{ percent }}% de descuento)",
+        "summary_title": "Apoyo para la glucosa y la energía cotidiana.*",
+        "summary_text": "Dos cápsulas al día ayudan a mantener niveles saludables de azúcar en la sangre que ya se encuentran dentro del rango normal, favorecen el bienestar cardiovascular y complementan tus objetivos de control de peso sin complicar tu rutina.",
+        "capsules": "Cápsulas",
+        "daily_use": "Uso diario",
+        "manufactured": "Fabricado",
+        "stock_low": "Solo quedan {{ count }} unidades — compra pronto.",
+        "out_of_stock": "Agotado",
+        "guarantee": "Garantía de devolución de 30 días",
+        "shipping_over": "Envío gratis en pedidos superiores a $50",
+        "save_15": "AHORRA 15%",
+        "subscribe_title": "Suscríbete y ahorra",
+        "subscribe_text": "Entrega gratis cada 30 días. Cancela cuando quieras."
       }
+    },
+    "bundle": {
+      "heading": "Combina y ahorra",
+      "subheading": "Selecciona la opción que mejor se adapte a ti",
+      "free_shipping": "Envío gratis en paquetes de 2 o más",
+      "select_label": "Selecciona un paquete de {{ product }}",
+      "one_bottle": "1 frasco",
+      "two_bottles": "2 frascos",
+      "three_bottles": "3 frascos",
+      "most_popular": "MÁS POPULAR",
+      "best_value": "MEJOR PRECIO",
+      "off": "DTO.",
+      "per_bottle": "{{ price }} / frasco",
+      "buy_now": "COMPRAR AHORA"
     }
   }
 }

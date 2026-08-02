@@ -31,16 +31,16 @@
 %}
 
 {% if bundle_is_available %}
-  <div class="ryztor-bundles" data-ryztor-bundle-selector>
+  <div class="ryztor-bundles" data-ryztor-bundle-selector data-buy-now-label="{{ 'ryztor.bundle.buy_now' | t | escape }}">
     <div class="ryztor-bundles__heading">
       <div>
-        <p>Bundle &amp; save</p>
-        <span>Select the routine that fits you</span>
+        <p>{{ 'ryztor.bundle.heading' | t }}</p>
+        <span>{{ 'ryztor.bundle.subheading' | t }}</span>
       </div>
-      <span class="ryztor-bundles__shipping">Free shipping on 2+ packs</span>
+      <span class="ryztor-bundles__shipping">{{ 'ryztor.bundle.free_shipping' | t }}</span>
     </div>
 
-    <div class="ryztor-bundles__grid" role="radiogroup" aria-label="Select a {{ product_resource.title | escape }} bundle">
+    <div class="ryztor-bundles__grid" role="radiogroup" aria-label="{{ 'ryztor.bundle.select_label' | t: product: product_resource.title | escape }}">
       {% for bundle_handle in bundle_handles %}
         {% liquid
           assign bundle_product = all_products[bundle_handle]
@@ -57,14 +57,14 @@
             assign bundle_percent = bundle_save | times: 100 | divided_by: bundle_compare_price
           endif
 
-          assign bundle_label = '1 bottle'
+          assign bundle_label = 'ryztor.bundle.one_bottle' | t
           assign bundle_badge = blank
           if bundle_number == 2
-            assign bundle_label = '2 bottles'
-            assign bundle_badge = 'MOST POPULAR'
+            assign bundle_label = 'ryztor.bundle.two_bottles' | t
+            assign bundle_badge = 'ryztor.bundle.most_popular' | t
           elsif bundle_number == 3
-            assign bundle_label = '3 bottles'
-            assign bundle_badge = 'BEST VALUE'
+            assign bundle_label = 'ryztor.bundle.three_bottles' | t
+            assign bundle_badge = 'ryztor.bundle.best_value' | t
           endif
         %}
 
@@ -113,10 +113,10 @@
 
           {% if bundle_number == 1 %}
             <span class="ryztor-bundles__discount ryztor-bundles__discount--placeholder" aria-hidden="true">
-              0% OFF
+              0% {{ 'ryztor.bundle.off' | t }}
             </span>
           {% elsif bundle_percent > 0 %}
-            <span class="ryztor-bundles__discount">{{ bundle_percent }}% OFF</span>
+            <span class="ryztor-bundles__discount">{{ bundle_percent }}% {{ 'ryztor.bundle.off' | t }}</span>
           {% endif %}
 
           <span class="ryztor-bundles__prices">
@@ -127,7 +127,8 @@
           </span>
 
           <span class="ryztor-bundles__per-bottle">
-            {{ bundle_price | divided_by: bundle_number | money }} / bottle
+            {% assign bundle_per_bottle = bundle_price | divided_by: bundle_number | money %}
+            {{ 'ryztor.bundle.per_bottle' | t: price: bundle_per_bottle }}
           </span>
         </button>
       {% endfor %}
@@ -521,7 +522,7 @@
         const stickyButtonText = productSection?.querySelector(
           '.sticky-add-to-cart__button .add-to-cart-text__content > span:first-child'
         );
-        if (stickyButtonText) stickyButtonText.textContent = `BUY NOW · ${option.dataset.priceFormatted}`;
+        if (stickyButtonText) stickyButtonText.textContent = `${selector.dataset.buyNowLabel} · ${option.dataset.priceFormatted}`;
 
         if (savings) {
           const hasSavings = Number(option.dataset.comparePrice) > Number(option.dataset.price);

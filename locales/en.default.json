@@ -398,7 +398,37 @@
         "enlarge": "Enlarge {{ description }}",
         "expanded_photo": "Expanded Berberine photo",
         "close_photo": "Close photo"
+      },
+      "commerce": {
+        "reviews": "({{ count }} reviews)",
+        "you_save": "You save {{ amount }} ({{ percent }}% off)",
+        "summary_title": "Support for glucose and everyday energy.*",
+        "summary_text": "Two capsules daily help support healthy blood sugar levels already within the normal range, cardiovascular wellness, and weight-management goals—without complicating your routine.",
+        "capsules": "Capsules",
+        "daily_use": "Daily use",
+        "manufactured": "Manufactured",
+        "stock_low": "Only {{ count }} left in stock — order soon.",
+        "out_of_stock": "Out of stock",
+        "guarantee": "30-Day Money-Back Guarantee",
+        "shipping_over": "Free shipping on orders over $50",
+        "save_15": "SAVE 15%",
+        "subscribe_title": "Subscribe & Save",
+        "subscribe_text": "Free delivery every 30 days. Cancel anytime."
       }
+    },
+    "bundle": {
+      "heading": "Bundle & save",
+      "subheading": "Select the routine that fits you",
+      "free_shipping": "Free shipping on 2+ packs",
+      "select_label": "Select a {{ product }} bundle",
+      "one_bottle": "1 bottle",
+      "two_bottles": "2 bottles",
+      "three_bottles": "3 bottles",
+      "most_popular": "MOST POPULAR",
+      "best_value": "BEST VALUE",
+      "off": "OFF",
+      "per_bottle": "{{ price }} / bottle",
+      "buy_now": "BUY NOW"
     }
   }
 }

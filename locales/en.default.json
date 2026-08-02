@@ -369,5 +369,36 @@
       "default_title": "Default Title",
       "sticky_add_to_cart": "Quick add to cart bar"
     }
+  },
+  "ryztor": {
+    "berberine": {
+      "questions": {
+        "support_title": "What does Berberine help support?",
+        "support_text": "Berberine helps support the way your cells process glucose and convert nutrients into everyday energy. It also helps maintain healthy blood sugar levels already within the normal range and supports cardiovascular wellness.*",
+        "body_title": "How does it work in the body?",
+        "body_text": "Berberine has been studied for its interaction with AMPK, an enzyme inside your cells involved in energy balance and glucose metabolism. Think of AMPK as one of the cellular signals that helps your body manage how it uses and stores energy.*",
+        "for_title": "Who is it for?",
+        "for_text": "RYZTOR Berberine is designed for adults who want simple daily support for healthy glucose metabolism, everyday energy, cardiovascular wellness, and weight-management goals. It complements balanced nutrition and regular activity; it does not replace professional medical care.",
+        "directions_title": "How do I take it and how long does one bottle last?",
+        "directions_text": "Take two (2) capsules daily with 6–8 oz of water. Each bottle contains 60 capsules, providing a 30-day supply when used as directed. Follow the product label and any guidance provided by your healthcare professional.",
+        "medications_title": "Can I take it with medications or other supplements?",
+        "medications_text": "Berberine may not be appropriate with every medication or supplement routine. If you take prescription medication—especially medication related to blood sugar—or use other supplements, ask a qualified healthcare professional to review the combination before use.",
+        "professional_title": "Who should speak with a healthcare professional first?",
+        "professional_text": "Pregnant or nursing mothers, anyone under 18, people with a known medical condition, and anyone taking prescription medication should speak with a qualified healthcare professional before use.",
+        "guarantee_title": "What if it is not right for me?",
+        "guarantee_text": "Your purchase is covered by RYZTOR's 30-Day Money-Back Guarantee. Review the refund policy for eligibility, instructions, and any applicable conditions.",
+        "shipping_title": "Shipping & returns",
+        "shipping_text": "Available shipping methods, estimated delivery times, and final costs are shown during checkout.",
+        "subscription_title": "Subscription & cancellation",
+        "subscription_text": "Subscribe & Save options appear only when available. Review the delivery frequency, renewal price, and cancellation terms before completing checkout.",
+        "refund_link": "Read refund policy",
+        "shipping_link": "Read shipping policy",
+        "subscription_link": "Read subscription policy",
+        "gallery_label": "Berberine in everyday settings",
+        "enlarge": "Enlarge {{ description }}",
+        "expanded_photo": "Expanded Berberine photo",
+        "close_photo": "Close photo"
+      }
+    }
   }
 }

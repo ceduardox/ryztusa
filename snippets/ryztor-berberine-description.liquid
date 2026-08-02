@@ -102,34 +102,34 @@
     {% unless content == 'product' %}
     <div class="ryztor-media-description__group ryztor-media-description__group--questions">
       <details name="ryztor-questions-{{ placement }}">
-        <summary>What does Berberine help support? <span aria-hidden="true">+</span></summary>
+        <summary>{{ 'ryztor.berberine.questions.support_title' | t }} <span aria-hidden="true">+</span></summary>
         <div class="ryztor-media-description__answer">
-          <p>Berberine helps support the way your cells process glucose and convert nutrients into everyday energy. It also helps maintain healthy blood sugar levels already within the normal range and supports cardiovascular wellness.*</p>
+          <p>{{ 'ryztor.berberine.questions.support_text' | t }}</p>
         </div>
       </details>
 
       <details name="ryztor-questions-{{ placement }}">
-        <summary>How does it work in the body? <span aria-hidden="true">+</span></summary>
+        <summary>{{ 'ryztor.berberine.questions.body_title' | t }} <span aria-hidden="true">+</span></summary>
         <div class="ryztor-media-description__answer">
-          <p>Berberine has been studied for its interaction with AMPK, an enzyme inside your cells involved in energy balance and glucose metabolism. Think of AMPK as one of the cellular signals that helps your body manage how it uses and stores energy.*</p>
+          <p>{{ 'ryztor.berberine.questions.body_text' | t }}</p>
         </div>
       </details>
 
       <details name="ryztor-questions-{{ placement }}">
-        <summary>Who is it for? <span aria-hidden="true">+</span></summary>
+        <summary>{{ 'ryztor.berberine.questions.for_title' | t }} <span aria-hidden="true">+</span></summary>
         <div class="ryztor-media-description__answer">
-          <p>RYZTOR Berberine is designed for adults who want simple daily support for healthy glucose metabolism, everyday energy, cardiovascular wellness, and weight-management goals. It complements balanced nutrition and regular activity; it does not replace professional medical care.</p>
+          <p>{{ 'ryztor.berberine.questions.for_text' | t }}</p>
         </div>
       </details>
 
       <details name="ryztor-questions-{{ placement }}">
-        <summary>How do I take it and how long does one bottle last? <span aria-hidden="true">+</span></summary>
+        <summary>{{ 'ryztor.berberine.questions.directions_title' | t }} <span aria-hidden="true">+</span></summary>
         <div class="ryztor-media-description__answer">
-          <p>Take two (2) capsules daily with 6–8 oz of water. Each bottle contains 60 capsules, providing a 30-day supply when used as directed. Follow the product label and any guidance provided by your healthcare professional.</p>
+          <p>{{ 'ryztor.berberine.questions.directions_text' | t }}</p>
         </div>
       </details>
 
-      <div class="ryztor-question-gallery" data-question-gallery aria-label="Berberine in everyday settings">
+      <div class="ryztor-question-gallery" data-question-gallery aria-label="{{ 'ryztor.berberine.questions.gallery_label' | t | escape }}">
         <div class="ryztor-question-gallery__track">
           {% assign question_gallery_images = 'ryztor-berberine-delivery-package.webp|RYZTOR Berberine held in an everyday setting@@ryztor-berberine-travel-handbag.webp|RYZTOR Berberine ready for a daily routine@@ryztor-berberine-daily-routine.webp|RYZTOR Berberine as part of an everyday routine@@ryztor-berberine-supplement-routine.webp|RYZTOR Berberine with daily supplements@@ryztor-berberine-wellness-books.webp|RYZTOR Berberine beside wellness books@@ryztor-berberine-bottle-closeup.webp|Close-up of RYZTOR Berberine@@ryztor-berberine-capsules-serving.webp|RYZTOR Berberine bottle and capsules@@ryztor-berberine-open-bottle-capsules.webp|Open RYZTOR Berberine bottle with capsules' | split: '@@' %}
           {% for image_data in question_gallery_images %}
@@ -140,67 +140,67 @@
               data-question-photo
               data-full-image="{{ image_parts[0] | asset_url }}"
               data-image-alt="{{ image_parts[1] | escape }}"
-              aria-label="Enlarge {{ image_parts[1] | escape }}"
+              aria-label="{{ 'ryztor.berberine.questions.enlarge' | t: description: image_parts[1] | escape }}"
             >
               <img src="{{ image_parts[0] | asset_url }}" alt="{{ image_parts[1] | escape }}" width="896" height="1200" loading="lazy">
             </button>
           {% endfor %}
         </div>
 
-        <dialog class="ryztor-question-gallery__dialog" data-question-dialog aria-label="Expanded Berberine photo">
-          <button type="button" class="ryztor-question-gallery__close" data-question-close aria-label="Close photo">×</button>
+        <dialog class="ryztor-question-gallery__dialog" data-question-dialog aria-label="{{ 'ryztor.berberine.questions.expanded_photo' | t | escape }}">
+          <button type="button" class="ryztor-question-gallery__close" data-question-close aria-label="{{ 'ryztor.berberine.questions.close_photo' | t | escape }}">×</button>
           <img data-question-dialog-image src="{{ 'ryztor-berberine-delivery-package.webp' | asset_url }}" alt="RYZTOR Berberine in an everyday setting" width="896" height="1200">
         </dialog>
       </div>
 
       <details name="ryztor-questions-{{ placement }}">
-        <summary>Can I take it with medications or other supplements? <span aria-hidden="true">+</span></summary>
+        <summary>{{ 'ryztor.berberine.questions.medications_title' | t }} <span aria-hidden="true">+</span></summary>
         <div class="ryztor-media-description__answer">
-          <p>Berberine may not be appropriate with every medication or supplement routine. If you take prescription medication—especially medication related to blood sugar—or use other supplements, ask a qualified healthcare professional to review the combination before use.</p>
+          <p>{{ 'ryztor.berberine.questions.medications_text' | t }}</p>
         </div>
       </details>
 
       <details name="ryztor-questions-{{ placement }}">
-        <summary>Who should speak with a healthcare professional first? <span aria-hidden="true">+</span></summary>
+        <summary>{{ 'ryztor.berberine.questions.professional_title' | t }} <span aria-hidden="true">+</span></summary>
         <div class="ryztor-media-description__answer">
-          <p>Pregnant or nursing mothers, anyone under 18, people with a known medical condition, and anyone taking prescription medication should speak with a qualified healthcare professional before use.</p>
+          <p>{{ 'ryztor.berberine.questions.professional_text' | t }}</p>
         </div>
       </details>
 
       <details name="ryztor-questions-{{ placement }}">
-        <summary>What if it is not right for me? <span aria-hidden="true">+</span></summary>
+        <summary>{{ 'ryztor.berberine.questions.guarantee_title' | t }} <span aria-hidden="true">+</span></summary>
         <div class="ryztor-media-description__answer">
-          <p>Your purchase is covered by RYZTOR's 30-Day Money-Back Guarantee. Review the refund policy for eligibility, instructions, and any applicable conditions.</p>
+          <p>{{ 'ryztor.berberine.questions.guarantee_text' | t }}</p>
           {% if shop.refund_policy != blank %}
             <div class="ryztor-media-description__links">
-              <a href="{{ shop.refund_policy.url }}">Read refund policy</a>
+              <a href="{{ shop.refund_policy.url }}">{{ 'ryztor.berberine.questions.refund_link' | t }}</a>
             </div>
           {% endif %}
         </div>
       </details>
 
       <details name="ryztor-questions-{{ placement }}">
-        <summary>Shipping &amp; returns <span aria-hidden="true">+</span></summary>
+        <summary>{{ 'ryztor.berberine.questions.shipping_title' | t }} <span aria-hidden="true">+</span></summary>
         <div class="ryztor-media-description__answer">
-          <p>Available shipping methods, estimated delivery times, and final costs are shown during checkout.</p>
+          <p>{{ 'ryztor.berberine.questions.shipping_text' | t }}</p>
           <div class="ryztor-media-description__links">
             {% if shop.shipping_policy != blank %}
-              <a href="{{ shop.shipping_policy.url }}">Read shipping policy</a>
+              <a href="{{ shop.shipping_policy.url }}">{{ 'ryztor.berberine.questions.shipping_link' | t }}</a>
             {% endif %}
             {% if shop.refund_policy != blank %}
-              <a href="{{ shop.refund_policy.url }}">Read refund policy</a>
+              <a href="{{ shop.refund_policy.url }}">{{ 'ryztor.berberine.questions.refund_link' | t }}</a>
             {% endif %}
           </div>
         </div>
       </details>
 
       <details name="ryztor-questions-{{ placement }}">
-        <summary>Subscription &amp; cancellation <span aria-hidden="true">+</span></summary>
+        <summary>{{ 'ryztor.berberine.questions.subscription_title' | t }} <span aria-hidden="true">+</span></summary>
         <div class="ryztor-media-description__answer">
-          <p>Subscribe &amp; Save options appear only when available. Review the delivery frequency, renewal price, and cancellation terms before completing checkout.</p>
+          <p>{{ 'ryztor.berberine.questions.subscription_text' | t }}</p>
           {% if shop.subscription_policy != blank %}
             <div class="ryztor-media-description__links">
-              <a href="{{ shop.subscription_policy.url }}">Read subscription policy</a>
+              <a href="{{ shop.subscription_policy.url }}">{{ 'ryztor.berberine.questions.subscription_link' | t }}</a>
             </div>
           {% endif %}
         </div>

@@ -357,5 +357,36 @@
       "success_moderated": "Comentario publicado y a la espera de moderación",
       "success": "Comentario publicado"
     }
+  },
+  "ryztor": {
+    "berberine": {
+      "questions": {
+        "support_title": "¿Qué beneficios ayuda a respaldar la berberina?",
+        "support_text": "La berberina ayuda a respaldar la manera en que las células procesan la glucosa y convierten los nutrientes en energía para el día a día. También ayuda a mantener niveles saludables de azúcar en la sangre que ya se encuentran dentro del rango normal y favorece el bienestar cardiovascular.*",
+        "body_title": "¿Cómo actúa en el cuerpo?",
+        "body_text": "La berberina ha sido estudiada por su interacción con la AMPK, una enzima dentro de las células relacionada con el equilibrio energético y el metabolismo de la glucosa. Puedes pensar en la AMPK como una de las señales celulares que ayuda al cuerpo a administrar cómo utiliza y almacena energía.*",
+        "for_title": "¿Para quién es?",
+        "for_text": "RYZTOR Berberine está diseñada para adultos que buscan apoyo diario para el uso saludable de la glucosa, la energía cotidiana, el bienestar cardiovascular y sus objetivos de control de peso. Complementa una alimentación equilibrada y la actividad regular; no reemplaza la atención médica profesional.",
+        "directions_title": "¿Cómo debo tomarla y cuánto dura un frasco?",
+        "directions_text": "Toma dos (2) cápsulas al día con 6–8 oz de agua. Cada frasco contiene 60 cápsulas y proporciona 30 días de uso cuando se toma según las indicaciones. Sigue la etiqueta del producto y las recomendaciones de tu profesional de salud.",
+        "medications_title": "¿Puedo tomarla con medicamentos u otros suplementos?",
+        "medications_text": "La berberina puede no ser adecuada con todos los medicamentos o rutinas de suplementos. Si tomas medicamentos con receta —especialmente los relacionados con el azúcar en la sangre— o utilizas otros suplementos, consulta a un profesional de salud calificado antes de usarla.",
+        "professional_title": "¿Quién debe consultar primero con un profesional de salud?",
+        "professional_text": "Las mujeres embarazadas o en período de lactancia, los menores de 18 años, las personas con alguna condición médica conocida y quienes toman medicamentos con receta deben consultar a un profesional de salud calificado antes de usarla.",
+        "guarantee_title": "¿Qué sucede si no es adecuada para mí?",
+        "guarantee_text": "Tu compra está cubierta por la garantía de devolución de dinero de 30 días de RYZTOR. Consulta la política de reembolso para conocer los requisitos, las instrucciones y las condiciones aplicables.",
+        "shipping_title": "Envíos y devoluciones",
+        "shipping_text": "Los métodos de envío disponibles, los tiempos estimados de entrega y los costos finales se muestran durante el pago.",
+        "subscription_title": "Suscripción y cancelación",
+        "subscription_text": "Las opciones Subscribe & Save aparecen únicamente cuando están disponibles. Revisa la frecuencia de entrega, el precio de renovación y las condiciones de cancelación antes de completar la compra.",
+        "refund_link": "Ver política de reembolso",
+        "shipping_link": "Ver política de envío",
+        "subscription_link": "Ver política de suscripción",
+        "gallery_label": "Berberina en situaciones cotidianas",
+        "enlarge": "Ampliar {{ description }}",
+        "expanded_photo": "Foto ampliada de Berberine",
+        "close_photo": "Cerrar foto"
+      }
+    }
   }
 }

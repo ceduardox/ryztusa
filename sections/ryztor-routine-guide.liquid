@@ -14,10 +14,10 @@
   <div class="ryztor-routine__shell">
     <header class="ryztor-routine__header">
       <div>
-        <p class="ryztor-routine__eyebrow">{{ section.settings.eyebrow }}</p>
-        <h2>{{ section.settings.heading }}</h2>
+        <p class="ryztor-routine__eyebrow">{{ 'ryztor.home.routine.eyebrow' | t }}</p>
+        <h2>{{ 'ryztor.home.routine.heading' | t }}</h2>
       </div>
-      <div class="ryztor-routine__intro rte">{{ section.settings.description }}</div>
+      <div class="ryztor-routine__intro rte"><p>{{ 'ryztor.home.routine.description' | t }}</p></div>
     </header>
 
     <div class="ryztor-routine__grid">
@@ -41,13 +41,20 @@
           if routine_link == blank
             assign routine_link = routes.all_products_collection_url
           endif
+
+          assign item_key = 'ryztor.home.routine.item_' | append: forloop.index
+          assign time_key = item_key | append: '_time'
+          assign kicker_key = item_key | append: '_kicker'
+          assign title_key = item_key | append: '_title'
+          assign text_key = item_key | append: '_text'
+          assign translated_title = title_key | t
         %}
 
         <article
           class="ryztor-routine__card ryztor-routine__card--{{ block.settings.routine }}"
           {{ block.shopify_attributes }}
         >
-          <a class="ryztor-routine__card-link" href="{{ routine_link }}" aria-label="Explore {{ block.settings.title | escape }}"></a>
+          <a class="ryztor-routine__card-link" href="{{ routine_link }}" aria-label="{{ 'ryztor.home.routine.explore_label' | t: product: translated_title | escape }}"></a>
 
           <div class="ryztor-routine__media">
             {% if routine_image != blank %}
@@ -76,18 +83,18 @@
                 {% else %}
                   <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19.5 15.5A8.5 8.5 0 0 1 8.5 4.5a8.5 8.5 0 1 0 11 11Z"/></svg>
               {% endcase %}
-              {{ block.settings.time_label }}
+              {{ time_key | t }}
             </span>
           </div>
 
           <div class="ryztor-routine__content">
             <div class="ryztor-routine__number">0{{ forloop.index }}</div>
             <div class="ryztor-routine__copy">
-              <p>{{ block.settings.kicker }}</p>
-              <h3>{{ block.settings.title }}</h3>
-              <div class="rte">{{ block.settings.text }}</div>
+              <p>{{ kicker_key | t }}</p>
+              <h3>{{ translated_title }}</h3>
+              <div class="rte"><p>{{ text_key | t }}</p></div>
               <span class="ryztor-routine__cta">
-                {{ block.settings.button_label }}
+                {{ 'ryztor.home.routine.explore' | t }}
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg>
               </span>
             </div>
@@ -97,10 +104,10 @@
     </div>
 
     <footer class="ryztor-routine__footer">
-      <span>{{ section.settings.note }}</span>
+      <span>{{ 'ryztor.home.routine.note' | t }}</span>
       {% if section.settings.button_label != blank %}
         <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">
-          {{ section.settings.button_label }}
+          {{ 'ryztor.home.routine.view_all' | t }}
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg>
         </a>
       {% endif %}

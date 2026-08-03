@@ -25,27 +25,32 @@
 
     <div class="ryztor-pillars__content">
       {%- if section.settings.eyebrow != blank -%}
-        <p class="ryztor-pillars__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        <p class="ryztor-pillars__eyebrow">{{ 'ryztor.home.pillars.eyebrow' | t }}</p>
       {%- endif -%}
-      <h2>{{ section.settings.heading }}</h2>
+      <h2>{{ 'ryztor.home.pillars.heading' | t }}</h2>
       {%- if section.settings.description != blank -%}
-        <div class="ryztor-pillars__intro rte">{{ section.settings.description }}</div>
+        <div class="ryztor-pillars__intro rte"><p>{{ 'ryztor.home.pillars.description' | t }}</p></div>
       {%- endif -%}
 
       <div class="ryztor-pillars__list">
         {%- for block in section.blocks -%}
+          {% liquid
+            assign item_key = 'ryztor.home.pillars.item_' | append: forloop.index
+            assign heading_key = item_key | append: '_heading'
+            assign text_key = item_key | append: '_text'
+          %}
           <article class="ryztor-pillars__item" {{ block.shopify_attributes }}>
             <span class="ryztor-pillars__number">0{{ forloop.index }}</span>
             <div>
-              <h3>{{ block.settings.heading | escape }}</h3>
-              <p>{{ block.settings.text | escape }}</p>
+              <h3>{{ heading_key | t }}</h3>
+              <p>{{ text_key | t }}</p>
             </div>
           </article>
         {%- endfor -%}
       </div>
 
       {%- if section.settings.note != blank -%}
-        <p class="ryztor-pillars__note">{{ section.settings.note | escape }}</p>
+        <p class="ryztor-pillars__note">{{ 'ryztor.home.pillars.note' | t }}</p>
       {%- endif -%}
     </div>
   </div>

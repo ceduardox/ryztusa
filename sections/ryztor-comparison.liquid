@@ -5,40 +5,46 @@
   <div class="ryztor-comparison__inner">
     <header class="ryztor-comparison__header">
       {%- if section.settings.eyebrow != blank -%}
-        <p>{{ section.settings.eyebrow | escape }}</p>
+        <p>{{ 'ryztor.home.comparison.eyebrow' | t }}</p>
       {%- endif -%}
-      <h2>{{ section.settings.heading }}</h2>
+      <h2>{{ 'ryztor.home.comparison.heading' | t }}</h2>
       {%- if section.settings.description != blank -%}
-        <div class="rte">{{ section.settings.description }}</div>
+        <div class="rte"><p>{{ 'ryztor.home.comparison.description' | t }}</p></div>
       {%- endif -%}
     </header>
 
-    <div class="ryztor-comparison__table" role="table" aria-label="{{ section.settings.heading | strip_html | escape }}">
+    <div class="ryztor-comparison__table" role="table" aria-label="{{ 'ryztor.home.comparison.heading' | t | strip_html | escape }}">
       <div class="ryztor-comparison__row ryztor-comparison__row--head" role="row">
-        <div role="columnheader"><span class="visually-hidden">Feature</span></div>
-        <div role="columnheader" class="ryztor-comparison__brand">{{ section.settings.our_label | escape }}</div>
-        <div role="columnheader">{{ section.settings.other_label | escape }}</div>
+        <div role="columnheader"><span class="visually-hidden">{{ 'ryztor.home.comparison.feature' | t }}</span></div>
+        <div role="columnheader" class="ryztor-comparison__brand">{{ 'ryztor.home.comparison.ours' | t }}</div>
+        <div role="columnheader">{{ 'ryztor.home.comparison.others' | t }}</div>
       </div>
 
       {%- for block in section.blocks -%}
+        {% liquid
+          assign row_key = 'ryztor.home.comparison.row_' | append: forloop.index
+          assign feature_key = row_key | append: '_feature'
+          assign ours_key = row_key | append: '_ours'
+          assign others_key = row_key | append: '_others'
+        %}
         <div class="ryztor-comparison__row" role="row" {{ block.shopify_attributes }}>
-          <div class="ryztor-comparison__feature" role="rowheader">{{ block.settings.feature | escape }}</div>
+          <div class="ryztor-comparison__feature" role="rowheader">{{ feature_key | t }}</div>
           <div class="ryztor-comparison__ours" role="cell">
             <span class="ryztor-comparison__check" aria-hidden="true">✓</span>
-            <span>{{ block.settings.ours | escape }}</span>
+            <span>{{ ours_key | t }}</span>
           </div>
-          <div class="ryztor-comparison__others" role="cell">{{ block.settings.others | escape }}</div>
+          <div class="ryztor-comparison__others" role="cell">{{ others_key | t }}</div>
         </div>
       {%- endfor -%}
     </div>
 
     {%- if section.settings.disclaimer != blank -%}
-      <p class="ryztor-comparison__disclaimer">{{ section.settings.disclaimer | escape }}</p>
+      <p class="ryztor-comparison__disclaimer">{{ 'ryztor.home.comparison.disclaimer' | t }}</p>
     {%- endif -%}
 
     {%- if section.settings.button_label != blank -%}
       <a class="ryztor-comparison__button" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">
-        {{ section.settings.button_label | escape }}
+        {{ 'ryztor.home.comparison.button' | t }}
       </a>
     {%- endif -%}
   </div>

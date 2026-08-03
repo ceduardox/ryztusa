@@ -359,7 +359,29 @@
     }
   },
   "ryztor": {
-    "home": { "hero": { "eyebrow": "BIENESTAR COTIDIANO, HECHO SIMPLE", "heading": "CONSTRUYE UNA RUTINA <em>MEJOR</em>.", "description": "Suplementos seleccionados cuidadosamente para integrarse en tu ritmo diario, desde mañanas enfocadas hasta noches de descanso.", "primary": "VER SUPLEMENTOS", "secondary": "EXPLORAR LA RUTINA", "proof_1": "Fórmulas específicas", "proof_2": "Indicaciones claras", "proof_3": "Diseñado para rutinas reales", "brand_note": "BIENESTAR / HECHO SIMPLE" } },
+    "home": {
+      "hero": { "eyebrow": "BIENESTAR COTIDIANO, HECHO SIMPLE", "heading": "CONSTRUYE UNA RUTINA <em>MEJOR</em>.", "description": "Suplementos seleccionados cuidadosamente para integrarse en tu ritmo diario, desde mañanas enfocadas hasta noches de descanso.", "primary": "VER SUPLEMENTOS", "secondary": "EXPLORAR LA RUTINA", "proof_1": "Fórmulas específicas", "proof_2": "Indicaciones claras", "proof_3": "Diseñado para rutinas reales", "brand_note": "BIENESTAR / HECHO SIMPLE" },
+      "comparison": {
+        "eyebrow": "POR QUÉ RYZTOR", "heading": "RYZTOR <em>VS.</em> OTRAS MARCAS", "description": "Tres fórmulas específicas. Una gama de productos clara. Elige el suplemento que mejor se adapte a tu rutina diaria.", "feature": "Característica", "ours": "RYZTOR", "others": "OTRAS MARCAS", "disclaimer": "Los beneficios dependen de la fórmula específica y del uso individual. Sigue siempre las indicaciones de la etiqueta.", "button": "EXPLORAR LAS FÓRMULAS",
+        "row_1_feature": "Berberina para una rutina de bienestar metabólico", "row_1_ours": "Opción específica", "row_1_others": "Varía",
+        "row_2_feature": "Glicinato de magnesio para una rutina de relajación", "row_2_ours": "Opción específica", "row_2_others": "Varía",
+        "row_3_feature": "Creatina para una rutina de entrenamiento y rendimiento", "row_3_ours": "Opción específica", "row_3_others": "Varía",
+        "row_4_feature": "Información clara del producto", "row_4_ours": "Fácil de revisar", "row_4_others": "Varía",
+        "row_5_feature": "Tres suplementos específicos en una sola gama", "row_5_ours": "Elección sencilla", "row_5_others": "Varía"
+      },
+      "pillars": {
+        "eyebrow": "POR QUÉ RYZTOR", "heading": "TRES FÓRMULAS. UNA RUTINA <em>MEJOR</em>.", "description": "RYZTOR es para quienes buscan opciones claras y suplementos que se integren en la vida real. Elige una fórmula específica o crea una rutina según tus objetivos.", "note": "Revisa siempre la etiqueta del producto y sigue sus indicaciones de uso.",
+        "item_1_heading": "Berberina, hecha simple", "item_1_text": "Una fórmula específica de berberina diseñada para simplificar la suplementación diaria.",
+        "item_2_heading": "Glicinato de magnesio, hecho simple", "item_2_text": "Una fórmula específica de glicinato de magnesio diseñada para integrarse fácilmente en tu rutina nocturna.",
+        "item_3_heading": "Creatina sin complicaciones", "item_3_text": "Un suplemento conocido para el entrenamiento, presentado en un formato claro y fácil de seguir."
+      },
+      "routine": {
+        "eyebrow": "ELIGE TU RUTINA", "heading": "UN OBJETIVO. UNA FÓRMULA <em>ESPECÍFICA</em>.", "description": "Cada día puede necesitar un apoyo diferente. Comienza con la fórmula que mejor se adapte a tu rutina y sigue las indicaciones de su etiqueta.", "note": "¿No sabes por dónde comenzar? Explora cada fórmula y sigue siempre las indicaciones de su etiqueta.", "view_all": "VER TODOS LOS PRODUCTOS", "explore": "EXPLORAR FÓRMULA", "explore_label": "Explorar {{ product }}",
+        "item_1_time": "RUTINA MATUTINA", "item_1_kicker": "RUTINA METABÓLICA", "item_1_title": "Berberina", "item_1_text": "Una opción específica para quienes están creando una rutina diaria constante de bienestar.",
+        "item_2_time": "RUTINA DE ENTRENAMIENTO", "item_2_kicker": "RUTINA DE RENDIMIENTO", "item_2_title": "Creatina", "item_2_text": "Un suplemento conocido para quienes valoran la fuerza y la constancia en el entrenamiento.",
+        "item_3_time": "RUTINA NOCTURNA", "item_3_kicker": "RUTINA NOCTURNA", "item_3_title": "Glicinato de magnesio", "item_3_text": "Una fórmula sencilla diseñada para integrarse naturalmente al final de tu día."
+      }
+    },
     "reviews": {
       "eyebrow": "OPINIONES DE CLIENTES",
       "heading": "Pedidos reales. Opiniones reales.",

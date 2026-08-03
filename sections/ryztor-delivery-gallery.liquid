@@ -21,6 +21,11 @@
     assign dialog_image = 'ryztor-berberine-delivery-package.webp'
     assign dialog_alt = 'RYZTOR Berberine delivery package'
   endif
+
+  assign review_tags = 'ryztor.reviews.tags' | t | split: ','
+  assign stars_template = 'ryztor.reviews.stars' | t: rating: '__RATING__'
+  assign page_label_template = 'ryztor.reviews.go_to_page' | t: page: '__PAGE__'
+  assign page_status_template = 'ryztor.reviews.showing' | t: start: '__START__', end: '__END__', total: '__TOTAL__'
 %}
 
 {% if is_berberine or is_magnesium %}
@@ -28,24 +33,27 @@
     class="ryztor-reviews"
     id="ryztor-reviews-{{ section.id }}"
     data-ryztor-reviews
+    data-stars-template="{{ stars_template | escape }}"
+    data-page-label-template="{{ page_label_template | escape }}"
+    data-page-status-template="{{ page_status_template | escape }}"
     style="--reviews-accent: {{ section.settings.accent }}; --reviews-background: {{ section.settings.background }};"
   >
     <div class="ryztor-reviews__inner" id="ryztor-reviews">
       <header class="ryztor-reviews__heading">
-        <p class="ryztor-reviews__eyebrow">{{ section.settings.eyebrow | escape }}</p>
-        <h2>{{ section.settings.heading | escape }}</h2>
-        <p>{{ section.settings.text | escape }}</p>
+        <p class="ryztor-reviews__eyebrow">{{ 'ryztor.reviews.eyebrow' | t }}</p>
+        <h2>{{ 'ryztor.reviews.heading' | t }}</h2>
+        <p>{{ 'ryztor.reviews.text' | t }}</p>
       </header>
 
       <div class="ryztor-reviews__overview">
         <div class="ryztor-reviews__score">
           <div class="ryztor-reviews__score-head">
             <strong>4.9</strong>
-            <span class="ryztor-reviews__stars" aria-label="4.9 out of 5 stars">★★★★★</span>
-            <span>186 Reviews</span>
+            <span class="ryztor-reviews__stars" aria-label="{{ 'ryztor.reviews.stars' | t: rating: '4.9' | escape }}">★★★★★</span>
+            <span>{{ 'ryztor.reviews.review_count' | t: count: 186 }}</span>
           </div>
 
-          <div class="ryztor-reviews__breakdown" aria-label="Rating distribution">
+          <div class="ryztor-reviews__breakdown" aria-label="{{ 'ryztor.reviews.distribution' | t | escape }}">
             <div><b>5 <span>★</span></b><i><em style="width: 93.55%"></em></i><small>174</small></div>
             <div><b>4 <span>★</span></b><i><em style="width: 4.84%"></em></i><small>9</small></div>
             <div><b>3 <span>★</span></b><i><em style="width: 1.08%"></em></i><small>2</small></div>
@@ -54,7 +62,7 @@
           </div>
         </div>
 
-        <div class="ryztor-reviews__photo-loop" aria-label="Customer review photos">
+        <div class="ryztor-reviews__photo-loop" aria-label="{{ 'ryztor.reviews.photos' | t | escape }}">
           <div class="ryztor-reviews__photo-track">
             <div class="ryztor-reviews__photo-group">
               {% for review_data in review_items %}
@@ -66,7 +74,7 @@
                     data-review-photo
                     data-full-image="{{ review[2] | asset_url }}"
                     data-image-alt="{{ review[3] | escape }}"
-                    aria-label="Enlarge {{ review[3] | escape }}"
+                    aria-label="{{ 'ryztor.reviews.enlarge' | t: description: review[3] | escape }}"
                   >
                     <img src="{{ review[2] | asset_url }}" alt="{{ review[3] | escape }}" width="112" height="132" loading="lazy">
                   </button>
@@ -87,15 +95,15 @@
         </div>
       </div>
 
-      <div class="ryztor-reviews__tags" aria-label="Common review topics">
+      <div class="ryztor-reviews__tags" aria-label="{{ 'ryztor.reviews.topics' | t | escape }}">
         {% for tag in review_tags %}
           <span>{{ tag | escape }}</span>
         {% endfor %}
       </div>
 
       <div class="ryztor-reviews__verified-note">
-        <span>Customer reviews</span>
-        <strong><i aria-hidden="true">✓</i> Verified buyers</strong>
+        <span>{{ 'ryztor.reviews.customer_reviews' | t }}</span>
+        <strong><i aria-hidden="true">✓</i> {{ 'ryztor.reviews.verified_buyers' | t }}</strong>
       </div>
 
       <div class="ryztor-reviews__list">
@@ -105,12 +113,12 @@
           <article class="ryztor-reviews__item{% if review[2] == 'none' %} ryztor-reviews__item--text-only{% endif %}" data-review-row>
             <div class="ryztor-reviews__item-copy">
               <time datetime="{{ review[0] }}">{{ review[0] }}</time>
-              <div class="ryztor-reviews__item-stars" aria-label="{{ review[1] }} out of 5 stars">
+              <div class="ryztor-reviews__item-stars" aria-label="{{ 'ryztor.reviews.stars' | t: rating: review[1] | escape }}">
                 {% for star_index in (1..5) %}{% if star_index <= review_rating %}★{% else %}☆{% endif %}{% endfor %}
               </div>
               <h3>
                 {{ review[4] | escape }}
-                <span aria-label="Verified buyer">✓</span>
+                <span aria-label="{{ 'ryztor.reviews.verified_buyer' | t | escape }}">✓</span>
               </h3>
               {% unless review[5] == 'stars-only' %}<p>{{ review[5] | escape }}</p>{% endunless %}
             </div>
@@ -122,7 +130,7 @@
                 data-review-photo
                 data-full-image="{{ review[2] | asset_url }}"
                 data-image-alt="{{ review[3] | escape }}"
-                aria-label="Enlarge {{ review[3] | escape }}"
+                aria-label="{{ 'ryztor.reviews.enlarge' | t: description: review[3] | escape }}"
               >
                 <img src="{{ review[2] | asset_url }}" alt="{{ review[3] | escape }}" width="118" height="142" loading="lazy">
                 <span aria-hidden="true">+</span>
@@ -132,16 +140,16 @@
         {% endfor %}
       </div>
 
-      <nav class="ryztor-reviews__pagination" data-review-pagination aria-label="Review pages">
-        <button type="button" data-review-previous aria-label="Previous review page">←</button>
+      <nav class="ryztor-reviews__pagination" data-review-pagination aria-label="{{ 'ryztor.reviews.pages' | t | escape }}">
+        <button type="button" data-review-previous aria-label="{{ 'ryztor.reviews.previous' | t | escape }}">←</button>
         <div data-review-pages></div>
-        <button type="button" data-review-next aria-label="Next review page">→</button>
+        <button type="button" data-review-next aria-label="{{ 'ryztor.reviews.next' | t | escape }}">→</button>
         <p data-review-page-status aria-live="polite"></p>
       </nav>
     </div>
 
-    <dialog class="ryztor-reviews__dialog" data-reviews-dialog aria-label="Expanded customer photo">
-      <button type="button" class="ryztor-reviews__close" data-reviews-close aria-label="Close photo">×</button>
+    <dialog class="ryztor-reviews__dialog" data-reviews-dialog aria-label="{{ 'ryztor.reviews.expanded' | t | escape }}">
+      <button type="button" class="ryztor-reviews__close" data-reviews-close aria-label="{{ 'ryztor.reviews.close' | t | escape }}">×</button>
       <img
         data-reviews-dialog-image
         src="{{ dialog_image | asset_url }}"
@@ -694,6 +702,9 @@
     const totalReviews = 186;
     const reviewsPerPage = 10;
     const totalPages = Math.ceil(totalReviews / reviewsPerPage);
+    const starsTemplate = section.dataset.starsTemplate || '__RATING__ out of 5 stars';
+    const pageLabelTemplate = section.dataset.pageLabelTemplate || 'Go to review page __PAGE__';
+    const pageStatusTemplate = section.dataset.pageStatusTemplate || 'Showing __START__–__END__ of __TOTAL__ reviews';
     let currentPage = 1;
 
     const names = [
@@ -744,7 +755,7 @@
       time.dateTime = date;
       time.textContent = date;
       stars.textContent = '★'.repeat(rating) + '☆'.repeat(5 - rating);
-      stars.setAttribute('aria-label', `${rating} out of 5 stars`);
+      stars.setAttribute('aria-label', starsTemplate.replace('__RATING__', rating));
 
       if (index >= sourceRows.length) {
         const verifiedBadge = name.querySelector('span');
@@ -780,7 +791,7 @@
         const button = document.createElement('button');
         button.type = 'button';
         button.textContent = pageNumber;
-        button.setAttribute('aria-label', `Go to review page ${pageNumber}`);
+        button.setAttribute('aria-label', pageLabelTemplate.replace('__PAGE__', pageNumber));
         if (pageNumber === currentPage) button.setAttribute('aria-current', 'page');
         button.addEventListener('click', () => showPage(pageNumber, true));
         pageButtons.appendChild(button);
@@ -799,7 +810,10 @@
 
       previousButton.disabled = currentPage === 1;
       nextButton.disabled = currentPage === totalPages;
-      pageStatus.textContent = `Showing ${start + 1}–${end} of ${totalReviews} reviews`;
+      pageStatus.textContent = pageStatusTemplate
+        .replace('__START__', start + 1)
+        .replace('__END__', end)
+        .replace('__TOTAL__', totalReviews);
       renderPageButtons();
 
       if (shouldScroll) {

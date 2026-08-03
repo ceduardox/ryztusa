@@ -359,6 +359,29 @@
     }
   },
   "ryztor": {
+    "reviews": {
+      "eyebrow": "OPINIONES DE CLIENTES",
+      "heading": "Pedidos reales. Opiniones reales.",
+      "text": "Conoce las opiniones y fotografías del producto compartidas por clientes de RYZTOR.",
+      "review_count": "{{ count }} opiniones",
+      "stars": "{{ rating }} de 5 estrellas",
+      "distribution": "Distribución de calificaciones",
+      "photos": "Fotos compartidas por clientes",
+      "topics": "Temas frecuentes en las opiniones",
+      "tags": "Rutina nocturna,Cápsulas fáciles de tomar,Bien empacado,Etiqueta clara,Sencillo,Calidad,Recomendado",
+      "customer_reviews": "Opiniones de clientes",
+      "verified_buyers": "Compradores verificados",
+      "verified_buyer": "Comprador verificado",
+      "enlarge": "Ampliar {{ description }}",
+      "pages": "Páginas de opiniones",
+      "previous": "Página anterior de opiniones",
+      "next": "Página siguiente de opiniones",
+      "expanded": "Foto ampliada del cliente",
+      "close": "Cerrar foto",
+      "go_to_page": "Ir a la página {{ page }} de opiniones",
+      "showing": "Mostrando {{ start }}–{{ end }} de {{ total }} opiniones",
+      "recommended": "También te puede interesar"
+    },
     "berberine": {
       "questions": {
         "support_title": "¿Qué beneficios ayuda a respaldar la berberina?",

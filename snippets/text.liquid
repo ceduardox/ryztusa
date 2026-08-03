@@ -26,6 +26,16 @@
     assign is_rte = true
   endif
 
+  capture rendered_text
+    if visible_text == 'You may also like'
+      echo '<h3>'
+      echo 'ryztor.reviews.recommended' | t | escape
+      echo '</h3>'
+    else
+      echo block.settings.text
+    endif
+  endcapture
+
   capture text_block_classes
     if text_width == '100%'
       echo 'text-block--align-' | append: block_settings.alignment
@@ -96,7 +106,7 @@
   </div>
 {% elsif plain_text != blank %}
   <{{ element }} {{ attributes | strip_newlines | strip }}>
-    {{ block.settings.text }}
+    {{ rendered_text }}
   </{{ element }}>
 {% endif %}
 

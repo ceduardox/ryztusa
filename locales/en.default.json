@@ -371,6 +371,29 @@
     }
   },
   "ryztor": {
+    "reviews": {
+      "eyebrow": "CUSTOMER REVIEWS",
+      "heading": "Real orders. Real feedback.",
+      "text": "See feedback and product photos shared by RYZTOR customers.",
+      "review_count": "{{ count }} Reviews",
+      "stars": "{{ rating }} out of 5 stars",
+      "distribution": "Rating distribution",
+      "photos": "Customer review photos",
+      "topics": "Common review topics",
+      "tags": "Evening routine,Easy capsules,Well packed,Clean label,Simple,Quality,Recommended",
+      "customer_reviews": "Customer reviews",
+      "verified_buyers": "Verified buyers",
+      "verified_buyer": "Verified buyer",
+      "enlarge": "Enlarge {{ description }}",
+      "pages": "Review pages",
+      "previous": "Previous review page",
+      "next": "Next review page",
+      "expanded": "Expanded customer photo",
+      "close": "Close photo",
+      "go_to_page": "Go to review page {{ page }}",
+      "showing": "Showing {{ start }}–{{ end }} of {{ total }} reviews",
+      "recommended": "You may also like"
+    },
     "berberine": {
       "questions": {
         "support_title": "What does Berberine help support?",

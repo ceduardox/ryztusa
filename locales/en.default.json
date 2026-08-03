@@ -390,7 +390,7 @@
         "item_3_heading": "Creatine without the clutter", "item_3_text": "A familiar training essential presented in a clear, easy-to-follow format."
       },
       "routine": {
-        "eyebrow": "CHOOSE YOUR ROUTINE", "heading": "ONE GOAL. ONE <em>FOCUSED</em> FORMULA.", "description": "Different days call for different support. Start with the formula that best fits your routine and follow the directions on its label.", "note": "Not sure where to begin? Explore each formula and always follow its label directions.", "view_all": "VIEW ALL PRODUCTS", "explore": "EXPLORE FORMULA", "explore_label": "Explore {{ product }}",
+        "eyebrow": "CHOOSE YOUR ROUTINE", "heading_html": "ONE GOAL. ONE <em>FOCUSED</em> FORMULA.", "description": "Different days call for different support. Start with the formula that best fits your routine and follow the directions on its label.", "note": "Not sure where to begin? Explore each formula and always follow its label directions.", "view_all": "VIEW ALL PRODUCTS", "explore": "EXPLORE FORMULA", "explore_label": "Explore {{ product }}",
         "item_1_time": "MORNING ROUTINE", "item_1_kicker": "METABOLIC ROUTINE", "item_1_title": "Berberine", "item_1_text": "A focused option for people building a consistent daily wellness routine.",
         "item_2_time": "TRAINING ROUTINE", "item_2_kicker": "PERFORMANCE ROUTINE", "item_2_title": "Creatine", "item_2_text": "A familiar training essential for people who value strength and consistency.",
         "item_3_time": "EVENING ROUTINE", "item_3_kicker": "EVENING ROUTINE", "item_3_title": "Magnesium Glycinate", "item_3_text": "A simple formula designed to fit naturally into the end of your day."

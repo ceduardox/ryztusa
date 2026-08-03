@@ -15,7 +15,7 @@
     <header class="ryztor-routine__header">
       <div>
         <p class="ryztor-routine__eyebrow">{{ 'ryztor.home.routine.eyebrow' | t }}</p>
-        <h2>{{ 'ryztor.home.routine.heading' | t }}</h2>
+        <h2>{{ 'ryztor.home.routine.heading_html' | t }}</h2>
       </div>
       <div class="ryztor-routine__intro rte"><p>{{ 'ryztor.home.routine.description' | t }}</p></div>
     </header>
@@ -160,7 +160,8 @@
 
   .ryztor-routine__header h2 em {
     color: var(--routine-purple);
-    font-style: normal;
+    font-style: italic;
+    font-weight: inherit;
   }
 
   .ryztor-routine__intro {

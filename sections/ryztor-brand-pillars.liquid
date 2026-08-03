@@ -63,15 +63,19 @@
   .ryztor-pillars__orb { position: absolute; z-index: -1; display: block; border-radius: 50%; filter: blur(.1px); }
   .ryztor-pillars__orb--one { width: 62%; aspect-ratio: 1; top: -20%; right: -20%; background: var(--rp-accent); }
   .ryztor-pillars__orb--two { width: 76%; aspect-ratio: 1; bottom: -43%; left: -24%; background: var(--rp-purple); opacity: .95; }
-  .ryztor-pillars__product { position: absolute; bottom: 7%; display: grid; grid-template-rows: 1fr auto; place-items: end center; padding: 22px 10px 14px; border: 1px solid rgb(18 18 18 / 16%); border-radius: 24px; background: rgb(255 255 255 / 76%); box-shadow: 0 18px 36px rgb(18 18 18 / 14%); backdrop-filter: blur(10px); transition: transform 240ms ease, box-shadow 240ms ease; }
-  .ryztor-pillars__product img { width: 100%; height: 100%; min-height: 0; display: block; object-fit: contain; filter: drop-shadow(0 15px 11px rgb(18 18 18 / 18%)); }
-  .ryztor-pillars__product-label { width: calc(100% - 8px); min-height: 54px; display: grid; grid-template-columns: 30px 1fr; align-items: center; gap: 8px; padding: 7px 9px; border-radius: 14px; background: #121212; color: white; }
-  .ryztor-pillars__product-label span { width: 28px; height: 28px; display: grid; place-items: center; border-radius: 50%; background: var(--rp-accent); color: #121212; font-size: .58rem; font-weight: 900; }
-  .ryztor-pillars__product-label strong { font-size: clamp(.58rem, .72vw, .72rem); line-height: 1.15; letter-spacing: .04em; text-transform: uppercase; }
-  .ryztor-pillars__product--berberine { z-index: 3; left: 4%; width: 31%; height: 64%; }
-  .ryztor-pillars__product--magnesium { z-index: 2; left: 34.5%; width: 31%; height: 72%; bottom: 14%; }
-  .ryztor-pillars__product--creatine { z-index: 4; right: 4%; width: 31%; height: 64%; }
-  .ryztor-pillars__product:hover { z-index: 5; transform: translateY(-8px); box-shadow: 0 26px 48px rgb(18 18 18 / 22%); }
+  .ryztor-pillars__product { position: absolute; inset: 5% 5% 4%; display: grid; grid-template-rows: 1fr auto; place-items: center; opacity: 0; animation: ryztor-pillar-product 12s infinite both; }
+  .ryztor-pillars__product::before { content: ''; position: absolute; z-index: -1; left: 50%; bottom: 10%; width: min(72%, 390px); height: 15%; border-radius: 50%; background: rgb(18 18 18 / 15%); filter: blur(15px); transform: translateX(-50%); }
+  .ryztor-pillars__product img { width: auto; max-width: 74%; height: 82%; min-height: 0; display: block; object-fit: contain; filter: drop-shadow(0 24px 16px rgb(18 18 18 / 23%)); }
+  .ryztor-pillars__product-label { position: absolute; top: 3%; left: 2%; display: flex; align-items: center; gap: 12px; color: #121212; }
+  .ryztor-pillars__product-label span { width: 54px; height: 54px; display: grid; place-items: center; border: 1px solid #121212; border-radius: 50%; background: var(--rp-accent); font-size: .78rem; font-weight: 900; }
+  .ryztor-pillars__product-label strong { max-width: 14ch; font-size: clamp(.72rem, .9vw, .88rem); line-height: 1.15; letter-spacing: .07em; text-transform: uppercase; }
+  .ryztor-pillars__product--berberine { animation-delay: 0s; }
+  .ryztor-pillars__product--magnesium { animation-delay: 4s; }
+  .ryztor-pillars__product--creatine { animation-delay: 8s; }
+  .ryztor-pillars__product--magnesium img { height: 86%; }
+  .ryztor-pillars__product--creatine img { max-width: 86%; height: 76%; }
+  .ryztor-pillars__product-stage:hover .ryztor-pillars__product { animation-play-state: paused; }
+  @keyframes ryztor-pillar-product { 0% { opacity: 0; transform: translateX(36px) scale(.97); } 5%, 28% { opacity: 1; transform: translateX(0) scale(1); } 33%, 100% { opacity: 0; transform: translateX(-36px) scale(.97); } }
   .ryztor-pillars__eyebrow { width: fit-content; margin: 0 0 18px; padding: 8px 13px; border: 1px solid currentColor; border-radius: 999px; font-size: .72rem; font-weight: 800; letter-spacing: .12em; }
   .ryztor-pillars__content > h2 { max-width: 10ch; margin: 0; color: inherit; font-size: clamp(3rem, 6vw, 6rem); line-height: .92; letter-spacing: -.055em; text-transform: uppercase; }
   .ryztor-pillars__content > h2 em { color: var(--rp-purple); font-style: italic; font-weight: inherit; }
@@ -84,8 +88,8 @@
   .ryztor-pillars__item p { margin: 7px 0 0; color: rgb(18 18 18 / 72%); font-size: .9rem; line-height: 1.5; }
   .ryztor-pillars__note { margin: 22px 0 0; font-size: .72rem; line-height: 1.5; opacity: .72; }
   @media screen and (max-width: 899px) { .ryztor-pillars__inner { grid-template-columns: 1fr; } .ryztor-pillars__visual { min-height: 480px; order: 2; } .ryztor-pillars__content { order: 1; } }
-  @media screen and (max-width: 749px) { .ryztor-pillars__inner { width: min(100% - 24px, 1280px); gap: 38px; } .ryztor-pillars__content > h2 { font-size: clamp(3rem, 15vw, 4.6rem); } .ryztor-pillars__visual { min-height: 430px; border-radius: 22px; box-shadow: -8px 8px 0 var(--rp-accent); } .ryztor-pillars__product { bottom: 7%; width: 31%; height: 66%; padding: 12px 5px 7px; border-radius: 15px; } .ryztor-pillars__product--berberine { left: 3%; } .ryztor-pillars__product--magnesium { left: 34.5%; height: 73%; bottom: 13%; } .ryztor-pillars__product--creatine { right: 3%; } .ryztor-pillars__product-label { min-height: 38px; grid-template-columns: 21px 1fr; gap: 4px; padding: 4px; border-radius: 9px; } .ryztor-pillars__product-label span { width: 20px; height: 20px; font-size: .48rem; } .ryztor-pillars__product-label strong { font-size: clamp(.44rem, 2vw, .58rem); } .ryztor-pillars__item { grid-template-columns: 42px 1fr; padding: 17px; } }
-  @media (prefers-reduced-motion: reduce) { .ryztor-pillars__product { transition: none; } }
+  @media screen and (max-width: 749px) { .ryztor-pillars__inner { width: min(100% - 24px, 1280px); gap: 38px; } .ryztor-pillars__content > h2 { font-size: clamp(3rem, 15vw, 4.6rem); } .ryztor-pillars__visual { min-height: 430px; border-radius: 22px; box-shadow: -8px 8px 0 var(--rp-accent); } .ryztor-pillars__product { inset: 4% 3% 3%; } .ryztor-pillars__product img { max-width: 76%; height: 80%; } .ryztor-pillars__product--magnesium img { height: 84%; } .ryztor-pillars__product--creatine img { max-width: 90%; height: 73%; } .ryztor-pillars__product-label { top: 3%; left: 3%; gap: 8px; } .ryztor-pillars__product-label span { width: 42px; height: 42px; font-size: .68rem; } .ryztor-pillars__product-label strong { font-size: .66rem; } .ryztor-pillars__item { grid-template-columns: 42px 1fr; padding: 17px; } }
+  @media (prefers-reduced-motion: reduce) { .ryztor-pillars__product { animation: none; } .ryztor-pillars__product--berberine { opacity: 1; transform: none; } }
 {% endstylesheet %}
 
 {% schema %}

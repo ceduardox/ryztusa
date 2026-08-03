@@ -376,12 +376,12 @@
       "trust": { "label": "RYZTOR highlights", "message_1": "THREE FORMULAS. ZERO CONFUSION.", "message_2": "MORNINGS. TRAINING. NIGHTS.", "message_3": "BUILD YOUR BETTER ROUTINE." },
       "products": { "heading": "Shop RYZTOR", "view_all": "View all products", "add_to_cart": "ADD TO CART" },
       "comparison": {
-        "eyebrow": "WHY RYZTOR", "heading_html": "RYZTOR <em>VS</em> OTHER BRANDS", "description": "Three focused formulas. One clear product range. Choose the supplement that best fits your everyday routine.", "feature": "Feature", "ours": "RYZTOR", "others": "OTHER BRANDS", "disclaimer": "Product benefits depend on the specific formula and individual use. Always follow label directions.", "button": "EXPLORE THE FORMULAS",
-        "row_1_feature": "Berberine for a metabolic wellness routine", "row_1_ours": "Focused option", "row_1_others": "Varies",
-        "row_2_feature": "Magnesium Glycinate for a relaxation routine", "row_2_ours": "Focused option", "row_2_others": "Varies",
-        "row_3_feature": "Creatine for a training and performance routine", "row_3_ours": "Focused option", "row_3_others": "Varies",
-        "row_4_feature": "Clear product information", "row_4_ours": "Easy to review", "row_4_others": "Varies",
-        "row_5_feature": "Three focused essentials in one range", "row_5_ours": "Simple choice", "row_5_others": "Varies"
+        "eyebrow": "WHY RYZTOR", "heading_html": "RYZTOR <em>VS</em> COMMON ALTERNATIVES", "description": "Three focused formulas. One clear product range. See what makes each RYZTOR formula easier to understand and use.", "feature": "Feature", "ours": "RYZTOR", "others": "COMMON ALTERNATIVES", "disclaimer": "Product configurations vary by brand. Always compare ingredient lists, labels, and directions for use.", "button": "EXPLORE THE FORMULAS",
+        "row_1_feature": "Berberine formula", "row_1_ours": "Focused Berberine formula", "row_1_others": "Multi-ingredient blends",
+        "row_2_feature": "Magnesium form", "row_2_ours": "Clearly identified Glycinate", "row_2_others": "Mixed magnesium forms",
+        "row_3_feature": "Creatine formula", "row_3_ours": "Pure Creatine Monohydrate", "row_3_others": "Flavored formulas with extras",
+        "row_4_feature": "Usage information", "row_4_ours": "Clear dosage and directions", "row_4_others": "Generic usage information",
+        "row_5_feature": "Product range", "row_5_ours": "One product per routine", "row_5_others": "Overwhelming product ranges"
       },
       "pillars": {
         "eyebrow": "WHY RYZTOR", "heading_html": "THREE FORMULAS. ONE <em>BETTER</em> ROUTINE.", "description": "RYZTOR is for people who want clear choices and supplements that fit real life. Pick one focused formula or build a routine around your goals.", "note": "Always review the product label and follow its directions for use.",

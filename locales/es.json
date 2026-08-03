@@ -364,12 +364,12 @@
       "trust": { "label": "Características de RYZTOR", "message_1": "TRES FÓRMULAS. CERO CONFUSIÓN.", "message_2": "MAÑANAS. ENTRENAMIENTO. NOCHES.", "message_3": "CONSTRUYE UNA RUTINA MEJOR." },
       "products": { "heading": "Compra RYZTOR", "view_all": "Ver todos los productos", "add_to_cart": "AGREGAR AL CARRITO" },
       "comparison": {
-        "eyebrow": "POR QUÉ RYZTOR", "heading_html": "RYZTOR <em>VS.</em> OTRAS MARCAS", "description": "Tres fórmulas específicas. Una gama de productos clara. Elige el suplemento que mejor se adapte a tu rutina diaria.", "feature": "Característica", "ours": "RYZTOR", "others": "OTRAS MARCAS", "disclaimer": "Los beneficios dependen de la fórmula específica y del uso individual. Sigue siempre las indicaciones de la etiqueta.", "button": "EXPLORAR LAS FÓRMULAS",
-        "row_1_feature": "Berberina para una rutina de bienestar metabólico", "row_1_ours": "Opción específica", "row_1_others": "Varía",
-        "row_2_feature": "Glicinato de magnesio para una rutina de relajación", "row_2_ours": "Opción específica", "row_2_others": "Varía",
-        "row_3_feature": "Creatina para una rutina de entrenamiento y rendimiento", "row_3_ours": "Opción específica", "row_3_others": "Varía",
-        "row_4_feature": "Información clara del producto", "row_4_ours": "Fácil de revisar", "row_4_others": "Varía",
-        "row_5_feature": "Tres suplementos específicos en una sola gama", "row_5_ours": "Elección sencilla", "row_5_others": "Varía"
+        "eyebrow": "POR QUÉ RYZTOR", "heading_html": "RYZTOR <em>VS.</em> ALTERNATIVAS COMUNES", "description": "Tres fórmulas específicas. Una gama de productos clara. Descubre qué hace que cada fórmula RYZTOR sea más fácil de entender y usar.", "feature": "Característica", "ours": "RYZTOR", "others": "ALTERNATIVAS COMUNES", "disclaimer": "La composición de los productos varía según la marca. Compara siempre ingredientes, etiquetas e indicaciones de uso.", "button": "EXPLORAR LAS FÓRMULAS",
+        "row_1_feature": "Fórmula de berberina", "row_1_ours": "Fórmula específica de berberina", "row_1_others": "Mezclas de varios ingredientes",
+        "row_2_feature": "Forma de magnesio", "row_2_ours": "Glicinato claramente identificado", "row_2_others": "Mezclas de formas de magnesio",
+        "row_3_feature": "Fórmula de creatina", "row_3_ours": "Creatina monohidratada pura", "row_3_others": "Fórmulas saborizadas con extras",
+        "row_4_feature": "Información de uso", "row_4_ours": "Dosis e indicaciones claras", "row_4_others": "Información de uso genérica",
+        "row_5_feature": "Gama de productos", "row_5_ours": "Un producto para cada rutina", "row_5_others": "Catálogos difíciles de comparar"
       },
       "pillars": {
         "eyebrow": "POR QUÉ RYZTOR", "heading_html": "TRES FÓRMULAS. UNA RUTINA <em>MEJOR</em>.", "description": "RYZTOR es para quienes buscan opciones claras y suplementos que se integren en la vida real. Elige una fórmula específica o crea una rutina según tus objetivos.", "note": "Revisa siempre la etiqueta del producto y sigue sus indicaciones de uso.",

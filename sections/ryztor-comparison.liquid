@@ -209,10 +209,15 @@
     .ryztor-comparison__header > p { margin-inline: 0; }
     .ryztor-comparison__header .rte { margin-inline: 0; }
     .ryztor-comparison__table { border-radius: 18px; box-shadow: 7px 8px 0 var(--comparison-accent); }
-    .ryztor-comparison__row { grid-template-columns: minmax(0, 1.25fr) minmax(88px, 0.72fr) minmax(72px, 0.58fr); }
-    .ryztor-comparison__row > div { min-height: 72px; padding: 12px 10px; font-size: 0.74rem; }
-    .ryztor-comparison__row--head > div { min-height: 58px; padding-inline: 6px; font-size: 0.58rem; text-align: center; }
+    .ryztor-comparison__row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .ryztor-comparison__row > div { min-height: 66px; padding: 12px 10px; font-size: 0.74rem; }
+    .ryztor-comparison__row--head > div:first-child { display: none; }
+    .ryztor-comparison__row--head > div { min-height: 58px; padding-inline: 8px; font-size: 0.56rem; line-height: 1.2; text-align: center; }
+    .ryztor-comparison__row--head > div + div { border-left: 0; }
+    .ryztor-comparison__row--head > div:last-child { border-left: 1px solid rgb(255 255 255 / 24%); }
     .ryztor-comparison__brand { font-size: 0.72rem !important; }
+    .ryztor-comparison__feature { grid-column: 1 / -1; min-height: 48px !important; justify-content: center; border-bottom: 1px solid rgb(18 18 18 / 18%); background: rgb(18 18 18 / 5%); text-align: center; }
+    .ryztor-comparison__feature + div { border-left: 0; }
     .ryztor-comparison__ours { display: grid !important; place-content: center; gap: 5px; text-align: center; }
     .ryztor-comparison__others { justify-content: center; text-align: center; }
     .ryztor-comparison__check { width: 22px; height: 22px; margin-inline: auto; }

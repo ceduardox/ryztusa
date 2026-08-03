@@ -241,12 +241,14 @@
     pointer-events: none;
     filter: drop-shadow(0 30px 24px rgb(28 16 46 / 28%));
     transform-origin: center bottom;
-    animation: ryztor-product-float 4.8s ease-in-out infinite;
+    animation: ryztor-product-float 6.5s ease-in-out infinite;
   }
 
+  .ryztor-hero__visual:hover .ryztor-hero__product { animation-play-state: paused; }
+
   @keyframes ryztor-product-float {
-    0%, 100% { transform: translateY(0) rotate(-5deg); }
-    50% { transform: translateY(-14px) rotate(-2deg); }
+    0%, 100% { transform: translateY(0) rotate(-4deg); }
+    50% { transform: translateY(-7px) rotate(-4deg); }
   }
 
   .ryztor-hero__mark {

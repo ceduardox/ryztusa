@@ -115,6 +115,30 @@
           </div>
           <p class="ryztor-berberine__video-label">{{ 'ryztor.magnesium.story.video_2' | t }}</p>
         </div>
+        <div class="ryztor-berberine__video-card">
+          <div class="ryztor-berberine__video-player" data-video="MAGNESIUM-SPANISH-3">
+            <img src="{{ 'MAGNESIUM-SPANISH-3-poster.jpg' | asset_url }}" alt="{{ 'ryztor.magnesium.story.video_3_alt' | t | escape }}" loading="lazy" width="360" height="640">
+            <button class="ryztor-berberine__video-play" aria-label="{{ 'ryztor.magnesium.story.play_video' | t | escape }}">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <video preload="metadata" playsinline controls width="360" height="640" poster="{{ 'MAGNESIUM-SPANISH-3-poster.jpg' | asset_url }}">
+              <source src="{{ 'MAGNESIUM-SPANISH-3.webm' | asset_url }}" type="video/webm">
+            </video>
+          </div>
+          <p class="ryztor-berberine__video-label">{{ 'ryztor.magnesium.story.video_3' | t }}</p>
+        </div>
+        <div class="ryztor-berberine__video-card">
+          <div class="ryztor-berberine__video-player" data-video="MAGNESIUM-SPANISH-4">
+            <img src="{{ 'MAGNESIUM-SPANISH-4-poster.jpg' | asset_url }}" alt="{{ 'ryztor.magnesium.story.video_4_alt' | t | escape }}" loading="lazy" width="360" height="640">
+            <button class="ryztor-berberine__video-play" aria-label="{{ 'ryztor.magnesium.story.play_video' | t | escape }}">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <video preload="metadata" playsinline controls width="360" height="640" poster="{{ 'MAGNESIUM-SPANISH-4-poster.jpg' | asset_url }}">
+              <source src="{{ 'MAGNESIUM-SPANISH-4.webm' | asset_url }}" type="video/webm">
+            </video>
+          </div>
+          <p class="ryztor-berberine__video-label">{{ 'ryztor.magnesium.story.video_4' | t }}</p>
+        </div>
       </div>
     </div>
     {% endif %}

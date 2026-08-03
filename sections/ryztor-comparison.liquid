@@ -7,13 +7,13 @@
       {%- if section.settings.eyebrow != blank -%}
         <p>{{ 'ryztor.home.comparison.eyebrow' | t }}</p>
       {%- endif -%}
-      <h2>{{ 'ryztor.home.comparison.heading' | t }}</h2>
+      <h2>{{ 'ryztor.home.comparison.heading_html' | t }}</h2>
       {%- if section.settings.description != blank -%}
         <div class="rte"><p>{{ 'ryztor.home.comparison.description' | t }}</p></div>
       {%- endif -%}
     </header>
 
-    <div class="ryztor-comparison__table" role="table" aria-label="{{ 'ryztor.home.comparison.heading' | t | strip_html | escape }}">
+    <div class="ryztor-comparison__table" role="table" aria-label="{{ 'ryztor.home.comparison.heading_html' | t | strip_html | escape }}">
       <div class="ryztor-comparison__row ryztor-comparison__row--head" role="row">
         <div role="columnheader"><span class="visually-hidden">{{ 'ryztor.home.comparison.feature' | t }}</span></div>
         <div role="columnheader" class="ryztor-comparison__brand">{{ 'ryztor.home.comparison.ours' | t }}</div>
@@ -86,6 +86,12 @@
     line-height: 0.92;
     letter-spacing: -0.055em;
     text-transform: uppercase;
+  }
+
+  .ryztor-comparison__header h2 em {
+    color: var(--comparison-accent);
+    font-style: italic;
+    font-weight: inherit;
   }
 
   .ryztor-comparison__header .rte {

@@ -364,7 +364,7 @@
       "trust": { "label": "Características de RYZTOR", "message_1": "TRES FÓRMULAS. CERO CONFUSIÓN.", "message_2": "MAÑANAS. ENTRENAMIENTO. NOCHES.", "message_3": "CONSTRUYE UNA RUTINA MEJOR." },
       "products": { "heading": "Compra RYZTOR", "view_all": "Ver todos los productos", "add_to_cart": "AGREGAR AL CARRITO" },
       "comparison": {
-        "eyebrow": "POR QUÉ RYZTOR", "heading": "RYZTOR <em>VS.</em> OTRAS MARCAS", "description": "Tres fórmulas específicas. Una gama de productos clara. Elige el suplemento que mejor se adapte a tu rutina diaria.", "feature": "Característica", "ours": "RYZTOR", "others": "OTRAS MARCAS", "disclaimer": "Los beneficios dependen de la fórmula específica y del uso individual. Sigue siempre las indicaciones de la etiqueta.", "button": "EXPLORAR LAS FÓRMULAS",
+        "eyebrow": "POR QUÉ RYZTOR", "heading_html": "RYZTOR <em>VS.</em> OTRAS MARCAS", "description": "Tres fórmulas específicas. Una gama de productos clara. Elige el suplemento que mejor se adapte a tu rutina diaria.", "feature": "Característica", "ours": "RYZTOR", "others": "OTRAS MARCAS", "disclaimer": "Los beneficios dependen de la fórmula específica y del uso individual. Sigue siempre las indicaciones de la etiqueta.", "button": "EXPLORAR LAS FÓRMULAS",
         "row_1_feature": "Berberina para una rutina de bienestar metabólico", "row_1_ours": "Opción específica", "row_1_others": "Varía",
         "row_2_feature": "Glicinato de magnesio para una rutina de relajación", "row_2_ours": "Opción específica", "row_2_others": "Varía",
         "row_3_feature": "Creatina para una rutina de entrenamiento y rendimiento", "row_3_ours": "Opción específica", "row_3_others": "Varía",

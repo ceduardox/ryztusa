@@ -8,58 +8,58 @@
   <div class="ryztor-media-description ryztor-media-description--{{ placement }}">
     {% unless content == 'questions' %}
       <div class="ryztor-media-description__group">
-        <p class="ryztor-media-description__eyebrow">PRODUCT INFORMATION</p>
+        <p class="ryztor-media-description__eyebrow">{{ 'ryztor.creatine.details.eyebrow' | t }}</p>
 
         <details name="ryztor-product-{{ placement }}">
-          <summary>Description <span aria-hidden="true">+</span></summary>
+          <summary>{{ 'ryztor.creatine.details.description_title' | t }} <span aria-hidden="true">+</span></summary>
           <div class="ryztor-media-description__answer">
-            <p>RYZTOR Creatine Monohydrate is an unflavored powder designed to support exercise performance, strength-focused training, and muscle protein synthesis as part of a consistent fitness routine.*</p>
-            <p>Creatine is naturally produced in small amounts by the body and transported to skeletal muscle. Supplementation provides the larger quantity commonly used in exercise-performance research.*</p>
+            <p>{{ 'ryztor.creatine.details.description_1' | t }}</p>
+            <p>{{ 'ryztor.creatine.details.description_2' | t }}</p>
             <ul>
-              <li>Pure creatine monohydrate</li>
-              <li>Unflavored powder</li>
-              <li>250 g per container</li>
-              <li>Manufactured in the USA</li>
+              <li>{{ 'ryztor.creatine.details.benefit_1' | t }}</li>
+              <li>{{ 'ryztor.creatine.details.benefit_2' | t }}</li>
+              <li>{{ 'ryztor.creatine.details.benefit_3' | t }}</li>
+              <li>{{ 'ryztor.creatine.details.benefit_4' | t }}</li>
             </ul>
           </div>
         </details>
 
         <details name="ryztor-product-{{ placement }}">
-          <summary>Ingredients <span aria-hidden="true">+</span></summary>
-          <div class="ryztor-media-description__answer"><p>Creatine Monohydrate.</p></div>
+          <summary>{{ 'ryztor.creatine.details.ingredients_title' | t }} <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer"><p>{{ 'ryztor.creatine.details.ingredients' | t }}</p></div>
         </details>
 
         <details name="ryztor-product-{{ placement }}">
-          <summary>Directions <span aria-hidden="true">+</span></summary>
+          <summary>{{ 'ryztor.creatine.details.directions_title' | t }} <span aria-hidden="true">+</span></summary>
           <div class="ryztor-media-description__answer">
-            <p>Adults take one scoop in 8 oz of water or juice four times daily during the first five days. After the loading phase, take one scoop one or two times daily, or as directed by a healthcare professional.</p>
+            <p>{{ 'ryztor.creatine.details.directions' | t }}</p>
           </div>
         </details>
 
         <details name="ryztor-product-{{ placement }}">
-          <summary>Warning <span aria-hidden="true">+</span></summary>
+          <summary>{{ 'ryztor.creatine.details.warning_title' | t }} <span aria-hidden="true">+</span></summary>
           <div class="ryztor-media-description__answer">
-            <p>Keep out of reach of children. Do not use if the safety seal is damaged or missing. Store in a cool, dry place away from direct light.</p>
+            <p>{{ 'ryztor.creatine.details.warning' | t }}</p>
           </div>
         </details>
 
         <details name="ryztor-product-{{ placement }}">
-          <summary>Product details <span aria-hidden="true">+</span></summary>
+          <summary>{{ 'ryztor.creatine.details.product_details' | t }} <span aria-hidden="true">+</span></summary>
           <div class="ryztor-media-description__answer">
             <dl class="ryztor-media-description__facts">
-              <div><dt>Formula</dt><dd>Creatine Monohydrate</dd></div>
-              <div><dt>Flavor</dt><dd>Unflavored</dd></div>
-              <div><dt>Product amount</dt><dd>250 g / 0.55 lb</dd></div>
-              <div><dt>Gross weight</dt><dd>308 g / 10.9 oz</dd></div>
-              <div><dt>Manufactured</dt><dd>USA</dd></div>
+              <div><dt>{{ 'ryztor.creatine.details.formula' | t }}</dt><dd>{{ 'ryztor.creatine.details.formula_value' | t }}</dd></div>
+              <div><dt>{{ 'ryztor.creatine.details.flavor' | t }}</dt><dd>{{ 'ryztor.creatine.details.flavor_value' | t }}</dd></div>
+              <div><dt>{{ 'ryztor.creatine.details.amount' | t }}</dt><dd>250 g / 0.55 lb</dd></div>
+              <div><dt>{{ 'ryztor.creatine.details.gross_weight' | t }}</dt><dd>308 g / 10.9 oz</dd></div>
+              <div><dt>{{ 'ryztor.creatine.details.manufactured' | t }}</dt><dd>USA</dd></div>
             </dl>
           </div>
         </details>
 
         <details name="ryztor-product-{{ placement }}">
-          <summary>Dietary preferences <span aria-hidden="true">+</span></summary>
+          <summary>{{ 'ryztor.creatine.details.dietary_preferences' | t }} <span aria-hidden="true">+</span></summary>
           <div class="ryztor-media-description__answer">
-            <div class="ryztor-media-description__pills"><span>Unflavored</span><span>Single ingredient</span></div>
+            <div class="ryztor-media-description__pills"><span>{{ 'ryztor.creatine.details.flavor_value' | t }}</span><span>{{ 'ryztor.creatine.details.single_ingredient' | t }}</span></div>
           </div>
         </details>
       </div>
@@ -68,24 +68,24 @@
     {% unless content == 'product' %}
       <div class="ryztor-media-description__group ryztor-media-description__group--questions">
         <details name="ryztor-questions-{{ placement }}">
-          <summary>Who is it for? <span aria-hidden="true">+</span></summary>
-          <div class="ryztor-media-description__answer"><p>Adults building a consistent strength, performance, or training routine who want a straightforward creatine monohydrate formula.</p></div>
+          <summary>{{ 'ryztor.creatine.questions.for_title' | t }} <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer"><p>{{ 'ryztor.creatine.questions.for_text' | t }}</p></div>
         </details>
         <details name="ryztor-questions-{{ placement }}">
-          <summary>How do I use it? <span aria-hidden="true">+</span></summary>
-          <div class="ryztor-media-description__answer"><p>Mix the amount directed on the label with water or juice. Follow the loading and maintenance directions on the product label.</p></div>
+          <summary>{{ 'ryztor.creatine.questions.use_title' | t }} <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer"><p>{{ 'ryztor.creatine.questions.use_text' | t }}</p></div>
         </details>
         <details name="ryztor-questions-{{ placement }}">
-          <summary>Is it flavored? <span aria-hidden="true">+</span></summary>
-          <div class="ryztor-media-description__answer"><p>No. The product is unflavored so it can be mixed into water, juice, or your preferred routine.</p></div>
+          <summary>{{ 'ryztor.creatine.questions.flavor_title' | t }} <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer"><p>{{ 'ryztor.creatine.questions.flavor_text' | t }}</p></div>
         </details>
         <details name="ryztor-questions-{{ placement }}">
-          <summary>Shipping &amp; returns <span aria-hidden="true">+</span></summary>
+          <summary>{{ 'ryztor.creatine.questions.shipping_title' | t }} <span aria-hidden="true">+</span></summary>
           <div class="ryztor-media-description__answer">
-            <p>Available shipping methods, estimated delivery times, and final costs are shown during checkout.</p>
+            <p>{{ 'ryztor.creatine.questions.shipping_text' | t }}</p>
             <div class="ryztor-media-description__links">
-              {% if shop.shipping_policy != blank %}<a href="{{ shop.shipping_policy.url }}">Read shipping policy</a>{% endif %}
-              {% if shop.refund_policy != blank %}<a href="{{ shop.refund_policy.url }}">Read refund policy</a>{% endif %}
+              {% if shop.shipping_policy != blank %}<a href="{{ shop.shipping_policy.url }}">{{ 'ryztor.creatine.questions.shipping_link' | t }}</a>{% endif %}
+              {% if shop.refund_policy != blank %}<a href="{{ shop.refund_policy.url }}">{{ 'ryztor.creatine.questions.refund_link' | t }}</a>{% endif %}
             </div>
           </div>
         </details>
@@ -93,7 +93,7 @@
     {% endunless %}
 
     {% unless content == 'questions' %}
-      <p class="ryztor-media-description__disclaimer">*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+      <p class="ryztor-media-description__disclaimer">{{ 'ryztor.creatine.disclaimer' | t }}</p>
     {% endunless %}
   </div>
 {% endif %}

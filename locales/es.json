@@ -723,6 +723,47 @@
       },
       "disclaimer": "*Estas declaraciones no han sido evaluadas por la Administración de Alimentos y Medicamentos de Estados Unidos. Este producto no está destinado a diagnosticar, tratar, curar ni prevenir ninguna enfermedad."
     },
+    "creatine": {
+      "details": {
+        "eyebrow": "INFORMACIÓN DEL PRODUCTO",
+        "description_title": "Descripción",
+        "description_1": "RYZTOR Creatine Monohydrate es un polvo sin sabor diseñado para apoyar el rendimiento durante el ejercicio, el entrenamiento enfocado en fuerza y la síntesis de proteína muscular como parte de una rutina constante de actividad física.*",
+        "description_2": "El cuerpo produce creatina naturalmente en pequeñas cantidades y la transporta al músculo esquelético. La suplementación aporta la cantidad mayor utilizada habitualmente en investigaciones sobre rendimiento físico.*",
+        "benefit_1": "Monohidrato de creatina puro",
+        "benefit_2": "Polvo sin sabor",
+        "benefit_3": "250 g por envase",
+        "benefit_4": "Fabricado en Estados Unidos",
+        "ingredients_title": "Ingredientes",
+        "ingredients": "Monohidrato de creatina.",
+        "directions_title": "Modo de uso",
+        "directions": "Los adultos deben tomar una medida en 8 oz de agua o jugo cuatro veces al día durante los primeros cinco días. Después de la fase de carga, toma una medida una o dos veces al día o según las indicaciones de un profesional de salud.",
+        "warning_title": "Advertencia",
+        "warning": "Mantén el producto fuera del alcance de los niños. No lo utilices si el sello de seguridad está dañado o ausente. Guárdalo en un lugar fresco y seco, protegido de la luz directa.",
+        "product_details": "Detalles del producto",
+        "formula": "Fórmula",
+        "formula_value": "Monohidrato de creatina",
+        "flavor": "Sabor",
+        "flavor_value": "Sin sabor",
+        "amount": "Cantidad del producto",
+        "gross_weight": "Peso bruto",
+        "manufactured": "Fabricado",
+        "dietary_preferences": "Preferencias alimentarias",
+        "single_ingredient": "Un solo ingrediente"
+      },
+      "questions": {
+        "for_title": "¿Para quién es?",
+        "for_text": "Para adultos que mantienen una rutina constante de fuerza, rendimiento o entrenamiento y buscan una fórmula sencilla de monohidrato de creatina.",
+        "use_title": "¿Cómo debo utilizarla?",
+        "use_text": "Mezcla la cantidad indicada en la etiqueta con agua o jugo. Sigue las instrucciones de carga y mantenimiento de la etiqueta del producto.",
+        "flavor_title": "¿Tiene sabor?",
+        "flavor_text": "No. El producto no tiene sabor, por lo que puede mezclarse con agua, jugo o integrarse en tu rutina preferida.",
+        "shipping_title": "Envíos y devoluciones",
+        "shipping_text": "Los métodos de envío disponibles, los tiempos estimados de entrega y los costos finales se muestran durante el pago.",
+        "shipping_link": "Ver política de envío",
+        "refund_link": "Ver política de reembolso"
+      },
+      "disclaimer": "*Estas declaraciones no han sido evaluadas por la Administración de Alimentos y Medicamentos de Estados Unidos. Este producto no está destinado a diagnosticar, tratar, curar ni prevenir ninguna enfermedad."
+    },
     "bundle": {
       "heading": "Combina y ahorra",
       "subheading": "Selecciona la opción que mejor se adapte a ti",

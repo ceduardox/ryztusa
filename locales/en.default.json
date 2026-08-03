@@ -735,6 +735,47 @@
       },
       "disclaimer": "*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease."
     },
+    "creatine": {
+      "details": {
+        "eyebrow": "PRODUCT INFORMATION",
+        "description_title": "Description",
+        "description_1": "RYZTOR Creatine Monohydrate is an unflavored powder designed to support exercise performance, strength-focused training, and muscle protein synthesis as part of a consistent fitness routine.*",
+        "description_2": "Creatine is naturally produced in small amounts by the body and transported to skeletal muscle. Supplementation provides the larger quantity commonly used in exercise-performance research.*",
+        "benefit_1": "Pure creatine monohydrate",
+        "benefit_2": "Unflavored powder",
+        "benefit_3": "250 g per container",
+        "benefit_4": "Manufactured in the USA",
+        "ingredients_title": "Ingredients",
+        "ingredients": "Creatine Monohydrate.",
+        "directions_title": "Directions",
+        "directions": "Adults take one scoop in 8 oz of water or juice four times daily during the first five days. After the loading phase, take one scoop one or two times daily, or as directed by a healthcare professional.",
+        "warning_title": "Warning",
+        "warning": "Keep out of reach of children. Do not use if the safety seal is damaged or missing. Store in a cool, dry place away from direct light.",
+        "product_details": "Product details",
+        "formula": "Formula",
+        "formula_value": "Creatine Monohydrate",
+        "flavor": "Flavor",
+        "flavor_value": "Unflavored",
+        "amount": "Product amount",
+        "gross_weight": "Gross weight",
+        "manufactured": "Manufactured",
+        "dietary_preferences": "Dietary preferences",
+        "single_ingredient": "Single ingredient"
+      },
+      "questions": {
+        "for_title": "Who is it for?",
+        "for_text": "Adults building a consistent strength, performance, or training routine who want a straightforward creatine monohydrate formula.",
+        "use_title": "How do I use it?",
+        "use_text": "Mix the amount directed on the label with water or juice. Follow the loading and maintenance directions on the product label.",
+        "flavor_title": "Is it flavored?",
+        "flavor_text": "No. The product is unflavored so it can be mixed into water, juice, or your preferred routine.",
+        "shipping_title": "Shipping & returns",
+        "shipping_text": "Available shipping methods, estimated delivery times, and final costs are shown during checkout.",
+        "shipping_link": "Read shipping policy",
+        "refund_link": "Read refund policy"
+      },
+      "disclaimer": "*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease."
+    },
     "bundle": {
       "heading": "Bundle & save",
       "subheading": "Select the routine that fits you",

@@ -2,14 +2,14 @@
   class="ryztor-trust-bar"
   style="--trust-bg: {{ section.settings.background }}; --trust-color: {{ section.settings.text_color }}; --trust-speed: {{ section.settings.speed }}s;"
   role="region"
-  aria-label="{{ section.settings.accessibility_label | escape }}"
+  aria-label="{{ 'ryztor.home.trust.label' | t | escape }}"
 >
   <div class="ryztor-trust-bar__track">
     {%- for copy in (1..2) -%}
       <div class="ryztor-trust-bar__group"{% if copy == 2 %} aria-hidden="true"{% endif %}>
-        <span>{{ section.settings.message_1 | escape }}</span><i aria-hidden="true"></i>
-        <span>{{ section.settings.message_2 | escape }}</span><i aria-hidden="true"></i>
-        <span>{{ section.settings.message_3 | escape }}</span><i aria-hidden="true"></i>
+        <span>{{ 'ryztor.home.trust.message_1' | t }}</span><i aria-hidden="true"></i>
+        <span>{{ 'ryztor.home.trust.message_2' | t }}</span><i aria-hidden="true"></i>
+        <span>{{ 'ryztor.home.trust.message_3' | t }}</span><i aria-hidden="true"></i>
       </div>
     {%- endfor -%}
   </div>

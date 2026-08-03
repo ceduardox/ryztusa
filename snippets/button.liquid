@@ -9,6 +9,10 @@
 {%- enddoc -%}
 
 {% assign block_settings = block.settings %}
+{% assign rendered_button_label = block_settings.label %}
+{% if block_settings.label == 'View all products' %}
+  {% assign rendered_button_label = 'ryztor.home.products.view_all' | t %}
+{% endif %}
 {% render 'button-custom-styles', block_settings: block_settings, block_id: block.id %}
 
 <a
@@ -30,5 +34,5 @@
   {%- endif -%}
   {{ block.shopify_attributes }}
 >
-  {{ block_settings.label }}
+  {{ rendered_button_label }}
 </a>

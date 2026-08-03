@@ -31,6 +31,10 @@
       echo '<h3>'
       echo 'ryztor.reviews.recommended' | t | escape
       echo '</h3>'
+    elsif visible_text == 'Shop RYZTOR'
+      echo '<h2>'
+      echo 'ryztor.home.products.heading' | t | escape
+      echo '</h2>'
     else
       echo block.settings.text
     endif

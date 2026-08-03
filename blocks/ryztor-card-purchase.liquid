@@ -2,7 +2,7 @@
   assign product = closest.product
   assign variant = product.selected_or_first_available_variant
   assign can_add_to_cart = false
-  assign button_text = block.settings.button_label
+  assign button_text = 'ryztor.home.products.add_to_cart' | t
 
   if variant != blank and variant.available
     assign can_add_to_cart = true

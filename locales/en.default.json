@@ -373,6 +373,8 @@
   "ryztor": {
     "home": {
       "hero": { "eyebrow": "EVERYDAY WELLNESS, MADE SIMPLE", "heading": "BUILD YOUR <em>BETTER</em> ROUTINE.", "description": "Thoughtfully selected supplements designed to fit your everyday rhythm—from focused mornings to restful nights.", "primary": "SHOP SUPPLEMENTS", "secondary": "EXPLORE THE ROUTINE", "proof_1": "Focused formulas", "proof_2": "Clear directions", "proof_3": "Made for real routines", "brand_note": "WELLNESS / MADE SIMPLE" },
+      "trust": { "label": "RYZTOR highlights", "message_1": "THREE FORMULAS. ZERO CONFUSION.", "message_2": "MORNINGS. TRAINING. NIGHTS.", "message_3": "BUILD YOUR BETTER ROUTINE." },
+      "products": { "heading": "Shop RYZTOR", "view_all": "View all products", "add_to_cart": "ADD TO CART" },
       "comparison": {
         "eyebrow": "WHY RYZTOR", "heading": "RYZTOR <em>VS</em> OTHER BRANDS", "description": "Three focused formulas. One clear product range. Choose the supplement that best fits your everyday routine.", "feature": "Feature", "ours": "RYZTOR", "others": "OTHER BRANDS", "disclaimer": "Product benefits depend on the specific formula and individual use. Always follow label directions.", "button": "EXPLORE THE FORMULAS",
         "row_1_feature": "Berberine for a metabolic wellness routine", "row_1_ours": "Focused option", "row_1_others": "Varies",

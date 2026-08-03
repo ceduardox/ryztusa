@@ -59,6 +59,7 @@
       {%- else -%}
         <div class="ryztor-hero__orb ryztor-hero__orb--back"></div>
         <div class="ryztor-hero__orb ryztor-hero__orb--front"></div>
+        <div class="ryztor-hero__brand-card ryztor-hero__brand-card--outline" aria-hidden="true"></div>
         <img
           class="ryztor-hero__product"
           src="{{ 'ryztor-home-berberine.png' | asset_url }}"
@@ -225,12 +226,18 @@
     transform: rotate(7deg);
   }
 
+  .ryztor-hero__brand-card--outline {
+    border: 3px solid var(--hero-secondary);
+    background: transparent;
+    box-shadow: none;
+  }
+
   .ryztor-hero__product {
     position: absolute;
     z-index: 3;
     left: 50%;
     bottom: 0;
-    width: min(78%, 540px);
+    width: min(110%, 740px);
     height: auto;
     display: block;
     pointer-events: none;
@@ -298,7 +305,7 @@
     .ryztor-hero__visual { min-height: 390px; }
     .ryztor-hero__orb { width: min(78vw, 350px); }
     .ryztor-hero__brand-card { width: min(62vw, 280px); }
-    .ryztor-hero__product { left: 50%; bottom: 0; width: min(84vw, 390px); }
+    .ryztor-hero__product { left: 50%; bottom: -4px; width: min(118vw, 540px); }
   }
 
   @media screen and (prefers-reduced-motion: reduce) {

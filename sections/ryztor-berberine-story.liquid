@@ -11,6 +11,26 @@
       assign review_count = review_count | plus: 1
     endif
   endfor
+
+  assign video_promo_1 = 'PROMO1.mp4'
+  assign video_promo_2 = 'PROMO2.mp4'
+  assign video_ugc_1 = 'UGC1.mp4'
+  assign video_ugc_2 = 'UGC2.mp4'
+  assign poster_promo_1 = 'PROMO1-poster.jpg'
+  assign poster_promo_2 = 'PROMO2-poster.jpg'
+  assign poster_ugc_1 = 'UGC1-poster.jpg'
+  assign poster_ugc_2 = 'UGC2-poster.jpg'
+
+  unless request.locale.iso_code == 'es'
+    assign video_promo_1 = 'BERBERINE-EN-PROMO1.mp4'
+    assign video_promo_2 = 'BERBERINE-EN-PROMO2.mp4'
+    assign video_ugc_1 = 'BERBERINE-EN-UGC1.mp4'
+    assign video_ugc_2 = 'BERBERINE-EN-UGC2.mp4'
+    assign poster_promo_1 = 'BERBERINE-EN-PROMO1-poster.jpg'
+    assign poster_promo_2 = 'BERBERINE-EN-PROMO2-poster.jpg'
+    assign poster_ugc_1 = 'BERBERINE-EN-UGC1-poster.jpg'
+    assign poster_ugc_2 = 'BERBERINE-EN-UGC2-poster.jpg'
+  endunless
 %}
 
 {% if is_berberine %}
@@ -92,48 +112,48 @@
       <div class="ryztor-berberine__video-grid">
         <div class="ryztor-berberine__video-card">
           <div class="ryztor-berberine__video-player" data-video="PROMO1">
-            <img src="{{ 'PROMO1-poster.jpg' | asset_url }}" alt="RYZTOR Berberine promo" loading="lazy" width="360" height="640">
+            <img src="{{ poster_promo_1 | asset_url }}" alt="{{ 'ryztor.berberine.story.video_1' | t | escape }}" loading="lazy" width="360" height="640">
             <button class="ryztor-berberine__video-play" aria-label="{{ 'ryztor.berberine.story.play_video' | t | escape }}">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </button>
             <video preload="none" playsinline width="360" height="640">
-              <source src="{{ 'PROMO1.mp4' | asset_url }}" type="video/mp4">
+              <source src="{{ video_promo_1 | asset_url }}" type="video/mp4">
             </video>
           </div>
           <p class="ryztor-berberine__video-label">{{ 'ryztor.berberine.story.video_1' | t }}</p>
         </div>
         <div class="ryztor-berberine__video-card">
           <div class="ryztor-berberine__video-player" data-video="PROMO2">
-            <img src="{{ 'PROMO2-poster.jpg' | asset_url }}" alt="RYZTOR Berberine overview" loading="lazy" width="360" height="640">
+            <img src="{{ poster_promo_2 | asset_url }}" alt="{{ 'ryztor.berberine.story.video_2' | t | escape }}" loading="lazy" width="360" height="640">
             <button class="ryztor-berberine__video-play" aria-label="{{ 'ryztor.berberine.story.play_video' | t | escape }}">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </button>
             <video preload="none" playsinline width="360" height="640">
-              <source src="{{ 'PROMO2.mp4' | asset_url }}" type="video/mp4">
+              <source src="{{ video_promo_2 | asset_url }}" type="video/mp4">
             </video>
           </div>
           <p class="ryztor-berberine__video-label">{{ 'ryztor.berberine.story.video_2' | t }}</p>
         </div>
         <div class="ryztor-berberine__video-card">
           <div class="ryztor-berberine__video-player" data-video="UGC1">
-            <img src="{{ 'UGC1-poster.jpg' | asset_url }}" alt="Customer experience" loading="lazy" width="360" height="640">
+            <img src="{{ poster_ugc_1 | asset_url }}" alt="{{ 'ryztor.berberine.story.video_3' | t | escape }}" loading="lazy" width="360" height="640">
             <button class="ryztor-berberine__video-play" aria-label="{{ 'ryztor.berberine.story.play_video' | t | escape }}">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </button>
             <video preload="none" playsinline width="360" height="640">
-              <source src="{{ 'UGC1.mp4' | asset_url }}" type="video/mp4">
+              <source src="{{ video_ugc_1 | asset_url }}" type="video/mp4">
             </video>
           </div>
           <p class="ryztor-berberine__video-label">{{ 'ryztor.berberine.story.video_3' | t }}</p>
         </div>
         <div class="ryztor-berberine__video-card">
           <div class="ryztor-berberine__video-player" data-video="UGC2">
-            <img src="{{ 'UGC2-poster.jpg' | asset_url }}" alt="Customer review" loading="lazy" width="360" height="640">
+            <img src="{{ poster_ugc_2 | asset_url }}" alt="{{ 'ryztor.berberine.story.video_4' | t | escape }}" loading="lazy" width="360" height="640">
             <button class="ryztor-berberine__video-play" aria-label="{{ 'ryztor.berberine.story.play_video' | t | escape }}">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </button>
             <video preload="none" playsinline width="360" height="640">
-              <source src="{{ 'UGC2.mp4' | asset_url }}" type="video/mp4">
+              <source src="{{ video_ugc_2 | asset_url }}" type="video/mp4">
             </video>
           </div>
           <p class="ryztor-berberine__video-label">{{ 'ryztor.berberine.story.video_4' | t }}</p>

@@ -84,6 +84,7 @@
       </div>
     </div>
 
+    {% if request.locale.iso_code == 'es' %}
     <div class="ryztor-berberine__section ryztor-berberine__video">
       <header class="ryztor-berberine__section-heading">
         <p class="ryztor-berberine__eyebrow">{{ 'ryztor.magnesium.story.video_eyebrow' | t }}</p>
@@ -116,6 +117,7 @@
         </div>
       </div>
     </div>
+    {% endif %}
 
     <div class="ryztor-berberine__section ryztor-berberine__formula">
       <div class="ryztor-berberine__formula-copy">

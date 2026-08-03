@@ -9,28 +9,28 @@
 <section class="ryztor-contact" style="--contact-bg: {{ section.settings.background }}; --contact-accent: {{ section.settings.accent }}; --contact-purple: {{ section.settings.secondary }}; --contact-text: {{ section.settings.text_color }};">
   <div class="ryztor-contact__shell">
     <div class="ryztor-contact__intro">
-      <p class="ryztor-contact__eyebrow">{{ section.settings.eyebrow }}</p>
-      <h1>{{ section.settings.heading }}</h1>
-      <div class="ryztor-contact__description rte">{{ section.settings.description }}</div>
+      <p class="ryztor-contact__eyebrow">{{ 'ryztor.contact.eyebrow' | t }}</p>
+      <h1>{{ 'ryztor.contact.heading' | t }}</h1>
+      <div class="ryztor-contact__description rte"><p>{{ 'ryztor.contact.description' | t }}</p></div>
 
       <div class="ryztor-contact__help-grid" aria-label="Ways we can help">
         <article class="ryztor-contact__help-card">
           <span class="ryztor-contact__help-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5c3.2 0 5.8 2.3 5.8 5.2 0 4.2-5.8 8.1-5.8 8.1s-5.8-3.9-5.8-8.1c0-2.9 2.6-5.2 5.8-5.2Z"/><path d="M12 7.2v5.7M9.2 10h5.6"/></svg>
           </span>
-          <div><strong>Product guidance</strong><small>Find the formula that fits your routine.</small></div>
+          <div><strong>{{ 'ryztor.contact.guidance_title' | t }}</strong><small>{{ 'ryztor.contact.guidance_text' | t }}</small></div>
         </article>
         <article class="ryztor-contact__help-card">
           <span class="ryztor-contact__help-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none"><path d="M3.5 6.5h17v11h-17z"/><path d="m4 7 8 6 8-6"/></svg>
           </span>
-          <div><strong>Order support</strong><small>Questions about shipping or an order.</small></div>
+          <div><strong>{{ 'ryztor.contact.order_title' | t }}</strong><small>{{ 'ryztor.contact.order_text' | t }}</small></div>
         </article>
         <article class="ryztor-contact__help-card">
           <span class="ryztor-contact__help-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none"><circle cx="8" cy="9" r="3"/><circle cx="16.5" cy="10" r="2.5"/><path d="M2.8 19c.7-3.1 2.5-4.7 5.2-4.7s4.5 1.6 5.2 4.7M13.5 15.4c.8-.6 1.8-.9 3-.9 2.5 0 4 1.5 4.7 4.5"/></svg>
           </span>
-          <div><strong>Partnerships</strong><small>Retail, wholesale and brand collaborations.</small></div>
+          <div><strong>{{ 'ryztor.contact.partnerships_title' | t }}</strong><small>{{ 'ryztor.contact.partnerships_text' | t }}</small></div>
         </article>
       </div>
 
@@ -39,43 +39,43 @@
           {{ contact_image | image_url: width: 1200 | image_tag: loading: 'eager', widths: '480, 720, 960, 1200', sizes: '(min-width: 990px) 46vw, 100vw', class: 'ryztor-contact__image' }}
         {% else %}
           <div class="ryztor-contact__fallback" aria-hidden="true">
-            <span>RYZTOR</span><strong>BETTER ROUTINES.<br>MADE SIMPLE.</strong><i>BERBERINE · MAGNESIUM GLYCINATE · CREATINE</i>
+            <span>RYZTOR</span><strong>{{ 'ryztor.contact.brand_slogan' | t }}</strong><i>{{ 'ryztor.contact.brand_products' | t }}</i>
           </div>
         {% endif %}
-        <span class="ryztor-contact__visual-badge">WE'RE HERE TO HELP</span>
+        <span class="ryztor-contact__visual-badge">{{ 'ryztor.contact.help_badge' | t }}</span>
       </div>
     </div>
 
     <div class="ryztor-contact__panel">
       <div class="ryztor-contact__panel-heading">
-        <span>CONTACT FORM</span>
-        <h2>How can we help?</h2>
-        <p>Tell us what you need and our team will point you in the right direction.</p>
+        <span>{{ 'ryztor.contact.form_eyebrow' | t }}</span>
+        <h2>{{ 'ryztor.contact.form_heading' | t }}</h2>
+        <p>{{ 'ryztor.contact.form_intro' | t }}</p>
       </div>
 
       {%- form 'contact', id: form_id, class: 'ryztor-contact__form' -%}
         {% if form.posted_successfully? %}
           <div class="ryztor-contact__notice ryztor-contact__notice--success" tabindex="-1" autofocus>
             {{ 'icon-checkmark.svg' | inline_asset_content }}
-            <div><strong>Message received.</strong><span>Thank you for reaching out. Our team will get back to you soon.</span></div>
+            <div><strong>{{ 'ryztor.contact.success_title' | t }}</strong><span>{{ 'ryztor.contact.success_text' | t }}</span></div>
           </div>
         {% endif %}
 
         {% if form.errors %}
           <div class="ryztor-contact__notice ryztor-contact__notice--error" tabindex="-1" autofocus>
             {{ 'icon-error.svg' | inline_asset_content }}
-            <div><strong>Please check your email.</strong><span>{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</span></div>
+            <div><strong>{{ 'ryztor.contact.error_title' | t }}</strong><span>{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</span></div>
           </div>
         {% endif %}
 
         <div class="ryztor-contact__row">
           <div class="ryztor-contact__field">
-            <label for="{{ form_id }}-name">Full name</label>
+            <label for="{{ form_id }}-name">{{ 'ryztor.contact.name' | t }}</label>
             <span class="ryztor-contact__field-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-4 3.1-6 7-6s6.2 2 7 6"/></svg></span>
-            <input id="{{ form_id }}-name" type="text" name="contact[name]" autocomplete="name" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="Your name">
+            <input id="{{ form_id }}-name" type="text" name="contact[name]" autocomplete="name" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="{{ 'ryztor.contact.name_placeholder' | t }}">
           </div>
           <div class="ryztor-contact__field">
-            <label for="{{ form_id }}-email">Email address <span aria-hidden="true">*</span></label>
+            <label for="{{ form_id }}-email">{{ 'ryztor.contact.email' | t }} <span aria-hidden="true">*</span></label>
             <span class="ryztor-contact__field-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span>
             <input id="{{ form_id }}-email" type="email" name="contact[email]" autocomplete="email" required aria-required="true" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" placeholder="you@email.com">
           </div>
@@ -83,33 +83,33 @@
 
         <div class="ryztor-contact__row">
           <div class="ryztor-contact__field">
-            <label for="{{ form_id }}-topic">What can we help with?</label>
+            <label for="{{ form_id }}-topic">{{ 'ryztor.contact.topic' | t }}</label>
             <span class="ryztor-contact__field-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.7 2.7 0 1 1 4.7 1.8c-1.2 1-2.2 1.4-2.2 3M12 17.5v.1"/></svg></span>
             <select id="{{ form_id }}-topic" name="contact[topic]">
-              <option>General question</option>
-              <option>Product guidance</option>
-              <option>Order support</option>
-              <option>Wholesale & partnerships</option>
+              <option value="General question">{{ 'ryztor.contact.topic_general' | t }}</option>
+              <option value="Product guidance">{{ 'ryztor.contact.topic_guidance' | t }}</option>
+              <option value="Order support">{{ 'ryztor.contact.topic_order' | t }}</option>
+              <option value="Wholesale & partnerships">{{ 'ryztor.contact.topic_partnerships' | t }}</option>
             </select>
           </div>
           <div class="ryztor-contact__field">
-            <label for="{{ form_id }}-order">Order number <small>(optional)</small></label>
+            <label for="{{ form_id }}-order">{{ 'ryztor.contact.order_number' | t }} <small>({{ 'ryztor.contact.optional' | t }})</small></label>
             <span class="ryztor-contact__field-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
             <input id="{{ form_id }}-order" type="text" name="contact[order_number]" placeholder="#1001">
           </div>
         </div>
 
         <div class="ryztor-contact__field">
-          <label for="{{ form_id }}-body">Your message</label>
+          <label for="{{ form_id }}-body">{{ 'ryztor.contact.message' | t }}</label>
           <span class="ryztor-contact__field-icon ryztor-contact__field-icon--textarea" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v12H8l-4 3V5Z"/><path d="M8 9h8M8 13h5"/></svg></span>
-          <textarea id="{{ form_id }}-body" name="contact[body]" rows="7" placeholder="Tell us a little more...">{{ form.body }}</textarea>
+          <textarea id="{{ form_id }}-body" name="contact[body]" rows="7" placeholder="{{ 'ryztor.contact.message_placeholder' | t }}">{{ form.body }}</textarea>
         </div>
 
         <button class="ryztor-contact__submit" type="submit">
-          <span>SEND MESSAGE</span>
+          <span>{{ 'ryztor.contact.send' | t }}</span>
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg>
         </button>
-        <p class="ryztor-contact__privacy">By submitting this form, you agree that RYZTOR may contact you regarding your request.</p>
+        <p class="ryztor-contact__privacy">{{ 'ryztor.contact.privacy' | t }}</p>
       {%- endform -%}
     </div>
   </div>

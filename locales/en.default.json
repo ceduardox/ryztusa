@@ -371,6 +371,17 @@
     }
   },
   "ryztor": {
+    "footer": {
+      "help_policies": "Help & policies",
+      "contact": "Contact us",
+      "faq": "Frequently asked questions",
+      "refunds": "Refund policy",
+      "shipping": "Shipping policy",
+      "terms": "Terms and conditions",
+      "privacy": "Privacy policy",
+      "legal": "Legal disclaimer",
+      "data_opt_out": "Data sharing opt-out"
+    },
     "home": {
       "hero": { "eyebrow": "EVERYDAY WELLNESS, MADE SIMPLE", "heading_html": "BUILD YOUR <em>BETTER</em> ROUTINE.", "description": "Thoughtfully selected supplements designed to fit your everyday rhythm—from focused mornings to restful nights.", "primary": "SHOP SUPPLEMENTS", "secondary": "EXPLORE THE ROUTINE", "proof_1": "Focused formulas", "proof_2": "Clear directions", "proof_3": "Made for real routines", "brand_note": "WELLNESS / MADE SIMPLE", "product_alt": "RYZTOR Berberine supplement bottle" },
       "trust": { "label": "RYZTOR highlights", "message_1": "THREE FORMULAS. ZERO CONFUSION.", "message_2": "MORNINGS. TRAINING. NIGHTS.", "message_3": "BUILD YOUR BETTER ROUTINE." },

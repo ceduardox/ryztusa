@@ -371,6 +371,7 @@
     }
   },
   "ryztor": {
+    "home": { "hero": { "eyebrow": "EVERYDAY WELLNESS, MADE SIMPLE", "heading": "BUILD YOUR <em>BETTER</em> ROUTINE.", "description": "Thoughtfully selected supplements designed to fit your everyday rhythm—from focused mornings to restful nights.", "primary": "SHOP SUPPLEMENTS", "secondary": "EXPLORE THE ROUTINE", "proof_1": "Focused formulas", "proof_2": "Clear directions", "proof_3": "Made for real routines", "brand_note": "WELLNESS / MADE SIMPLE" } },
     "reviews": {
       "eyebrow": "CUSTOMER REVIEWS",
       "heading": "Real orders. Real feedback.",

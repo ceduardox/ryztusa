@@ -5,32 +5,32 @@
   <div class="ryztor-hero__inner">
     <div class="ryztor-hero__content">
       {%- if section.settings.eyebrow != blank -%}
-        <p class="ryztor-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        <p class="ryztor-hero__eyebrow">{{ 'ryztor.home.hero.eyebrow' | t }}</p>
       {%- endif -%}
 
-      <h1 class="ryztor-hero__heading">{{ section.settings.heading }}</h1>
+      <h1 class="ryztor-hero__heading">{{ 'ryztor.home.hero.heading' | t }}</h1>
 
       {%- if section.settings.description != blank -%}
-        <div class="ryztor-hero__description rte">{{ section.settings.description }}</div>
+        <div class="ryztor-hero__description rte"><p>{{ 'ryztor.home.hero.description' | t }}</p></div>
       {%- endif -%}
 
       <div class="ryztor-hero__actions">
         {%- if section.settings.primary_label != blank -%}
           <a class="ryztor-hero__button ryztor-hero__button--primary" href="{{ section.settings.primary_link | default: routes.all_products_collection_url }}">
-            {{ section.settings.primary_label | escape }}
+            {{ 'ryztor.home.hero.primary' | t }}
           </a>
         {%- endif -%}
         {%- if section.settings.secondary_label != blank -%}
           <a class="ryztor-hero__button ryztor-hero__button--secondary" href="{{ section.settings.secondary_link | default: routes.all_products_collection_url }}">
-            {{ section.settings.secondary_label | escape }}
+            {{ 'ryztor.home.hero.secondary' | t }}
           </a>
         {%- endif -%}
       </div>
 
       <ul class="ryztor-hero__proof" role="list">
-        <li><span aria-hidden="true">✓</span>{{ section.settings.proof_1 | escape }}</li>
-        <li><span aria-hidden="true">✓</span>{{ section.settings.proof_2 | escape }}</li>
-        <li><span aria-hidden="true">✓</span>{{ section.settings.proof_3 | escape }}</li>
+        <li><span aria-hidden="true">✓</span>{{ 'ryztor.home.hero.proof_1' | t }}</li>
+        <li><span aria-hidden="true">✓</span>{{ 'ryztor.home.hero.proof_2' | t }}</li>
+        <li><span aria-hidden="true">✓</span>{{ 'ryztor.home.hero.proof_3' | t }}</li>
       </ul>
     </div>
 
@@ -62,7 +62,7 @@
         <div class="ryztor-hero__brand-card">
           <span class="ryztor-hero__mark">R</span>
           <span class="ryztor-hero__brand-name">RYZTOR</span>
-          <small>WELLNESS / MADE SIMPLE</small>
+          <small>{{ 'ryztor.home.hero.brand_note' | t }}</small>
         </div>
       {%- endif -%}
     </div>

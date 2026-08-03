@@ -97,6 +97,9 @@
             <button class="ryztor-berberine__video-play" aria-label="{{ 'ryztor.magnesium.story.play_video' | t | escape }}">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </button>
+            <button type="button" class="ryztor-video-expand" data-video-expand aria-label="{{ 'ryztor.magnesium.story.expand_video' | t | escape }}">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg>
+            </button>
             <video preload="metadata" playsinline controls width="360" height="640" poster="{{ 'MAGNESIUM-SPANISH-1-poster.jpg' | asset_url }}">
               <source src="{{ 'MAGNESIUM-SPANISH-1.webm' | asset_url }}" type="video/webm">
             </video>
@@ -108,6 +111,9 @@
             <img src="{{ 'MAGNESIUM-SPANISH-2-poster.jpg' | asset_url }}" alt="{{ 'ryztor.magnesium.story.video_2_alt' | t | escape }}" loading="lazy" width="360" height="640">
             <button class="ryztor-berberine__video-play" aria-label="{{ 'ryztor.magnesium.story.play_video' | t | escape }}">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <button type="button" class="ryztor-video-expand" data-video-expand aria-label="{{ 'ryztor.magnesium.story.expand_video' | t | escape }}">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg>
             </button>
             <video preload="metadata" playsinline controls width="360" height="640" poster="{{ 'MAGNESIUM-SPANISH-2-poster.jpg' | asset_url }}">
               <source src="{{ 'MAGNESIUM-SPANISH-2.webm' | asset_url }}" type="video/webm">
@@ -121,6 +127,9 @@
             <button class="ryztor-berberine__video-play" aria-label="{{ 'ryztor.magnesium.story.play_video' | t | escape }}">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </button>
+            <button type="button" class="ryztor-video-expand" data-video-expand aria-label="{{ 'ryztor.magnesium.story.expand_video' | t | escape }}">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg>
+            </button>
             <video preload="metadata" playsinline controls width="360" height="640" poster="{{ 'MAGNESIUM-SPANISH-3-poster.jpg' | asset_url }}">
               <source src="{{ 'MAGNESIUM-SPANISH-3.webm' | asset_url }}" type="video/webm">
             </video>
@@ -132,6 +141,9 @@
             <img src="{{ 'MAGNESIUM-SPANISH-4-poster.jpg' | asset_url }}" alt="{{ 'ryztor.magnesium.story.video_4_alt' | t | escape }}" loading="lazy" width="360" height="640">
             <button class="ryztor-berberine__video-play" aria-label="{{ 'ryztor.magnesium.story.play_video' | t | escape }}">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <button type="button" class="ryztor-video-expand" data-video-expand aria-label="{{ 'ryztor.magnesium.story.expand_video' | t | escape }}">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg>
             </button>
             <video preload="metadata" playsinline controls width="360" height="640" poster="{{ 'MAGNESIUM-SPANISH-4-poster.jpg' | asset_url }}">
               <source src="{{ 'MAGNESIUM-SPANISH-4.webm' | asset_url }}" type="video/webm">
@@ -1028,7 +1040,34 @@
     }
 
   .ryztor-magnesium-section .ryztor-berberine__video-grid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 460px; }
-  @media screen and (max-width: 749px) { .ryztor-magnesium-section .ryztor-berberine__video-grid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 340px; } }
+  .ryztor-magnesium-section .ryztor-video-expand {
+    position: absolute;
+    z-index: 4;
+    top: 9px;
+    right: 9px;
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 1px solid rgb(255 255 255 / 55%);
+    border-radius: 50%;
+    background: rgb(20 16 30 / 72%);
+    color: #fff;
+    cursor: pointer;
+    backdrop-filter: blur(7px);
+  }
+  .ryztor-magnesium-section .ryztor-video-expand svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .ryztor-magnesium-section .ryztor-video-expand:hover { background: var(--rb-accent); }
+  @media screen and (max-width: 749px) {
+    .ryztor-magnesium-section .ryztor-berberine__video-grid--two {
+      width: 100%;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 420px;
+    }
+    .ryztor-magnesium-section .ryztor-video-expand { top: 7px; right: 7px; width: 34px; height: 34px; }
+  }
 {% endstylesheet %}
 
 <script>
@@ -1053,6 +1092,26 @@
   });
 
   document.addEventListener('click', function(e) {
+    var expandBtn = e.target.closest('[data-video-expand]');
+    if (expandBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      var expandContainer = expandBtn.closest('.ryztor-berberine__video-player');
+      var expandVideo = expandContainer && expandContainer.querySelector('video');
+      if (!expandVideo) return;
+      expandContainer.classList.add('is-playing');
+      var playPromise = expandVideo.play();
+      if (playPromise && typeof playPromise.catch === 'function') playPromise.catch(function() {});
+      if (expandVideo.requestFullscreen) {
+        expandVideo.requestFullscreen();
+      } else if (expandVideo.webkitEnterFullscreen) {
+        expandVideo.webkitEnterFullscreen();
+      } else if (expandContainer.requestFullscreen) {
+        expandContainer.requestFullscreen();
+      }
+      return;
+    }
+
     var btn = e.target.closest('.ryztor-berberine__video-play');
     var player = e.target.closest('.ryztor-berberine__video-player');
     if (!btn && !player) return;

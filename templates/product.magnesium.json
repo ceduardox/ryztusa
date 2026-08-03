@@ -175,7 +175,7 @@
               "type": "custom-liquid",
               "name": "Magnesium rating",
               "settings": {
-                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'magnesium' %}<a class=\"ryztor-rating\" href=\"#ryztor-reviews\" style=\"color:inherit;text-decoration:none\"><span class=\"ryztor-rating__stars\" aria-hidden=\"true\">★★★★★</span><span class=\"ryztor-rating__score\">4.8</span><span class=\"ryztor-rating__count\">(94 reviews)</span></a>{% endif %}",
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'magnesium' %}<a class=\"ryztor-rating\" href=\"#ryztor-reviews\" style=\"color:inherit;text-decoration:none\"><span class=\"ryztor-rating__stars\" aria-hidden=\"true\">★★★★★</span><span class=\"ryztor-rating__score\">4.8</span><span class=\"ryztor-rating__count\">{{ 'ryztor.magnesium.commerce.reviews' | t: count: 94 }}</span></a>{% endif %}",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -187,7 +187,7 @@
               "type": "custom-liquid",
               "name": "Magnesium savings",
               "settings": {
-                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'magnesium' %}{% assign p = closest.product.selected_or_first_available_variant %}{% if p.compare_at_price > p.price %}{% assign save = p.compare_at_price | minus: p.price %}{% assign save_pct = save | times: 100 | divided_by: p.compare_at_price %}<div class=\"ryztor-savings\">You save <strong>{{ save | money }}</strong> ({{ save_pct }}% off)</div>{% endif %}{% endif %}",
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'magnesium' %}{% assign p = closest.product.selected_or_first_available_variant %}{% if p.compare_at_price > p.price %}{% assign save = p.compare_at_price | minus: p.price | money %}{% assign save_pct = p.compare_at_price | minus: p.price | times: 100 | divided_by: p.compare_at_price %}<div class=\"ryztor-savings\">{{ 'ryztor.magnesium.commerce.you_save' | t: amount: save, percent: save_pct }}</div>{% endif %}{% endif %}",
                 "padding-block-start": 2,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -199,7 +199,7 @@
               "type": "custom-liquid",
               "name": "Magnesium quick summary",
               "settings": {
-                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'magnesium' %}<div class=\"ryztor-product-summary\"><p><strong>Relaxation & recovery that fits your night.*</strong> Three capsules daily to help support muscle relaxation, nervous system health, and restful sleep—with a highly bioavailable, gentle-on-the-stomach formula.</p><div class=\"ryztor-product-summary__benefits\"><div><b>90</b><span>Capsules</span></div><div><b>3×</b><span>Daily use</span></div><div><b>USA</b><span>Manufactured</span></div></div></div>{% endif %}"
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'magnesium' %}<div class=\"ryztor-product-summary\"><p><strong>{{ 'ryztor.magnesium.commerce.summary_title' | t }}</strong> {{ 'ryztor.magnesium.commerce.summary_text' | t }}</p><div class=\"ryztor-product-summary__benefits\"><div><b>90</b><span>{{ 'ryztor.magnesium.commerce.capsules' | t }}</span></div><div><b>3×</b><span>{{ 'ryztor.magnesium.commerce.daily_use' | t }}</span></div><div><b>USA</b><span>{{ 'ryztor.magnesium.commerce.manufactured' | t }}</span></div></div></div>{% endif %}"
               },
               "blocks": {}
             },
@@ -207,7 +207,7 @@
               "type": "custom-liquid",
               "name": "Magnesium stock",
               "settings": {
-                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'magnesium' %}{% assign current_variant = closest.product.selected_or_first_available_variant %}{% if current_variant.inventory_management == 'shopify' %}{% if current_variant.inventory_quantity > 0 and current_variant.inventory_quantity <= 25 %}<div class=\"ryztor-stock\"><span class=\"ryztor-stock__dot\"></span><span class=\"ryztor-stock__text\">Only <strong>{{ current_variant.inventory_quantity }} left in stock</strong> — order soon.</span></div>{% elsif current_variant.inventory_quantity <= 0 %}<div class=\"ryztor-stock ryztor-stock--out\"><span class=\"ryztor-stock__text\">Out of stock</span></div>{% endif %}{% endif %}{% endif %}",
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'magnesium' %}{% assign current_variant = closest.product.selected_or_first_available_variant %}{% if current_variant.inventory_management == 'shopify' %}{% if current_variant.inventory_quantity > 0 and current_variant.inventory_quantity <= 25 %}<div class=\"ryztor-stock\"><span class=\"ryztor-stock__dot\"></span><span class=\"ryztor-stock__text\">{{ 'ryztor.magnesium.commerce.stock_low' | t: count: current_variant.inventory_quantity }}</span></div>{% elsif current_variant.inventory_quantity <= 0 %}<div class=\"ryztor-stock ryztor-stock--out\"><span class=\"ryztor-stock__text\">{{ 'ryztor.magnesium.commerce.out_of_stock' | t }}</span></div>{% endif %}{% endif %}{% endif %}",
                 "padding-block-start": 8,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -326,7 +326,7 @@
               "type": "custom-liquid",
               "name": "Magnesium guarantee",
               "settings": {
-                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'magnesium' %}<div class=\"ryztor-guarantee\"><div class=\"ryztor-guarantee__badge\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/></svg><span>30-Day Money-Back Guarantee</span></div><div class=\"ryztor-guarantee__shipping\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"1\" y=\"3\" width=\"15\" height=\"13\"/><polygon points=\"16 8 20 8 23 11 23 16 16 16 16 8\"/><circle cx=\"5.5\" cy=\"18.5\" r=\"2.5\"/><circle cx=\"18.5\" cy=\"18.5\" r=\"2.5\"/></svg><span>Free shipping on orders over $50</span></div><div class=\"ryztor-guarantee__payments\">{{ 'visa' | payment_type_svg_tag: class: 'icon icon--full-color' }}{{ 'master' | payment_type_svg_tag: class: 'icon icon--full-color' }}{{ 'american_express' | payment_type_svg_tag: class: 'icon icon--full-color' }}{{ 'paypal' | payment_type_svg_tag: class: 'icon icon--full-color' }}{{ 'shop_pay' | payment_type_svg_tag: class: 'icon icon--full-color' }}</div></div>{% endif %}",
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'magnesium' %}<div class=\"ryztor-guarantee\"><div class=\"ryztor-guarantee__badge\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/></svg><span>{{ 'ryztor.magnesium.commerce.guarantee' | t }}</span></div><div class=\"ryztor-guarantee__shipping\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"1\" y=\"3\" width=\"15\" height=\"13\"/><polygon points=\"16 8 20 8 23 11 23 16 16 16 16 8\"/><circle cx=\"5.5\" cy=\"18.5\" r=\"2.5\"/><circle cx=\"18.5\" cy=\"18.5\" r=\"2.5\"/></svg><span>{{ 'ryztor.magnesium.commerce.shipping_over' | t }}</span></div><div class=\"ryztor-guarantee__payments\">{{ 'visa' | payment_type_svg_tag: class: 'icon icon--full-color' }}{{ 'master' | payment_type_svg_tag: class: 'icon icon--full-color' }}{{ 'american_express' | payment_type_svg_tag: class: 'icon icon--full-color' }}{{ 'paypal' | payment_type_svg_tag: class: 'icon icon--full-color' }}{{ 'shop_pay' | payment_type_svg_tag: class: 'icon icon--full-color' }}</div></div>{% endif %}",
                 "padding-block-start": 8,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -338,7 +338,7 @@
               "type": "custom-liquid",
               "name": "Magnesium subscribe",
               "settings": {
-                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'magnesium' %}<div class=\"ryztor-subscribe\"><div class=\"ryztor-subscribe__badge\">SAVE 15%</div><div class=\"ryztor-subscribe__copy\"><strong>Subscribe & Save</strong> — Free delivery every 30 days. Cancel anytime.</div></div>{% endif %}",
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'magnesium' %}<div class=\"ryztor-subscribe\"><div class=\"ryztor-subscribe__badge\">{{ 'ryztor.magnesium.commerce.save_15' | t }}</div><div class=\"ryztor-subscribe__copy\"><strong>{{ 'ryztor.magnesium.commerce.subscribe_title' | t }}</strong> — {{ 'ryztor.magnesium.commerce.subscribe_text' | t }}</div></div>{% endif %}",
                 "padding-block-start": 10,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,

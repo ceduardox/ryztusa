@@ -594,6 +594,22 @@
         "expanded_photo": "Expanded Magnesium product photo",
         "close_photo": "Close photo"
       },
+      "commerce": {
+        "reviews": "({{ count }} reviews)",
+        "you_save": "You save {{ amount }} ({{ percent }}% off)",
+        "summary_title": "Relaxation & recovery that fits your night.*",
+        "summary_text": "Three capsules daily help support muscle relaxation, nervous system health, and restful sleep—with a highly bioavailable, gentle formula.",
+        "capsules": "Capsules",
+        "daily_use": "Daily use",
+        "manufactured": "Manufactured",
+        "stock_low": "Only {{ count }} left in stock — order soon.",
+        "out_of_stock": "Out of stock",
+        "guarantee": "30-Day Money-Back Guarantee",
+        "shipping_over": "Free shipping on orders over $50",
+        "save_15": "SAVE 15%",
+        "subscribe_title": "Subscribe & Save",
+        "subscribe_text": "Free delivery every 30 days. Cancel anytime."
+      },
       "gallery": {
         "eyebrow": "MAGNESIUM IN REAL LIFE",
         "heading": "Made to fit your everyday routine.",
@@ -708,7 +724,8 @@
       "best_value": "BEST VALUE",
       "off": "OFF",
       "per_bottle": "{{ price }} / bottle",
-      "buy_now": "BUY NOW"
+      "buy_now": "BUY NOW",
+      "you_save": "You save {{ amount }} ({{ percent }}% off)"
     }
   }
 }

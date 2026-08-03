@@ -582,6 +582,22 @@
         "expanded_photo": "Foto ampliada del producto Magnesium",
         "close_photo": "Cerrar foto"
       },
+      "commerce": {
+        "reviews": "({{ count }} reseñas)",
+        "you_save": "Ahorras {{ amount }} ({{ percent }}% de descuento)",
+        "summary_title": "Relajación y recuperación que se integran en tu noche.*",
+        "summary_text": "Tres cápsulas al día ayudan a apoyar la relajación muscular, la salud del sistema nervioso y el sueño reparador con una fórmula suave y de alta biodisponibilidad.",
+        "capsules": "Cápsulas",
+        "daily_use": "Uso diario",
+        "manufactured": "Fabricado",
+        "stock_low": "Solo quedan {{ count }} unidades — compra pronto.",
+        "out_of_stock": "Agotado",
+        "guarantee": "Garantía de devolución de 30 días",
+        "shipping_over": "Envío gratis en pedidos superiores a $50",
+        "save_15": "AHORRA 15%",
+        "subscribe_title": "Suscríbete y ahorra",
+        "subscribe_text": "Entrega gratis cada 30 días. Cancela cuando quieras."
+      },
       "gallery": {
         "eyebrow": "MAGNESIO EN LA VIDA REAL",
         "heading": "Diseñado para integrarse en tu rutina diaria.",
@@ -696,7 +712,8 @@
       "best_value": "MEJOR PRECIO",
       "off": "DTO.",
       "per_bottle": "{{ price }} / frasco",
-      "buy_now": "COMPRAR AHORA"
+      "buy_now": "COMPRAR AHORA",
+      "you_save": "Ahorras {{ amount }} ({{ percent }}% de descuento)"
     }
   }
 }

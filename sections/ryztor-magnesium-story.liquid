@@ -1020,7 +1020,7 @@
       body:has(.ryztor-magnesium-section) .product-information__media .slideshow-controls__thumbnail {
         --thumbnail-width: 84px !important;
       }
-      .ryztor-berberine__video-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; max-width: 340px; }
+      body:has(.ryztor-magnesium-section) .ryztor-berberine__video-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; max-width: 340px; }
       .ryztor-berberine__video-play { width: 48px; height: 48px; }
       .ryztor-berberine__video-play svg { width: 32px; height: 32px; }
       .ryztor-berberine__video-label { font-size: 0.78rem; }
@@ -1060,7 +1060,7 @@
   .ryztor-magnesium-section .ryztor-video-expand svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
   .ryztor-magnesium-section .ryztor-video-expand:hover { background: var(--rb-accent); }
   @media screen and (max-width: 749px) {
-    .ryztor-magnesium-section .ryztor-berberine__video-grid--two {
+    body:has(.ryztor-magnesium-section) .ryztor-berberine__video-grid--two {
       width: 100%;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;

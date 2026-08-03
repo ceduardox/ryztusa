@@ -8,7 +8,7 @@
         <p class="ryztor-hero__eyebrow">{{ 'ryztor.home.hero.eyebrow' | t }}</p>
       {%- endif -%}
 
-      <h1 class="ryztor-hero__heading">{{ 'ryztor.home.hero.heading' | t }}</h1>
+      <h1 class="ryztor-hero__heading">{{ 'ryztor.home.hero.heading_html' | t }}</h1>
 
       {%- if section.settings.description != blank -%}
         <div class="ryztor-hero__description rte"><p>{{ 'ryztor.home.hero.description' | t }}</p></div>
@@ -253,7 +253,12 @@
       padding-block: 48px 56px;
     }
 
-    .ryztor-hero__heading { font-size: clamp(3.25rem, 17vw, 5.2rem); }
+    .ryztor-hero__heading {
+      max-width: none;
+      font-size: clamp(2.75rem, 13vw, 4.2rem);
+      overflow-wrap: normal;
+      word-break: normal;
+    }
     .ryztor-hero__description { margin-top: 20px; }
     .ryztor-hero__actions { margin-top: 24px; }
     .ryztor-hero__button { width: 100%; }

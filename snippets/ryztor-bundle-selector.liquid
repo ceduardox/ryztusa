@@ -31,8 +31,7 @@
 %}
 
 {% if bundle_is_available %}
-  {% assign bundle_savings_template = 'ryztor.bundle.you_save' | t: amount: '__AMOUNT__', percent: '__PERCENT__' %}
-  <div class="ryztor-bundles" data-ryztor-bundle-selector data-buy-now-label="{{ 'ryztor.bundle.buy_now' | t | escape }}" data-savings-template="{{ bundle_savings_template | escape }}">
+  <div class="ryztor-bundles" data-ryztor-bundle-selector data-buy-now-label="{{ 'ryztor.bundle.buy_now' | t | escape }}">
     <div class="ryztor-bundles__heading">
       <div>
         <p>{{ 'ryztor.bundle.heading' | t }}</p>
@@ -529,10 +528,7 @@
           const hasSavings = Number(option.dataset.comparePrice) > Number(option.dataset.price);
           savings.hidden = !hasSavings;
           if (hasSavings) {
-            const savingsTemplate = selector.dataset.savingsTemplate || 'You save __AMOUNT__ (__PERCENT__% off)';
-            savings.innerHTML = savingsTemplate
-              .replace('__AMOUNT__', `<strong>${option.dataset.saveFormatted}</strong>`)
-              .replace('__PERCENT__', option.dataset.savePercent);
+            savings.innerHTML = `You save <strong>${option.dataset.saveFormatted}</strong> (${option.dataset.savePercent}% off)`;
           }
         }
       };

@@ -31,7 +31,14 @@
 %}
 
 {% if bundle_is_available %}
-  <div class="ryztor-bundles" data-ryztor-bundle-selector data-buy-now-label="{{ 'ryztor.bundle.buy_now' | t | escape }}">
+  <div
+    class="ryztor-bundles"
+    data-ryztor-bundle-selector
+    data-buy-now-label="{{ 'ryztor.bundle.buy_now' | t | escape }}"
+    data-sale-price-label="{{ 'ryztor.bundle.sale_price' | t | escape }}"
+    data-regular-price-label="{{ 'ryztor.bundle.regular_price' | t | escape }}"
+    data-savings-template="{{ 'ryztor.bundle.you_save' | t: amount: '__AMOUNT__', percent: '__PERCENT__' | escape }}"
+  >
     <div class="ryztor-bundles__heading">
       <div>
         <p>{{ 'ryztor.bundle.heading' | t }}</p>
@@ -480,7 +487,7 @@
         const compare = Number(option.dataset.comparePrice);
         const compareFormatted = option.dataset.compareFormatted;
         if (compare > Number(option.dataset.price)) {
-          return `<span class="price-item__group price"><span class="visually-hidden">Sale price&nbsp;</span>${price}</span><span class="price-item__group price-item--regular compare-at-price"><span class="visually-hidden">Regular price&nbsp;</span>${compareFormatted}</span>`;
+          return `<span class="price-item__group price"><span class="visually-hidden">${selector.dataset.salePriceLabel}&nbsp;</span>${price}</span><span class="price-item__group price-item--regular compare-at-price"><span class="visually-hidden">${selector.dataset.regularPriceLabel}&nbsp;</span>${compareFormatted}</span>`;
         }
         return `<span class="price">${price}</span>`;
       };
@@ -528,7 +535,9 @@
           const hasSavings = Number(option.dataset.comparePrice) > Number(option.dataset.price);
           savings.hidden = !hasSavings;
           if (hasSavings) {
-            savings.innerHTML = `You save <strong>${option.dataset.saveFormatted}</strong> (${option.dataset.savePercent}% off)`;
+            savings.innerHTML = selector.dataset.savingsTemplate
+              .replace('__AMOUNT__', `<strong>${option.dataset.saveFormatted}</strong>`)
+              .replace('__PERCENT__', option.dataset.savePercent);
           }
         }
       };

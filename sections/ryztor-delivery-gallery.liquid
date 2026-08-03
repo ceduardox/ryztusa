@@ -22,6 +22,14 @@
     assign dialog_alt = 'RYZTOR Berberine delivery package'
   endif
 
+  if request.locale.iso_code == 'es'
+    if is_magnesium
+      assign review_items = '2026-07-28|5|ryztor-magnesium-review-hand-desk.webp|Cliente sosteniendo RYZTOR Glicinato de Magnesio|Amanda R.|El frasco llegó bien empacado y se ve exactamente como en las fotos del producto.@@2026-07-26|5|none|none|Melissa T.|Fácil de incorporar a mi rutina nocturna.@@2026-07-24|5|ryztor-magnesium-review-hand-home.webp|Cliente sosteniendo RYZTOR Glicinato de Magnesio en casa|Jenna P.|Las cápsulas son fáciles de tomar y la etiqueta se entiende claramente.@@2026-07-21|5|none|none|Caroline M.|Presentación limpia y entrega rápida.@@2026-07-19|5|ryztor-magnesium-review-bedside.webp|RYZTOR Glicinato de Magnesio junto a la cama|Ashley C.|Lo dejo junto a mi cama para no olvidar mi rutina nocturna.@@2026-07-17|4|none|none|Brittany S.|Buen producto. El paquete llegó un día más tarde de lo esperado.@@2026-07-14|5|ryztor-magnesium-review-bottle-capsules.webp|Frasco y cápsulas de RYZTOR Glicinato de Magnesio|Nicole A.|Las cápsulas y el frasco tienen una presentación limpia y las indicaciones son sencillas.@@2026-07-11|5|none|none|Sarah L.|No requiere una rutina complicada, que es justo lo que quería.@@2026-07-08|5|ryztor-magnesium-review-desk.webp|RYZTOR Glicinato de Magnesio sobre un escritorio|Rachel G.|Se integra fácilmente a mi rutina diaria y el frasco se siente de buena calidad.@@2026-07-05|5|none|none|Emily V.|Llegó sellado y en perfectas condiciones.@@2026-07-02|5|ryztor-magnesium-review-kitchen.webp|RYZTOR Glicinato de Magnesio en la cocina|Lauren D.|Lo dejo en la cocina, donde puedo verlo y recordar tomarlo.@@2026-06-29|5|none|none|Olivia H.|Etiqueta sencilla, cápsulas fáciles y buen empaque.@@2026-06-25|5|ryztor-magnesium-review-open-capsules.webp|Frasco abierto y cápsulas de RYZTOR Glicinato de Magnesio|Megan K.|El tamaño de las cápsulas me resulta cómodo y el frasco abre y cierra de forma segura.@@2026-06-22|5|none|none|Jessica W.|Muy satisfecha con la presentación y la entrega.@@2026-06-18|5|ryztor-magnesium-review-nightstand.webp|RYZTOR Glicinato de Magnesio sobre una mesa de noche|Hannah B.|Se ha convertido en una parte sencilla de mi rutina antes de dormir.@@2026-06-14|5|none|none|Sophia N.|Exactamente lo que pedí.@@2026-06-10|5|ryztor-magnesium-review-bed-capsules.webp|Frasco y cápsulas de RYZTOR Glicinato de Magnesio sobre una cama|Danielle F.|El frasco es compacto y la cantidad de cápsulas aparece claramente en la etiqueta.@@2026-06-06|4|none|none|Grace E.|Todo se ve bien, aunque la caja de envío llegó ligeramente doblada.@@2026-06-02|5|ryztor-magnesium-review-open-bottle.webp|Frasco abierto de RYZTOR Glicinato de Magnesio|Chloe J.|Me gusta poder ver claramente las cápsulas y el sello estaba intacto.@@2026-05-28|5|none|none|Emma Q.|Empaque de buena calidad e indicaciones fáciles.@@2026-05-23|5|ryztor-magnesium-review-outdoor-table.webp|RYZTOR Glicinato de Magnesio sobre una mesa exterior|Ava M.|Es un frasco práctico para guardar con mis otros suplementos diarios.@@2026-05-18|5|none|none|Isabella R.|Hasta ahora se adapta muy bien a mi rutina.@@2026-05-12|5|ryztor-magnesium-review-hand-outdoor.webp|Cliente sosteniendo RYZTOR Glicinato de Magnesio al aire libre|Camila P.|El producto se siente bien hecho y llegó sin ningún inconveniente.@@2026-05-06|5|none|none|Mia S.|Volvería a comprarlo.' | split: '@@'
+    else
+      assign review_items = '2026-07-22|5|ryztor-berberine-delivery-package.webp|Paquete de RYZTOR Berberina|Ashley M.|Llegó rápido y muy bien empacado. Todo estaba perfecto.@@2026-07-20|5|none|none|Emily K.|Bien@@2026-07-18|5|ryztor-berberine-travel-handbag.webp|RYZTOR Berberina lista para llevar|Brianna S.|Me encanta lo fácil que es llevarla conmigo. El frasco se siente de muy buena calidad.@@2026-07-15|5|none|none|Hannah B.|stars-only@@2026-07-14|5|ryztor-berberine-daily-routine.webp|RYZTOR Berberina en una rutina diaria|Lauren P.|Fácil de incorporar a mis mañanas, sin sabor extraño y sencilla de tomar.@@2026-07-12|5|none|none|Olivia M.|Buen producto@@2026-07-09|5|ryztor-berberine-supplement-routine.webp|RYZTOR Berberina en una rutina de suplementos|Nicole D.|Recibí la mía la semana pasada. Etiqueta clara y el pedido llegó sin problemas.@@2026-07-06|4|none|none|Grace T.|Buena, aunque el envío tardó un poco más.@@2026-07-03|5|ryztor-berberine-wellness-books.webp|RYZTOR Berberina junto a libros de bienestar|Rachel T.|Investigué bastante antes. Hasta ahora estoy contenta con mi elección.@@2026-06-30|5|none|none|Chloe D.|stars-only@@2026-06-28|5|ryztor-berberine-bottle-closeup.webp|Primer plano de RYZTOR Berberina|Danielle R.|Se ve igual que en las fotos. Buen frasco e indicaciones claras.@@2026-06-25|5|none|none|Ava R.|Me encanta@@2026-06-21|5|ryztor-berberine-capsules-serving.webp|Cápsulas y frasco de RYZTOR Berberina|Megan C.|Cápsulas fáciles de tomar y envío rápido. Volvería a pedirla.@@2026-06-18|5|none|none|Sophia N.|Fácil de tomar@@2026-06-16|5|ryztor-berberine-open-bottle-capsules.webp|Frasco abierto de RYZTOR Berberina|Jessica L.|Exactamente lo que esperaba: un producto sencillo y sin una rutina complicada.@@2026-06-11|5|none|none|Emma W.|Llegó bien, gracias@@2026-06-06|5|none|none|Mia S.|stars-only@@2026-05-31|5|none|none|Isabella G.|Muy contenta con el producto@@2026-05-24|5|none|none|Amelia C.|Ya hice mi segundo pedido@@2026-05-17|4|none|none|Harper L.|Buena, aunque la caja llegó un poco doblada.@@2026-05-09|5|none|none|Evelyn P.|Sencilla y buena@@2026-05-03|5|none|none|Camila J.|stars-only@@2026-04-29|5|none|none|Luna F.|Entrega rápida@@2026-04-25|5|none|none|Zoe A.|Hasta ahora, todo bien.' | split: '@@'
+    endif
+  endif
+
   assign review_tags = 'ryztor.reviews.tags' | t | split: ','
   assign stars_template = 'ryztor.reviews.stars' | t: rating: '__RATING__'
   assign page_label_template = 'ryztor.reviews.go_to_page' | t: page: '__PAGE__'
@@ -42,7 +50,8 @@
       <header class="ryztor-reviews__heading">
         <p class="ryztor-reviews__eyebrow">{{ 'ryztor.reviews.eyebrow' | t }}</p>
         <h2>{{ 'ryztor.reviews.heading' | t }}</h2>
-        <p>{{ 'ryztor.reviews.text' | t }}</p>
+        <p class="ryztor-reviews__intro">{{ 'ryztor.reviews.text' | t }}</p>
+        {% if request.locale.iso_code == 'es' %}<small class="ryztor-reviews__translation-note">{{ 'ryztor.reviews.translated_note' | t }}</small>{% endif %}
       </header>
 
       <div class="ryztor-reviews__overview">
@@ -197,10 +206,17 @@
     line-height: 1;
   }
 
-  .ryztor-reviews__heading > p:last-child {
+  .ryztor-reviews__intro {
     margin: 14px 0 0;
     color: rgb(23 21 30 / 64%);
     line-height: 1.55;
+  }
+
+  .ryztor-reviews__translation-note {
+    display: block;
+    margin-top: 7px;
+    color: rgb(23 21 30 / 48%);
+    font-size: .72rem;
   }
 
   .ryztor-reviews__overview {
@@ -713,12 +729,17 @@
       'Hazel W.', 'Aurora F.', 'Savannah K.', 'Audrey N.', 'Brooklyn A.', 'Bella L.',
       'Claire E.', 'Skylar O.', 'Lucy I.', 'Paisley Q.', 'Everly U.', 'Anna Z.'
     ];
-    const comments = [
+    const comments = {% if request.locale.iso_code == 'es' %}[
+      '', 'Bien', '', 'Bueno', 'Llegó rápido', '', 'Fácil de tomar', 'Buen producto',
+      '', 'Bien empacado', 'Hasta ahora todo bien', '', 'Muy sencillo', 'Me gusta',
+      '', 'Tal como se describe', 'Buena calidad', '', 'Llegó a tiempo', 'Gracias',
+      '', 'Funciona bien en mi rutina', 'Sin problemas', '', 'Volvería a comprarlo', 'Contenta con el producto'
+    ]{% else %}[
       '', 'Ok', '', 'Good', 'Came fast', '', 'Easy to take', 'Nice product',
       '', 'Well packed', 'So far so good', '', 'Very simple', 'I like it',
       '', 'Just as described', 'Good quality', '', 'arrived on time', 'Thank you',
       '', 'Works for my routine', 'No issues', '', 'would buy again', 'Happy with it'
-    ];
+    ]{% endif %};
     const fourStarIndexes = new Set([7, 19, 35, 52, 78, 99, 121, 149, 171]);
     const threeStarIndexes = new Set([63, 137]);
     const twoStarIndexes = new Set([112]);

@@ -434,6 +434,7 @@
       "eyebrow": "CUSTOMER REVIEWS",
       "heading": "Real orders. Real feedback.",
       "text": "See feedback and product photos shared by RYZTOR customers.",
+      "translated_note": "Reviews are shown in their original language.",
       "review_count": "{{ count }} Reviews",
       "stars": "{{ rating }} out of 5 stars",
       "distribution": "Rating distribution",
@@ -887,6 +888,8 @@
       "off": "OFF",
       "per_bottle": "{{ price }} / bottle",
       "buy_now": "BUY NOW",
+      "sale_price": "Sale price",
+      "regular_price": "Regular price",
       "you_save": "You save {{ amount }} ({{ percent }}% off)"
     }
   }

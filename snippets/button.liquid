@@ -12,6 +12,8 @@
 {% assign rendered_button_label = block_settings.label %}
 {% if block_settings.label == 'View all products' %}
   {% assign rendered_button_label = 'ryztor.home.products.view_all' | t %}
+{% elsif block_settings.label == 'View all' %}
+  {% assign rendered_button_label = 'actions.view_all' | t %}
 {% endif %}
 {% render 'button-custom-styles', block_settings: block_settings, block_id: block.id %}
 

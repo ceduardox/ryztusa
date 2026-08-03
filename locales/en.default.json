@@ -384,7 +384,7 @@
         "row_5_feature": "Three focused essentials in one range", "row_5_ours": "Simple choice", "row_5_others": "Varies"
       },
       "pillars": {
-        "eyebrow": "WHY RYZTOR", "heading": "THREE FORMULAS. ONE <em>BETTER</em> ROUTINE.", "description": "RYZTOR is for people who want clear choices and supplements that fit real life. Pick one focused formula or build a routine around your goals.", "note": "Always review the product label and follow its directions for use.",
+        "eyebrow": "WHY RYZTOR", "heading_html": "THREE FORMULAS. ONE <em>BETTER</em> ROUTINE.", "description": "RYZTOR is for people who want clear choices and supplements that fit real life. Pick one focused formula or build a routine around your goals.", "note": "Always review the product label and follow its directions for use.",
         "item_1_heading": "Berberine, made simple", "item_1_text": "A focused Berberine formula designed to make daily supplementation straightforward.",
         "item_2_heading": "Magnesium Glycinate, made simple", "item_2_text": "A focused Magnesium Glycinate formula designed to fit easily into your evening routine.",
         "item_3_heading": "Creatine without the clutter", "item_3_text": "A familiar training essential presented in a clear, easy-to-follow format."

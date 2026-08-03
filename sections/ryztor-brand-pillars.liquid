@@ -27,7 +27,7 @@
       {%- if section.settings.eyebrow != blank -%}
         <p class="ryztor-pillars__eyebrow">{{ 'ryztor.home.pillars.eyebrow' | t }}</p>
       {%- endif -%}
-      <h2>{{ 'ryztor.home.pillars.heading' | t }}</h2>
+      <h2>{{ 'ryztor.home.pillars.heading_html' | t }}</h2>
       {%- if section.settings.description != blank -%}
         <div class="ryztor-pillars__intro rte"><p>{{ 'ryztor.home.pillars.description' | t }}</p></div>
       {%- endif -%}
@@ -68,6 +68,7 @@
   .ryztor-pillars__poster small { margin-top: 14px; font-size: .66rem; font-weight: 750; letter-spacing: .1em; }
   .ryztor-pillars__eyebrow { width: fit-content; margin: 0 0 18px; padding: 8px 13px; border: 1px solid currentColor; border-radius: 999px; font-size: .72rem; font-weight: 800; letter-spacing: .12em; }
   .ryztor-pillars__content > h2 { max-width: 10ch; margin: 0; color: inherit; font-size: clamp(3rem, 6vw, 6rem); line-height: .92; letter-spacing: -.055em; text-transform: uppercase; }
+  .ryztor-pillars__content > h2 em { color: var(--rp-purple); font-style: italic; font-weight: inherit; }
   .ryztor-pillars__intro { max-width: 650px; margin-top: 24px; font-size: clamp(1rem, 1.25vw, 1.18rem); line-height: 1.55; }
   .ryztor-pillars__list { display: grid; gap: 12px; margin-top: 32px; }
   .ryztor-pillars__item { display: grid; grid-template-columns: 48px 1fr; gap: 16px; padding: 20px; border: 1px solid rgb(18 18 18 / 20%); border-radius: 18px; background: white; transition: transform 180ms ease, box-shadow 180ms ease; }

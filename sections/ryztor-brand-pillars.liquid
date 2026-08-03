@@ -4,23 +4,22 @@
 >
   <div class="ryztor-pillars__inner">
     <div class="ryztor-pillars__visual">
-      {%- if section.settings.image != blank -%}
-        {{
-          section.settings.image
-          | image_url: width: 1600
-          | image_tag:
-            class: 'ryztor-pillars__image',
-            widths: '600, 900, 1200, 1600',
-            sizes: '(min-width: 900px) 44vw, 100vw',
-            loading: 'lazy'
-        }}
-      {%- else -%}
-        <div class="ryztor-pillars__poster">
-          <div class="ryztor-pillars__dots"><span>01</span><span>02</span><span>03</span></div>
-          <strong>RYZTOR</strong>
-          <small>BERBERINE / MAGNESIUM / CREATINE</small>
+      <div class="ryztor-pillars__product-stage" aria-label="Berberine, Magnesium Glycinate and Creatine">
+        <span class="ryztor-pillars__orb ryztor-pillars__orb--one" aria-hidden="true"></span>
+        <span class="ryztor-pillars__orb ryztor-pillars__orb--two" aria-hidden="true"></span>
+        <div class="ryztor-pillars__product ryztor-pillars__product--berberine">
+          <span>01</span>
+          <img src="{{ 'ryztor-pillars-berberine.webp' | asset_url }}" width="587" height="1050" loading="lazy" alt="RYZTOR Berberine">
         </div>
-      {%- endif -%}
+        <div class="ryztor-pillars__product ryztor-pillars__product--magnesium">
+          <span>02</span>
+          <img src="{{ 'ryztor-pillars-magnesium.webp' | asset_url }}" width="531" height="1050" loading="lazy" alt="RYZTOR Magnesium Glycinate">
+        </div>
+        <div class="ryztor-pillars__product ryztor-pillars__product--creatine">
+          <span>03</span>
+          <img src="{{ 'ryztor-pillars-creatine.webp' | asset_url }}" width="821" height="1050" loading="lazy" alt="RYZTOR Creatine Monohydrate">
+        </div>
+      </div>
     </div>
 
     <div class="ryztor-pillars__content">
@@ -60,12 +59,19 @@
   .ryztor-pillars { background: var(--rp-bg); color: var(--rp-text); }
   .ryztor-pillars__inner { width: min(100% - 32px, 1280px); margin: auto; display: grid; grid-template-columns: .92fr 1.08fr; align-items: center; gap: clamp(40px, 7vw, 100px); padding-block: clamp(72px, 9vw, 128px); }
   .ryztor-pillars__visual { min-height: clamp(520px, 55vw, 720px); overflow: hidden; display: grid; place-items: center; border: 2px solid #121212; border-radius: 32px; background: radial-gradient(circle at 72% 26%, var(--rp-accent) 0 20%, transparent 20.5%), radial-gradient(circle at 26% 74%, #d4b7f9 0 27%, transparent 27.5%), var(--rp-purple); box-shadow: -14px 14px 0 var(--rp-accent); }
-  .ryztor-pillars__image { width: 100%; height: 100%; min-height: inherit; display: block; object-fit: cover; }
-  .ryztor-pillars__poster { width: 76%; aspect-ratio: .84; display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(26px, 4vw, 46px); border-radius: 28px; background: #121212; color: white; transform: rotate(-5deg); box-shadow: 0 30px 60px rgb(18 18 18 / 35%); }
-  .ryztor-pillars__dots { display: flex; gap: 8px; margin-bottom: auto; }
-  .ryztor-pillars__dots span { width: 46px; height: 46px; display: grid; place-items: center; border: 1px solid rgb(255 255 255 / 42%); border-radius: 50%; font-size: .68rem; font-weight: 800; }
-  .ryztor-pillars__poster strong { color: var(--rp-accent); font-size: clamp(3rem, 6vw, 5.4rem); line-height: .9; letter-spacing: -.06em; }
-  .ryztor-pillars__poster small { margin-top: 14px; font-size: .66rem; font-weight: 750; letter-spacing: .1em; }
+  .ryztor-pillars__product-stage { position: relative; width: 100%; height: 100%; min-height: inherit; isolation: isolate; }
+  .ryztor-pillars__orb { position: absolute; z-index: -1; display: block; border-radius: 50%; filter: blur(.1px); }
+  .ryztor-pillars__orb--one { width: 58%; aspect-ratio: 1; top: 8%; right: -8%; background: var(--rp-accent); }
+  .ryztor-pillars__orb--two { width: 70%; aspect-ratio: 1; bottom: -16%; left: -18%; background: #d4b7f9; }
+  .ryztor-pillars__product { position: absolute; bottom: 5%; display: grid; place-items: end center; filter: drop-shadow(0 22px 18px rgb(18 18 18 / 22%)); transition: transform 240ms ease; }
+  .ryztor-pillars__product img { width: 100%; height: 100%; display: block; object-fit: contain; }
+  .ryztor-pillars__product > span { position: absolute; z-index: 2; top: 7%; left: 12%; width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid rgb(18 18 18 / 28%); border-radius: 50%; background: rgb(255 255 255 / 88%); color: #121212; font-size: .66rem; font-weight: 900; backdrop-filter: blur(6px); }
+  .ryztor-pillars__product--berberine { z-index: 3; left: 1%; width: 38%; height: 73%; transform: rotate(-3deg); }
+  .ryztor-pillars__product--magnesium { z-index: 2; left: 31%; width: 35%; height: 79%; bottom: 11%; }
+  .ryztor-pillars__product--creatine { z-index: 4; right: -2%; width: 47%; height: 67%; transform: rotate(3deg); }
+  .ryztor-pillars__visual:hover .ryztor-pillars__product--berberine { transform: translateY(-5px) rotate(-3deg); }
+  .ryztor-pillars__visual:hover .ryztor-pillars__product--magnesium { transform: translateY(-9px); }
+  .ryztor-pillars__visual:hover .ryztor-pillars__product--creatine { transform: translateY(-4px) rotate(3deg); }
   .ryztor-pillars__eyebrow { width: fit-content; margin: 0 0 18px; padding: 8px 13px; border: 1px solid currentColor; border-radius: 999px; font-size: .72rem; font-weight: 800; letter-spacing: .12em; }
   .ryztor-pillars__content > h2 { max-width: 10ch; margin: 0; color: inherit; font-size: clamp(3rem, 6vw, 6rem); line-height: .92; letter-spacing: -.055em; text-transform: uppercase; }
   .ryztor-pillars__content > h2 em { color: var(--rp-purple); font-style: italic; font-weight: inherit; }
@@ -78,7 +84,8 @@
   .ryztor-pillars__item p { margin: 7px 0 0; color: rgb(18 18 18 / 72%); font-size: .9rem; line-height: 1.5; }
   .ryztor-pillars__note { margin: 22px 0 0; font-size: .72rem; line-height: 1.5; opacity: .72; }
   @media screen and (max-width: 899px) { .ryztor-pillars__inner { grid-template-columns: 1fr; } .ryztor-pillars__visual { min-height: 480px; order: 2; } .ryztor-pillars__content { order: 1; } }
-  @media screen and (max-width: 749px) { .ryztor-pillars__inner { width: min(100% - 24px, 1280px); gap: 38px; } .ryztor-pillars__content > h2 { font-size: clamp(3rem, 15vw, 4.6rem); } .ryztor-pillars__visual { min-height: 420px; border-radius: 22px; box-shadow: -8px 8px 0 var(--rp-accent); } .ryztor-pillars__poster { width: 72%; } .ryztor-pillars__item { grid-template-columns: 42px 1fr; padding: 17px; } }
+  @media screen and (max-width: 749px) { .ryztor-pillars__inner { width: min(100% - 24px, 1280px); gap: 38px; } .ryztor-pillars__content > h2 { font-size: clamp(3rem, 15vw, 4.6rem); } .ryztor-pillars__visual { min-height: 420px; border-radius: 22px; box-shadow: -8px 8px 0 var(--rp-accent); } .ryztor-pillars__product--berberine { left: 0; width: 39%; height: 72%; } .ryztor-pillars__product--magnesium { left: 31%; width: 36%; height: 78%; } .ryztor-pillars__product--creatine { right: -3%; width: 49%; height: 65%; } .ryztor-pillars__product > span { top: 9%; left: 5%; width: 32px; height: 32px; font-size: .6rem; } .ryztor-pillars__item { grid-template-columns: 42px 1fr; padding: 17px; } }
+  @media (prefers-reduced-motion: reduce) { .ryztor-pillars__product { transition: none; } }
 {% endstylesheet %}
 
 {% schema %}

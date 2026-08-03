@@ -373,9 +373,9 @@
       },
       "pillars": {
         "eyebrow": "POR QUÉ RYZTOR", "heading_html": "TRES FÓRMULAS. UNA RUTINA <em>MEJOR</em>.", "description": "RYZTOR es para quienes buscan opciones claras y suplementos que se integren en la vida real. Elige una fórmula específica o crea una rutina según tus objetivos.", "note": "Revisa siempre la etiqueta del producto y sigue sus indicaciones de uso.",
-        "item_1_heading": "Berberina, hecha simple", "item_1_text": "Una fórmula específica de berberina diseñada para simplificar la suplementación diaria.",
-        "item_2_heading": "Glicinato de magnesio, hecho simple", "item_2_text": "Una fórmula específica de glicinato de magnesio diseñada para integrarse fácilmente en tu rutina nocturna.",
-        "item_3_heading": "Creatina sin complicaciones", "item_3_text": "Un suplemento conocido para el entrenamiento, presentado en un formato claro y fácil de seguir."
+        "item_1_heading": "Berberina — día y equilibrio", "item_1_text": "Una fórmula específica para acompañar una rutina diaria constante de bienestar metabólico.",
+        "item_2_heading": "Magnesio — noche y descanso", "item_2_text": "Glicinato de magnesio diseñado para integrarse fácilmente al final de tu día.",
+        "item_3_heading": "Creatina — entrenamiento y fuerza", "item_3_text": "Un esencial para acompañar la fuerza, el rendimiento y la constancia en el entrenamiento."
       },
       "routine": {
         "eyebrow": "ELIGE TU RUTINA", "heading_html": "UN OBJETIVO. UNA FÓRMULA <em>ESPECÍFICA</em>.", "description": "Cada día puede necesitar un apoyo diferente. Comienza con la fórmula que mejor se adapte a tu rutina y sigue las indicaciones de su etiqueta.", "note": "¿No sabes por dónde comenzar? Explora cada fórmula y sigue siempre las indicaciones de su etiqueta.", "view_all": "VER TODOS LOS PRODUCTOS", "explore": "EXPLORAR FÓRMULA", "explore_label": "Explorar {{ product }}",

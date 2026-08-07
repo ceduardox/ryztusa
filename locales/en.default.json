@@ -372,6 +372,9 @@
   },
   "ryztor": {
     "footer": {
+      "learn": "Learn",
+      "journal": "Wellness Journal",
+      "berberine_weight": "Berberine & weight management",
       "help_policies": "Help & policies",
       "contact": "Contact us",
       "faq": "Frequently asked questions",
@@ -381,6 +384,14 @@
       "privacy": "Privacy policy",
       "legal": "Legal disclaimer",
       "data_opt_out": "Data sharing opt-out"
+    },
+    "blog": {
+      "breadcrumb_label": "Article navigation",
+      "home": "Home",
+      "sources_title": "Sources reviewed",
+      "sources_intro": "Reliable references used to support the educational information in this article.",
+      "source_review": "Human research review indexed by PubMed",
+      "source_trial": "Clinical study indexed by PubMed"
     },
     "home": {
       "hero": { "eyebrow": "EVERYDAY WELLNESS, MADE SIMPLE", "heading_html": "BUILD YOUR <em>BETTER</em> ROUTINE.", "description": "Thoughtfully selected supplements designed to fit your everyday rhythm—from focused mornings to restful nights.", "primary": "SHOP SUPPLEMENTS", "secondary": "EXPLORE THE ROUTINE", "proof_1": "Focused formulas", "proof_2": "Clear directions", "proof_3": "Made for real routines", "brand_note": "WELLNESS / MADE SIMPLE", "product_alt": "RYZTOR Berberine supplement bottle" },

@@ -23,7 +23,25 @@
       {% render 'spacing-style', settings: section.settings %}
     "
   >
+    <nav class="ryztor-article-breadcrumb" aria-label="{{ 'ryztor.blog.breadcrumb_label' | t | escape }}">
+      <a href="{{ routes.root_url }}">{{ 'ryztor.blog.home' | t }}</a>
+      <span aria-hidden="true">/</span>
+      <a href="{{ blog.url }}">{{ blog.title }}</a>
+    </nav>
+
     {% content_for 'blocks' %}
+
+    {% if article.handle == 'does-berberine-actually-work-for-weight-loss' %}
+      <aside class="ryztor-article-sources" aria-labelledby="ryztor-article-sources-title">
+        <h2 id="ryztor-article-sources-title">{{ 'ryztor.blog.sources_title' | t }}</h2>
+        <p>{{ 'ryztor.blog.sources_intro' | t }}</p>
+        <ul>
+          <li><a href="https://www.nccih.nih.gov/health/berberine-and-weight-loss-what-you-need-to-know" target="_blank" rel="noopener noreferrer">National Center for Complementary and Integrative Health</a></li>
+          <li><a href="https://pubmed.ncbi.nlm.nih.gov/32335802/" target="_blank" rel="noopener noreferrer">{{ 'ryztor.blog.source_review' | t }}</a></li>
+          <li><a href="https://pubmed.ncbi.nlm.nih.gov/22739410/" target="_blank" rel="noopener noreferrer">{{ 'ryztor.blog.source_trial' | t }}</a></li>
+        </ul>
+      </aside>
+    {% endif %}
 
     {% if blog.comments_enabled? %}
       <div class="blog-post-comments-container">
@@ -60,7 +78,54 @@
   {{ article | structured_data }}
 </script>
 
+{% liquid
+  assign breadcrumb_home_url = request.origin | append: routes.root_url
+  assign breadcrumb_blog_url = request.origin | append: blog.url
+%}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": {{ 'ryztor.blog.home' | t | json }}, "item": {{ breadcrumb_home_url | json }} },
+      { "@type": "ListItem", "position": 2, "name": {{ blog.title | json }}, "item": {{ breadcrumb_blog_url | json }} },
+      { "@type": "ListItem", "position": 3, "name": {{ article.title | json }}, "item": {{ canonical_url | json }} }
+    ]
+  }
+</script>
+
 {% stylesheet %}
+  .ryztor-article-breadcrumb,
+  .ryztor-article-sources {
+    width: 100%;
+    max-width: var(--normal-content-width);
+    margin-inline: auto;
+  }
+
+  .ryztor-article-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: .82rem;
+    opacity: .72;
+  }
+
+  .ryztor-article-breadcrumb a { color: inherit; text-underline-offset: 3px; }
+
+  .ryztor-article-sources {
+    margin-top: 28px;
+    padding: 22px;
+    border: 1px solid rgb(var(--color-foreground-rgb) / .16);
+    border-radius: 16px;
+    background: rgb(var(--color-foreground-rgb) / .035);
+  }
+
+  .ryztor-article-sources h2 { margin: 0 0 8px; font-size: 1.2rem; }
+  .ryztor-article-sources p { margin: 0 0 12px; opacity: .78; }
+  .ryztor-article-sources ul { margin: 0; padding-inline-start: 20px; }
+  .ryztor-article-sources li + li { margin-top: 7px; }
+  .ryztor-article-sources a { color: #6426ff; text-underline-offset: 3px; }
+
   .blog-post-comments-container {
     width: 100%;
     max-width: var(--normal-content-width);

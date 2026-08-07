@@ -1,19 +1,29 @@
-<nav class="ryztor-footer-links" aria-label="{{ 'ryztor.footer.help_policies' | t | escape }}">
-  <h2>{{ 'ryztor.footer.help_policies' | t }}</h2>
-  <ul>
-    <li><a href="{{ routes.root_url }}pages/contact">{{ 'ryztor.footer.contact' | t }}</a></li>
-    <li><a href="{{ routes.root_url }}pages/faq">{{ 'ryztor.footer.faq' | t }}</a></li>
-    <li><a href="{{ routes.root_url }}pages/refund-policy">{{ 'ryztor.footer.refunds' | t }}</a></li>
-    <li><a href="{{ routes.root_url }}pages/shipping-policy">{{ 'ryztor.footer.shipping' | t }}</a></li>
-    <li><a href="{{ routes.root_url }}pages/terms-and-conditions">{{ 'ryztor.footer.terms' | t }}</a></li>
-    <li><a href="{{ routes.root_url }}pages/privacy-policy">{{ 'ryztor.footer.privacy' | t }}</a></li>
-    <li><a href="{{ routes.root_url }}pages/legal-disclaimer">{{ 'ryztor.footer.legal' | t }}</a></li>
-    <li><a href="{{ routes.root_url }}pages/data-sharing-opt-out">{{ 'ryztor.footer.data_opt_out' | t }}</a></li>
-  </ul>
-</nav>
+<div class="ryztor-footer-links">
+  <nav aria-label="{{ 'ryztor.footer.learn' | t | escape }}">
+    <h2>{{ 'ryztor.footer.learn' | t }}</h2>
+    <ul>
+      <li><a href="{{ routes.root_url }}blogs/ryztor-wellness-journal">{{ 'ryztor.footer.journal' | t }}</a></li>
+      <li><a href="{{ routes.root_url }}blogs/ryztor-wellness-journal/does-berberine-actually-work-for-weight-loss">{{ 'ryztor.footer.berberine_weight' | t }}</a></li>
+    </ul>
+  </nav>
+
+  <nav aria-label="{{ 'ryztor.footer.help_policies' | t | escape }}">
+    <h2>{{ 'ryztor.footer.help_policies' | t }}</h2>
+    <ul>
+      <li><a href="{{ routes.root_url }}pages/contact">{{ 'ryztor.footer.contact' | t }}</a></li>
+      <li><a href="{{ routes.root_url }}pages/faq">{{ 'ryztor.footer.faq' | t }}</a></li>
+      <li><a href="{{ routes.root_url }}pages/refund-policy">{{ 'ryztor.footer.refunds' | t }}</a></li>
+      <li><a href="{{ routes.root_url }}pages/shipping-policy">{{ 'ryztor.footer.shipping' | t }}</a></li>
+      <li><a href="{{ routes.root_url }}pages/terms-and-conditions">{{ 'ryztor.footer.terms' | t }}</a></li>
+      <li><a href="{{ routes.root_url }}pages/privacy-policy">{{ 'ryztor.footer.privacy' | t }}</a></li>
+      <li><a href="{{ routes.root_url }}pages/legal-disclaimer">{{ 'ryztor.footer.legal' | t }}</a></li>
+      <li><a href="{{ routes.root_url }}pages/data-sharing-opt-out">{{ 'ryztor.footer.data_opt_out' | t }}</a></li>
+    </ul>
+  </nav>
+</div>
 
 {% stylesheet %}
-  .ryztor-footer-links { width: 100%; }
+  .ryztor-footer-links { display: grid; width: 100%; gap: 28px; }
   .ryztor-footer-links h2 { margin: 0 0 14px; font-size: 1rem; font-weight: 750; }
   .ryztor-footer-links ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px 18px; margin: 0; padding: 0; list-style: none; }
   .ryztor-footer-links a { color: inherit; font-size: .84rem; line-height: 1.35; text-decoration: none; opacity: .72; transition: opacity 160ms ease, color 160ms ease; }

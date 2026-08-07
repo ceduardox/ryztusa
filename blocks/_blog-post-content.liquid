@@ -22,7 +22,19 @@
   }
 
   .blog-post-content a {
-    color: currentcolor;
+    color: #6426ff;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  .blog-post-content rte-formatter { line-height: 1.72; }
+  .blog-post-content h2 { margin-top: 2.2em; margin-bottom: .65em; line-height: 1.14; }
+  .blog-post-content p + p { margin-top: 1.15em; }
+  .blog-post-content li + li { margin-top: .45em; }
+
+  @media screen and (max-width: 749px) {
+    .blog-post-content rte-formatter { line-height: 1.65; }
+    .blog-post-content h2 { margin-top: 1.8em; }
   }
 {% endstylesheet %}
 

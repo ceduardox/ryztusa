@@ -1,5 +1,5 @@
 <div class="ryztor-footer-links">
-  <nav aria-label="{{ 'ryztor.footer.learn' | t | escape }}">
+  <nav class="ryztor-footer-links__learn" aria-label="{{ 'ryztor.footer.learn' | t | escape }}">
     <h2>{{ 'ryztor.footer.learn' | t }}</h2>
     <ul>
       <li><a href="{{ routes.root_url }}blogs/ryztor-wellness-journal">{{ 'ryztor.footer.journal' | t }}</a></li>
@@ -7,7 +7,7 @@
     </ul>
   </nav>
 
-  <nav aria-label="{{ 'ryztor.footer.help_policies' | t | escape }}">
+  <nav class="ryztor-footer-links__policies" aria-label="{{ 'ryztor.footer.help_policies' | t | escape }}">
     <h2>{{ 'ryztor.footer.help_policies' | t }}</h2>
     <ul>
       <li><a href="{{ routes.root_url }}pages/contact">{{ 'ryztor.footer.contact' | t }}</a></li>
@@ -23,12 +23,18 @@
 </div>
 
 {% stylesheet %}
-  .ryztor-footer-links { display: grid; width: 100%; gap: 28px; }
+  .ryztor-footer-links { display: grid; grid-template-columns: minmax(150px, .72fr) minmax(300px, 1.6fr); align-items: start; width: 100%; gap: 24px 38px; }
   .ryztor-footer-links h2 { margin: 0 0 14px; font-size: 1rem; font-weight: 750; }
   .ryztor-footer-links ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px 18px; margin: 0; padding: 0; list-style: none; }
+  .ryztor-footer-links__learn ul { grid-template-columns: 1fr; }
   .ryztor-footer-links a { color: inherit; font-size: .84rem; line-height: 1.35; text-decoration: none; opacity: .72; transition: opacity 160ms ease, color 160ms ease; }
   .ryztor-footer-links a:hover { color: #6426ff; opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
-  @media screen and (max-width: 479px) { .ryztor-footer-links ul { grid-template-columns: 1fr; gap: 10px; } }
+  @media screen and (max-width: 749px) {
+    .ryztor-footer-links { grid-template-columns: 1fr; gap: 26px; }
+  }
+  @media screen and (max-width: 479px) {
+    .ryztor-footer-links ul { grid-template-columns: 1fr; gap: 10px; }
+  }
 {% endstylesheet %}
 
 {% schema %}

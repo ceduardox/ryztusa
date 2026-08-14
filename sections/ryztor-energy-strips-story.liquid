@@ -20,14 +20,17 @@
       </header>
 
       <div class="ryztor-energy__moments">
-        {% assign moment_indexes = '1,2,3,4' | split: ',' %}
-        {% for index_string in moment_indexes %}
-          {% assign media_index = index_string | plus: 0 %}
-          {% assign moment_media = product.media[media_index] %}
+        {% assign moment_slugs = 'training,study,work,on-the-go' | split: ',' %}
+        {% for moment_slug in moment_slugs %}
+          {% capture moment_asset %}energy-strips-{{ moment_slug }}.webp{% endcapture %}
           <article>
-            {% if moment_media.preview_image != blank %}
-              {{ moment_media.preview_image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '360,540,720,900', sizes: '(max-width: 749px) 82vw, 25vw' }}
-            {% endif %}
+            <img
+              src="{{ moment_asset | asset_url }}"
+              alt="{% if is_spanish %}Energy Strips para {% case forloop.index %}{% when 1 %}entrenamiento{% when 2 %}estudio{% when 3 %}trabajo{% when 4 %}usar en movimiento{% endcase %}{% else %}Energy Strips for {{ moment_slug | replace: '-', ' ' }}{% endif %}"
+              width="900"
+              height="1125"
+              loading="lazy"
+            >
             <div>
               <span>0{{ forloop.index }}</span>
               {% case forloop.index %}

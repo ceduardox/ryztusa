@@ -4,7 +4,15 @@
   assign bundle_handles = 'berberine,berberine-400mg,berberine-400mg-3-pack' | split: ','
   assign bundle_is_available = false
 
-  if bundle_kind == 'magnesium' and normalized_title contains 'magnesium'
+  if bundle_kind == 'energy-strips' and normalized_title contains 'energy strip'
+    assign bundle_handles = 'energy-strips,energy-strips-2-pack,energy-strips-3-pack' | split: ','
+    assign bundle_one = all_products[bundle_handles[0]]
+    assign bundle_two = all_products[bundle_handles[1]]
+    assign bundle_three = all_products[bundle_handles[2]]
+    if bundle_one != blank and bundle_two != blank and bundle_three != blank
+      assign bundle_is_available = true
+    endif
+  elsif bundle_kind == 'magnesium' and normalized_title contains 'magnesium'
     assign bundle_handles = 'magnesium-glycinate,magnesium-glycinate-2-pack,magnesium-glycinate-3-pack' | split: ','
     assign bundle_one = all_products[bundle_handles[0]]
     assign bundle_two = all_products[bundle_handles[1]]
@@ -73,6 +81,24 @@
             assign bundle_label = 'ryztor.bundle.three_bottles' | t
             assign bundle_badge = 'ryztor.bundle.best_value' | t
           endif
+
+          if bundle_kind == 'energy-strips'
+            assign bundle_label = '1 pack'
+            if request.locale.iso_code == 'es'
+              assign bundle_label = '1 paquete'
+            endif
+            if bundle_number == 2
+              assign bundle_label = '2 packs'
+              if request.locale.iso_code == 'es'
+                assign bundle_label = '2 paquetes'
+              endif
+            elsif bundle_number == 3
+              assign bundle_label = '3 packs'
+              if request.locale.iso_code == 'es'
+                assign bundle_label = '3 paquetes'
+              endif
+            endif
+          endif
         %}
 
         <button
@@ -135,7 +161,11 @@
 
           <span class="ryztor-bundles__per-bottle">
             {% assign bundle_per_bottle = bundle_price | divided_by: bundle_number | money %}
-            {{ 'ryztor.bundle.per_bottle' | t: price: bundle_per_bottle }}
+            {% if bundle_kind == 'energy-strips' %}
+              {% if request.locale.iso_code == 'es' %}{{ bundle_per_bottle }} / paquete{% else %}{{ bundle_per_bottle }} / pack{% endif %}
+            {% else %}
+              {{ 'ryztor.bundle.per_bottle' | t: price: bundle_per_bottle }}
+            {% endif %}
           </span>
         </button>
       {% endfor %}

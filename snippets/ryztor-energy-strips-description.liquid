@@ -1,0 +1,91 @@
+{% liquid
+  assign normalized_title = product_resource.title | downcase
+  assign placement = placement | default: 'media'
+  assign content = content | default: 'product'
+  assign is_spanish = false
+  if request.locale.iso_code == 'es'
+    assign is_spanish = true
+  endif
+%}
+
+{% if normalized_title contains 'energy strip' %}
+  <div class="ryztor-media-description ryztor-media-description--{{ placement }}">
+    {% unless content == 'questions' %}
+      <div class="ryztor-media-description__group">
+        <p class="ryztor-media-description__eyebrow">{% if is_spanish %}ENERGÍA EN UN FORMATO PORTÁTIL{% else %}ENERGY IN A PORTABLE FORMAT{% endif %}</p>
+
+        <details name="ryztor-energy-{{ placement }}">
+          <summary>{% if is_spanish %}Descripción{% else %}Description{% endif %} <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer">
+            <p>{% if is_spanish %}Tiras orales con cafeína, L-teanina y vitamina B12, pensadas para adultos que buscan una opción práctica dentro de una rutina activa.{% else %}Oral strips with caffeine, L-theanine, and vitamin B12, created for adults who want a convenient option within an active routine.{% endif %}</p>
+            <ul>
+              <li>{% if is_spanish %}Formato delgado y fácil de llevar{% else %}Slim, easy-to-carry format{% endif %}</li>
+              <li>{% if is_spanish %}Sabor arándano rojo{% else %}Cranberry flavor{% endif %}</li>
+              <li>{% if is_spanish %}Una tira por uso{% else %}One strip per use{% endif %}</li>
+              <li>{% if is_spanish %}30 tiras por paquete{% else %}30 strips per pack{% endif %}</li>
+            </ul>
+          </div>
+        </details>
+
+        <details name="ryztor-energy-{{ placement }}">
+          <summary>{% if is_spanish %}Ingredientes{% else %}Ingredients{% endif %} <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer"><p>Pullulan, L-Theanine, Caffeine, Mannitol, Cellulose, Cranberry Flavor, Lecithin, Malic Acid, Pectin, Erythritol, Steviol Glycosides, Methylcobalamin.</p></div>
+        </details>
+
+        <details name="ryztor-energy-{{ placement }}">
+          <summary>{% if is_spanish %}Modo de uso{% else %}How to use{% endif %} <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer"><p>{% if is_spanish %}Coloca una tira sobre la lengua y deja que se disuelva. No consumas más de una tira al día. Sigue siempre las indicaciones de la etiqueta.{% else %}Place one strip on the tongue and allow it to dissolve. Do not consume more than one strip per day. Always follow the label directions.{% endif %}</p></div>
+        </details>
+
+        <details name="ryztor-energy-{{ placement }}">
+          <summary>{% if is_spanish %}Advertencias{% else %}Warnings{% endif %} <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer"><p>{% if is_spanish %}Contiene cafeína. Solo para adultos. No excedas la dosis recomendada. Si estás embarazada, en lactancia, tomas medicamentos o tienes una condición médica, consulta a un profesional de salud antes de usarlo. Mantén fuera del alcance de los niños.{% else %}Contains caffeine. For adults only. Do not exceed the recommended dose. If pregnant, nursing, taking medication, or managing a medical condition, consult a qualified health professional before use. Keep out of reach of children.{% endif %}</p></div>
+        </details>
+
+        <details name="ryztor-energy-{{ placement }}">
+          <summary>{% if is_spanish %}Detalles del producto{% else %}Product details{% endif %} <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer">
+            <dl class="ryztor-media-description__facts">
+              <div><dt>{% if is_spanish %}Formato{% else %}Format{% endif %}</dt><dd>{% if is_spanish %}Tiras orales{% else %}Oral strips{% endif %}</dd></div>
+              <div><dt>{% if is_spanish %}Sabor{% else %}Flavor{% endif %}</dt><dd>{% if is_spanish %}Arándano rojo{% else %}Cranberry{% endif %}</dd></div>
+              <div><dt>{% if is_spanish %}Cantidad{% else %}Amount{% endif %}</dt><dd>30 oral strips</dd></div>
+              <div><dt>{% if is_spanish %}Peso bruto{% else %}Gross weight{% endif %}</dt><dd>2.2 oz / 64 g</dd></div>
+              <div><dt>{% if is_spanish %}Fabricado en{% else %}Manufactured in{% endif %}</dt><dd>India</dd></div>
+            </dl>
+          </div>
+        </details>
+      </div>
+    {% endunless %}
+
+    {% unless content == 'product' %}
+      <div class="ryztor-media-description__group ryztor-media-description__group--questions">
+        <details name="ryztor-energy-questions-{{ placement }}">
+          <summary>{% if is_spanish %}¿Para quién es?{% else %}Who is it for?{% endif %} <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer"><p>{% if is_spanish %}Adultos que desean un formato portátil con cafeína para acompañar días activos, estudio, trabajo o entrenamiento.{% else %}Adults who want a portable caffeine format for active days, study, work, or training routines.{% endif %}</p></div>
+        </details>
+        <details name="ryztor-energy-questions-{{ placement }}">
+          <summary>{% if is_spanish %}¿Necesito agua?{% else %}Do I need water?{% endif %} <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer"><p>{% if is_spanish %}No. La tira está diseñada para colocarse sobre la lengua y dejarse disolver.{% else %}No. The strip is designed to be placed on the tongue and allowed to dissolve.{% endif %}</p></div>
+        </details>
+        <details name="ryztor-energy-questions-{{ placement }}">
+          <summary>{% if is_spanish %}¿Cuántas puedo tomar?{% else %}How many can I take?{% endif %} <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer"><p>{% if is_spanish %}La indicación es una tira y un máximo de una tira al día. No excedas las instrucciones de la etiqueta.{% else %}The direction is one strip, with a maximum of one strip per day. Do not exceed the label directions.{% endif %}</p></div>
+        </details>
+        <details name="ryztor-energy-questions-{{ placement }}">
+          <summary>{% if is_spanish %}Envíos y devoluciones{% else %}Shipping & returns{% endif %} <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer">
+            <p>{% if is_spanish %}Los métodos, plazos estimados y costos finales aparecen durante el checkout. Los pedidos superiores a $50 califican para envío gratis cuando corresponda.{% else %}Available methods, estimated delivery times, and final costs appear during checkout. Orders over $50 qualify for free shipping where applicable.{% endif %}</p>
+            <div class="ryztor-media-description__links">
+              {% if shop.shipping_policy != blank %}<a href="{{ shop.shipping_policy.url }}">{% if is_spanish %}Política de envíos{% else %}Shipping policy{% endif %}</a>{% endif %}
+              {% if shop.refund_policy != blank %}<a href="{{ shop.refund_policy.url }}">{% if is_spanish %}Política de reembolsos{% else %}Refund policy{% endif %}</a>{% endif %}
+            </div>
+          </div>
+        </details>
+      </div>
+    {% endunless %}
+
+    {% unless content == 'questions' %}
+      <p class="ryztor-media-description__disclaimer">{% if is_spanish %}*Estas declaraciones no han sido evaluadas por la Administración de Alimentos y Medicamentos. Este producto no está destinado a diagnosticar, tratar, curar ni prevenir ninguna enfermedad.{% else %}*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.{% endif %}</p>
+    {% endunless %}
+  </div>
+{% endif %}

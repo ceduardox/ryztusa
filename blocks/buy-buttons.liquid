@@ -5,7 +5,7 @@
   assign product = closest.product
   assign normalized_product_title = product.title | downcase
   assign is_ryztor_bundle_product = false
-  if normalized_product_title contains 'berber' or normalized_product_title contains 'magnesium'
+  if normalized_product_title contains 'berber' or normalized_product_title contains 'magnesium' or normalized_product_title contains 'energy strip'
     assign is_ryztor_bundle_product = true
   endif
   if request.visual_preview_mode and product == blank

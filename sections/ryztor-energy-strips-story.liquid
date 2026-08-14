@@ -1,0 +1,150 @@
+{% liquid
+  assign product_title = product.title | downcase
+  assign is_spanish = false
+  if request.locale.iso_code == 'es'
+    assign is_spanish = true
+  endif
+  assign video_language = 'en'
+  if is_spanish
+    assign video_language = 'es'
+  endif
+%}
+
+{% if product_title contains 'energy strip' %}
+  <section class="ryztor-energy" id="ryztor-energy-benefits" style="--re-accent: {{ section.settings.accent }}; --re-ink: {{ section.settings.ink }}; --re-soft: {{ section.settings.soft_background }}; --re-card: {{ section.settings.card_background }};">
+    <div class="ryztor-energy__shell">
+      <header class="ryztor-energy__header">
+        <p>{% if is_spanish %}ENERGÍA PARA TU RITMO{% else %}ENERGY FOR YOUR ROUTINE{% endif %}</p>
+        <h2>{% if is_spanish %}Abre. Coloca. Sigue.{% else %}Open. Place. Keep moving.{% endif %}</h2>
+        <div class="rte"><p>{% if is_spanish %}Un formato portátil con cafeína, L-teanina y vitamina B12 para acompañar días activos sin mezclar polvos ni cargar bebidas energéticas.*{% else %}A portable format with caffeine, L-theanine, and vitamin B12 for active days—without mixing powders or carrying an energy drink.*{% endif %}</p></div>
+      </header>
+
+      <div class="ryztor-energy__moments">
+        {% assign moment_indexes = '1,2,3,4' | split: ',' %}
+        {% for index_string in moment_indexes %}
+          {% assign media_index = index_string | plus: 0 %}
+          {% assign moment_media = product.media[media_index] %}
+          <article>
+            {% if moment_media.preview_image != blank %}
+              {{ moment_media.preview_image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '360,540,720,900', sizes: '(max-width: 749px) 82vw, 25vw' }}
+            {% endif %}
+            <div>
+              <span>0{{ forloop.index }}</span>
+              {% case forloop.index %}
+                {% when 1 %}<h3>{% if is_spanish %}Entrenamiento{% else %}Training{% endif %}</h3><p>{% if is_spanish %}Un formato compacto para llevar en el bolso del gimnasio.{% else %}A compact format that fits easily in your gym bag.{% endif %}</p>
+                {% when 2 %}<h3>{% if is_spanish %}Estudio{% else %}Study{% endif %}</h3><p>{% if is_spanish %}Práctico para jornadas de lectura, proyectos y preparación.{% else %}Convenient for reading, projects, and preparation sessions.{% endif %}</p>
+                {% when 3 %}<h3>{% if is_spanish %}Trabajo{% else %}Work{% endif %}</h3><p>{% if is_spanish %}Una opción fácil de guardar para días de agenda intensa.{% else %}Easy to keep nearby for demanding workdays.{% endif %}</p>
+                {% when 4 %}<h3>{% if is_spanish %}En movimiento{% else %}On the go{% endif %}</h3><p>{% if is_spanish %}Sin botella, shaker ni preparación: solo sigue la etiqueta.{% else %}No bottle, shaker, or mixing—just follow the label.{% endif %}</p>
+              {% endcase %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+
+      <div class="ryztor-energy__videos" aria-labelledby="ryztor-energy-video-heading">
+        <div class="ryztor-energy__videos-header">
+          <p>{% if is_spanish %}ENERGY STRIPS EN ACCIÓN{% else %}ENERGY STRIPS IN ACTION{% endif %}</p>
+          <h2 id="ryztor-energy-video-heading">{% if is_spanish %}Mira cómo encaja en tu rutina.{% else %}See how it fits your routine.{% endif %}</h2>
+        </div>
+        <div class="ryztor-energy__video-grid">
+          {% for video_index in (1..4) %}
+            {% capture video_asset %}energy-strips-{{ video_language }}-{{ video_index }}.mp4{% endcapture %}
+            {% capture poster_asset %}energy-strips-{{ video_language }}-{{ video_index }}.webp{% endcapture %}
+            <article class="ryztor-energy__video-card">
+              <video controls playsinline preload="none" poster="{{ poster_asset | asset_url }}" aria-label="{% if is_spanish %}Video {{ video_index }} de Energy Strips en español{% else %}Energy Strips video {{ video_index }} in English{% endif %}">
+                <source src="{{ video_asset | asset_url }}" type="video/mp4">
+              </video>
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="ryztor-energy__benefits">
+        <article><span aria-hidden="true">01</span><h3>{% if is_spanish %}Cafeína en formato portátil{% else %}Portable caffeine format{% endif %}</h3><p>{% if is_spanish %}Diseñado para adultos que buscan una opción conveniente para apoyar el estado de alerta dentro de su rutina.*{% else %}Designed for adults seeking a convenient option to support alertness within their routine.*{% endif %}</p></article>
+        <article><span aria-hidden="true">02</span><h3>{% if is_spanish %}Cafeína + L-teanina{% else %}Caffeine + L-theanine{% endif %}</h3><p>{% if is_spanish %}Una combinación habitual en fórmulas enfocadas en energía y concentración, presentada aquí en una tira oral.{% else %}A familiar pairing in energy-and-focus formulas, presented here in an oral strip.{% endif %}</p></article>
+        <article><span aria-hidden="true">03</span><h3>{% if is_spanish %}Vitamina B12{% else %}Vitamin B12{% endif %}</h3><p>{% if is_spanish %}La vitamina B12 contribuye al metabolismo energético normal y al funcionamiento normal del sistema nervioso.*{% else %}Vitamin B12 contributes to normal energy-yielding metabolism and normal nervous-system function.*{% endif %}</p></article>
+        <article><span aria-hidden="true">04</span><h3>{% if is_spanish %}Rutina simple{% else %}Simple routine{% endif %}</h3><p>{% if is_spanish %}Coloca una tira sobre la lengua, deja que se disuelva y no excedas una tira al día.{% else %}Place one strip on the tongue, allow it to dissolve, and do not exceed one strip per day.{% endif %}</p></article>
+      </div>
+
+      <div class="ryztor-energy__facts">
+        <div><small>{% if is_spanish %}FORMATO{% else %}FORMAT{% endif %}</small><strong>{% if is_spanish %}Tira oral{% else %}Oral strip{% endif %}</strong></div>
+        <div><small>{% if is_spanish %}SABOR{% else %}FLAVOR{% endif %}</small><strong>{% if is_spanish %}Arándano rojo{% else %}Cranberry{% endif %}</strong></div>
+        <div><small>{% if is_spanish %}CANTIDAD{% else %}AMOUNT{% endif %}</small><strong>30 strips</strong></div>
+        <div><small>{% if is_spanish %}FABRICADO EN{% else %}MADE IN{% endif %}</small><strong>India</strong></div>
+      </div>
+
+      <div class="ryztor-energy__how">
+        <div><p>{% if is_spanish %}CÓMO USARLO{% else %}HOW TO USE IT{% endif %}</p><h2>{% if is_spanish %}Un paso. Sin mezclar.{% else %}One step. No mixing.{% endif %}</h2></div>
+        <ol>
+          <li><span>1</span><p>{% if is_spanish %}Abre el paquete y retira una tira.{% else %}Open the pack and remove one strip.{% endif %}</p></li>
+          <li><span>2</span><p>{% if is_spanish %}Colócala sobre la lengua.{% else %}Place it on your tongue.{% endif %}</p></li>
+          <li><span>3</span><p>{% if is_spanish %}Deja que se disuelva. Máximo una al día.{% else %}Allow it to dissolve. Maximum one per day.{% endif %}</p></li>
+        </ol>
+      </div>
+
+      <p class="ryztor-energy__disclaimer">{% if is_spanish %}*Estas declaraciones no han sido evaluadas por la Administración de Alimentos y Medicamentos. Este producto no está destinado a diagnosticar, tratar, curar ni prevenir ninguna enfermedad. Contiene cafeína; úsalo únicamente según las indicaciones de la etiqueta.{% else %}*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Contains caffeine; use only as directed on the label.{% endif %}</p>
+    </div>
+  </section>
+{% endif %}
+
+{% stylesheet %}
+  .ryztor-energy { padding: clamp(58px, 8vw, 110px) 20px; background: var(--re-soft); color: var(--re-ink); }
+  .ryztor-energy__shell { width: min(1180px, 100%); margin: 0 auto; }
+  .ryztor-energy__header { max-width: 820px; margin: 0 auto clamp(38px, 6vw, 72px); text-align: center; }
+  .ryztor-energy__header > p, .ryztor-energy__how > div > p { margin: 0 0 12px; color: var(--re-accent); font-size: .72rem; font-weight: 900; letter-spacing: .14em; }
+  .ryztor-energy__header h2, .ryztor-energy__how h2 { margin: 0; font-size: clamp(2.5rem, 5vw, 5.2rem); line-height: .94; letter-spacing: -.055em; }
+  .ryztor-energy__header .rte { margin-top: 20px; color: rgb(23 21 30 / 70%); font-size: 1.05rem; line-height: 1.65; }
+  .ryztor-energy__moments { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: clamp(48px, 7vw, 82px); }
+  .ryztor-energy__moments article { min-width: 0; overflow: hidden; border-radius: 25px; background: var(--re-card); box-shadow: 0 16px 42px rgb(35 24 64 / 10%); }
+  .ryztor-energy__moments img { width: 100%; aspect-ratio: 4 / 5; display: block; object-fit: cover; }
+  .ryztor-energy__moments article > div { padding: 18px 19px 22px; }
+  .ryztor-energy__moments span, .ryztor-energy__benefits span { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 13px; background: var(--re-accent); color: #fff; font-size: .7rem; font-weight: 900; }
+  .ryztor-energy__moments h3 { margin: 18px 0 7px; font-size: 1.22rem; }
+  .ryztor-energy__moments p, .ryztor-energy__benefits p { margin: 0; color: rgb(23 21 30 / 66%); font-size: .86rem; line-height: 1.5; }
+  .ryztor-energy__videos { margin-bottom: clamp(48px, 7vw, 82px); }
+  .ryztor-energy__videos-header { max-width: 760px; margin: 0 auto 28px; text-align: center; }
+  .ryztor-energy__videos-header > p { margin: 0 0 10px; color: var(--re-accent); font-size: .72rem; font-weight: 900; letter-spacing: .14em; }
+  .ryztor-energy__videos-header h2 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1; letter-spacing: -.045em; }
+  .ryztor-energy__video-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+  .ryztor-energy__video-card { min-width: 0; overflow: hidden; border-radius: 24px; background: #0d0b13; box-shadow: 0 18px 46px rgb(35 24 64 / 16%); }
+  .ryztor-energy__video-card video { width: 100%; aspect-ratio: 9 / 16; display: block; object-fit: cover; background: #0d0b13; }  .ryztor-energy__benefits { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .ryztor-energy__benefits article { min-height: 250px; padding: 24px; border: 1px solid color-mix(in srgb, var(--re-accent) 20%, transparent); border-radius: 24px; background: var(--re-card); }
+  .ryztor-energy__benefits h3 { margin: 36px 0 10px; font-size: 1.32rem; line-height: 1.08; }
+  .ryztor-energy__facts { margin-top: 24px; display: grid; grid-template-columns: repeat(4, 1fr); overflow: hidden; border-radius: 22px; background: var(--re-ink); color: #fff; }
+  .ryztor-energy__facts div { padding: 25px; border-right: 1px solid rgb(255 255 255 / 15%); }
+  .ryztor-energy__facts div:last-child { border: 0; }
+  .ryztor-energy__facts small { display: block; margin-bottom: 7px; color: color-mix(in srgb, var(--re-accent) 78%, white); font-size: .62rem; font-weight: 900; letter-spacing: .12em; }
+  .ryztor-energy__how { margin-top: clamp(58px, 8vw, 100px); display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(34px, 7vw, 90px); align-items: start; }
+  .ryztor-energy__how h2 { font-size: clamp(2.4rem, 4.5vw, 4.8rem); }
+  .ryztor-energy__how ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .ryztor-energy__how li { display: grid; grid-template-columns: 46px 1fr; gap: 14px; align-items: center; padding: 17px; border-radius: 18px; background: var(--re-card); }
+  .ryztor-energy__how li span { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 14px; background: var(--re-accent); color: #fff; font-weight: 900; }
+  .ryztor-energy__how li p { margin: 0; line-height: 1.45; }
+  .ryztor-energy__disclaimer { max-width: 880px; margin: 46px auto 0; color: rgb(23 21 30 / 50%); font-size: .68rem; line-height: 1.55; text-align: center; }
+  @media screen and (max-width: 899px) { .ryztor-energy__moments, .ryztor-energy__video-grid { grid-template-columns: repeat(2, 1fr); } .ryztor-energy__benefits, .ryztor-energy__facts { grid-template-columns: repeat(2, 1fr); } .ryztor-energy__facts div:nth-child(2) { border-right: 0; } .ryztor-energy__how { grid-template-columns: 1fr; } }
+  @media screen and (max-width: 549px) { .ryztor-energy { padding-inline: 16px; } .ryztor-energy__moments, .ryztor-energy__video-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 8vw 12px 0; } .ryztor-energy__moments article, .ryztor-energy__video-card { flex: 0 0 82%; scroll-snap-align: start; } .ryztor-energy__benefits { grid-template-columns: 1fr; } .ryztor-energy__benefits article { min-height: auto; } .ryztor-energy__benefits h3 { margin-top: 24px; } .ryztor-energy__facts div { padding: 20px 17px; } }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "RYZTOR Energy Strips",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Energy for your routine" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Open. Place. Keep moving." },
+    { "type": "richtext", "id": "intro", "label": "Introduction", "default": "<p>A portable caffeine format for active routines.</p>" },
+    { "type": "color", "id": "accent", "label": "Accent", "default": "#6426ff" },
+    { "type": "color", "id": "ink", "label": "Text", "default": "#17151e" },
+    { "type": "color", "id": "soft_background", "label": "Background", "default": "#f4f0ff" },
+    { "type": "color", "id": "card_background", "label": "Cards", "default": "#ffffff" }
+  ],
+  "blocks": [
+    { "type": "review", "name": "Reserved", "settings": [
+      { "type": "range", "id": "rating", "label": "Rating", "min": 1, "max": 5, "step": 1, "default": 5 },
+      { "type": "text", "id": "title", "label": "Title" },
+      { "type": "textarea", "id": "quote", "label": "Quote" },
+      { "type": "text", "id": "author", "label": "Author" },
+      { "type": "checkbox", "id": "verified", "label": "Verified buyer", "default": false }
+    ] }
+  ],
+  "presets": [{ "name": "RYZTOR Energy Strips" }]
+}
+{% endschema %}

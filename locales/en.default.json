@@ -420,7 +420,7 @@
     },
     "contact": {
       "eyebrow": "CONTACT RYZTOR",
-      "heading": "LET'S TALK <em>WELLNESS.</em>",
+      "heading_html": "LET'S TALK <em>WELLNESS.</em>",
       "description": "Questions about Berberine, Magnesium Glycinate, Creatine or your order? Send us a note. Clear answers and real support are part of a better routine.",
       "guidance_title": "Product guidance",
       "guidance_text": "Find the formula that fits your routine.",
@@ -903,7 +903,26 @@
       },
       "disclaimer": "*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease."
     },
-    "bundle": {
+    "energy_strips": {
+      "commerce": {
+        "pure": "CAFFEINE",
+        "formula": "L-Theanine + B12",
+        "unflavored": "Cranberry flavor",
+        "you_save": "You save {{ amount }} ({{ percent }}% off)",
+        "summary_title": "Energy that travels with you.*",
+        "summary_text": "Portable oral strips with caffeine, L-theanine, and vitamin B12 for active adult routines.",
+        "powder": "Oral strips",
+        "serving": "Serving format",
+        "manufactured": "Manufactured in",
+        "stock_low": "Only {{ count }} left in stock — order soon.",
+        "out_of_stock": "Out of stock",
+        "guarantee": "30-Day Money-Back Guarantee",
+        "shipping_over": "Free shipping on orders over $50",
+        "subscribe_badge": "SUBSCRIBE",
+        "subscribe_title": "Subscribe & Save",
+        "subscribe_text": "Review the available delivery frequency and savings before checkout."
+      }
+    },    "bundle": {
       "heading": "Bundle & save",
       "subheading": "Select the routine that fits you",
       "free_shipping": "Free shipping on 2+ packs",

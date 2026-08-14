@@ -408,7 +408,7 @@
     },
     "contact": {
       "eyebrow": "CONTACTA A RYZTOR",
-      "heading": "HABLEMOS DE <em>BIENESTAR.</em>",
+      "heading_html": "HABLEMOS DE <em>BIENESTAR.</em>",
       "description": "¿Tienes preguntas sobre Berberine, Magnesium Glycinate, Creatine o tu pedido? Escríbenos. Las respuestas claras y el apoyo real forman parte de una mejor rutina.",
       "guidance_title": "Orientación sobre productos",
       "guidance_text": "Encuentra la fórmula que mejor se adapte a tu rutina.",
@@ -891,7 +891,26 @@
       },
       "disclaimer": "*Estas declaraciones no han sido evaluadas por la Administración de Alimentos y Medicamentos de Estados Unidos. Este producto no está destinado a diagnosticar, tratar, curar ni prevenir ninguna enfermedad."
     },
-    "bundle": {
+    "energy_strips": {
+      "commerce": {
+        "pure": "CAFEÍNA",
+        "formula": "L-Teanina + B12",
+        "unflavored": "Sabor arándano rojo",
+        "you_save": "Ahorras {{ amount }} ({{ percent }}% dto.)",
+        "summary_title": "Energía que va contigo.*",
+        "summary_text": "Tiras orales portátiles con cafeína, L-teanina y vitamina B12 para rutinas activas de adultos.",
+        "powder": "Tiras orales",
+        "serving": "Formato de uso",
+        "manufactured": "Fabricado en",
+        "stock_low": "Solo quedan {{ count }} — pide pronto.",
+        "out_of_stock": "Agotado",
+        "guarantee": "Garantía de devolución de 30 días",
+        "shipping_over": "Envío gratis en pedidos superiores a $50",
+        "subscribe_badge": "SUSCRÍBETE",
+        "subscribe_title": "Suscríbete y ahorra",
+        "subscribe_text": "Revisa la frecuencia disponible y el ahorro antes del checkout."
+      }
+    },    "bundle": {
       "heading": "Combina y ahorra",
       "subheading": "Selecciona la opción que mejor se adapte a ti",
       "free_shipping": "Envío gratis en paquetes de 2 o más",

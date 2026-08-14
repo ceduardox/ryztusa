@@ -24,13 +24,15 @@
         {% for moment_slug in moment_slugs %}
           {% capture moment_asset %}energy-strips-{{ moment_slug }}.webp{% endcapture %}
           <article>
-            <img
-              src="{{ moment_asset | asset_url }}"
-              alt="{% if is_spanish %}Energy Strips para {% case forloop.index %}{% when 1 %}entrenamiento{% when 2 %}estudio{% when 3 %}trabajo{% when 4 %}usar en movimiento{% endcase %}{% else %}Energy Strips for {{ moment_slug | replace: '-', ' ' }}{% endif %}"
-              width="900"
-              height="1125"
-              loading="lazy"
-            >
+            <button type="button" class="ryztor-energy__moment-expand" data-moment-expand aria-label="{% if is_spanish %}Ampliar imagen {{ forloop.index }} de Energy Strips{% else %}Expand Energy Strips image {{ forloop.index }}{% endif %}">
+              <img
+                src="{{ moment_asset | asset_url }}"
+                alt="{% if is_spanish %}Energy Strips para {% case forloop.index %}{% when 1 %}entrenamiento{% when 2 %}estudio{% when 3 %}trabajo{% when 4 %}usar en movimiento{% endcase %}{% else %}Energy Strips for {{ moment_slug | replace: '-', ' ' }}{% endif %}"
+                width="900"
+                height="1125"
+                loading="lazy"
+              >
+            </button>
             <div>
               <span>0{{ forloop.index }}</span>
               {% case forloop.index %}
@@ -44,6 +46,10 @@
         {% endfor %}
       </div>
 
+      <dialog class="ryztor-energy__lightbox" data-moment-lightbox aria-label="{% if is_spanish %}Imagen ampliada de Energy Strips{% else %}Expanded Energy Strips image{% endif %}">
+        <button type="button" class="ryztor-energy__lightbox-close" data-moment-close aria-label="{% if is_spanish %}Cerrar imagen{% else %}Close image{% endif %}">&times;</button>
+        <img data-moment-lightbox-image alt="">
+      </dialog>
       <div class="ryztor-energy__videos" aria-labelledby="ryztor-energy-video-heading">
         <div class="ryztor-energy__videos-header">
           <p>{% if is_spanish %}ENERGY STRIPS EN ACCIÓN{% else %}ENERGY STRIPS IN ACTION{% endif %}</p>
@@ -54,9 +60,18 @@
             {% capture video_asset %}energy-strips-{{ video_language }}-{{ video_index }}.mp4{% endcapture %}
             {% capture poster_asset %}energy-strips-{{ video_language }}-{{ video_index }}.webp{% endcapture %}
             <article class="ryztor-energy__video-card">
-              <video controls playsinline preload="none" poster="{{ poster_asset | asset_url }}" aria-label="{% if is_spanish %}Video {{ video_index }} de Energy Strips en español{% else %}Energy Strips video {{ video_index }} in English{% endif %}">
-                <source src="{{ video_asset | asset_url }}" type="video/mp4">
-              </video>
+              <div class="ryztor-energy__video-player">
+                <img src="{{ poster_asset | asset_url }}" alt="{% if is_spanish %}Portada del video {{ video_index }} de Energy Strips{% else %}Energy Strips video {{ video_index }} cover{% endif %}" loading="lazy" width="360" height="640">
+                <button type="button" class="ryztor-energy__video-play" aria-label="{% if is_spanish %}Reproducir video {{ video_index }}{% else %}Play video {{ video_index }}{% endif %}">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <button type="button" class="ryztor-energy__video-expand" data-energy-video-expand aria-label="{% if is_spanish %}Ampliar video {{ video_index }}{% else %}Expand video {{ video_index }}{% endif %}">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg>
+                </button>
+                <video playsinline preload="none" aria-label="{% if is_spanish %}Video {{ video_index }} de Energy Strips en español{% else %}Energy Strips video {{ video_index }} in English{% endif %}">
+                  <source src="{{ video_asset | asset_url }}" type="video/mp4">
+                </video>
+              </div>
             </article>
           {% endfor %}
         </div>
@@ -98,7 +113,14 @@
   .ryztor-energy__header .rte { margin-top: 20px; color: rgb(23 21 30 / 70%); font-size: 1.05rem; line-height: 1.65; }
   .ryztor-energy__moments { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: clamp(48px, 7vw, 82px); }
   .ryztor-energy__moments article { min-width: 0; overflow: hidden; border-radius: 25px; background: var(--re-card); box-shadow: 0 16px 42px rgb(35 24 64 / 10%); }
-  .ryztor-energy__moments img { width: 100%; aspect-ratio: 4 / 5; display: block; object-fit: cover; }
+  .ryztor-energy__moment-expand { width: 100%; display: block; padding: 0; border: 0; background: transparent; cursor: zoom-in; }
+  .ryztor-energy__moments img { width: 100%; aspect-ratio: 4 / 5; display: block; object-fit: cover; transition: transform .25s ease; }
+  .ryztor-energy__moment-expand:hover img { transform: scale(1.025); }
+  .ryztor-energy__moment-expand:focus-visible { outline: 3px solid var(--re-accent); outline-offset: -3px; }
+  .ryztor-energy__lightbox { width: min(92vw, 820px); max-width: none; padding: 0; border: 0; border-radius: 22px; overflow: visible; background: transparent; }
+  .ryztor-energy__lightbox::backdrop { background: rgb(8 6 15 / 88%); backdrop-filter: blur(5px); }
+  .ryztor-energy__lightbox > img { width: 100%; max-height: 88vh; display: block; object-fit: contain; border-radius: 22px; }
+  .ryztor-energy__lightbox-close { position: absolute; z-index: 2; top: -16px; right: -16px; width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; border-radius: 50%; background: #fff; color: #17151e; font-size: 2rem; line-height: 1; cursor: pointer; box-shadow: 0 8px 25px rgb(0 0 0 / 28%); }
   .ryztor-energy__moments article > div { padding: 18px 19px 22px; }
   .ryztor-energy__moments span, .ryztor-energy__benefits span { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 13px; background: var(--re-accent); color: #fff; font-size: .7rem; font-weight: 900; }
   .ryztor-energy__moments h3 { margin: 18px 0 7px; font-size: 1.22rem; }
@@ -109,7 +131,19 @@
   .ryztor-energy__videos-header h2 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1; letter-spacing: -.045em; }
   .ryztor-energy__video-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
   .ryztor-energy__video-card { min-width: 0; overflow: hidden; border-radius: 24px; background: #0d0b13; box-shadow: 0 18px 46px rgb(35 24 64 / 16%); }
-  .ryztor-energy__video-card video { width: 100%; aspect-ratio: 9 / 16; display: block; object-fit: cover; background: #0d0b13; }  .ryztor-energy__benefits { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .ryztor-energy__video-player { position: relative; aspect-ratio: 9 / 16; overflow: hidden; background: #0d0b13; cursor: pointer; }
+  .ryztor-energy__video-player > img, .ryztor-energy__video-player video { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; }
+  .ryztor-energy__video-player > img { z-index: 1; transition: opacity .25s ease; }
+  .ryztor-energy__video-player video { display: none; background: #0d0b13; }
+  .ryztor-energy__video-player.is-playing > img { opacity: 0; pointer-events: none; }
+  .ryztor-energy__video-player.is-playing video { display: block; }
+  .ryztor-energy__video-play, .ryztor-energy__video-expand { position: absolute; z-index: 3; display: grid; place-items: center; padding: 0; border: 0; color: #fff; cursor: pointer; }
+  .ryztor-energy__video-play { top: 50%; left: 50%; width: 62px; height: 62px; transform: translate(-50%, -50%); border-radius: 50%; background: rgb(100 38 255 / 92%); box-shadow: 0 8px 26px rgb(0 0 0 / 28%); }
+  .ryztor-energy__video-play svg { width: 34px; height: 34px; fill: currentColor; }
+  .ryztor-energy__video-expand { top: 12px; right: 12px; width: 38px; height: 38px; border-radius: 50%; background: rgb(8 6 15 / 72%); backdrop-filter: blur(5px); }
+  .ryztor-energy__video-expand svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .ryztor-energy__video-player.is-playing .ryztor-energy__video-play { display: none; }
+  .ryztor-energy__benefits { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
   .ryztor-energy__benefits article { min-height: 250px; padding: 24px; border: 1px solid color-mix(in srgb, var(--re-accent) 20%, transparent); border-radius: 24px; background: var(--re-card); }
   .ryztor-energy__benefits h3 { margin: 36px 0 10px; font-size: 1.32rem; line-height: 1.08; }
   .ryztor-energy__facts { margin-top: 24px; display: grid; grid-template-columns: repeat(4, 1fr); overflow: hidden; border-radius: 22px; background: var(--re-ink); color: #fff; }
@@ -124,9 +158,71 @@
   .ryztor-energy__how li p { margin: 0; line-height: 1.45; }
   .ryztor-energy__disclaimer { max-width: 880px; margin: 46px auto 0; color: rgb(23 21 30 / 50%); font-size: .68rem; line-height: 1.55; text-align: center; }
   @media screen and (max-width: 899px) { .ryztor-energy__moments, .ryztor-energy__video-grid { grid-template-columns: repeat(2, 1fr); } .ryztor-energy__benefits, .ryztor-energy__facts { grid-template-columns: repeat(2, 1fr); } .ryztor-energy__facts div:nth-child(2) { border-right: 0; } .ryztor-energy__how { grid-template-columns: 1fr; } }
-  @media screen and (max-width: 549px) { .ryztor-energy { padding-inline: 16px; } .ryztor-energy__moments, .ryztor-energy__video-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 8vw 12px 0; } .ryztor-energy__moments article, .ryztor-energy__video-card { flex: 0 0 82%; scroll-snap-align: start; } .ryztor-energy__benefits { grid-template-columns: 1fr; } .ryztor-energy__benefits article { min-height: auto; } .ryztor-energy__benefits h3 { margin-top: 24px; } .ryztor-energy__facts div { padding: 20px 17px; } }
+  @media screen and (max-width: 549px) { .ryztor-energy { padding-inline: 16px; } .ryztor-energy__moments, .ryztor-energy__video-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; overflow: visible; padding: 0; } .ryztor-energy__moments article, .ryztor-energy__video-card { min-width: 0; } .ryztor-energy__moments article > div { padding: 13px 12px 16px; } .ryztor-energy__moments span { width: 34px; height: 34px; border-radius: 11px; } .ryztor-energy__moments h3 { margin: 13px 0 5px; font-size: 1rem; } .ryztor-energy__moments p { font-size: .75rem; line-height: 1.4; } .ryztor-energy__video-play { width: 48px; height: 48px; } .ryztor-energy__video-play svg { width: 28px; height: 28px; } .ryztor-energy__video-expand { top: 8px; right: 8px; width: 34px; height: 34px; } .ryztor-energy__lightbox { width: min(90vw, 520px); } .ryztor-energy__lightbox-close { top: -12px; right: -8px; } .ryztor-energy__benefits { grid-template-columns: 1fr; } .ryztor-energy__benefits article { min-height: auto; } .ryztor-energy__benefits h3 { margin-top: 24px; } .ryztor-energy__facts div { padding: 20px 17px; } }
 {% endstylesheet %}
 
+
+<script>
+  (function() {
+    var section = document.getElementById('ryztor-energy-benefits');
+    if (!section || section.dataset.mediaReady === 'true') return;
+    section.dataset.mediaReady = 'true';
+
+    var lightbox = section.querySelector('[data-moment-lightbox]');
+    var lightboxImage = lightbox && lightbox.querySelector('[data-moment-lightbox-image]');
+
+    section.addEventListener('click', function(event) {
+      var momentButton = event.target.closest('[data-moment-expand]');
+      if (momentButton && section.contains(momentButton) && lightbox && lightboxImage) {
+        var image = momentButton.querySelector('img');
+        lightboxImage.src = image.currentSrc || image.src;
+        lightboxImage.alt = image.alt;
+        if (typeof lightbox.showModal === 'function') lightbox.showModal();
+        else lightbox.setAttribute('open', '');
+        return;
+      }
+
+      if (event.target.closest('[data-moment-close]')) {
+        if (typeof lightbox.close === 'function') lightbox.close();
+        else lightbox.removeAttribute('open');
+        return;
+      }
+
+      var expandButton = event.target.closest('[data-energy-video-expand]');
+      if (expandButton && section.contains(expandButton)) {
+        event.preventDefault();
+        event.stopPropagation();
+        var expandPlayer = expandButton.closest('.ryztor-energy__video-player');
+        var expandVideo = expandPlayer && expandPlayer.querySelector('video');
+        if (!expandVideo) return;
+        expandPlayer.classList.add('is-playing');
+        expandVideo.controls = true;
+        var promise = expandVideo.play();
+        if (promise && typeof promise.catch === 'function') promise.catch(function() {});
+        if (expandVideo.requestFullscreen) expandVideo.requestFullscreen();
+        else if (expandVideo.webkitEnterFullscreen) expandVideo.webkitEnterFullscreen();
+        else if (expandPlayer.requestFullscreen) expandPlayer.requestFullscreen();
+        return;
+      }
+
+      var playButton = event.target.closest('.ryztor-energy__video-play');
+      if (!playButton || !section.contains(playButton)) return;
+      var player = playButton.closest('.ryztor-energy__video-player');
+      var video = player && player.querySelector('video');
+      if (!video) return;
+      player.classList.add('is-playing');
+      video.controls = true;
+      var playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === 'function') playPromise.catch(function() {});
+    });
+
+    if (lightbox) {
+      lightbox.addEventListener('click', function(event) {
+        if (event.target === lightbox) lightbox.close();
+      });
+    }
+  })();
+</script>
 {% schema %}
 {
   "name": "RYZTOR Energy Strips",

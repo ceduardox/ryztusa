@@ -40,6 +40,7 @@ body.ryztor-checkout-page main h3 {
 }
 
 /* Formulario de checkout (página ryztor-checkout) */
+#ryztor-checkout-root{width:100%;max-width:100%;box-sizing:border-box}
 #ryztor-checkout-root .ryztor-pay__field{margin-bottom:12px}
 #ryztor-checkout-root .ryztor-pay__field input,#ryztor-checkout-root .ryztor-pay__field select{
   width:100%;padding:11px 12px;border:1px solid #cbd5e1;border-radius:6px;font-size:14px;
@@ -49,9 +50,10 @@ body.ryztor-checkout-page main h3 {
   outline:none;border-color:#1976f2;box-shadow:0 0 0 1px #1976f2;
 }
 #ryztor-checkout-root .ryztor-pay__row{display:grid;gap:10px}
-#ryztor-checkout-root .ryztor-pay__row.rz-city-row{grid-template-columns:1.2fr 1fr 1fr}
 #ryztor-checkout-root .ryztor-pay__err{color:#dc2626;font-size:12px;font-weight:600;margin-top:8px}
-@media (max-width:720px){
-  #ryztor-checkout-root > div > div{grid-template-columns:1fr !important}
-  #ryztor-checkout-root .ryztor-pay__row.rz-city-row{grid-template-columns:1fr}
+/* Responsive: en pantallas menores a 800px, las columnas se apilan en vertical */
+@media (max-width:800px){
+  #ryztor-checkout-root .rz-cols{flex-direction:column !important}
+  #ryztor-checkout-root .rz-col{flex-basis:auto !important;width:100% !important;box-sizing:border-box}
+  #ryztor-checkout-root .ryztor-pay__row{grid-template-columns:1fr !important}
 }

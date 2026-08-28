@@ -94,9 +94,9 @@
         '    <div title="Pago seguro">🔒</div>' +
         '  </div>' +
         // Cuerpo: 2 columnas
-        '  <div style="display:flex;flex-wrap:wrap;min-height:calc(100vh - 60px);">' +
+        '  <div class="rz-cols" style="display:flex;flex-wrap:wrap;min-height:calc(100vh - 60px);">' +
         // Columna izquierda: formulario
-        '    <div style="flex:1 1 400px;padding:32px 20px;background:#fff;">' +
+        '    <div class="rz-col rz-col--form" style="flex:1 1 400px;padding:32px 20px;background:#fff;">' +
         '      <div style="max-width:520px;margin:0 auto;">' +
         // Contact
         '        <h2 style="font-size:16px;font-weight:600;margin:0 0 4px;">Contact</h2>' +
@@ -139,7 +139,7 @@
         '      </div>' +
         '    </div>' +
         // Columna derecha: resumen gris
-        '    <div style="flex:1 1 360px;background:#f7f7f7;padding:32px 20px;">' +
+        '    <div class="rz-col rz-col--summary" style="flex:1 1 360px;background:#f7f7f7;padding:32px 20px;">' +
         '      <div style="max-width:440px;margin:0 auto;">' +
         '        <div style="font-size:13px;color:#6b7280;margin-bottom:14px;">' + itemsHtml + '</div>' +
         '        <div style="font-size:14px;color:#111;display:flex;justify-content:space-between;padding:8px 0;"><span>Subtotal</span><span>' + money(subtotal) + '</span></div>' +

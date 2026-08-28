@@ -48,11 +48,9 @@
   // ---------- RENDER: página de checkout ----------
   function renderCheckoutPage() {
     var root = document.getElementById('ryztor-checkout-root');
-    // Si el template no trajo el contenedor, lo creamos (funciona con cualquier template de página)
     if (!root) {
       root = document.createElement('div');
       root.id = 'ryztor-checkout-root';
-      root.style.cssText = 'max-width:720px;margin:0 auto;padding:24px 20px 60px;';
       var content = document.querySelector('main') || document.getElementById('MainContent') || document.body;
       content.appendChild(root);
     }
@@ -60,10 +58,10 @@
     getCart().then(function (cart) {
       if (!cart.items || cart.items.length === 0) {
         root.innerHTML =
-          '<div style="max-width:560px;margin:0 auto;padding:60px 20px;text-align:center;font-family:inherit;">' +
-          '  <h1 style="font-size:24px;font-weight:800;">Tu carrito está vacío</h1>' +
+          '<div style="max-width:560px;margin:60px auto;padding:0 20px;text-align:center;">' +
+          '  <h1 style="font-size:24px;font-weight:700;">Tu carrito está vacío</h1>' +
           '  <p style="color:#64748b;margin:12px 0 24px;">Agrega productos para continuar.</p>' +
-          '  <a href="/" style="display:inline-block;background:#059669;color:#fff;text-decoration:none;font-weight:700;padding:13px 30px;border-radius:10px;">Ir a la tienda</a>' +
+          '  <a href="/" style="display:inline-block;background:#1976f2;color:#fff;text-decoration:none;font-weight:600;padding:14px 32px;border-radius:6px;">Continuar comprando</a>' +
           '</div>';
         return;
       }
@@ -75,52 +73,85 @@
       var itemsHtml = (cart.items || []).map(function (it) {
         var line = (it.line_price || 0) / 100;
         return '' +
-          '<div style="display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid #f1f5f9;">' +
+          '<div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #e5e7eb;">' +
           '  <div style="flex:1;min-width:0;">' +
-          '    <div style="font-weight:600;font-size:14px;color:#111827;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + escapeHtml(it.title) + '</div>' +
-          '    <div style="font-size:12px;color:#64748b;">Cantidad: ' + it.quantity + '</div>' +
+          '    <div style="font-size:15px;color:#111;line-height:1.3;">' + escapeHtml(it.title) + '</div>' +
+          '    <div style="font-size:12px;color:#6b7280;margin-top:2px;">Cantidad: ' + it.quantity + '</div>' +
           '  </div>' +
-          '  <div style="font-weight:700;font-size:14px;color:#111827;">' + money(line) + '</div>' +
+          '  <div style="font-size:15px;color:#111;white-space:nowrap;">' + money(line) + '</div>' +
           '</div>';
       }).join('');
 
       var states = CONFIG.US_STATES.map(function (s) { return '<option value="' + s + '">' + s + '</option>'; }).join('');
 
       root.innerHTML =
-        '<div style="max-width:720px;margin:0 auto;padding:24px 20px 60px;font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,sans-serif;color:#111827;">' +
-        '  <h1 style="font-size:26px;font-weight:800;margin:0 0 4px;">Checkout</h1>' +
-        '  <p style="color:#64748b;font-size:13px;margin:0 0 20px;">Pago seguro con tarjeta</p>' +
-        '  <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:start;">' +
-        // Columna izquierda: formulario de envío
-        '    <div>' +
-        '      <h2 style="font-size:16px;font-weight:700;margin:0 0 12px;">Datos de envío</h2>' +
-        '      <div class="ryztor-pay__field"><label for="rz-name">Nombre completo *</label><input type="text" id="rz-name" placeholder="John Smith" autocomplete="name"></div>' +
-        '      <div class="ryztor-pay__field"><label for="rz-email">Email *</label><input type="email" id="rz-email" placeholder="tu@correo.com" autocomplete="email"></div>' +
-        '      <div class="ryztor-pay__field"><label for="rz-address">Dirección *</label><input type="text" id="rz-address" placeholder="123 Main St, Apt 4" autocomplete="street-address"></div>' +
-        '      <div class="ryztor-pay__field"><label for="rz-city">Ciudad *</label><input type="text" id="rz-city" placeholder="Miami" autocomplete="address-level2"></div>' +
-        '      <div class="ryztor-pay__row">' +
-        '        <div class="ryztor-pay__field"><label for="rz-state">Estado *</label><select id="rz-state">' + states + '</select></div>' +
-        '        <div class="ryztor-pay__field"><label for="rz-zip">Código postal *</label><input type="text" id="rz-zip" placeholder="33101" autocomplete="postal-code"></div>' +
+        '<div style="min-height:100vh;background:#fff;font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,sans-serif;color:#111;">' +
+        // Header
+        '  <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 24px;border-bottom:1px solid #e5e7eb;">' +
+        '    <div style="font-size:17px;font-weight:700;letter-spacing:.5px;">RYZTOR</div>' +
+        '    <div title="Pago seguro">🔒</div>' +
+        '  </div>' +
+        // Cuerpo: 2 columnas
+        '  <div style="display:flex;flex-wrap:wrap;min-height:calc(100vh - 60px);">' +
+        // Columna izquierda: formulario
+        '    <div style="flex:1 1 400px;padding:32px 20px;background:#fff;">' +
+        '      <div style="max-width:520px;margin:0 auto;">' +
+        // Contact
+        '        <h2 style="font-size:16px;font-weight:600;margin:0 0 4px;">Contact</h2>' +
+        '        <div class="ryztor-pay__field"><input type="email" id="rz-email" placeholder="Email" autocomplete="email"></div>' +
+        '        <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:#111;margin:8px 0 24px;"><input type="checkbox" checked style="width:16px;height:16px;"> Email me with news and offers</label>' +
+        // Delivery
+        '        <h2 style="font-size:16px;font-weight:600;margin:0 0 4px;">Delivery</h2>' +
+        '        <div class="ryztor-pay__field"><input type="text" id="rz-country" value="United States" disabled style="background:#f9fafb;color:#6b7280;"></div>' +
+        '        <div class="ryztor-pay__row" style="gap:10px;">' +
+        '          <div class="ryztor-pay__field"><input type="text" id="rz-first" placeholder="First name" autocomplete="given-name"></div>' +
+        '          <div class="ryztor-pay__field"><input type="text" id="rz-last" placeholder="Last name" autocomplete="family-name"></div>' +
+        '        </div>' +
+        '        <div class="ryztor-pay__field"><input type="text" id="rz-address" placeholder="Address" autocomplete="street-address"></div>' +
+        '        <div class="ryztor-pay__field"><input type="text" id="rz-apt" placeholder="Apartment, suite, etc. (optional)" autocomplete="address-line2"></div>' +
+        '        <div class="ryztor-pay__row" style="grid-template-columns:1.2fr 1fr 1fr;gap:10px;">' +
+        '          <div class="ryztor-pay__field"><input type="text" id="rz-city" placeholder="City" autocomplete="address-level2"></div>' +
+        '          <div class="ryztor-pay__field"><select id="rz-state">' + states + '</select></div>' +
+        '          <div class="ryztor-pay__field"><input type="text" id="rz-zip" placeholder="ZIP code" autocomplete="postal-code"></div>' +
+        '        </div>' +
+        '        <div class="ryztor-pay__field"><input type="tel" id="rz-phone" placeholder="Phone (optional)" autocomplete="tel"></div>' +
+        // Shipping method
+        '        <h2 style="font-size:16px;font-weight:600;margin:24px 0 4px;">Shipping method</h2>' +
+        '        <div style="border:1px solid #e5e7eb;border-radius:6px;padding:14px;font-size:13px;color:#6b7280;display:flex;justify-content:space-between;">' +
+        '          <span>' + (ship === 0 ? 'Envío gratis' : 'Envío estándar (USA)') + '</span>' +
+        '          <span style="font-weight:600;color:#111;">' + (ship === 0 ? 'GRATIS' : money(ship)) + '</span>' +
+        '        </div>' +
+        // Payment
+        '        <h2 style="font-size:16px;font-weight:600;margin:24px 0 4px;">Payment</h2>' +
+        '        <p style="font-size:12px;color:#6b7280;margin:0 0 14px;">All transactions are secure and encrypted.</p>' +
+        '        <div style="border:1px solid #1976f2;border-radius:6px;padding:14px;display:flex;gap:10px;align-items:center;">' +
+        '          <span style="width:16px;height:16px;border-radius:50%;background:#1976f2;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:10px;">✓</span>' +
+        '          <span style="font-size:14px;font-weight:500;">Credit card</span>' +
+        '          <span style="margin-left:auto;font-size:11px;color:#6b7280;">Visa · Mastercard · Amex</span>' +
+        '        </div>' +
+        // Resumen total + botón
+        '        <div class="ryztor-pay__summary" id="rz-summary" style="margin-top:16px;"></div>' +
+        '        <button type="button" id="rz-pay-btn" class="ryztor-pay__btn" style="margin-top:18px;width:100%;padding:16px;background:#1976f2;color:#fff;border:none;border-radius:6px;font-size:16px;font-weight:600;cursor:pointer;">Pay now</button>' +
+        '        <div class="ryztor-pay__err" id="rz-err" style="text-align:center;"></div>' +
+        '        <div style="font-size:11px;color:#9ca3af;text-align:center;margin-top:20px;padding-bottom:20px;">Terms · Privacy policy</div>' +
         '      </div>' +
-        '      <div class="ryztor-pay__secure">🔒 Tus datos están protegidos con cifrado SSL</div>' +
         '    </div>' +
-        // Columna derecha: resumen del pedido
-        '    <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:18px;">' +
-        '      <h2 style="font-size:16px;font-weight:700;margin:0 0 8px;">Tu pedido</h2>' +
-        '      <div style="border-bottom:1px solid #e2e8f0;margin-bottom:8px;">' + itemsHtml + '</div>' +
-        '      <div class="ryztor-pay__srow"><span>Subtotal</span><span>' + money(subtotal) + '</span></div>' +
-        '      <div class="ryztor-pay__srow"><span>Envío</span><span>' + (ship === 0 ? 'GRATIS' : money(ship)) + '</span></div>' +
-        '      <div class="ryztor-pay__srow ryztor-pay__srow--total"><span>Total</span><span>' + money(total) + '</span></div>' +
-        '      <button type="button" id="rz-pay-btn" class="ryztor-pay__btn" style="margin-top:12px;width:100%;padding:14px;background:#059669;color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;">🔒 Pagar con tarjeta</button>' +
-        '      <div class="ryztor-pay__err" id="rz-err"></div>' +
-        '      <div style="font-size:10px;color:#94a3b8;text-align:center;margin-top:10px;">Visa · Mastercard · American Express</div>' +
+        // Columna derecha: resumen gris
+        '    <div style="flex:1 1 360px;background:#f7f7f7;padding:32px 20px;">' +
+        '      <div style="max-width:440px;margin:0 auto;">' +
+        '        <div style="font-size:13px;color:#6b7280;margin-bottom:14px;">' + itemsHtml + '</div>' +
+        '        <div style="font-size:14px;color:#111;display:flex;justify-content:space-between;padding:8px 0;"><span>Subtotal</span><span>' + money(subtotal) + '</span></div>' +
+        '        <div style="font-size:14px;color:#111;display:flex;justify-content:space-between;padding:8px 0;"><span>Shipping</span><span>' + (ship === 0 ? 'GRATIS' : money(ship)) + '</span></div>' +
+        '        <div style="font-size:16px;font-weight:700;color:#111;display:flex;justify-content:space-between;padding:10px 0;border-top:1px solid #e5e7eb;margin-top:4px;"><span>Total</span><span>USD ' + money(total) + '</span></div>' +
+        '      </div>' +
         '    </div>' +
         '  </div>' +
         '</div>';
 
+      renderSummary(subtotal);
       document.getElementById('rz-pay-btn').addEventListener('click', function (e) { handlePay(e.target); });
     }).catch(function () {
-      root.innerHTML = '<div style="max-width:560px;margin:0 auto;padding:60px 20px;text-align:center;"><p style="color:#dc2626;">No se pudo cargar el carrito. Intenta de nuevo.</p></div>';
+      root.innerHTML = '<div style="max-width:560px;margin:60px auto;padding:0 20px;text-align:center;"><p style="color:#dc2626;">No se pudo cargar el carrito. Intenta de nuevo.</p></div>';
     });
   }
 
@@ -142,23 +173,44 @@
     ctas.parentNode.insertBefore(btn, ctas);
   }
 
+  function renderSummary(subtotal) {
+    var el = document.getElementById('rz-summary');
+    if (!el) return;
+    var ship = calcShipping(subtotal);
+    var total = subtotal + ship;
+    el.innerHTML =
+      '<div style="font-size:14px;color:#111;display:flex;justify-content:space-between;padding:8px 0;"><span>Subtotal</span><span>' + money(subtotal) + '</span></div>' +
+      '<div style="font-size:14px;color:#111;display:flex;justify-content:space-between;padding:8px 0;"><span>Shipping</span><span>' + (ship === 0 ? 'GRATIS' : money(ship)) + '</span></div>' +
+      '<div style="font-size:16px;font-weight:700;color:#111;display:flex;justify-content:space-between;padding:10px 0;border-top:1px solid #e5e7eb;"><span>Total</span><span>USD ' + money(total) + '</span></div>';
+  }
+
   function validate() {
     var get = function (id) { return document.getElementById(id); };
     var err = get('rz-err');
-    var name = get('rz-name').value.trim();
+    var first = get('rz-first').value.trim();
+    var last = get('rz-last').value.trim();
     var email = get('rz-email').value.trim();
     var address = get('rz-address').value.trim();
     var city = get('rz-city').value.trim();
     var state = get('rz-state').value;
     var zip = get('rz-zip').value.trim();
-    if (!name) return fail(err, 'Ingresa tu nombre completo.');
+    if (!first || !last) return fail(err, 'Ingresa tu nombre y apellido.');
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail(err, 'Ingresa un email válido.');
     if (!address) return fail(err, 'Ingresa tu dirección.');
     if (!city) return fail(err, 'Ingresa tu ciudad.');
     if (!state) return fail(err, 'Selecciona tu estado.');
     if (!/^\d{5}(-\d{4})?$/.test(zip)) return fail(err, 'Ingresa un código postal válido.');
     if (err) err.textContent = '';
-    return { name: name, email: email, address1: address, city: city, province: state, zip: zip, country: 'US' };
+    return {
+      first_name: first,
+      last_name: last,
+      email: email,
+      address1: address,
+      city: city,
+      province: state,
+      zip: zip,
+      country: 'US'
+    };
   }
 
   function fail(err, msg) { if (err) err.textContent = msg; return false; }
@@ -186,7 +238,7 @@
       });
     }).catch(function (e) {
       if (err) err.textContent = e.message || 'Ocurrió un error. Intenta de nuevo.';
-      if (btn) { btn.disabled = false; btn.textContent = '🔒 Pagar con tarjeta'; }
+      if (btn) { btn.disabled = false; btn.textContent = 'Pay now'; }
     });
   }
 

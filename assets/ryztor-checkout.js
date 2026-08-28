@@ -48,7 +48,14 @@
   // ---------- RENDER: página de checkout ----------
   function renderCheckoutPage() {
     var root = document.getElementById('ryztor-checkout-root');
-    if (!root) return;
+    // Si el template no trajo el contenedor, lo creamos (funciona con cualquier template de página)
+    if (!root) {
+      root = document.createElement('div');
+      root.id = 'ryztor-checkout-root';
+      root.style.cssText = 'max-width:720px;margin:0 auto;padding:24px 20px 60px;';
+      var content = document.querySelector('main') || document.getElementById('MainContent') || document.body;
+      content.appendChild(root);
+    }
 
     getCart().then(function (cart) {
       if (!cart.items || cart.items.length === 0) {

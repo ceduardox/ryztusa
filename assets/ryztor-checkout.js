@@ -47,10 +47,11 @@
 
   // ---------- RENDER: página de checkout ----------
   function renderCheckoutPage() {
-    // En la página checkout: ocultar el sidebar/drawer y el icono de carrito
-    document.querySelectorAll('cart-drawer, cart-icon, .header-actions__cart-icon, [data-testid="cart-icon"], .cart-drawer').forEach(function (el) {
-      el.style.display = 'none';
-    });
+    // En la página checkout: ocultar TODO el cart drawer y el icono de carrito
+    document.querySelectorAll(
+      '#shopify-section-cart-drawer-section, #cart-drawer, .cart-drawer__inner, ' +
+      'cart-items-component, cart-icon, .header-actions__cart-icon, [data-testid="cart-icon"]'
+    ).forEach(function (el) { if (el) el.style.display = 'none'; });
     // Ocultar el botón de menú móvil / hamburguesa que abre el drawer
     document.querySelectorAll('[aria-controls*="drawer"], [data-drawer], .header__menu-button, .drawer-open').forEach(function (el) {
       el.style.display = 'none';
@@ -286,6 +287,18 @@
   function init() {
     if (isCheckoutPage) {
       renderCheckoutPage();
+      // El theme puede re-hidratar el drawer; mantenerlo oculto de forma persistente
+      setInterval(function () {
+        document.querySelectorAll('#shopify-section-cart-drawer-section, #cart-drawer, cart-items-component, .cart-drawer__inner').forEach(function (el) {
+          if (el && el.style.display !== 'none') el.style.display = 'none';
+        });
+      }, 1000);
+      var mo = new MutationObserver(function () {
+        document.querySelectorAll('#shopify-section-cart-drawer-section, #cart-drawer, cart-items-component, .cart-drawer__inner').forEach(function (el) {
+          if (el && el.style.display !== 'none') el.style.display = 'none';
+        });
+      });
+      mo.observe(document.body, { childList: true, subtree: true });
     } else {
       initDrawerButton();
     }

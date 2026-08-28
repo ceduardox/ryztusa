@@ -6,6 +6,35 @@
   lang="{{ request.locale.iso_code }}"
 >
   <head>
+    {%- comment -%} RYZTOR: redirección automática por idioma del navegador (no teclado) {%- endcomment -%}
+    {%- liquid
+      assign current_locale = request.locale.iso_code | downcase
+      assign is_es = false
+      if current_locale == 'es'
+        assign is_es = true
+      endif
+    -%}
+    {%- unless is_es -%}
+      <script>
+        (function () {
+          try {
+            // Idiomas: solo redirige si el navegador está en español y aún no estamos en /es/
+            var navLang = (navigator.language || navigator.languages?.[0] || '').toLowerCase();
+            var wantsEs = navLang.indexOf('es') === 0;
+            if (!wantsEs) return;
+            var path = window.location.pathname;
+            // Evitar redirigir si ya hay un prefijo de idioma (es/en) o si es una ruta especial
+            var hasLangPrefix = /^\/(es|en)\b/.test(path);
+            if (hasLangPrefix) return;
+            if (/^\/admin/.test(path)) return;
+            if (window.location.hostname.indexOf('admin.') === 0) return;
+            // Redirigir a la versión en español
+            var target = '/es' + (path === '/' ? '' : path) + window.location.search + window.location.hash;
+            window.location.replace(target);
+          } catch (e) {}
+        })();
+      </script>
+    {%- endunless -%}
     {%- if settings.favicon != blank -%}
       <link
         rel="icon"

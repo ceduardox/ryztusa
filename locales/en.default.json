@@ -908,6 +908,7 @@
         "pure": "CAFFEINE",
         "formula": "L-Theanine + B12",
         "unflavored": "Cranberry flavor",
+        "reviews": "({{ count }} reviews)",
         "you_save": "You save {{ amount }} ({{ percent }}% off)",
         "summary_title": "Energy that travels with you.*",
         "summary_text": "Portable oral strips with caffeine, L-theanine, and vitamin B12 for active adult routines.",

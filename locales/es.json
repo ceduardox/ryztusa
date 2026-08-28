@@ -896,6 +896,7 @@
         "pure": "CAFEÍNA",
         "formula": "L-Teanina + B12",
         "unflavored": "Sabor arándano rojo",
+        "reviews": "({{ count }} reseñas)",
         "you_save": "Ahorras {{ amount }} ({{ percent }}% dto.)",
         "summary_title": "Energía que va contigo.*",
         "summary_text": "Tiras orales portátiles con cafeína, L-teanina y vitamina B12 para rutinas activas de adultos.",

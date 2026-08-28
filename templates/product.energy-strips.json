@@ -175,7 +175,7 @@
               "type": "custom-liquid",
               "name": "Creatine rating",
               "settings": {
-                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'energy strip' %}<div class=\"ryztor-rating\"><span class=\"ryztor-rating__stars\" aria-hidden=\"true\">{{ 'ryztor.energy_strips.commerce.pure' | t }}</span><span class=\"ryztor-rating__score\">{{ 'ryztor.energy_strips.commerce.formula' | t }}</span><span class=\"ryztor-rating__count\">{{ 'ryztor.energy_strips.commerce.unflavored' | t }}</span></div>{% endif %}",
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'energy strip' %}<a class=\"ryztor-rating\" href=\"#ryztor-reviews\" style=\"color:inherit;text-decoration:none\"><span class=\"ryztor-rating__stars\" aria-hidden=\"true\">★★★★★</span><span class=\"ryztor-rating__score\">4.8</span><span class=\"ryztor-rating__count\">{{ 'ryztor.energy_strips.commerce.reviews' | t: count: 94 }}</span></a>{% endif %}",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,

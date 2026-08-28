@@ -9,19 +9,21 @@
   {%- if linklists[menu] != blank -%}
     <ul style="list-style:none;margin:0;padding:0;display:grid;gap:8px;">
       {%- for link in linklists[menu].links -%}
-        <li>
-          <a href="{{ link.url }}" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.8'">
-            {{ link.title | escape }}
-          </a>
-        </li>
+        <li><a href="{{ link.url }}" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.8'">{{ link.title | escape }}</a></li>
       {%- endfor -%}
     </ul>
   {%- else -%}
     <ul style="list-style:none;margin:0;padding:0;display:grid;gap:8px;">
-      <li><a href="{{ shop.url }}" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">Inicio</a></li>
+      <li><a href="/" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">Inicio</a></li>
       <li><a href="/collections/all" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">Catálogo</a></li>
-      <li><a href="/pages/privacy-policy" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">Política de privacidad</a></li>
       <li><a href="/pages/contact" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">Contacto</a></li>
+      <li><a href="/pages/refund-return-policy" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">Refund &amp; Return Policy</a></li>
+      <li><a href="/pages/shipping-policy" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">Shipping Policy</a></li>
+      <li><a href="/pages/terms-and-conditions" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">Terms and Conditions</a></li>
+      <li><a href="/pages/privacy-policy" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">Privacy Policy</a></li>
+      <li><a href="/pages/legal-disclaimer" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">Legal Disclaimer</a></li>
+      <li><a href="/pages/frequently-asked-questions-faq" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">FAQ</a></li>
+      <li><a href="/pages/tus-opciones-de-privacidad" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">Tus opciones de privacidad</a></li>
     </ul>
   {%- endif -%}
 </div>

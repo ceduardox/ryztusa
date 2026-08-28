@@ -13,7 +13,7 @@
   assign default_add_to_cart_text = 'actions.add_to_cart' | t
   assign normalized_product_title = product.title | downcase
   assign is_ryztor_bundle_product = false
-  if normalized_product_title contains 'berber' or normalized_product_title contains 'magnesium' or normalized_product_title contains 'energy strip'
+  if normalized_product_title contains 'berber' or normalized_product_title contains 'magnesium' or normalized_product_title contains 'energy strip' or normalized_product_title contains 'creatine'
     assign is_ryztor_bundle_product = true
   endif
   assign product_variant_media = product.selected_or_first_available_variant.featured_media.preview_image | image_url: width: 100

@@ -20,8 +20,8 @@
   };
 
   var CHECKOUT_PATH = '/pages/ryztor-checkout';
-  var isCheckoutPage = window.location.pathname.indexOf(CHECKOUT_PATH) === 0;
-  var isSuccessPage = window.location.pathname.indexOf('/pages/checkout-success') === 0;
+  var isCheckoutPage = window.location.pathname.indexOf(CHECKOUT_PATH) >= 0;
+  var isSuccessPage = window.location.pathname.indexOf('/pages/checkout-success') >= 0;
 
   function money(v) { return '$' + Number(v).toFixed(2); }
 

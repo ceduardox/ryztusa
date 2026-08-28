@@ -9,7 +9,7 @@
   var CONFIG = {
     checkoutEndpoint: 'https://yizap.com/api/ryztor/whop/checkout',
     freeShippingThreshold: 50, // subtotal >= 50 -> gratis
-    flatShipping: 0,        // PROVISIONAL: 0 para probar con $1. RESTAURAR a 6.99 al terminar la prueba
+    flatShipping: 6.99,        // subtotal < 50  -> 6.99
     US_STATES: [
       'Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia',
       'Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland',

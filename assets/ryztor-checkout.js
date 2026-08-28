@@ -1,6 +1,7 @@
 // ============================================================
-// RYZTOR — Pago con tarjeta (Whop) desde el cart drawer
-// Calcula envío (USA), pide dirección y redirige al checkout de Whop.
+// RYZTOR — Pago con tarjeta (Whop)
+//  - En el cart drawer: botón que lleva a la página /cart
+//  - En la página /cart: formulario de envío (USA) + pago Whop
 // ============================================================
 (function () {
   'use strict';
@@ -18,20 +19,16 @@
     ]
   };
 
-  var state = { showing: false };
+  var isCartPage = /\/cart/.test(window.location.pathname);
 
-  function money(v) {
-    return '$' + Number(v).toFixed(2);
-  }
+  function money(v) { return '$' + Number(v).toFixed(2); }
 
   function getCart() {
     return fetch('/cart.js', { headers: { 'Accept': 'application/json' } }).then(function (r) { return r.json(); });
   }
 
   function buildItems(cart) {
-    return (cart.items || []).map(function (it) {
-      return { variantId: it.variant_id, qty: it.quantity };
-    });
+    return (cart.items || []).map(function (it) { return { variantId: it.variant_id, qty: it.quantity }; });
   }
 
   function getSubtotal(cart) {
@@ -49,14 +46,14 @@
     }).join('');
     return [
       '<div class="ryztor-pay" id="ryztor-pay">',
-      '  <p class="ryztor-pay__title">Envío a Estados Unidos</p>',
-      '  <div class="ryztor-pay__field"><label>Nombre completo *</label><input type="text" id="rz-name" placeholder="John Smith" autocomplete="name"></div>',
-      '  <div class="ryztor-pay__field"><label>Email *</label><input type="email" id="rz-email" placeholder="tu@correo.com" autocomplete="email"></div>',
-      '  <div class="ryztor-pay__field"><label>Dirección *</label><input type="text" id="rz-address" placeholder="123 Main St, Apt 4" autocomplete="street-address"></div>',
-      '  <div class="ryztor-pay__field"><label>Ciudad *</label><input type="text" id="rz-city" placeholder="Miami" autocomplete="address-level2"></div>',
+      '  <h3 class="ryztor-pay__title">Envío a Estados Unidos</h3>',
+      '  <div class="ryztor-pay__field"><label for="rz-name">Nombre completo *</label><input type="text" id="rz-name" placeholder="John Smith" autocomplete="name"></div>',
+      '  <div class="ryztor-pay__field"><label for="rz-email">Email *</label><input type="email" id="rz-email" placeholder="tu@correo.com" autocomplete="email"></div>',
+      '  <div class="ryztor-pay__field"><label for="rz-address">Dirección *</label><input type="text" id="rz-address" placeholder="123 Main St, Apt 4" autocomplete="street-address"></div>',
+      '  <div class="ryztor-pay__field"><label for="rz-city">Ciudad *</label><input type="text" id="rz-city" placeholder="Miami" autocomplete="address-level2"></div>',
       '  <div class="ryztor-pay__row">',
-      '    <div class="ryztor-pay__field"><label>Estado *</label><select id="rz-state">' + opts + '</select></div>',
-      '    <div class="ryztor-pay__field"><label>CP *</label><input type="text" id="rz-zip" placeholder="33101" autocomplete="postal-code"></div>',
+      '    <div class="ryztor-pay__field"><label for="rz-state">Estado *</label><select id="rz-state">' + opts + '</select></div>',
+      '    <div class="ryztor-pay__field"><label for="rz-zip">CP *</label><input type="text" id="rz-zip" placeholder="33101" autocomplete="postal-code"></div>',
       '  </div>',
       '  <div class="ryztor-pay__summary" id="rz-summary"></div>',
       '  <div class="ryztor-pay__secure">🔒 Pago seguro · SSL · Visa / Mastercard</div>',
@@ -66,15 +63,38 @@
     ].join('');
   }
 
-  // Insertar justo antes del bloque de botones (.cart__ctas) dentro del resumen
-  function insertInto() {
-    var ctas = document.querySelector('.cart__ctas') ||
-               document.querySelector('#checkout')?.parentElement ||
-               document.querySelector('.cart-totals__container')?.parentElement;
-    if (!ctas || document.getElementById('ryztor-pay')) return;
+  // -------- En la página /cart --------
+  function initCartPage() {
+    // Ocultar el botón CHECKOUT nativo de Shopify en /cart
+    var native = document.querySelector('#checkout, .cart__checkout-button');
+    if (native) native.style.display = 'none';
+
+    var summary = document.querySelector('.cart__ctas') ||
+                  document.querySelector('.cart-totals__container')?.parentElement ||
+                  document.querySelector('[data-testid="cart-total-value"]')?.closest('.cart-totals');
+    if (!summary) return;
+    if (document.getElementById('ryztor-pay')) return;
+
     var holder = document.createElement('div');
     holder.innerHTML = formHTML();
-    ctas.parentNode.insertBefore(holder.firstChild, ctas);
+    summary.parentNode.insertBefore(holder.firstChild, summary);
+
+    renderSummaryFromCart();
+
+    document.addEventListener('click', function (e) {
+      if (e.target && e.target.id === 'rz-pay-btn') handlePay(e.target);
+    });
+
+    var recalc = function () {
+      if (document.getElementById('ryztor-pay')) renderSummaryFromCart();
+    };
+    document.addEventListener('cart:updated', recalc);
+    document.addEventListener('ajaxComplete', recalc);
+    setInterval(recalc, 2000);
+  }
+
+  function renderSummaryFromCart() {
+    getCart().then(function (cart) { renderSummary(getSubtotal(cart)); }).catch(function () {});
   }
 
   function renderSummary(subtotal) {
@@ -86,7 +106,22 @@
       '<div class="ryztor-pay__srow"><span>Subtotal</span><span>' + money(subtotal) + '</span></div>' +
       '<div class="ryztor-pay__srow"><span>Envío</span><span>' + (ship === 0 ? 'GRATIS' : money(ship)) + '</span></div>' +
       '<div class="ryztor-pay__srow ryztor-pay__srow--total"><span>Total</span><span>' + money(total) + '</span></div>';
-    return total;
+  }
+
+  // -------- En el drawer: botón que lleva a /cart --------
+  function initDrawerButton() {
+    var ctas = document.querySelector('.cart__ctas') ||
+               document.querySelector('#checkout')?.parentElement;
+    if (!ctas || document.getElementById('rz-open-btn')) return;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.id = 'rz-open-btn';
+    btn.className = 'ryztor-open-btn';
+    btn.textContent = '💳 Pagar con tarjeta';
+    btn.addEventListener('click', function () {
+      window.location.href = '/cart';
+    });
+    ctas.parentNode.insertBefore(btn, ctas);
   }
 
   function validate() {
@@ -138,32 +173,22 @@
   }
 
   function init() {
-    // Ocultar el botón CHECKOUT nativo de Shopify
-    var native = document.getElementById('checkout');
-    if (native) native.style.display = 'none';
-
-    insertInto();
-
-    document.addEventListener('click', function (e) {
-      if (e.target && e.target.id === 'rz-pay-btn') handlePay(e.target);
-    });
-
-    // Recalcular cuando cambie el carrito (drawer abre, add-to-cart, etc.)
-    var recalc = function () {
-      var el = document.getElementById('ryztor-pay');
-      if (!el) { insertInto(); }
-      if (!document.getElementById('ryztor-pay')) return;
-      getCart().then(function (cart) { renderSummary(getSubtotal(cart)); }).catch(function () {});
-    };
-    document.addEventListener('cart:updated', recalc);
-    document.addEventListener('ajaxComplete', recalc);
-    // Poll suave por si el drawer se re-renderiza
-    setInterval(recalc, 2000);
+    if (isCartPage) {
+      initCartPage();
+    } else {
+      // En el drawer/sidebar (y en cualquier página con carrito)
+      initDrawerButton();
+    }
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
+  // Esperar a que el DOM esté listo y reintentar si el drawer se renderiza tarde
+  function boot() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+    setTimeout(init, 1500);
   }
+  boot();
 })();

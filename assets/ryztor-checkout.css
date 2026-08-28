@@ -19,4 +19,15 @@
 /* En la página /cart: formulario más ancho */
 .cart-page .ryztor-pay,.cart-totals .ryztor-pay{padding:18px}
 .cart-page .ryztor-pay__title{font-size:16px}
-@media (max-width:640px){.ryztor-pay__row{grid-template-columns:1fr}}
+/* Página de checkout (ryztor-checkout) */
+#ryztor-checkout-root .ryztor-pay__field{margin-bottom:12px}
+#ryztor-checkout-root .ryztor-pay__field label{font-size:12px;margin-bottom:4px}
+#ryztor-checkout-root .ryztor-pay__field input,#ryztor-checkout-root .ryztor-pay__field select{padding:11px 12px;font-size:14px}
+#ryztor-checkout-root .ryztor-pay__row{grid-template-columns:1fr 1fr;gap:10px}
+#ryztor-checkout-root .ryztor-pay__secure{margin:14px 0 0;text-align:left}
+#ryztor-checkout-root .ryztor-pay__srow{font-size:13px;padding:5px 0}
+#ryztor-checkout-root .ryztor-pay__srow--total{font-size:16px}
+@media (max-width:720px){
+  #ryztor-checkout-root > div > div{grid-template-columns:1fr !important}
+  #ryztor-checkout-root .ryztor-pay__row{grid-template-columns:1fr}
+}

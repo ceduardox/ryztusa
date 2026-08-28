@@ -1,0 +1,16 @@
+/*
+ * RYZTOR — Página de checkout (pago con tarjeta vía Whop)
+ * Template: page.ryztor-checkout
+ * El contenido se renderiza desde assets/ryztor-checkout.js
+ */
+{
+  "sections": {
+    "ryztor_checkout": {
+      "type": "custom-liquid",
+      "settings": {
+        "liquid": "<div id=\"ryztor-checkout-root\"><div style=\"max-width:720px;margin:0 auto;padding:32px 20px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#111827;text-align:center;\"><h1 style=\"font-size:24px;font-weight:800;\">Checkout</h1><p style=\"color:#64748b;font-size:14px;\">Cargando tu pedido…</p></div></div>"
+      }
+    }
+  },
+  "order": ["ryztor_checkout"]
+}

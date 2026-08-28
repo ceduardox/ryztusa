@@ -3,6 +3,42 @@
    así hereda el estilo exacto del "Check out" de Shopify. Solo aseguramos tamaño. */
 .ryztor-open-btn{width:100% !important}
 
+/* ============ Página de checkout: limpieza total por CSS (sin parpadeo) ============ */
+/* Esta clase se agrega al <body> solo en /pages/ryztor-checkout (ver theme.liquid) */
+body.ryztor-checkout-page {
+  overflow-x: hidden;
+}
+/* Ocultar el cart drawer completo (sidebar) y su sección */
+body.ryztor-checkout-page #shopify-section-cart-drawer-section,
+body.ryztor-checkout-page #cart-drawer,
+body.ryztor-checkout-page theme-drawer,
+body.ryztor-checkout-page .cart-drawer__inner,
+body.ryztor-checkout-page cart-items-component {
+  display: none !important;
+}
+/* Ocultar el contenido del template de página (título "Ryztor Checkout", page-content,
+   y el contenedor raíz con su padding) para que NO ocupe espacio */
+body.ryztor-checkout-page .section.page-width-content,
+body.ryztor-checkout-page .page-width-content,
+body.ryztor-checkout-page .section-content-wrapper,
+body.ryztor-checkout-page #shopify-block-AdVduTUhUNzA1TW9pQ__page-content,
+body.ryztor-checkout-page .page-content,
+body.ryztor-checkout-page rte-formatter {
+  display: none !important;
+}
+/* Ocultar el header del theme (logo, menú, icono de carrito) para que se vea como checkout puro */
+body.ryztor-checkout-page header,
+body.ryztor-checkout-page .header,
+body.ryztor-checkout-page [data-section-type="header"] {
+  display: none !important;
+}
+/* Ocultar cualquier h1/h2 del template de página que quede */
+body.ryztor-checkout-page main h1,
+body.ryztor-checkout-page main h2,
+body.ryztor-checkout-page main h3 {
+  display: none !important;
+}
+
 /* Formulario de checkout (página ryztor-checkout) */
 #ryztor-checkout-root .ryztor-pay__field{margin-bottom:12px}
 #ryztor-checkout-root .ryztor-pay__field input,#ryztor-checkout-root .ryztor-pay__field select{

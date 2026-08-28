@@ -47,31 +47,8 @@
 
   // ---------- RENDER: página de checkout ----------
   function renderCheckoutPage() {
-    // En la página checkout: ocultar TODO el cart drawer y el icono de carrito
-    document.querySelectorAll(
-      '#shopify-section-cart-drawer-section, #cart-drawer, .cart-drawer__inner, ' +
-      'cart-items-component, cart-icon, .header-actions__cart-icon, [data-testid="cart-icon"]'
-    ).forEach(function (el) { if (el) el.style.display = 'none'; });
-    // Ocultar el botón de menú móvil / hamburguesa que abre el drawer
-    document.querySelectorAll('[aria-controls*="drawer"], [data-drawer], .header__menu-button, .drawer-open').forEach(function (el) {
-      el.style.display = 'none';
-    });
-    // Ocultar TODO el contenido de la página que trae el template (título, page-content,
-    // y su contenedor raíz) para que NO ocupe espacio — solo se ve el checkout RYZTOR
-    var hide = function (el) { if (el) el.style.display = 'none'; };
-    document.querySelectorAll('#shopify-block-AdVduTUhUNzA1TW9pQ__page-content, .page-content, rte-formatter').forEach(hide);
-    // Ocultar el contenedor principal del template de página completo
-    var pageSection = document.querySelector('.section.page-width-content, .page-width-content');
-    if (pageSection) hide(pageSection);
-    // Si el título queda fuera de ese contenedor, ocultarlo también
-    document.querySelectorAll('main h1, main h2, main h3').forEach(function (h) {
-      if (/checkout/i.test(h.textContent)) hide(h);
-    });
-    // Ocultar el header del theme (logo/menú) para que la página se vea como checkout puro
-    document.querySelectorAll('header, .header, [data-section-type="header"]').forEach(function (el) {
-      if (el && !el.querySelector('#ryztor-checkout-root')) hide(el);
-    });
-
+    // El CSS (body.ryztor-checkout-page) ya oculta el drawer, header y contenido.
+    // Aquí solo creamos el contenedor del checkout si no existe.
     var root = document.getElementById('ryztor-checkout-root');
     if (!root) {
       root = document.createElement('div');

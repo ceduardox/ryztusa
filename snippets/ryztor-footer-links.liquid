@@ -1,0 +1,47 @@
+{%- liquid
+  assign menu = block.settings.menu
+-%}
+
+<div class="footer-links spacing-style" style="display:flex;flex-direction:column;text-align:left;{% render 'spacing-style', settings: block.settings %}">
+  <div style="font-size:0.85rem;color:#111;opacity:.7;margin-bottom:10px;font-weight:700;">
+    {{ block.settings.title | default: 'Enlaces' | escape }}
+  </div>
+  {%- if linklists[menu] != blank -%}
+    <ul style="list-style:none;margin:0;padding:0;display:grid;gap:8px;">
+      {%- for link in linklists[menu].links -%}
+        <li>
+          <a href="{{ link.url }}" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.8'">
+            {{ link.title | escape }}
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- else -%}
+    <ul style="list-style:none;margin:0;padding:0;display:grid;gap:8px;">
+      <li><a href="{{ shop.url }}" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">Inicio</a></li>
+      <li><a href="/collections/all" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">Catálogo</a></li>
+      <li><a href="/pages/privacy-policy" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">Política de privacidad</a></li>
+      <li><a href="/pages/contact" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">Contacto</a></li>
+    </ul>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Footer links RYZTOR",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Enlaces"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menú",
+      "default": "footer"
+    }
+  ]
+}
+{% endschema %}

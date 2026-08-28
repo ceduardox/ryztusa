@@ -404,6 +404,15 @@
       mo.observe(document.body, { childList: true, subtree: true });
     } else {
       initDrawerButton();
+      // El drawer se re-renderiza al cambiar cantidad/etc. (Section Rendering API).
+      // Re-insertar el botón "Pagar con tarjeta" cuando el carrito cambie o el drawer se re-hidrate.
+      var reinit = function () {
+        if (!isCheckoutPage && !isSuccessPage) initDrawerButton();
+      };
+      document.addEventListener('cart:updated', reinit);
+      document.addEventListener('ajax:complete', reinit);
+      document.addEventListener('ajaxComplete', reinit);
+      setInterval(reinit, 2000);
     }
   }
 

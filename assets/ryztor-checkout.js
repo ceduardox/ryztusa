@@ -62,9 +62,9 @@
       if (!cart.items || cart.items.length === 0) {
         root.innerHTML =
           '<div style="max-width:560px;margin:60px auto;padding:0 20px;text-align:center;">' +
-          '  <h1 style="font-size:24px;font-weight:700;">Tu carrito está vacío</h1>' +
-          '  <p style="color:#64748b;margin:12px 0 24px;">Agrega productos para continuar.</p>' +
-          '  <a href="/" style="display:inline-block;background:#1976f2;color:#fff;text-decoration:none;font-weight:600;padding:14px 32px;border-radius:6px;">Continuar comprando</a>' +
+          '  <h1 style="font-size:24px;font-weight:700;">' + t('emptyCart') + '</h1>' +
+          '  <p style="color:#64748b;margin:12px 0 24px;">' + t('addProducts') + '</p>' +
+          '  <a href="/" style="display:inline-block;background:#1976f2;color:#fff;text-decoration:none;font-weight:600;padding:14px 32px;border-radius:6px;">' + t('continueShopping') + '</a>' +
           '</div>';
         return;
       }
@@ -100,52 +100,52 @@
         '    <div class="rz-col rz-col--form" style="flex:1 1 400px;padding:32px 20px;background:#fff;">' +
         '      <div style="max-width:520px;margin:0 auto;">' +
         // Contact
-        '        <h2 style="font-size:16px;font-weight:600;margin:0 0 4px;">Contact</h2>' +
-        '        <div class="ryztor-pay__field"><input type="email" id="rz-email" placeholder="Email" autocomplete="email"></div>' +
-        '        <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:#111;margin:8px 0 24px;"><input type="checkbox" checked style="width:16px;height:16px;"> Email me with news and offers</label>' +
+        '        <h2 style="font-size:16px;font-weight:600;margin:0 0 4px;">' + t('contact') + '</h2>' +
+        '        <div class="ryztor-pay__field"><input type="email" id="rz-email" placeholder="' + t('email') + '" autocomplete="email"></div>' +
+        '        <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:#111;margin:8px 0 24px;"><input type="checkbox" checked style="width:16px;height:16px;"> ' + t('newsOffers') + '</label>' +
         // Delivery
-        '        <h2 style="font-size:16px;font-weight:600;margin:0 0 4px;">Delivery</h2>' +
+        '        <h2 style="font-size:16px;font-weight:600;margin:0 0 4px;">' + t('delivery') + '</h2>' +
         '        <div class="ryztor-pay__field"><input type="text" id="rz-country" value="United States" disabled style="background:#f9fafb;color:#6b7280;"></div>' +
         '        <div class="ryztor-pay__row" style="gap:10px;">' +
-        '          <div class="ryztor-pay__field"><input type="text" id="rz-first" placeholder="First name" autocomplete="given-name"></div>' +
-        '          <div class="ryztor-pay__field"><input type="text" id="rz-last" placeholder="Last name" autocomplete="family-name"></div>' +
+        '          <div class="ryztor-pay__field"><input type="text" id="rz-first" placeholder="' + t('firstName') + '" autocomplete="given-name"></div>' +
+        '          <div class="ryztor-pay__field"><input type="text" id="rz-last" placeholder="' + t('lastName') + '" autocomplete="family-name"></div>' +
         '        </div>' +
-        '        <div class="ryztor-pay__field"><input type="text" id="rz-address" placeholder="Address" autocomplete="street-address"></div>' +
-        '        <div class="ryztor-pay__field"><input type="text" id="rz-apt" placeholder="Apartment, suite, etc. (optional)" autocomplete="address-line2"></div>' +
+        '        <div class="ryztor-pay__field"><input type="text" id="rz-address" placeholder="' + t('address') + '" autocomplete="street-address"></div>' +
+        '        <div class="ryztor-pay__field"><input type="text" id="rz-apt" placeholder="' + t('apt') + '" autocomplete="address-line2"></div>' +
         '        <div class="ryztor-pay__row" style="grid-template-columns:1.2fr 1fr 1fr;gap:10px;">' +
-        '          <div class="ryztor-pay__field"><input type="text" id="rz-city" placeholder="City" autocomplete="address-level2"></div>' +
+        '          <div class="ryztor-pay__field"><input type="text" id="rz-city" placeholder="' + t('city') + '" autocomplete="address-level2"></div>' +
         '          <div class="ryztor-pay__field"><select id="rz-state">' + states + '</select></div>' +
-        '          <div class="ryztor-pay__field"><input type="text" id="rz-zip" placeholder="ZIP code" autocomplete="postal-code"></div>' +
+        '          <div class="ryztor-pay__field"><input type="text" id="rz-zip" placeholder="' + t('zip') + '" autocomplete="postal-code"></div>' +
         '        </div>' +
-        '        <div class="ryztor-pay__field"><input type="tel" id="rz-phone" placeholder="Phone (optional)" autocomplete="tel"></div>' +
+        '        <div class="ryztor-pay__field"><input type="tel" id="rz-phone" placeholder="' + t('phone') + '" autocomplete="tel"></div>' +
         // Shipping method
-        '        <h2 style="font-size:16px;font-weight:600;margin:24px 0 4px;">Shipping method</h2>' +
+        '        <h2 style="font-size:16px;font-weight:600;margin:24px 0 4px;">' + t('shippingMethod') + '</h2>' +
         '        <div style="border:1px solid #e5e7eb;border-radius:6px;padding:14px;font-size:13px;color:#6b7280;display:flex;justify-content:space-between;">' +
-        '          <span>' + (ship === 0 ? 'Envío gratis' : 'Envío estándar (USA)') + '</span>' +
-        '          <span style="font-weight:600;color:#111;">' + (ship === 0 ? 'GRATIS' : money(ship)) + '</span>' +
+        '          <span>' + (ship === 0 ? t('freeShip') : t('standardShip')) + '</span>' +
+        '          <span style="font-weight:600;color:#111;">' + (ship === 0 ? t('free') : money(ship)) + '</span>' +
         '        </div>' +
         // Payment
-        '        <h2 style="font-size:16px;font-weight:600;margin:24px 0 4px;">Payment</h2>' +
-        '        <p style="font-size:12px;color:#6b7280;margin:0 0 14px;">All transactions are secure and encrypted.</p>' +
+        '        <h2 style="font-size:16px;font-weight:600;margin:24px 0 4px;">' + t('payment') + '</h2>' +
+        '        <p style="font-size:12px;color:#6b7280;margin:0 0 14px;">' + t('secure') + '</p>' +
         '        <div style="border:1px solid #1976f2;border-radius:6px;padding:14px;display:flex;gap:10px;align-items:center;">' +
         '          <span style="width:16px;height:16px;border-radius:50%;background:#1976f2;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:10px;">✓</span>' +
-        '          <span style="font-size:14px;font-weight:500;">Credit card</span>' +
-        '          <span style="margin-left:auto;font-size:11px;color:#6b7280;">Visa · Mastercard · Amex</span>' +
+        '          <span style="font-size:14px;font-weight:500;">' + t('creditCard') + '</span>' +
+        '          <span style="margin-left:auto;font-size:11px;color:#6b7280;">' + t('cards') + '</span>' +
         '        </div>' +
         // Resumen total + botón
         '        <div class="ryztor-pay__summary" id="rz-summary" style="margin-top:16px;"></div>' +
-        '        <button type="button" id="rz-pay-btn" class="ryztor-pay__btn" style="margin-top:18px;width:100%;padding:16px;background:#1976f2;color:#fff;border:none;border-radius:6px;font-size:16px;font-weight:600;cursor:pointer;">Pay now</button>' +
+        '        <button type="button" id="rz-pay-btn" class="ryztor-pay__btn" style="margin-top:18px;width:100%;padding:16px;background:#1976f2;color:#fff;border:none;border-radius:6px;font-size:16px;font-weight:600;cursor:pointer;">' + t('payNow') + '</button>' +
         '        <div class="ryztor-pay__err" id="rz-err" style="text-align:center;"></div>' +
-        '        <div style="font-size:11px;color:#9ca3af;text-align:center;margin-top:20px;padding-bottom:20px;">Terms · Privacy policy</div>' +
+        '        <div style="font-size:11px;color:#9ca3af;text-align:center;margin-top:20px;padding-bottom:20px;">' + t('terms') + '</div>' +
         '      </div>' +
         '    </div>' +
         // Columna derecha: resumen gris
         '    <div class="rz-col rz-col--summary" style="flex:1 1 360px;background:#f7f7f7;padding:32px 20px;">' +
         '      <div style="max-width:440px;margin:0 auto;">' +
         '        <div style="font-size:13px;color:#6b7280;margin-bottom:14px;">' + itemsHtml + '</div>' +
-        '        <div style="font-size:14px;color:#111;display:flex;justify-content:space-between;padding:8px 0;"><span>Subtotal</span><span>' + money(subtotal) + '</span></div>' +
-        '        <div style="font-size:14px;color:#111;display:flex;justify-content:space-between;padding:8px 0;"><span>Shipping</span><span>' + (ship === 0 ? 'GRATIS' : money(ship)) + '</span></div>' +
-        '        <div style="font-size:16px;font-weight:700;color:#111;display:flex;justify-content:space-between;padding:10px 0;border-top:1px solid #e5e7eb;margin-top:4px;"><span>Total</span><span>USD ' + money(total) + '</span></div>' +
+        '        <div style="font-size:14px;color:#111;display:flex;justify-content:space-between;padding:8px 0;"><span>' + t('subtotal') + '</span><span>' + money(subtotal) + '</span></div>' +
+        '        <div style="font-size:14px;color:#111;display:flex;justify-content:space-between;padding:8px 0;"><span>' + t('shipping') + '</span><span>' + (ship === 0 ? t('free') : money(ship)) + '</span></div>' +
+        '        <div style="font-size:16px;font-weight:700;color:#111;display:flex;justify-content:space-between;padding:10px 0;border-top:1px solid #e5e7eb;margin-top:4px;"><span>' + t('total') + '</span><span>USD ' + money(total) + '</span></div>' +
         '      </div>' +
         '    </div>' +
         '  </div>' +
@@ -175,7 +175,7 @@
     btn.type = 'button';
     btn.id = 'rz-open-btn';
     btn.className = 'ryztor-open-btn cart__checkout-button button';
-    btn.innerHTML = '<span class="button-text">' + (getLang() === 'es' ? '💳 Pagar con tarjeta' : '💳 Pay with card') + '</span>';
+    btn.innerHTML = '<span class="button-text">' + t('payWithCard') + '</span>';
     btn.addEventListener('click', function () {
       window.location.href = CHECKOUT_PATH;
     });
@@ -193,15 +193,110 @@
     return l.indexOf('es') === 0 ? 'es' : 'en';
   }
 
+  // Diccionario ES/EN para todo el checkout y la página de éxito
+  var I18N = {
+    es: {
+      payWithCard: '💳 Pagar con tarjeta',
+      contact: 'Contact',
+      delivery: 'Delivery',
+      email: 'Email',
+      newsOffers: 'Email me with news and offers',
+      firstName: 'First name',
+      lastName: 'Last name',
+      address: 'Address',
+      apt: 'Apartment, suite, etc. (optional)',
+      city: 'City',
+      state: 'State',
+      zip: 'ZIP code',
+      phone: 'Phone (optional)',
+      shippingMethod: 'Shipping method',
+      freeShip: 'Envío gratis',
+      standardShip: 'Envío estándar (USA)',
+      free: 'GRATIS',
+      payment: 'Payment',
+      secure: 'All transactions are secure and encrypted.',
+      creditCard: 'Credit card',
+      cards: 'Visa · Mastercard · Amex',
+      subtotal: 'Subtotal',
+      shipping: 'Shipping',
+      total: 'Total',
+      payNow: 'Pay now',
+      terms: 'Terms · Privacy policy',
+      processing: 'Procesando…',
+      emptyCart: 'Tu carrito está vacío',
+      addProducts: 'Agrega productos para continuar.',
+      continueShopping: 'Continuar comprando',
+      pickUp: 'Tu pedido está siendo preparado para envío.',
+      thanks: '¡Gracias por tu compra!',
+      paidOk: 'Tu pago fue procesado con éxito y tu pedido ya está confirmado.',
+      checkEmail: 'Te enviamos un email con la confirmación y el link para seguir tu pedido. Revisa tu bandeja de entrada.',
+      whatNext: '📦 ¿Qué sigue?',
+      whatNext1: '1. Recibirás un correo de confirmación.',
+      whatNext2: '2. Desde ese correo podrás seguir el estado de tu pedido.',
+      whatNext3: '3. Tu pedido será despachado pronto.',
+      backHome: 'Volver a la tienda',
+      back: 'Volver',
+      loadErr: 'No se pudo cargar el carrito. Intenta de nuevo.',
+    },
+    en: {
+      payWithCard: '💳 Pay with card',
+      contact: 'Contact',
+      delivery: 'Delivery',
+      email: 'Email',
+      newsOffers: 'Email me with news and offers',
+      firstName: 'First name',
+      lastName: 'Last name',
+      address: 'Address',
+      apt: 'Apartment, suite, etc. (optional)',
+      city: 'City',
+      state: 'State',
+      zip: 'ZIP code',
+      phone: 'Phone (optional)',
+      shippingMethod: 'Shipping method',
+      freeShip: 'Free shipping',
+      standardShip: 'Standard shipping (USA)',
+      free: 'FREE',
+      payment: 'Payment',
+      secure: 'All transactions are secure and encrypted.',
+      creditCard: 'Credit card',
+      cards: 'Visa · Mastercard · Amex',
+      subtotal: 'Subtotal',
+      shipping: 'Shipping',
+      total: 'Total',
+      payNow: 'Pay now',
+      terms: 'Terms · Privacy policy',
+      processing: 'Processing…',
+      emptyCart: 'Your cart is empty',
+      addProducts: 'Add products to continue.',
+      continueShopping: 'Continue shopping',
+      pickUp: 'Your order is being prepared for shipment.',
+      thanks: 'Thank you for your purchase!',
+      paidOk: 'Your payment was processed successfully and your order is confirmed.',
+      checkEmail: 'We sent you an email with confirmation and a link to track your order. Check your inbox.',
+      whatNext: '📦 What’s next?',
+      whatNext1: '1. You’ll receive a confirmation email.',
+      whatNext2: '2. From that email you can track your order status.',
+      whatNext3: '3. Your order will be shipped soon.',
+      backHome: 'Back to store',
+      back: 'Back',
+      loadErr: 'Could not load the cart. Please try again.',
+    }
+  };
+
+  function t(key) {
+    var lang = getLang();
+    return (I18N[lang] && I18N[lang][key]) || I18N.en[key] || key;
+  }
+
   function renderSummary(subtotal) {
     var el = document.getElementById('rz-summary');
     if (!el) return;
     var ship = calcShipping(subtotal);
     var total = subtotal + ship;
     el.innerHTML =
-      '<div style="font-size:14px;color:#111;display:flex;justify-content:space-between;padding:8px 0;"><span>Subtotal</span><span>' + money(subtotal) + '</span></div>' +
-      '<div style="font-size:14px;color:#111;display:flex;justify-content:space-between;padding:8px 0;"><span>Shipping</span><span>' + (ship === 0 ? 'GRATIS' : money(ship)) + '</span></div>' +
-      '<div style="font-size:16px;font-weight:700;color:#111;display:flex;justify-content:space-between;padding:10px 0;border-top:1px solid #e5e7eb;"><span>Total</span><span>USD ' + money(total) + '</span></div>';
+      '<div style="font-size:14px;color:#111;display:flex;justify-content:space-between;padding:8px 0;"><span>' + t('subtotal') + '</span><span>' + money(subtotal) + '</span></div>' +
+      '<div style="font-size:14px;color:#111;display:flex;justify-content:space-between;padding:8px 0;"><span>' + t('shipping') + '</span><span>' + (ship === 0 ? t('free') : money(ship)) + '</span></div>' +
+      '<div style="font-size:16px;font-weight:700;color:#111;display:flex;justify-content:space-between;padding:10px 0;border-top:1px solid #e5e7eb;"><span>' + t('total') + '</span><span>USD ' + money(total) + '</span></div>';
   }
 
   function validate() {
@@ -239,13 +334,13 @@
     var data = validate();
     if (!data) return;
     var err = document.getElementById('rz-err');
-    if (btn) { btn.disabled = true; btn.textContent = 'Procesando…'; }
+    if (btn) { btn.disabled = true; btn.textContent = t('processing'); }
     getCart().then(function (cart) {
       var items = buildItems(cart);
       var subtotal = getSubtotal(cart);
       var shipping = calcShipping(subtotal);
       var total = subtotal + shipping;
-      if (items.length === 0) throw new Error('Tu carrito está vacío.');
+      if (items.length === 0) throw new Error(t('emptyCart'));
       return fetch(CONFIG.checkoutEndpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -253,12 +348,12 @@
       }).then(function (r) {
         return r.json().then(function (j) { return { ok: r.ok, json: j }; });
       }).then(function (res) {
-        if (!res.ok) throw new Error(res.json.message || 'Error creando el pago.');
+        if (!res.ok) throw new Error(res.json.message || 'Error');
         window.location.href = res.json.purchaseUrl;
       });
     }).catch(function (e) {
-      if (err) err.textContent = e.message || 'Ocurrió un error. Intenta de nuevo.';
-      if (btn) { btn.disabled = false; btn.textContent = 'Pay now'; }
+      if (err) err.textContent = e.message || 'Error';
+      if (btn) { btn.disabled = false; btn.textContent = t('payNow'); }
     });
   }
 
@@ -278,14 +373,14 @@
     root.innerHTML =
       '<div style="background:#fff;border:1px solid #e5e7eb;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,.06);padding:44px 32px;text-align:center;font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,sans-serif;color:#111;">' +
       '  <div style="width:80px;height:80px;border-radius:50%;background:#ecfdf5;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-size:40px;color:#059669;">✓</div>' +
-      '  <h1 style="font-size:26px;font-weight:800;margin:0 0 12px;color:#111;">¡Gracias por tu compra!</h1>' +
-      '  <p style="color:#475569;font-size:15px;line-height:1.6;margin:0 0 10px;">Tu pago fue procesado con éxito y tu pedido ya está confirmado.</p>' +
-      '  <p style="color:#475569;font-size:15px;line-height:1.6;margin:0;">Te enviamos un <strong style="color:#111;">email con la confirmación y el link para seguir tu pedido</strong>. Revisa tu bandeja de entrada.</p>' +
+      '  <h1 style="font-size:26px;font-weight:800;margin:0 0 12px;color:#111;">' + t('thanks') + '</h1>' +
+      '  <p style="color:#475569;font-size:15px;line-height:1.6;margin:0 0 10px;">' + t('paidOk') + '</p>' +
+      '  <p style="color:#475569;font-size:15px;line-height:1.6;margin:0;">' + t('checkEmail') + '</p>' +
       '  <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:18px;margin:24px 0;font-size:14px;color:#334155;text-align:left;">' +
-      '    <div style="font-weight:700;margin-bottom:6px;color:#111;">📦 ¿Qué sigue?</div>' +
-      '    <div style="line-height:1.7;">1. Recibirás un correo de confirmación.<br>2. Desde ese correo podrás seguir el estado de tu pedido.<br>3. Tu pedido será despachado pronto.</div>' +
+      '    <div style="font-weight:700;margin-bottom:6px;color:#111;">' + t('whatNext') + '</div>' +
+      '    <div style="line-height:1.7;">' + t('whatNext1') + '<br>' + t('whatNext2') + '<br>' + t('whatNext3') + '</div>' +
       '  </div>' +
-      '  <a href="/" style="display:inline-block;margin-top:10px;background:#111;color:#fff;text-decoration:none;font-weight:700;padding:14px 34px;border-radius:10px;">Volver a la tienda</a>' +
+      '  <a href="/" style="display:inline-block;margin-top:10px;background:#111;color:#fff;text-decoration:none;font-weight:700;padding:14px 34px;border-radius:10px;">' + t('backHome') + '</a>' +
       '  <div style="font-size:12px;color:#94a3b8;margin-top:18px;">🔒 Pago seguro · RYZTOR</div>' +
       '</div>';
   }

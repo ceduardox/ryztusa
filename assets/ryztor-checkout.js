@@ -47,6 +47,18 @@
 
   // ---------- RENDER: página de checkout ----------
   function renderCheckoutPage() {
+    // Ocultar el título de la página y el contenido rte que deja el template
+    // (solo se muestra el checkout 100% estilo Shopify)
+    var hide = function (el) { if (el) el.style.display = 'none'; };
+    document.querySelectorAll('main h1, main h2').forEach(function (h) {
+      if (/checkout/i.test(h.textContent)) hide(h);
+    });
+    document.querySelectorAll('.page-content, .rte, #shopify-block-AdVduTUhUNzA1TW9pQ__page-content, .shopify-block rte-formatter, rte-formatter').forEach(hide);
+    // Ocultar el contenedor padre que envuelve al bloque de la página si quedó vacío
+    document.querySelectorAll('.section.page-width-content').forEach(function (s) {
+      if (s.querySelectorAll('h1,h2,img,p').length === 0) hide(s);
+    });
+
     var root = document.getElementById('ryztor-checkout-root');
     if (!root) {
       root = document.createElement('div');

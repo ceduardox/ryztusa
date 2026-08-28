@@ -1,4 +1,9 @@
 /* ============ RYZTOR — Pago con tarjeta (Whop) ============ */
+/* Ocultar el botón nativo "Checkout"/"Pagar" de Shopify de inmediato (sin wait del JS),
+   para que no aparezca el flash que llevaría al checkout de Shopify.
+   (Solo por id #checkout, porque nuestro botón reutiliza la clase cart__checkout-button) */
+#checkout { display: none !important; }
+
 /* El botón del drawer reutiliza las clases nativas cart__checkout-button button,
    así hereda el estilo exacto del "Check out" de Shopify. Solo aseguramos tamaño. */
 .ryztor-open-btn{width:100% !important}

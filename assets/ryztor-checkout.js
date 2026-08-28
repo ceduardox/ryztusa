@@ -47,16 +47,28 @@
 
   // ---------- RENDER: página de checkout ----------
   function renderCheckoutPage() {
-    // Ocultar el título de la página y el contenido rte que deja el template
-    // (solo se muestra el checkout 100% estilo Shopify)
+    // En la página checkout: ocultar el sidebar/drawer y el icono de carrito
+    document.querySelectorAll('cart-drawer, cart-icon, .header-actions__cart-icon, [data-testid="cart-icon"], .cart-drawer').forEach(function (el) {
+      el.style.display = 'none';
+    });
+    // Ocultar el botón de menú móvil / hamburguesa que abre el drawer
+    document.querySelectorAll('[aria-controls*="drawer"], [data-drawer], .header__menu-button, .drawer-open').forEach(function (el) {
+      el.style.display = 'none';
+    });
+    // Ocultar TODO el contenido de la página que trae el template (título, page-content,
+    // y su contenedor raíz) para que NO ocupe espacio — solo se ve el checkout RYZTOR
     var hide = function (el) { if (el) el.style.display = 'none'; };
-    document.querySelectorAll('main h1, main h2').forEach(function (h) {
+    document.querySelectorAll('#shopify-block-AdVduTUhUNzA1TW9pQ__page-content, .page-content, rte-formatter').forEach(hide);
+    // Ocultar el contenedor principal del template de página completo
+    var pageSection = document.querySelector('.section.page-width-content, .page-width-content');
+    if (pageSection) hide(pageSection);
+    // Si el título queda fuera de ese contenedor, ocultarlo también
+    document.querySelectorAll('main h1, main h2, main h3').forEach(function (h) {
       if (/checkout/i.test(h.textContent)) hide(h);
     });
-    document.querySelectorAll('.page-content, .rte, #shopify-block-AdVduTUhUNzA1TW9pQ__page-content, .shopify-block rte-formatter, rte-formatter').forEach(hide);
-    // Ocultar el contenedor padre que envuelve al bloque de la página si quedó vacío
-    document.querySelectorAll('.section.page-width-content').forEach(function (s) {
-      if (s.querySelectorAll('h1,h2,img,p').length === 0) hide(s);
+    // Ocultar el header del theme (logo/menú) para que la página se vea como checkout puro
+    document.querySelectorAll('header, .header, [data-section-type="header"]').forEach(function (el) {
+      if (el && !el.querySelector('#ryztor-checkout-root')) hide(el);
     });
 
     var root = document.getElementById('ryztor-checkout-root');
@@ -174,15 +186,32 @@
                document.querySelector('#checkout')?.parentElement ||
                document.querySelector('.cart-totals__container')?.parentElement;
     if (!ctas || document.getElementById('rz-open-btn')) return;
+
+    // Ocultar el botón "Check out" nativo de Shopify en el drawer
+    var native = document.getElementById('checkout') || document.querySelector('.cart__checkout-button');
+    if (native) native.style.display = 'none';
+
+    // Reemplazar el botón nativo por el de RYZTOR, con el MISMO estilo
     var btn = document.createElement('button');
     btn.type = 'button';
     btn.id = 'rz-open-btn';
-    btn.className = 'ryztor-open-btn';
-    btn.textContent = '💳 Pagar con tarjeta';
+    btn.className = 'ryztor-open-btn cart__checkout-button button';
+    btn.innerHTML = '<span class="button-text">' + (getLang() === 'es' ? '💳 Pagar con tarjeta' : '💳 Pay with card') + '</span>';
     btn.addEventListener('click', function () {
       window.location.href = CHECKOUT_PATH;
     });
-    ctas.parentNode.insertBefore(btn, ctas);
+    // Reemplaza al botón nativo en su posición exacta (mismo lugar, mismo ancho)
+    if (native && native.parentNode === ctas) {
+      ctas.replaceChild(btn, native);
+    } else {
+      ctas.appendChild(btn);
+    }
+  }
+
+  // Detectar idioma de la página (Shopify usa <html lang="...">)
+  function getLang() {
+    var l = (document.documentElement.lang || 'en').toLowerCase();
+    return l.indexOf('es') === 0 ? 'es' : 'en';
   }
 
   function renderSummary(subtotal) {

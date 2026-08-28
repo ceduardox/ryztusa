@@ -105,6 +105,12 @@
 {% endif %}
 
 {% stylesheet %}
+  @media screen and (min-width: 990px) {
+    body:has(.ryztor-energy) .product-information.section--page-width {
+      --page-content-width: 87.5rem;
+    }
+  }
+
   .ryztor-energy { padding: clamp(58px, 8vw, 110px) 20px; background: var(--re-soft); color: var(--re-ink); }
   .ryztor-energy__shell { width: min(1180px, 100%); margin: 0 auto; }
   .ryztor-energy__header { max-width: 820px; margin: 0 auto clamp(38px, 6vw, 72px); text-align: center; }

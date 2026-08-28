@@ -53,20 +53,47 @@
     {% content_for 'blocks' %}
 
     {%- comment -%} RYZTOR: enlaces a páginas y políticas (siempre visibles) {%- endcomment -%}
-    <div style="display:flex;flex-direction:column;text-align:left;margin-top:12px;">
-      <div style="font-size:0.85rem;color:#111;opacity:.7;margin-bottom:10px;font-weight:700;">Enlaces</div>
-      <ul style="list-style:none;margin:0;padding:0;display:grid;gap:8px;">
-        <li><a href="/" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">Inicio</a></li>
-        <li><a href="/collections/all" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">Catálogo</a></li>
-        <li><a href="/pages/contact" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">Contacto</a></li>
-        <li><a href="/pages/refund-return-policy" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">Refund &amp; Return Policy</a></li>
-        <li><a href="/pages/shipping-policy" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">Shipping Policy</a></li>
-        <li><a href="/pages/terms-and-conditions" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">Terms and Conditions</a></li>
-        <li><a href="/pages/privacy-policy" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">Privacy Policy</a></li>
-        <li><a href="/pages/legal-disclaimer" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">Legal Disclaimer</a></li>
-        <li><a href="/pages/frequently-asked-questions-faq" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">FAQ</a></li>
-        <li><a href="/pages/tus-opciones-de-privacidad" style="font-size:0.85rem;color:#111;opacity:.8;text-decoration:none;">Tus opciones de privacidad</a></li>
-      </ul>
+    <style>
+      .ryz-footer-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:28px;text-align:left;padding:28px 0 12px;margin-top:8px;font-family:var(--font-body--family);}
+      .ryz-footer-links .ryz-col h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.13em;color:var(--color-foreground, #111);opacity:.55;margin:0 0 14px;}
+      .ryz-footer-links .ryz-col ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;}
+      .ryz-footer-links .ryz-col a{font-size:13.5px;line-height:1.4;color:var(--color-foreground, #111);opacity:.78;text-decoration:none;position:relative;transition:opacity .25s ease, transform .25s ease;display:inline-block;}
+      .ryz-footer-links .ryz-col a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1.5px;background:var(--color-foreground, #111);opacity:.5;transition:width .3s ease;}
+      .ryz-footer-links .ryz-col a:hover{opacity:1;transform:translateX(3px);}
+      .ryz-footer-links .ryz-col a:hover::after{width:100%;}
+      @media(max-width:640px){.ryz-footer-links{grid-template-columns:1fr 1fr;gap:24px 16px;}}
+    </style>
+    <div class="ryz-footer-links">
+      <div class="ryz-col">
+        <h4>Tienda</h4>
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/collections/all">Catálogo</a></li>
+          <li><a href="/pages/contact">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="ryz-col">
+        <h4>Políticas</h4>
+        <ul>
+          <li><a href="/pages/refund-return-policy">Refund &amp; Return Policy</a></li>
+          <li><a href="/pages/shipping-policy">Shipping Policy</a></li>
+          <li><a href="/pages/terms-and-conditions">Terms and Conditions</a></li>
+          <li><a href="/pages/privacy-policy">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="ryz-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/pages/legal-disclaimer">Legal Disclaimer</a></li>
+          <li><a href="/pages/tus-opciones-de-privacidad">Tus opciones de privacidad</a></li>
+        </ul>
+      </div>
+      <div class="ryz-col">
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="/pages/frequently-asked-questions-faq">FAQ</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

@@ -199,7 +199,7 @@
               "type": "custom-liquid",
               "name": "Creatine quick summary",
               "settings": {
-                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'energy strip' %}<div class=\"ryztor-product-summary\"><p><strong>{{ 'ryztor.energy_strips.commerce.summary_title' | t }}</strong> {{ 'ryztor.energy_strips.commerce.summary_text' | t }}</p><div class=\"ryztor-product-summary__benefits\"><div><b>30</b><span>{{ 'ryztor.energy_strips.commerce.powder' | t }}</span></div><div><b>1 strip</b><span>{{ 'ryztor.energy_strips.commerce.serving' | t }}</span></div><div><b>India</b><span>{{ 'ryztor.energy_strips.commerce.manufactured' | t }}</span></div></div></div>{% endif %}"
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'energy strip' %}<div class=\"ryztor-product-summary\"><p><strong>{{ 'ryztor.energy_strips.commerce.summary_title' | t }}</strong> {{ 'ryztor.energy_strips.commerce.summary_text' | t }}</p><div class=\"ryztor-product-summary__benefits\"><div><b>30</b><span>{{ 'ryztor.energy_strips.commerce.powder' | t }}</span></div><div><b>1 strip</b><span>{{ 'ryztor.energy_strips.commerce.serving' | t }}</span></div><div><b>3–4 h</b><span>{{ 'ryztor.energy_strips.commerce.energy_duration' | t }}</span></div></div></div>{% endif %}"
               },
               "blocks": {}
             },

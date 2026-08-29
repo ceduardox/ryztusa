@@ -107,7 +107,8 @@
 {% stylesheet %}
   @media screen and (min-width: 990px) {
     body:has(.ryztor-energy) .product-information.section--page-width {
-      --page-content-width: 87.5rem;
+      --page-content-width: min(1000px, var(--normal-page-width));
+      --page-margin: 100px;
     }
   }
 

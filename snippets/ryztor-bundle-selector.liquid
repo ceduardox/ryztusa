@@ -214,6 +214,12 @@
     gap: 10px;
   }
 
+  /* Limitar el ancho del bundle para que tenga espacio a los lados en PC (como las secciones de abajo) */
+  body:has(.ryztor-energy) .product-information .ryztor-bundles {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
   .ryztor-bundles__option {
     position: relative;
     min-width: 0;

@@ -107,9 +107,15 @@
 {% stylesheet %}
   @media screen and (min-width: 990px) {
     body:has(.ryztor-energy) .product-information.section--page-width {
-      --page-content-width: min(1000px, var(--normal-page-width));
+      --page-content-width: 87.5rem;
       --page-margin: 150px;
     }
+  }
+
+  /* Ocultar el botón "Comprar ahora" (Shopify Buy It Now / accelerated checkout) */
+  body:has(.ryztor-energy) .shopify-buy-it-now-button,
+  body:has(.ryztor-energy) .shopify-payment-button {
+    display: none !important;
   }
 
   .ryztor-energy { padding: clamp(58px, 8vw, 110px) 20px; background: var(--re-soft); color: var(--re-ink); }

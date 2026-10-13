@@ -50,7 +50,6 @@
               <div><dt>{% if is_spanish %}Sabor{% else %}Flavor{% endif %}</dt><dd>{% if is_spanish %}Arándano rojo{% else %}Cranberry{% endif %}</dd></div>
               <div><dt>{% if is_spanish %}Cantidad{% else %}Amount{% endif %}</dt><dd>30 oral strips</dd></div>
               <div><dt>{% if is_spanish %}Peso bruto{% else %}Gross weight{% endif %}</dt><dd>2.2 oz / 64 g</dd></div>
-              <div><dt>{% if is_spanish %}Fabricado en{% else %}Manufactured in{% endif %}</dt><dd>India</dd></div>
             </dl>
           </div>
         </details>
@@ -60,25 +59,101 @@
     {% unless content == 'product' %}
       <div class="ryztor-media-description__group ryztor-media-description__group--questions">
         <details name="ryztor-energy-questions-{{ placement }}">
+          <summary>{% if is_spanish %}¿Qué ayuda a respaldar una rutina con cafeína?{% else %}What does a caffeine routine help support?{% endif %} <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer">
+            <p>{% if is_spanish %}Una tira con cafeína y L-teanina puede ayudar a respaldar el estado de alerta y la concentración durante días activos, sesiones de estudio, trabajo o entrenamiento.*{% else %}A strip with caffeine and L-theanine can help support alertness and focus during active days, study sessions, work, or training.*{% endif %}</p>
+          </div>
+        </details>
+
+        <details name="ryztor-energy-questions-{{ placement }}">
+          <summary>{% if is_spanish %}¿Cómo actúa en el cuerpo?{% else %}How does it work in the body?{% endif %} <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer">
+            <p>{% if is_spanish %}La cafeína es un estimulante conocido por ayudar al estado de alerta, mientras la L-teanina es un aminoácido habitual en fórmulas de energía y concentración. La vitamina B12 contribuye al metabolismo energético normal y al funcionamiento normal del sistema nervioso.*{% else %}Caffeine is a well-known stimulant that helps support alertness, while L-theanine is a common amino acid in energy-and-focus formulas. Vitamin B12 contributes to normal energy-yielding metabolism and normal nervous-system function.*{% endif %}</p>
+          </div>
+        </details>
+
+        <details name="ryztor-energy-questions-{{ placement }}">
           <summary>{% if is_spanish %}¿Para quién es?{% else %}Who is it for?{% endif %} <span aria-hidden="true">+</span></summary>
           <div class="ryztor-media-description__answer"><p>{% if is_spanish %}Adultos que desean un formato portátil con cafeína para acompañar días activos, estudio, trabajo o entrenamiento.{% else %}Adults who want a portable caffeine format for active days, study, work, or training routines.{% endif %}</p></div>
         </details>
+
         <details name="ryztor-energy-questions-{{ placement }}">
-          <summary>{% if is_spanish %}¿Necesito agua?{% else %}Do I need water?{% endif %} <span aria-hidden="true">+</span></summary>
-          <div class="ryztor-media-description__answer"><p>{% if is_spanish %}No. La tira está diseñada para colocarse sobre la lengua y dejarse disolver.{% else %}No. The strip is designed to be placed on the tongue and allowed to dissolve.{% endif %}</p></div>
+          <summary>{% if is_spanish %}¿Cómo debo tomarlas y cuánto dura un paquete?{% else %}How should I take them and how long does a pack last?{% endif %} <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer">
+            <p>{% if is_spanish %}Coloca una tira sobre la lengua y deja que se disuelva. La indicación es una tira al día y no debes exceder esa cantidad. Cada paquete contiene 30 tiras, lo que proporciona 30 días de uso cuando se toma según las indicaciones.{% else %}Place one strip on the tongue and allow it to dissolve. The direction is one strip per day and you should not exceed that amount. Each pack contains 30 strips, providing 30 days of use when taken as directed.{% endif %}</p>
+          </div>
         </details>
+
+        <div class="ryztor-question-gallery" data-question-gallery aria-label="{% if is_spanish %}Energy Strips en situaciones cotidianas{% else %}Energy Strips in everyday situations{% endif %}">
+          <div class="ryztor-question-gallery__track">
+            {% assign question_gallery_images = 'energy-strips-training.webp|Energy Strips for training@@energy-strips-study.webp|Energy Strips for study@@energy-strips-work.webp|Energy Strips for work@@energy-strips-on-the-go.webp|Energy Strips on the go' | split: '@@' %}
+            {% for image_data in question_gallery_images %}
+              {% assign image_parts = image_data | split: '|' %}
+              <button
+                type="button"
+                class="ryztor-question-gallery__photo"
+                data-question-photo
+                data-full-image="{{ image_parts[0] | asset_url }}"
+                data-image-alt="{{ image_parts[1] | escape }}"
+                aria-label="{% if is_spanish %}Ampliar {% else %}Enlarge {% endif %}{{ image_parts[1] | escape }}"
+              >
+                <img src="{{ image_parts[0] | asset_url }}" alt="{{ image_parts[1] | escape }}" width="900" height="1125" loading="lazy">
+              </button>
+            {% endfor %}
+          </div>
+
+          <dialog class="ryztor-question-gallery__dialog" data-question-dialog aria-label="{% if is_spanish %}Foto ampliada del producto Energy Strips{% else %}Expanded Energy Strips product photo{% endif %}">
+            <button type="button" class="ryztor-question-gallery__close" data-question-close aria-label="{% if is_spanish %}Cerrar foto{% else %}Close photo{% endif %}">×</button>
+            <img data-question-dialog-image src="{{ 'energy-strips-training.webp' | asset_url }}" alt="Energy Strips for training" width="900" height="1125">
+          </dialog>
+        </div>
+
         <details name="ryztor-energy-questions-{{ placement }}">
-          <summary>{% if is_spanish %}¿Cuántas puedo tomar?{% else %}How many can I take?{% endif %} <span aria-hidden="true">+</span></summary>
-          <div class="ryztor-media-description__answer"><p>{% if is_spanish %}La indicación es una tira y un máximo de una tira al día. No excedas las instrucciones de la etiqueta.{% else %}The direction is one strip, with a maximum of one strip per day. Do not exceed the label directions.{% endif %}</p></div>
+          <summary>{% if is_spanish %}¿Puedo tomarlas con medicamentos u otros suplementos?{% else %}Can I take them with medication or other supplements?{% endif %} <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer">
+            <p>{% if is_spanish %}La cafeína puede no ser adecuada con todos los medicamentos, y algunas combinaciones deben espaciarse en el horario. Si tomas medicamentos con receta u otros estimulantes, pide a un profesional de salud calificado que revise la combinación antes de usarlo.{% else %}Caffeine may not be suitable with all medications, and some combinations should be spaced apart. If you take prescription medication or other stimulants, ask a qualified health professional to review the combination before use.{% endif %}</p>
+          </div>
         </details>
+
+        <details name="ryztor-energy-questions-{{ placement }}">
+          <summary>{% if is_spanish %}¿Quién debe consultar primero con un profesional de salud?{% else %}Who should consult a health professional first?{% endif %} <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer">
+            <p>{% if is_spanish %}Las mujeres embarazadas o en período de lactancia, los menores de 18 años, las personas sensibles a la cafeína y quienes toman medicamentos con receta deben consultar a un profesional de salud calificado antes de usarlo.{% else %}Pregnant or nursing women, people under 18, those sensitive to caffeine, and anyone taking prescription medication should consult a qualified health professional before use.{% endif %}</p>
+          </div>
+        </details>
+
+        <details name="ryztor-energy-questions-{{ placement }}">
+          <summary>{% if is_spanish %}¿Qué sucede si no es adecuado para mí?{% else %}What if it's not right for me?{% endif %} <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer">
+            <p>{% if is_spanish %}Tu compra está cubierta por la garantía de devolución de dinero de 30 días de RYZTOR. Consulta la política de reembolso para conocer los requisitos, instrucciones y condiciones aplicables.{% else %}Your purchase is covered by RYZTOR's 30-day money-back guarantee. Please see the refund policy for applicable requirements, instructions, and conditions.{% endif %}</p>
+            {% if shop.refund_policy != blank %}
+              <div class="ryztor-media-description__links">
+                <a href="{{ shop.refund_policy.url }}">{% if is_spanish %}Política de reembolso{% else %}Refund policy{% endif %}</a>
+              </div>
+            {% endif %}
+          </div>
+        </details>
+
         <details name="ryztor-energy-questions-{{ placement }}">
           <summary>{% if is_spanish %}Envíos y devoluciones{% else %}Shipping & returns{% endif %} <span aria-hidden="true">+</span></summary>
           <div class="ryztor-media-description__answer">
-            <p>{% if is_spanish %}Los métodos, plazos estimados y costos finales aparecen durante el checkout. Los pedidos superiores a $50 califican para envío gratis cuando corresponda.{% else %}Available methods, estimated delivery times, and final costs appear during checkout. Orders over $50 qualify for free shipping where applicable.{% endif %}</p>
+            <p>{% if is_spanish %}Los métodos de envío disponibles, los tiempos estimados de entrega y los costos finales se muestran durante el pago. Los pedidos superiores a $50 califican para envío gratis cuando corresponda.{% else %}Available shipping methods, estimated delivery times, and final costs are shown during checkout. Orders over $50 qualify for free shipping where applicable.{% endif %}</p>
             <div class="ryztor-media-description__links">
               {% if shop.shipping_policy != blank %}<a href="{{ shop.shipping_policy.url }}">{% if is_spanish %}Política de envíos{% else %}Shipping policy{% endif %}</a>{% endif %}
               {% if shop.refund_policy != blank %}<a href="{{ shop.refund_policy.url }}">{% if is_spanish %}Política de reembolsos{% else %}Refund policy{% endif %}</a>{% endif %}
             </div>
+          </div>
+        </details>
+
+        <details name="ryztor-energy-questions-{{ placement }}">
+          <summary>{% if is_spanish %}Suscripción y cancelación{% else %}Subscription & cancellation{% endif %} <span aria-hidden="true">+</span></summary>
+          <div class="ryztor-media-description__answer">
+            <p>{% if is_spanish %}Las opciones de suscripción y ahorro aparecen únicamente cuando están disponibles. Revisa la frecuencia de entrega, el precio de renovación y las condiciones de cancelación antes de completar la compra.{% else %}Subscription and savings options appear only when available. Review the delivery frequency, renewal price, and cancellation terms before completing checkout.{% endif %}</p>
+            {% if shop.subscription_policy != blank %}
+              <div class="ryztor-media-description__links">
+                <a href="{{ shop.subscription_policy.url }}">{% if is_spanish %}Política de suscripción{% else %}Subscription policy{% endif %}</a>
+              </div>
+            {% endif %}
           </div>
         </details>
       </div>
@@ -89,3 +164,59 @@
     {% endunless %}
   </div>
 {% endif %}
+
+<script>
+  document.querySelectorAll('[data-question-gallery]').forEach((gallery) => {
+    if (gallery.dataset.initialized === 'true') return;
+    gallery.dataset.initialized = 'true';
+
+    const dialog = gallery.querySelector('[data-question-dialog]');
+    const dialogImage = gallery.querySelector('[data-question-dialog-image]');
+    const closeButton = gallery.querySelector('[data-question-close]');
+    const track = gallery.querySelector('.ryztor-question-gallery__track');
+    const mobileQuery = window.matchMedia('(max-width: 749px)');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let previousTime = 0;
+    let paused = false;
+
+    Array.from(track.children).forEach((photo) => {
+      const clone = photo.cloneNode(true);
+      clone.dataset.questionClone = '';
+      clone.setAttribute('aria-hidden', 'true');
+      clone.setAttribute('tabindex', '-1');
+      track.appendChild(clone);
+    });
+
+    const animate = (time) => {
+      if (mobileQuery.matches && !reduceMotion && !paused) {
+        if (previousTime) {
+          track.scrollLeft += ((time - previousTime) / 1000) * 24;
+          const loopWidth = track.scrollWidth / 2;
+          if (loopWidth && track.scrollLeft >= loopWidth) track.scrollLeft -= loopWidth;
+        }
+        previousTime = time;
+      } else {
+        previousTime = 0;
+      }
+      window.requestAnimationFrame(animate);
+    };
+
+    track.addEventListener('pointerdown', () => { paused = true; previousTime = 0; });
+    track.addEventListener('pointerup', () => { paused = false; previousTime = 0; });
+    track.addEventListener('pointercancel', () => { paused = false; previousTime = 0; });
+    window.requestAnimationFrame(animate);
+
+    gallery.querySelectorAll('[data-question-photo]').forEach((button) => {
+      button.addEventListener('click', () => {
+        dialogImage.src = button.dataset.fullImage;
+        dialogImage.alt = button.dataset.imageAlt;
+        dialog.showModal();
+      });
+    });
+
+    closeButton.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+  });
+</script>

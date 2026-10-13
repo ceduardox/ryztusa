@@ -75,8 +75,10 @@
 
       var itemsHtml = (cart.items || []).map(function (it) {
         var line = (it.line_price || 0) / 100;
+        var img = (it.featured_image && it.featured_image.url) ? it.featured_image.url : '';
         return '' +
           '<div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #e5e7eb;">' +
+          (img ? '<img src="' + img + '" alt="" width="56" height="56" style="flex:0 0 auto;width:56px;height:56px;object-fit:cover;border-radius:8px;border:1px solid #e5e7eb;">' : '') +
           '  <div style="flex:1;min-width:0;">' +
           '    <div style="font-size:15px;color:#111;line-height:1.3;">' + escapeHtml(it.title) + '</div>' +
           '    <div style="font-size:12px;color:#6b7280;margin-top:2px;">Cantidad: ' + it.quantity + '</div>' +
@@ -91,6 +93,10 @@
         '<div style="min-height:100vh;background:#fff;font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,sans-serif;color:#111;">' +
         // Header
         '  <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 24px;border-bottom:1px solid #e5e7eb;">' +
+        '    <a href="javascript:history.back()" style="display:inline-flex;align-items:center;gap:8px;color:#111;text-decoration:none;font-size:14px;font-weight:600;" aria-label="' + t('back') + '">' +
+        '      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>' +
+        '      <span>' + t('back') + '</span>' +
+        '    </a>' +
         '    <div style="font-size:17px;font-weight:700;letter-spacing:.5px;">RYZTOR</div>' +
         '    <div title="Pago seguro">🔒</div>' +
         '  </div>' +
@@ -136,7 +142,7 @@
         '        <div class="ryztor-pay__summary" id="rz-summary" style="margin-top:16px;"></div>' +
         '        <button type="button" id="rz-pay-btn" class="ryztor-pay__btn" style="margin-top:18px;width:100%;padding:16px;background:#1976f2;color:#fff;border:none;border-radius:6px;font-size:16px;font-weight:600;cursor:pointer;">' + t('payNow') + '</button>' +
         '        <div class="ryztor-pay__err" id="rz-err" style="text-align:center;"></div>' +
-        '        <div style="font-size:11px;color:#9ca3af;text-align:center;margin-top:20px;padding-bottom:20px;">' + t('terms') + '</div>' +
+        '        <div style="font-size:11px;color:#9ca3af;text-align:center;margin-top:20px;padding-bottom:20px;"><a href="/pages/terms-and-conditions" style="color:inherit;text-decoration:underline;">' + t('terms') + '</a> · <a href="/pages/privacy-policy" style="color:inherit;text-decoration:underline;">' + t('privacy') + '</a></div>' +
         '      </div>' +
         '    </div>' +
         // Columna derecha: resumen gris
@@ -197,31 +203,32 @@
   var I18N = {
     es: {
       payWithCard: '💳 Pagar con tarjeta',
-      contact: 'Contact',
-      delivery: 'Delivery',
-      email: 'Email',
-      newsOffers: 'Email me with news and offers',
-      firstName: 'First name',
-      lastName: 'Last name',
-      address: 'Address',
-      apt: 'Apartment, suite, etc. (optional)',
-      city: 'City',
-      state: 'State',
-      zip: 'ZIP code',
-      phone: 'Phone (optional)',
-      shippingMethod: 'Shipping method',
+      contact: 'Contacto',
+      delivery: 'Envío',
+      email: 'Correo electrónico',
+      newsOffers: 'Quiero recibir novedades y ofertas por correo',
+      firstName: 'Nombre',
+      lastName: 'Apellido',
+      address: 'Dirección',
+      apt: 'Departamento, suite, etc. (opcional)',
+      city: 'Ciudad',
+      state: 'Estado',
+      zip: 'Código postal',
+      phone: 'Teléfono (opcional)',
+      shippingMethod: 'Método de envío',
       freeShip: 'Envío gratis',
-      standardShip: 'Envío estándar (USA)',
+      standardShip: 'Envío estándar (EE. UU.)',
       free: 'GRATIS',
-      payment: 'Payment',
-      secure: 'All transactions are secure and encrypted.',
-      creditCard: 'Credit card',
+      payment: 'Pago',
+      secure: 'Todas las transacciones son seguras y encriptadas.',
+      creditCard: 'Tarjeta de crédito',
       cards: 'Visa · Mastercard · Amex',
       subtotal: 'Subtotal',
-      shipping: 'Shipping',
+      shipping: 'Envío',
       total: 'Total',
-      payNow: 'Pay now',
-      terms: 'Terms · Privacy policy',
+      payNow: 'Pagar ahora',
+      terms: 'Términos y condiciones',
+      privacy: 'Política de privacidad',
       processing: 'Procesando…',
       emptyCart: 'Tu carrito está vacío',
       addProducts: 'Agrega productos para continuar.',
@@ -264,7 +271,8 @@
       shipping: 'Shipping',
       total: 'Total',
       payNow: 'Pay now',
-      terms: 'Terms · Privacy policy',
+      terms: 'Terms and Conditions',
+      privacy: 'Privacy Policy',
       processing: 'Processing…',
       emptyCart: 'Your cart is empty',
       addProducts: 'Add products to continue.',

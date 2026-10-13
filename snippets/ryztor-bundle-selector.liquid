@@ -351,6 +351,20 @@
     font-weight: 750;
   }
 
+  body:has(.ryztor-bundles) .product-form-buttons {
+    justify-content: center;
+    align-items: center;
+  }
+
+  body:has(.ryztor-bundles) .product-form-buttons > add-to-cart-component {
+    flex: 0 0 auto;
+    width: fit-content;
+  }
+
+  body:has(.ryztor-bundles) .product-form-buttons .quantity-selector-wrapper {
+    flex: 0 0 auto;
+  }
+
   body:has(.ryztor-bundles) .product-form-buttons .add-to-cart-button {
     min-height: 52px;
     justify-content: center;
@@ -364,6 +378,9 @@
     font-size: .83rem;
     font-weight: 950;
     letter-spacing: .035em;
+    width: fit-content;
+    min-width: min(100%, 280px);
+    padding-inline: 34px;
   }
 
   body:has(.ryztor-bundles) .product-form-buttons .add-to-cart-button:hover {

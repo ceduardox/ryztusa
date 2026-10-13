@@ -128,17 +128,11 @@
             "padding-inline-end": 0
           },
           "blocks": {}
-        },
-        "ryztor_footer_links": {
-          "type": "ryztor-footer-links",
-          "settings": {},
-          "blocks": {}
         }
       },
       "block_order": [
         "group_H6VpwJ",
-        "email_signup_crihX7",
-        "ryztor_footer_links"
+        "email_signup_crihX7"
       ],
       "name": "t:names.footer",
       "settings": {

@@ -37,6 +37,12 @@ body.ryztor-checkout-page .header,
 body.ryztor-checkout-page [data-section-type="header"] {
   display: none !important;
 }
+/* Neutralizar el margen lateral que deja el cart drawer al abrirse
+   (clase page-wrapper--drawer-open), para que el checkout use todo el ancho en PC */
+body.ryztor-checkout-page .page-wrapper--drawer-open,
+body.ryztor-checkout-page.page-wrapper--drawer-open {
+  margin-right: 0 !important;
+}
 /* Ocultar cualquier h1/h2 del template de página que quede */
 body.ryztor-checkout-page main h1,
 body.ryztor-checkout-page main h2,

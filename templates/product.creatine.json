@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -175,11 +184,7 @@
               "type": "custom-liquid",
               "name": "Creatine rating",
               "settings": {
-                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'creatine' %}<div class=\"ryztor-rating\"><span class=\"ryztor-rating__stars\" aria-hidden=\"true\">{{ 'ryztor.creatine.commerce.pure' | t }}</span><span class=\"ryztor-rating__score\">{{ 'ryztor.creatine.commerce.formula' | t }}</span><span class=\"ryztor-rating__count\">{{ 'ryztor.creatine.commerce.unflavored' | t }}</span></div>{% endif %}",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'creatine' %}<div class=\"ryztor-rating\"><span class=\"ryztor-rating__stars\" aria-hidden=\"true\">{{ 'ryztor.creatine.commerce.pure' | t }}</span><span class=\"ryztor-rating__score\">{{ 'ryztor.creatine.commerce.formula' | t }}</span><span class=\"ryztor-rating__count\">{{ 'ryztor.creatine.commerce.unflavored' | t }}</span></div>{% endif %}"
               },
               "blocks": {}
             },
@@ -187,11 +192,7 @@
               "type": "custom-liquid",
               "name": "Creatine savings",
               "settings": {
-                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'creatine' %}{% assign p = closest.product.selected_or_first_available_variant %}{% if p.compare_at_price > p.price %}{% assign save = p.compare_at_price | minus: p.price | money %}{% assign save_pct = p.compare_at_price | minus: p.price | times: 100 | divided_by: p.compare_at_price %}<div class=\"ryztor-savings\">{{ 'ryztor.creatine.commerce.you_save' | t: amount: save, percent: save_pct }}</div>{% endif %}{% endif %}",
-                "padding-block-start": 2,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'creatine' %}{% assign p = closest.product.selected_or_first_available_variant %}{% if p.compare_at_price > p.price %}{% assign save = p.compare_at_price | minus: p.price | money %}{% assign save_pct = p.compare_at_price | minus: p.price | times: 100 | divided_by: p.compare_at_price %}<div class=\"ryztor-savings\">{{ 'ryztor.creatine.commerce.you_save' | t: amount: save, percent: save_pct }}</div>{% endif %}{% endif %}"
               },
               "blocks": {}
             },
@@ -207,11 +208,7 @@
               "type": "custom-liquid",
               "name": "Creatine stock",
               "settings": {
-                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'creatine' %}{% assign current_variant = closest.product.selected_or_first_available_variant %}{% if current_variant.inventory_management == 'shopify' %}{% if current_variant.inventory_quantity > 0 and current_variant.inventory_quantity <= 25 %}<div class=\"ryztor-stock\"><span class=\"ryztor-stock__dot\"></span><span class=\"ryztor-stock__text\">{{ 'ryztor.creatine.commerce.stock_low' | t: count: current_variant.inventory_quantity }}</span></div>{% elsif current_variant.inventory_quantity <= 0 %}<div class=\"ryztor-stock ryztor-stock--out\"><span class=\"ryztor-stock__text\">{{ 'ryztor.creatine.commerce.out_of_stock' | t }}</span></div>{% endif %}{% endif %}{% endif %}",
-                "padding-block-start": 8,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'creatine' %}{% assign current_variant = closest.product.selected_or_first_available_variant %}{% if current_variant.inventory_management == 'shopify' %}{% if current_variant.inventory_quantity > 0 and current_variant.inventory_quantity <= 25 %}<div class=\"ryztor-stock\"><span class=\"ryztor-stock__dot\"></span><span class=\"ryztor-stock__text\">{{ 'ryztor.creatine.commerce.stock_low' | t: count: current_variant.inventory_quantity }}</span></div>{% elsif current_variant.inventory_quantity <= 0 %}<div class=\"ryztor-stock ryztor-stock--out\"><span class=\"ryztor-stock__text\">{{ 'ryztor.creatine.commerce.out_of_stock' | t }}</span></div>{% endif %}{% endif %}{% endif %}"
               },
               "blocks": {}
             },
@@ -232,11 +229,7 @@
               "type": "custom-liquid",
               "name": "Creatine bundle selector",
               "settings": {
-                "custom_liquid": "{% render 'ryztor-bundle-selector', product_resource: closest.product, bundle_kind: 'creatine' %}",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "custom_liquid": "{% render 'ryztor-bundle-selector', product_resource: closest.product, bundle_kind: 'creatine' %}"
               },
               "blocks": {}
             },
@@ -326,11 +319,7 @@
               "type": "custom-liquid",
               "name": "Creatine guarantee",
               "settings": {
-                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'creatine' %}<div class=\"ryztor-guarantee\"><div class=\"ryztor-guarantee__badge\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/></svg><span>{{ 'ryztor.creatine.commerce.guarantee' | t }}</span></div><div class=\"ryztor-guarantee__shipping\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"1\" y=\"3\" width=\"15\" height=\"13\"/><polygon points=\"16 8 20 8 23 11 23 16 16 16 16 8\"/><circle cx=\"5.5\" cy=\"18.5\" r=\"2.5\"/><circle cx=\"18.5\" cy=\"18.5\" r=\"2.5\"/></svg><span>{{ 'ryztor.creatine.commerce.shipping_over' | t }}</span></div><div class=\"ryztor-guarantee__payments\">{{ 'visa' | payment_type_svg_tag: class: 'icon icon--full-color' }}{{ 'master' | payment_type_svg_tag: class: 'icon icon--full-color' }}{{ 'american_express' | payment_type_svg_tag: class: 'icon icon--full-color' }}{{ 'paypal' | payment_type_svg_tag: class: 'icon icon--full-color' }}{{ 'shop_pay' | payment_type_svg_tag: class: 'icon icon--full-color' }}</div></div>{% endif %}",
-                "padding-block-start": 8,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'creatine' %}<div class=\"ryztor-guarantee\"><div class=\"ryztor-guarantee__badge\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/></svg><span>{{ 'ryztor.creatine.commerce.guarantee' | t }}</span></div><div class=\"ryztor-guarantee__shipping\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"1\" y=\"3\" width=\"15\" height=\"13\"/><polygon points=\"16 8 20 8 23 11 23 16 16 16 16 8\"/><circle cx=\"5.5\" cy=\"18.5\" r=\"2.5\"/><circle cx=\"18.5\" cy=\"18.5\" r=\"2.5\"/></svg><span>{{ 'ryztor.creatine.commerce.shipping_over' | t }}</span></div><div class=\"ryztor-guarantee__payments\">{{ 'visa' | payment_type_svg_tag: class: 'icon icon--full-color' }}{{ 'master' | payment_type_svg_tag: class: 'icon icon--full-color' }}{{ 'american_express' | payment_type_svg_tag: class: 'icon icon--full-color' }}{{ 'paypal' | payment_type_svg_tag: class: 'icon icon--full-color' }}{{ 'shop_pay' | payment_type_svg_tag: class: 'icon icon--full-color' }}</div></div>{% endif %}"
               },
               "blocks": {}
             },
@@ -338,11 +327,7 @@
               "type": "custom-liquid",
               "name": "Creatine subscribe",
               "settings": {
-                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'creatine' and closest.product.selling_plan_groups.size > 0 %}<div class=\"ryztor-subscribe\"><div class=\"ryztor-subscribe__badge\">{{ 'ryztor.creatine.commerce.subscribe_badge' | t }}</div><div class=\"ryztor-subscribe__copy\"><strong>{{ 'ryztor.creatine.commerce.subscribe_title' | t }}</strong> — {{ 'ryztor.creatine.commerce.subscribe_text' | t }}</div></div>{% endif %}",
-                "padding-block-start": 10,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "custom_liquid": "{% assign product_name = closest.product.title | downcase %}{% if product_name contains 'creatine' and closest.product.selling_plan_groups.size > 0 %}<div class=\"ryztor-subscribe\"><div class=\"ryztor-subscribe__badge\">{{ 'ryztor.creatine.commerce.subscribe_badge' | t }}</div><div class=\"ryztor-subscribe__copy\"><strong>{{ 'ryztor.creatine.commerce.subscribe_title' | t }}</strong> — {{ 'ryztor.creatine.commerce.subscribe_text' | t }}</div></div>{% endif %}"
               },
               "blocks": {}
             },
@@ -350,11 +335,7 @@
               "type": "custom-liquid",
               "name": "Questions before ordering",
               "settings": {
-                "custom_liquid": "{% render 'ryztor-creatine-description', product_resource: closest.product, placement: 'ordering', content: 'questions' %}",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "custom_liquid": "{% render 'ryztor-creatine-description', product_resource: closest.product, placement: 'ordering', content: 'questions' %}"
               },
               "blocks": {}
             },
@@ -362,11 +343,7 @@
               "type": "custom-liquid",
               "name": "Mobile product information",
               "settings": {
-                "custom_liquid": "{% render 'ryztor-creatine-description', product_resource: closest.product, placement: 'mobile', content: 'product' %}",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "custom_liquid": "{% render 'ryztor-creatine-description', product_resource: closest.product, placement: 'mobile', content: 'product' %}"
               },
               "blocks": {}
             }
@@ -388,7 +365,6 @@
           ]
         }
       },
-      "block_order": [],
       "settings": {
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",
@@ -610,4 +586,3 @@
     "product_recommendations_qggXJq"
   ]
 }
-

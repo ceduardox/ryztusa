@@ -88,7 +88,11 @@
       endif
     -%}
     <style>
-      .ryz-footer-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:32px;text-align:left;padding:30px 0 14px;margin-top:10px;font-family:var(--font-body--family);}
+      .ryz-footer-links{grid-column:1 / -1;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:32px;text-align:left;padding:30px 0 14px;margin-top:10px;margin-left:auto;margin-right:auto;max-width:760px;width:100%;font-family:var(--font-body--family);}
+      .ryz-footer-links + .ryz-footer-links{display:none;}
+      /* Ocultar el botón "Términos y políticas" (popover) del footer */
+      .footer-content .policy-list-trigger{display:none !important;}
+      .footer-content anchored-popover-component{display:none !important;}
       .ryz-footer-links .ryz-col{position:relative;}
       .ryz-footer-links .ryz-col h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--color-foreground, #111);opacity:.5;margin:0 0 16px;}
       .ryz-footer-links .ryz-col h4::after{content:"";display:block;width:22px;height:1.5px;background:var(--color-foreground, #111);opacity:.3;margin-top:8px;transition:width .35s ease;}
